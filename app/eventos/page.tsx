@@ -1,109 +1,84 @@
 'use client';
 
 import { EVENTOS_CALINDRAS } from '@/lib/mockData';
-import Image from 'next/image';
-import Link from 'next/link';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import styles from './Eventos.module.css';
+
+function EventoItem({ evento, index }: { evento: any, index: number }) {
+    const itemRef = useRef(null);
+    const isInView = useInView(itemRef, { once: true, margin: "-10% 0px" });
+    const isEven = index % 2 === 0;
+
+    const { scrollYProgress } = useScroll({
+        target: itemRef,
+        offset: ["start end", "end start"]
+    });
+
+    // Parallax suave para reforçar a profundidade do espaçamento
+    const imageY = useTransform(scrollYProgress, [0, 1], [-80, 80]); 
+    const textY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+
+    return (
+        <section ref={itemRef} className={`${styles.eventRow} ${isEven ? styles.even : styles.odd}`}>
+            <div className={styles.bgNumber}>
+                {String(index + 1).padStart(2, '0')}
+            </div>
+
+            <div className={styles.imageSide}>
+                <motion.div style={{ y: imageY }} className={styles.imageCardWrapper}>
+                    <div className={styles.imageCard}>
+                        <img src={evento.imagem} alt={evento.titulo} />
+                    </div>
+                    <div className={styles.imageCaption}>REGISTRO // {evento.data}</div>
+                </motion.div>
+            </div>
+
+            <motion.div 
+                style={{ y: textY }} 
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 1, delay: 0.2 }}
+                className={styles.contentSide}
+            >
+                <div className={styles.textContainer}>
+                    <div className={styles.metaTag}>
+                        <span className={styles.eventDate}>{evento.data}</span>
+                    </div>
+                    <h2 className={styles.eventTitle}>{evento.titulo}</h2>
+                    <p className={styles.eventDescription}>
+                        Registro documental e artístico, capturando a essência e a evolução 
+                        contínua do projeto Caliandras no panorama cultural brasileiro.
+                    </p>
+                    <div className={styles.editorialFooter}>CRONOLOGIA OFICIAL</div>
+                </div>
+            </motion.div>
+        </section>
+    );
+}
 
 export default function EventosPage() {
     return (
-        <main style={{ maxWidth: '1250px', margin: '0 auto', padding: '40px 20px' }}>
-            
-            {/* Cabeçalho Editorial Profissional */}
-            <header style={{ marginBottom: '50px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '20px' }}>
-                    <h1 style={{ 
-                        fontSize: 'clamp(28px, 5vw, 42px)', 
-                        fontWeight: '800', 
-                        color: '#1a1a1a', 
-                        margin: 0, 
-                        letterSpacing: '-1.5px' 
-                    }}>
-                        Agenda Cultural
-                    </h1>
-                    <div style={{ 
-                        flex: 1, 
-                        height: '2px', 
-                        background: 'linear-gradient(90deg, var(--color-accent) 0%, rgba(200,0,0,0.05) 100%)',
-                        borderRadius: '2px' 
-                    }} />
-                </div>
-                <p style={{ fontSize: '18px', color: '#666', maxWidth: '600px', lineHeight: '1.6' }}>
-                    Fique por dentro de todos os lançamentos, lives e intervenções poéticas do universo Calindras.
-                </p>
+        <main className={styles.pageWrapper}>
+            <header className={styles.pageHeader}>
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={styles.supLabel}>
+                    ARQUIVO VIVO
+                </motion.div>
+                
+                <h1 className={styles.mainTitle}>Cronologia Caliandras</h1>
+
+                <div className={styles.titleDivider} />
             </header>
 
-            {/* Grid de Eventos - Agora Responsivo */}
-            <div style={{ 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fill, minmax(min(350px, 100%), 1fr))', 
-                gap: '35px',
-                alignItems: 'start' 
-            }}>
-                {EVENTOS_CALINDRAS.map(evento => (
-                    <div 
-                        key={evento.id} 
-                        style={{
-                            backgroundColor: '#fff',
-                            borderRadius: '16px',
-                            overflow: 'hidden',
-                            boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
-                            transition: 'transform 0.4s ease, boxShadow 0.4s ease',
-                            border: '1px solid #f0f0f0',
-                        }}
-                        onMouseOver={(e) => {
-                            e.currentTarget.style.transform = 'translateY(-10px)';
-                            e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
-                        }}
-                        onMouseOut={(e) => {
-                            e.currentTarget.style.transform = 'translateY(0)';
-                            e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
-                        }}
-                    >
-                        <div style={{ width: '100%', lineHeight: 0 }}>
-                            <img 
-                                src={evento.imagem && evento.imagem.trim() !== "" ? evento.imagem : '/images/placeholder.jpg'} 
-                                alt={evento.titulo} 
-                                style={{ 
-                                    width: '100%', 
-                                    height: 'auto', 
-                                    display: 'block' 
-                                }} 
-                            />
-                        </div>
-
-                        <div style={{ padding: '25px' }}>
-                            <p style={{ 
-                                fontSize: '12px', 
-                                color: 'var(--color-accent)', 
-                                fontWeight: '800', 
-                                marginBottom: '10px',
-                                textTransform: 'uppercase',
-                                letterSpacing: '1px'
-                            }}>
-                                {evento.data}
-                            </p>
-                            
-                            <h3 style={{ 
-                                fontSize: '22px', 
-                                fontWeight: '800', 
-                                color: '#1a1a1a', 
-                                marginBottom: '12px',
-                                lineHeight: '1.3' 
-                            }}>
-                                {evento.titulo}
-                            </h3>
-                            
-                            <p style={{ 
-                                fontSize: '15px', 
-                                color: '#666', 
-                                lineHeight: '1.6',
-                                marginBottom: '20px'
-                            }}>
-                                Participe deste momento exclusivo da cultura regional com a equipe do Calindras.
-                            </p>
-                        </div>
-                    </div>
-                ))}
+            <div className={styles.timelineContainer}>
+                {/* Divisória central visual fixa */}
+                <div className={styles.lineBg} />
+                
+                <div className={styles.eventsList}>
+                    {EVENTOS_CALINDRAS.map((evento, index) => (
+                        <EventoItem key={evento.id} evento={evento} index={index} />
+                    ))}
+                </div>
             </div>
         </main>
     );

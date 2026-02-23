@@ -1,0 +1,200 @@
+/* Eventos.module.css */
+.pageWrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 5px 20px 100px; 
+    background: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.pageHeader {
+    padding: 20px 0 60px;
+    text-align: center;
+}
+
+.supLabel {
+    font-size: 8px;
+    letter-spacing: 8px;
+    color: #bbb;
+    font-weight: 900;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.mainTitle {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: -3px;
+    margin: 0 0 10px 0;
+    line-height: 1;
+}
+
+.titleDivider {
+    width: 30px;
+    height: 2px;
+    background: #b12323;
+    margin: 25px auto 0;
+}
+
+.timelineContainer {
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+}
+
+/* Divisória central estática para noção de espaçamento */
+.lineBg {
+    position: absolute;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: #f0f0f0; /* Tom sutil para estética de arquivo */
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.eventRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    min-height: 85vh; /* Respiro vertical ampliado */
+    position: relative;
+    gap: 120px; /* Grande espaçamento entre colunas */
+}
+
+.eventRow.even { grid-template-areas: "image text"; }
+.eventRow.odd { grid-template-areas: "text image"; }
+
+.bgNumber {
+    position: absolute;
+    font-size: clamp(180px, 30vw, 400px);
+    font-weight: 900;
+    color: rgba(0,0,0,0.012); 
+    z-index: -1;
+    font-family: serif;
+    user-select: none;
+    line-height: 0.7;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.even .bgNumber { right: -5%; }
+.odd .bgNumber { left: -5%; }
+
+.imageSide { grid-area: image; display: flex; justify-content: center; }
+.contentSide { grid-area: text; display: flex; flex-direction: column; z-index: 2; }
+
+.imageCardWrapper { 
+    width: 100%; 
+    max-width: 420px; 
+    position: relative;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+}
+
+/* Cantoneira Vermelha Decorativa */
+.imageCardWrapper::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid #b12323;
+    border-right: 2px solid #b12323;
+}
+
+.imageCard {
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.1);
+    background: #000;
+}
+
+.imageCard img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%);
+    transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.imageCardWrapper:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.imageCaption {
+    font-size: 7px;
+    letter-spacing: 4px;
+    color: #bbb;
+    margin-top: 25px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.textContainer { max-width: 380px; }
+.odd .textContainer { margin-left: auto; text-align: right; }
+
+.metaTag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+.odd .metaTag { flex-direction: row-reverse; }
+
+.eventDate {
+    color: #fff;
+    background: #b12323; /* Destaque em vermelho */
+    padding: 6px 14px;
+    font-weight: 900;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.eventTitle {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 25px;
+    letter-spacing: -3px;
+    color: #111;
+}
+
+.eventDescription {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.9;
+    font-weight: 300;
+}
+
+.editorialFooter {
+    margin-top: 50px;
+    font-size: 8px;
+    font-weight: 900;
+    color: #ccc;
+    letter-spacing: 4px;
+    border-top: 1px solid #f5f5f5;
+    padding-top: 20px;
+    display: inline-block;
+    font-family: monospace;
+}
+
+@media (max-width: 1024px) {
+    .eventRow {
+        grid-template-columns: 1fr;
+        grid-template-areas: "image" "text";
+        gap: 60px;
+        min-height: auto;
+        text-align: center !important;
+        margin-bottom: 120px;
+    }
+    .lineBg { display: none; }
+    .imageCardWrapper { border: none; padding: 0; }
+}
