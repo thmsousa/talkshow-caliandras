@@ -1,8 +1,5 @@
 /* app/globals.css */
 
-
-/* app/globals.css */
-
 html, body {
   max-width: 100vw;
   overflow-x: hidden; /* Trava a rolagem horizontal */
@@ -57,17 +54,17 @@ body, h1, h2, h3, h4, h5, h6, p, a, li, span, button {
    (Animações do livro, Hero Banner, Efeito de luz, Botões, etc.) */
 
 :root {
-  --color-c: #D21B48;    /* Caliandra Principal (Blocos/Rosa) */
   --color-dark: #121212; /* Preto Suave (Header/Footer/Texto) */
-  --color-accent: #b12323;  /*  (Destaques) */
-  --color-text: #121212;    /* NOVO: Texto Principal será Preto */
+  --color-accent: #ff6b00;  /*  (Destaques) */
+  --color-text: #121212;    
+  --color-bg-alt: #f6f6f6; /* Cinza sutil para quebrar o branco */
   --font-serif: "Times New Roman", Times, serif;
 }
 
 
 /* Aplicando o fundo Branco e texto Preto */
 body {
-  background-color: #ffffff; /* FUNDO AGORA É BRANCO */
+  background-color: var(--color-bg-alt);
   color: var(--color-text);  /* Texto do corpo é Preto */
   margin: 0;
   font-family: "Times New Roman", Times, serif;
@@ -283,6 +280,34 @@ ul { list-style: none; padding: 0; }
     transform: rotate(-15deg);
     pointer-events: none;
     z-index: 1;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.video-card-hover {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0; /* Começa invisível para a animação agir */
+}
+
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-card-hover:hover .play-overlay {
+    opacity: 1;
+    transform: translateY(-8px) !important;
+    /* Sombra com um leve tom de laranja (var(--color-accent)) */
+    box-shadow: 0 30px 60px rgba(177, 35, 35, 0.15) !important;
 }
 
 @media (max-width: 768px) {

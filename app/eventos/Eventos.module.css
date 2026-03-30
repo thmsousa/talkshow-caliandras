@@ -2,55 +2,68 @@
 .pageWrapper {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 5px 20px 100px; 
+    padding: 0 20px 100px;
     background: #fff;
     position: relative;
     overflow-x: hidden;
 }
 
+.pageWrapper::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 9999;
+}
+
 .pageHeader {
-    padding: 20px 0 60px;
+    padding: 60px 0 40px;
     text-align: center;
 }
 
 .supLabel {
-    font-size: 8px;
-    letter-spacing: 8px;
-    color: #bbb;
-    font-weight: 900;
-    margin-bottom: 12px;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #999;
+    font-weight: 800;
+    margin-bottom: 15px;
     text-transform: uppercase;
 }
 
 .mainTitle {
-    font-size: clamp(32px, 5vw, 52px);
+    font-size: clamp(40px, 10vw, 85px);
     font-weight: 900;
     color: #1a1a1a;
-    letter-spacing: -3px;
-    margin: 0 0 10px 0;
-    line-height: 1;
+    letter-spacing: -4px;
+    margin: 0;
+    line-height: 0.9;
+    display: inline-block;
 }
 
 .titleDivider {
-    width: 30px;
-    height: 2px;
+    width: 40px;
+    height: 3px;
     background: #b12323;
-    margin: 25px auto 0;
+    margin: 30px auto 0;
 }
 
 .timelineContainer {
     position: relative;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
-/* Divisória central estática para noção de espaçamento */
 .lineBg {
     position: absolute;
     left: 50%;
     width: 1px;
     height: 100%;
-    background: #f0f0f0; /* Tom sutil para estética de arquivo */
+    background: #eee;
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -60,9 +73,11 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     width: 100%;
-    min-height: 85vh; /* Respiro vertical ampliado */
+    min-height: 90vh;
     position: relative;
-    gap: 120px; /* Grande espaçamento entre colunas */
+    gap: 80px;
+    padding: 60px 0;
+    scroll-margin-top: 50px; /* Melhora a rolagem */
 }
 
 .eventRow.even { grid-template-areas: "image text"; }
@@ -70,74 +85,75 @@
 
 .bgNumber {
     position: absolute;
-    font-size: clamp(180px, 30vw, 400px);
-    font-weight: 900;
-    color: rgba(0,0,0,0.012); 
-    z-index: -1;
+    font-size: clamp(150px, 35vw, 550px);
+    font-weight: 950;
+    color: rgba(0,0,0,0.025);
+    z-index: 0;
     font-family: serif;
     user-select: none;
     line-height: 0.7;
     top: 50%;
     transform: translateY(-50%);
+    pointer-events: none;
 }
 
 .even .bgNumber { right: -5%; }
 .odd .bgNumber { left: -5%; }
 
-.imageSide { grid-area: image; display: flex; justify-content: center; }
-.contentSide { grid-area: text; display: flex; flex-direction: column; z-index: 2; }
+.imageSide { grid-area: image; display: flex; justify-content: center; z-index: 2; }
+.contentSide { grid-area: text; display: flex; flex-direction: column; z-index: 3; }
 
-.imageCardWrapper { 
-    width: 100%; 
-    max-width: 420px; 
+.imageCardWrapper {
+    width: 100%;
+    max-width: 420px;
     position: relative;
     padding: 15px;
     background: #fff;
-    border: 1px solid #f0f0f0;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.06);
+    border: 1px solid #f9f9f9;
 }
 
-/* Cantoneira Vermelha Decorativa */
 .imageCardWrapper::before {
     content: "";
     position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 20px;
-    height: 20px;
-    border-top: 2px solid #b12323;
-    border-right: 2px solid #b12323;
+    top: -8px;
+    right: -8px;
+    width: 30px;
+    height: 30px;
+    border-top: 3px solid #b12323;
+    border-right: 3px solid #b12323;
 }
 
 .imageCard {
-    border-radius: 0;
+    width: 100%;
+    aspect-ratio: 4/5;
     overflow: hidden;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.1);
-    background: #000;
+    background: #f0f0f0;
 }
 
 .imageCard img {
     width: 100%;
-    height: auto;
-    display: block;
-    filter: grayscale(100%);
-    transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+    transition: 1.2s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
 .imageCardWrapper:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.05);
+    filter: grayscale(0%) contrast(1);
+    transform: scale(1.08);
 }
 
 .imageCaption {
-    font-size: 7px;
+    font-size: 8px;
     letter-spacing: 4px;
     color: #bbb;
-    margin-top: 25px;
+    margin-top: 20px;
     font-weight: 900;
     text-transform: uppercase;
 }
 
-.textContainer { max-width: 380px; }
+.textContainer { max-width: 420px; }
 .odd .textContainer { margin-left: auto; text-align: right; }
 
 .metaTag {
@@ -150,7 +166,7 @@
 
 .eventDate {
     color: #fff;
-    background: #b12323; /* Destaque em vermelho */
+    background: #111;
     padding: 6px 14px;
     font-weight: 900;
     font-size: 10px;
@@ -159,42 +175,75 @@
 }
 
 .eventTitle {
-    font-size: 48px;
-    font-weight: 900;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 950;
     line-height: 0.9;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     letter-spacing: -3px;
     color: #111;
 }
 
 .eventDescription {
-    color: #555;
-    font-size: 16px;
-    line-height: 1.9;
-    font-weight: 300;
+    color: #444;
+    font-size: clamp(15px, 2vw, 17px);
+    line-height: 1.7;
+    font-weight: 400;
 }
 
 .editorialFooter {
-    margin-top: 50px;
-    font-size: 8px;
+    margin-top: 40px;
+    font-size: 9px;
     font-weight: 900;
-    color: #ccc;
+    color: #ddd;
     letter-spacing: 4px;
-    border-top: 1px solid #f5f5f5;
+    border-top: 1px solid #f0f0f0;
     padding-top: 20px;
     display: inline-block;
-    font-family: monospace;
+    text-transform: uppercase;
 }
+
+/* --- MEDIA QUERIES --- */
 
 @media (max-width: 1024px) {
     .eventRow {
-        grid-template-columns: 1fr;
-        grid-template-areas: "image" "text";
-        gap: 60px;
-        min-height: auto;
-        text-align: center !important;
-        margin-bottom: 120px;
+        gap: 50px;
+        padding: 40px 0;
     }
+    .even .bgNumber { right: -2%; }
+    .odd .bgNumber { left: -2%; }
+}
+
+@media (max-width: 768px) {
+    .pageHeader { padding: 40px 0; }
     .lineBg { display: none; }
-    .imageCardWrapper { border: none; padding: 0; }
+    
+    .eventRow {
+        grid-template-columns: 1fr;
+        grid-template-areas: "image" "text" !important;
+        min-height: auto;
+        gap: 30px;
+        text-align: center !important;
+        margin-bottom: 60px;
+        padding-top: 80px; /* Espaço para o bgNumber não cobrir o topo */
+    }
+
+    .odd .textContainer { margin-left: 0; text-align: center; }
+    .textContainer { max-width: 100%; }
+    .odd .metaTag { flex-direction: row; justify-content: center; }
+    .metaTag { justify-content: center; }
+
+    .imageCardWrapper {
+        max-width: 100%;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    }
+
+    .bgNumber {
+        top: 20px;
+        transform: translateX(-50%);
+        left: 50%;
+        opacity: 0.1;
+        z-index: -1; /* Força ficar atrás de tudo no mobile */
+    }
+
+    .mainTitle { letter-spacing: -2px; }
 }

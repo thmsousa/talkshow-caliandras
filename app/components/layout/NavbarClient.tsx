@@ -72,7 +72,7 @@ export default function NavbarClient() {
                 }
 
                 :global(.nav-link) {
-                    color: white;
+                    color: black;
                     font-weight: 600;
                     font-size: clamp(12px, 1.5vw, 14px);
                     transition: all 0.3s ease;

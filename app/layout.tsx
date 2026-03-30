@@ -10,9 +10,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "CALIANDRAS TALK SHOW | Vídeos, conteúdos, obras, livros e muito mais materiais",
   description: "Conteúdo exclusivo e análises aprofundadas com os maiores nomes do país.",
-  // ADICIONE ESTA PARTE:
   icons: {
-    icon: '/favicon.ico', // O arquivo deve estar na pasta /public
+    icon: '/favicon.ico', 
   },
 };
 

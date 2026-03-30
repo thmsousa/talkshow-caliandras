@@ -48,7 +48,7 @@ export default function AuthorCard({ autor }: { autor: Autor }) {
                         {autor.nomeCompleto}
                     </h2>
                     <p style={{ fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--color-accent)' }}>
-                        ver perfil →
+                        ver perfil 
                     </p>
                 </div>
             </div>

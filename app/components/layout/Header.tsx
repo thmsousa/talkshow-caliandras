@@ -6,19 +6,22 @@ import NavbarClient from './NavbarClient';
 export default function Header() {
   return (
     <header style={{ 
-      backgroundColor: 'rgba(18, 18, 18, 0.85)', 
-      boxShadow: '0 2px 15px rgba(0, 0, 0, 0.3)', 
+      // Fundo branco com opacidade para o efeito de transparência (estilo Penguin)
+      backgroundColor: 'rgba(255, 255, 255, 0.85)', 
+      boxShadow: '0 1px 0 rgba(0, 0, 0, 0.05)',      
       position: 'sticky', 
       top: 0, 
       zIndex: 1000,
-      borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+      // Borda inferior sutil para acabamento editorial
+      borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
       width: '100%',
+      // O desfoque cria o efeito de degradê com o conteúdo que passa por baixo
       backdropFilter: 'blur(12px)',
       WebkitBackdropFilter: 'blur(12px)',
     }}>
       <div className="container header-flex-container">
         
-        {/* LOGO: "C" em Amoresa e "aliandras" em Perandory */}
+        {/* LOGO: Estrutura original preservada */}
         <Link href="/" style={{ 
             textDecoration: 'none', 
             display: 'flex', 
@@ -31,14 +34,14 @@ export default function Header() {
           <span className="font-amoresa" style={{ 
             fontSize: 'clamp(24px, 3.5vw, 30px)',
             lineHeight: '0.8',
-            color: 'var(--color-accent)',
+            color: 'var(--color-accent)', // Seu novo Laranja
             display: 'inline-block'
           }}>
             C
           </span>
           <span className="font-perandory" style={{ 
             fontSize: 'clamp(18px, 2.5vw, 22px)',
-            color: '#ffffff', 
+            color: '#000000', // Preto para contraste no fundo branco
             marginLeft: '-3px', 
             textTransform: 'lowercase'
           }}>

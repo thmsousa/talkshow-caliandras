@@ -115,13 +115,15 @@ export const EVENTOS_CALINDRAS = [
         id: 1, 
         titulo: "Lançamento Espiríto Ilícito", 
         data: "10 de Outubro", 
-        imagem: "/images/mock/eve1.jpeg" 
+        imagem: "/images/mock/eve1.jpeg", 
+        descricao: 'O marco inicial da obra literária, reunindo entusiastas e críticos em uma noite de autógrafos inesquecível no centro cultural.'
     },
     { 
         id: 2, 
         titulo: "Aula de Leitura Regional", 
         data: "18 de Novembro", 
-        imagem: "/images/mock/eve2.jpeg" 
+        imagem: "/images/mock/eve2.jpeg" ,
+        descricao: 'Uma imersão nas raízes da literatura local, explorando dialetos e a construção da identidade através das palavras.'
     },
     { 
         id: 3, titulo: "VIII Feira de Cultura ", 
