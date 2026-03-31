@@ -1,5 +1,6 @@
+/* AutorPage.module.css */
 .mainContainer {
-    padding: min(80px, 12vw) 20px;
+    padding: 40px 20px 80px; /* Reduzi de min(120px, 15vw) para 40px fixos no topo */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -16,29 +17,26 @@
     position: relative;
     width: 100%;
     max-width: 420px;
-    height: 500px; /* Altura fixa para manter a proporção da pilha */
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* ESTILO BASE PARA AS FOTOS NA PILHA */
 .photoLayer {
     position: absolute;
     width: 90%;
     height: 90%;
     background-color: #fff;
-    padding: 12px 12px 40px 12px; /* Borda branca estilo Polaroid */
+    padding: 12px 12px 45px 12px; /* Espaço para "escrever" na polaroid */
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     border: 1px solid #eee;
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Camadas de fundo com rotações aleatórias para efeito de pilha */
 .layerBack { transform: rotate(-6deg); z-index: 1; opacity: 0.6; }
 .layerMiddle { transform: rotate(4deg); z-index: 2; opacity: 0.8; }
 
-/* FOTO PRINCIPAL */
 .avatarWrapper {
     z-index: 3;
     transform: rotate(-1deg);
@@ -46,11 +44,12 @@
 }
 
 .avatarWrapper:hover {
-    transform: rotate(0deg) scale(1.02);
+    transform: rotate(0deg) scale(1.03);
+    z-index: 10;
 }
 
-.photoStack:hover .layerBack { transform: rotate(-12deg) translateX(-10px); }
-.photoStack:hover .layerMiddle { transform: rotate(8deg) translateX(10px); }
+.photoStack:hover .layerBack { transform: rotate(-12deg) translateX(-15px); }
+.photoStack:hover .layerMiddle { transform: rotate(8deg) translateX(15px); }
 
 .infoBox {
     flex: 1;
@@ -59,15 +58,15 @@
 
 .nome {
     font-size: clamp(42px, 8vw, 72px);
-    font-weight: 900;
+    font-weight: 950;
     margin: 10px 0;
-    letter-spacing: -3px;
+    letter-spacing: -4px;
     color: #1a1a1a;
     line-height: 0.85;
 }
 
 .subtitulo {
-    font-size: 13px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 4px;
     color: var(--color-accent);
@@ -79,17 +78,17 @@
     line-height: 1.8;
     color: #333;
     max-width: 700px;
-    text-align: justify;
 }
 
 /* Letra Capitular Premium */
-.bio p::first-letter {
+.bio p:first-child::first-letter {
     float: left;
     font-size: 85px;
     line-height: 65px;
-    padding: 5px 12px 0 0;
+    padding: 5px 15px 0 0;
     font-weight: 900;
     color: #000;
+    font-family: serif;
 }
 
 @media (min-width: 900px) {

@@ -1,0 +1,160 @@
+/* SobrePage.module.css */
+.mainContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 100px;
+    background-color: #fff;
+}
+
+/* HERO SECTION */
+.hero {
+    text-align: center;
+    margin-bottom: 70px;
+    animation: fadeIn 1.2s ease-out;
+}
+
+.overtitle {
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    display: block;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.title {
+    font-size: clamp(38px, 8vw, 72px);
+    font-weight: 950;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+}
+
+/* SEÇÕES DE CONTEÚDO */
+.contentSection {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 110px;
+    align-items: center;
+}
+
+.textBlock {
+    flex: 1;
+}
+
+.sectionLabel {
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #ccc;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.sectionTitle {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.description {
+    font-size: 19px;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+}
+
+/* CITAÇÃO SUCINTA */
+.quoteContainer {
+    padding: 80px 40px;
+    color: #121212;
+    text-align: center;
+    margin: 80px 0;
+    position: relative;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.quoteContainer::before {
+    content: "“";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 180px;
+    color: rgba(255,107,0,0.08);
+    font-family: serif;
+    font-weight: 900;
+}
+
+.quoteText {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.4;
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* CURADORIA / EQUIPE COM DESTAQUE */
+.teamGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.teamMember {
+    background-color: #fafafa;
+    padding: 40px 30px;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-align: left;
+}
+
+.teamMember:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+    border-color: #e0e0e0;
+}
+
+.teamMember h3 {
+    font-size: 11px;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    font-weight: 900;
+}
+
+.teamMember p {
+    font-size: 26px;
+    font-weight: 950;
+    margin: 0;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    line-height: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 900px) {
+    .contentSection { flex-direction: row; gap: 100px; }
+    .contentSection:nth-child(even) { flex-direction: row-reverse; }
+}

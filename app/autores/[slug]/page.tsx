@@ -3,7 +3,11 @@ import { notFound } from 'next/navigation';
 import { TODOS_AUTORES } from '@/lib/mockData'; 
 import styles from './AutorPage.module.css';
 
-export default async function AutorPage({ params }: { params: Promise<{ slug: string }> }) {
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function AutorPage({ params }: PageProps) {
   const { slug } = await params;
   const autor = TODOS_AUTORES.find(a => a.slug === slug);
 
@@ -13,20 +17,18 @@ export default async function AutorPage({ params }: { params: Promise<{ slug: st
     <main className={styles.mainContainer}>
       <article className={styles.headerSection}>
         
-        {/* PILHA DE FOTOGRAFIAS REAIS */}
+        {/* PILHA DE FOTOGRAFIAS */}
         <div className={styles.photoStack}>
-          {/* Camadas decorativas de fundo */}
           <div className={`${styles.photoLayer} ${styles.layerBack}`} />
           <div className={`${styles.photoLayer} ${styles.layerMiddle}`} />
           
-          {/* Foto Principal com Moldura Branca */}
           <div className={`${styles.photoLayer} ${styles.avatarWrapper}`}>
-            <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
+            <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', backgroundColor: '#f9f9f9' }}>
               <Image
                 src={autor.fotoUrl}
                 alt={autor.nomeCompleto}
                 fill
-                sizes="(max-width: 850px) 100vw, 400px"
+                sizes="(max-width: 900px) 100vw, 450px"
                 style={{ objectFit: 'cover' }}
                 priority
               />
@@ -36,23 +38,22 @@ export default async function AutorPage({ params }: { params: Promise<{ slug: st
 
         {/* CONTEÚDO EDITORIAL */}
         <div className={styles.infoBox}>
-          <span className={styles.subtitulo}>Convidado Principal</span>
+          <span className={styles.subtitulo}>Convidado // Caliandras</span>
           <h1 className={styles.nome}>{autor.nomeCompleto}</h1>
           
           <div style={{ 
             width: '60px', 
-            height: '1px', 
-            backgroundColor: '#000', 
-            margin: '30px 0' 
+            height: '2px', 
+            backgroundColor: 'var(--color-accent)', 
+            margin: '35px 0' 
           }} />
 
           <div className={styles.bio}>
             {autor.bio.split('\n').map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
+              <p key={index} style={{ marginBottom: '20px' }}>{paragraph}</p>
             ))}
           </div>
         </div>
-
       </article>
     </main>
   );
