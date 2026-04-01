@@ -68,7 +68,7 @@ export default function HomePage() {
     return (
         <main style={{ backgroundColor: '#fff', overflowX: 'hidden' }}>
 
-            {/* --- SEÇÃO: EVENTOS (VARAL POLIDO) --- */}
+            {/* --- SEÇÃO: EVENTOS (VARAL CONECTADO) --- */}
             <section style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 20px 0px', position: 'relative' }}>
                 <header style={{ marginBottom: '40px', borderLeft: '5px solid var(--color-accent)', paddingLeft: '25px' }}>
                     <span style={overtitleStyle}>Agenda Cultural • Caliandras</span>
@@ -79,9 +79,8 @@ export default function HomePage() {
                     style={{ position: 'relative' }}
                     onMouseEnter={() => isInteracting.current = true}
                     onMouseLeave={() => isInteracting.current = false}
-                    onTouchStart={() => isInteracting.current = true}
-                    onTouchEnd={() => isInteracting.current = false}
                 >
+                    {/* Linha do Varal: Agora com o top ajustado para passar no meio do grampo */}
                     <div style={varalLineStyle} className="hide-mobile varal-line-organic" />
 
                     <button onClick={() => scrollManual('left')} className="nav-button-varal hide-mobile" style={{ ...navButtonStyle, left: '-25px' }}>‹</button>
@@ -98,7 +97,9 @@ export default function HomePage() {
                                     }}
                                     className="event-card-hover"
                                 >
+                                    {/* O Grampo/Prendedor */}
                                     <div style={pinStyle} />
+                                    
                                     <div style={eventImageWrapper}>
                                         <Image
                                             src={evento.imagem || '/images/placeholder.jpg'}
@@ -120,7 +121,7 @@ export default function HomePage() {
 
             <div style={dividerStyle} />
 
-            {/* --- SEÇÃO DE VÍDEOS (REFINADA) --- */}
+            {/* --- SEÇÃO DE VÍDEOS --- */}
             <section style={{ maxWidth: '1400px', margin: '0 auto', padding: '10px 20px 100px' }}>
                 <header style={{ marginBottom: '40px', borderLeft: '5px solid var(--color-accent)', paddingLeft: '25px' }}>
                     <span style={overtitleStyle}>Mídia & Destaques</span>
@@ -157,7 +158,6 @@ export default function HomePage() {
             </section>
 
             <style jsx global>{`
-                /* Animação de Balanço do Varal */
                 @keyframes sway {
                     0% { transform: rotate(-1.5deg); }
                     50% { transform: rotate(1.5deg); }
@@ -165,22 +165,18 @@ export default function HomePage() {
                 }
 
                 .event-card-hover { 
-                    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1) !important; 
+                    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1) !important; 
                     animation: sway 5s ease-in-out infinite;
                     animation-delay: calc(var(--index) * 0.6s);
+                    transform-origin: top center; /* Pendura pelo topo */
                 }
 
                 .event-card-hover:hover {
                     animation-play-state: paused;
-                    transform: rotate(0deg) translateY(-15px) scale(1.02) !important;
-                    box-shadow: 0 45px 90px rgba(0,0,0,0.12) !important;
+                    /* Mantém a conexão com a linha enquanto aumenta */
+                    transform: rotate(0deg) scale(1.02) !important;
+                    box-shadow: 0 40px 80px rgba(0,0,0,0.12) !important;
                     z-index: 20;
-                }
-
-                /* Reveal dos Vídeos */
-                @keyframes fadeInUp {
-                    from { opacity: 0; transform: translateY(30px); }
-                    to { opacity: 1; transform: translateY(0); }
                 }
 
                 .video-card-hover { 
@@ -207,18 +203,17 @@ export default function HomePage() {
                 }
 
                 .video-card-hover:hover .play-overlay { opacity: 1; }
-
                 .carrossel-container::-webkit-scrollbar { display: none; }
                 
                 .varal-line-organic {
-                    background: linear-gradient(90deg, transparent 0%, #ddd 20%, #bbb 50%, #ddd 80%, transparent 100%) !important;
+                    background: linear-gradient(90deg, transparent 0%, #ccc 15%, #999 50%, #ccc 85%, transparent 100%) !important;
                 }
 
                 @media (max-width: 900px) {
                     .video-grid-responsive { grid-template-columns: 1fr !important; }
                     .hide-mobile { display: none !important; }
                     .event-card-hover { animation: none !important; transform: none !important; }
-                    .carrossel-container { gap: 20px !important; }
+                    .carrossel-container { gap: 20px !important; padding-top: 20px !important; }
                 }
             `}</style>
         </main>
@@ -249,33 +244,33 @@ const sectionTitleStyle: React.CSSProperties = {
 
 const varalLineStyle: React.CSSProperties = {
     position: 'absolute',
-    top: '20px',
-    left: '-100px',
-    right: '-100px',
-    height: '1px',
+    top: '25px', /* Alinhado para passar no meio do prendedor */
+    left: '-50px',
+    right: '-50px',
+    height: '1.5px',
     zIndex: 5,
-    pointerEvents: 'none'
+    pointerEvents: 'none',
+    opacity: 0.6
 };
 
 const pinStyle: React.CSSProperties = {
     position: 'absolute',
-    top: '6px',
+    top: '-5px', /* Sobe um pouco do card para "morder" a linha */
     left: '50%',
     transform: 'translateX(-50%)',
-    width: '10px',
-    height: '30px',
-    backgroundColor: '#222',
-    borderRadius: '1px',
+    width: '12px',
+    height: '28px',
+    backgroundColor: '#333',
+    borderRadius: '2px',
     zIndex: 15,
-    boxShadow: '2px 3px 6px rgba(0,0,0,0.3)',
-    borderLeft: '1px solid rgba(255,255,255,0.1)'
+    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
 };
 
 const carrosselStyle: React.CSSProperties = {
     display: 'flex',
     gap: '35px',
     overflowX: 'auto',
-    padding: '30px 10px 60px',
+    padding: '20px 10px 60px', /* Reduzi o topo para encostar na linha */
     scrollbarWidth: 'none',
     msOverflowStyle: 'none',
     WebkitOverflowScrolling: 'touch',
@@ -288,10 +283,10 @@ const cardBaseStyle: React.CSSProperties = {
     height: '500px',
     position: 'relative',
     backgroundColor: '#fdfdfd',
-    boxShadow: '0 15px 45px rgba(0,0,0,0.06)',
+    boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
     overflow: 'hidden',
-    borderRadius: '2px',
-    border: '1px solid #f0f0f0'
+    borderRadius: '4px',
+    border: '1px solid #eee'
 };
 
 const eventImageWrapper: React.CSSProperties = {
@@ -323,20 +318,20 @@ const eventTitleStyle: React.CSSProperties = {
 
 const navButtonStyle: React.CSSProperties = {
     position: 'absolute',
-    top: '40%',
+    top: '50%',
     transform: 'translateY(-50%)',
     zIndex: 40,
     background: '#fff',
     border: '1px solid #eee',
     borderRadius: '50%',
-    width: '56px',
-    height: '56px',
+    width: '50px',
+    height: '50px',
     cursor: 'pointer',
-    fontSize: '26px',
+    fontSize: '24px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    boxShadow: '0 15px 30px rgba(0,0,0,0.1)',
+    boxShadow: '0 10px 20px rgba(0,0,0,0.08)',
     color: '#000'
 };
 

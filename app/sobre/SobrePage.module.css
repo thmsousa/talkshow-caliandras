@@ -1,16 +1,31 @@
-/* SobrePage.module.css */
+/* app/sobre/SobrePage.module.css */
+
 .mainContainer {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 20px 100px;
+    padding: 20px 20px 40px; /* Reduzido o padding-bottom de 100px para 40px */
     background-color: #fff;
 }
 
-/* HERO SECTION */
+/* 1. HERO SECTION */
 .hero {
     text-align: center;
-    margin-bottom: 70px;
-    animation: fadeIn 1.2s ease-out;
+    margin-bottom: 140px; 
+    padding-top: 80px;
+    animation: fadeIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid #eee;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #aaa;
+    margin-bottom: 25px;
 }
 
 .overtitle {
@@ -18,28 +33,95 @@
     font-weight: 900;
     color: var(--color-accent);
     text-transform: uppercase;
-    letter-spacing: 7px;
+    letter-spacing: 8px;
     display: block;
-    margin-bottom: 20px;
-    opacity: 0.8;
+    margin-bottom: 25px;
 }
 
 .title {
-    font-size: clamp(38px, 8vw, 72px);
+    font-size: clamp(42px, 9vw, 84px);
     font-weight: 950;
-    line-height: 0.9;
-    letter-spacing: -3px;
+    line-height: 0.85;
+    letter-spacing: -4px;
     text-transform: uppercase;
     color: #1a1a1a;
+    margin: 0;
 }
 
-/* SEÇÕES DE CONTEÚDO */
+.accentText {
+    color: var(--color-accent);
+}
+
+.heroContentExpand {
+    max-width: 800px;
+    margin: 40px auto 0;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.heroDescription {
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.6;
+    color: #444;
+    font-weight: 400;
+    margin-bottom: 40px; 
+    letter-spacing: -0.2px;
+}
+
+/* Mini métricas horizontais (Estilo Revista) */
+.heroStatsMini {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 40px;
+}
+
+.statItem {
+    text-align: left;
+    position: relative;
+}
+
+.statLine {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background-color: var(--color-accent);
+    margin-bottom: 10px;
+    opacity: 0.5;
+}
+
+.statItem strong {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #999;
+    font-weight: 900;
+}
+
+.statItem p {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+
+.heroDivider {
+    width: 50px;
+    height: 2px;
+    background-color: var(--color-accent);
+    margin: 50px auto 0;
+    opacity: 0.3;
+}
+
+/* 2. SEÇÕES DE CONTEÚDO (MISSÃO / BLOCO 1) */
 .contentSection {
     display: flex;
     flex-direction: column;
-    gap: 60px;
-    margin-bottom: 110px;
+    gap: 80px; 
+    margin-bottom: 80px; 
     align-items: center;
+    scroll-margin-top: 120px; 
 }
 
 .textBlock {
@@ -50,111 +132,331 @@
     font-size: 10px;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #ccc;
-    margin-bottom: 15px;
+    letter-spacing: 5px;
+    color: #ddd;
+    margin-bottom: 20px;
     display: block;
 }
 
 .sectionTitle {
-    font-size: 36px;
-    font-weight: 900;
+    font-size: 42px;
+    font-weight: 950;
     letter-spacing: -2px;
-    margin-bottom: 25px;
-    line-height: 1.1;
+    margin-bottom: 30px;
+    line-height: 1;
     text-transform: uppercase;
 }
 
 .description {
-    font-size: 19px;
+    font-size: clamp(17px, 1.5vw, 19px);
     line-height: 1.8;
     color: #333;
     text-align: justify;
 }
 
-/* CITAÇÃO SUCINTA */
-.quoteContainer {
-    padding: 80px 40px;
-    color: #121212;
-    text-align: center;
-    margin: 80px 0;
+/* IMAGEM E CARD FLUTUANTE */
+.imageWrapper {
+    flex: 1;
+    width: 100%;
+    max-width: 600px;
+    height: 520px;
     position: relative;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
 }
 
-.quoteContainer::before {
-    content: "“";
+.imagePlaceholder {
+    width: 100%;
+    height: 100%;
+    background-color: #fcfcfc;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.04);
+}
+
+.featuredImage {
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.imageWrapper:hover .featuredImage {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+.imageFloatingCard {
     position: absolute;
-    top: -30px;
+    bottom: -40px;
+    right: -30px;
+    background-color: #000;
+    color: #fff;
+    padding: 40px;
+    border-radius: 2px;
+    box-shadow: 30px 30px 80px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+
+.imageFloatingCard strong {
+    font-size: 56px;
+    color: var(--color-accent);
+    line-height: 0.8;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.imageFloatingCard span {
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #eee;
+}
+
+/* 3. CITAÇÃO ESTILIZADA (FRASE) */
+.quoteWrapper {
+    position: relative;
+    padding: 120px 20px; 
+    margin: 80px 0 40px;  
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #fafafa 0%, #fff 80%);
+}
+
+/* Divisórias SUCINTAS */
+.quoteDividerTop,
+.quoteDividerBottom {
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 180px;
-    color: rgba(255,107,0,0.08);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #eee 50%, transparent 100%);
+    opacity: 0.8;
+}
+
+.quoteDividerTop { top: 60px; } 
+.quoteDividerBottom { bottom: 60px; } 
+
+.quoteDividerDot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(255, 107, 0, 0.4);
+}
+
+.quoteDecorativeCircle {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(255, 107, 0, 0.08);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.quoteContainer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 1100px;
+}
+
+.quoteIcon {
     font-family: serif;
-    font-weight: 900;
+    font-size: 220px;
+    color: var(--color-accent);
+    opacity: 0.12;
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
 }
 
 .quoteText {
-    font-size: clamp(24px, 4vw, 36px);
-    font-weight: 700;
-    font-style: italic;
-    line-height: 1.4;
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-    margin: 0 auto;
+    font-size: clamp(28px, 6vw, 52px);
+    font-weight: 950;
+    line-height: 1.1;
+    color: #111;
+    margin-bottom: 40px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
 }
 
-/* CURADORIA / EQUIPE COM DESTAQUE */
+.quoteHighlight {
+    color: var(--color-accent);
+}
+
+.quoteAuthor {
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: #aaa;
+    margin-top: 30px;
+}
+
+/* 4. EQUIPE (SEÇÃO 02 / BLOCO 2) */
 .teamGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
-    margin-top: 50px;
+    margin-top: 80px;
+    margin-bottom: 10px; 
     width: 100%;
 }
 
 .teamMember {
     background-color: #fafafa;
-    padding: 40px 30px;
-    border-radius: 8px;
-    border: 1px solid #f0f0f0;
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    text-align: left;
+    padding: 60px 45px;
+    border-radius: 4px;
+    border: 1px solid #f2f2f2;
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .teamMember:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.06);
-    border-color: #e0e0e0;
+    background-color: #fff;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.06);
+    border-color: #ddd;
+}
+
+.memberAvatar {
+    width: 60px;
+    height: 60px;
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    font-size: 20px;
 }
 
 .teamMember h3 {
     font-size: 11px;
     color: var(--color-accent);
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     margin-bottom: 12px;
-    font-weight: 900;
+    font-weight: 950;
 }
 
 .teamMember p {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 950;
-    margin: 0;
-    letter-spacing: -1px;
+    margin-bottom: 20px;
     text-transform: uppercase;
-    color: #1a1a1a;
+    color: #111;
+    letter-spacing: -1px;
     line-height: 1;
 }
 
+.memberBio {
+    font-size: 16px;
+    color: #777;
+    line-height: 1.7;
+}
+
+/* 5. FOOTER CTA (BOTÃO FINAL) */
+.footerCTA {
+    text-align: center;
+    margin-top: 20px; 
+    padding: 40px 0 40px; /* Reduzido padding inferior de 120px para 40px */
+    border-top: 1px solid #f2f2f2;
+}
+
+.ctaWrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footerLabel {
+    display: block;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+}
+
+.ctaTitle {
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 35px; 
+    color: #1a1a1a;
+}
+
+/* BOTÃO PREMIUM */
+:global(.cta-premium-btn) {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 60px; 
+    background-color: #111;
+    color: #fff;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+:global(.cta-premium-btn:hover) {
+    background-color: var(--color-accent);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(255, 107, 0, 0.3);
+}
+
+:global(.cta-premium-btn::before) {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+:global(.cta-premium-btn:hover::before) {
+    left: 100%;
+}
+
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-@media (min-width: 900px) {
-    .contentSection { flex-direction: row; gap: 100px; }
+/* RESPONSIVIDADE */
+@media (min-width: 1024px) {
+    .contentSection { flex-direction: row; gap: 120px; text-align: left; }
     .contentSection:nth-child(even) { flex-direction: row-reverse; }
+}
+
+@media (max-width: 1023px) {
+    .hero { margin-bottom: 80px; }
+    .contentSection { text-align: center; margin-bottom: 80px; }
+    .heroStatsMini { gap: 40px; flex-wrap: wrap; }
+    .imageFloatingCard { right: 50%; transform: translateX(50%); bottom: -30px; width: max-content; }
+    .quoteWrapper { padding: 100px 20px; margin: 60px 0 30px; }
+    .quoteDividerTop, .quoteDividerBottom { width: 85%; }
+    .footerCTA { margin-top: 20px; padding-bottom: 40px; } /* Ajuste mobile */
 }

@@ -1,19 +1,49 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './SobrePage.module.css';
 
 export default function SobrePage() {
     return (
         <main className={styles.mainContainer}>
-            
+
             {/* 1. HERO SECTION */}
             <header className={styles.hero}>
+                <div className={styles.heroBadge}>Estreia 2024</div>
                 <span className={styles.overtitle}>Manifesto Caliandras</span>
                 <h1 className={styles.title}>
-                    Cultura que <span style={{ color: 'var(--color-accent)' }}>inspira</span> e conecta.
+                    Cultura que <span className={styles.accentText}>inspira</span> <br /> e conecta.
                 </h1>
-                <div style={{ width: '40px', height: '3px', backgroundColor: 'var(--color-accent)', margin: '40px auto 0' }} />
+
+                {/* Novo Bloco de Conteúdo para empurrar a imagem */}
+                <div className={styles.heroContentExpand}>
+                    <p className={styles.heroDescription}>
+                        O Caliandras é uma plataforma de diálogo dedicada a investigar as potências da literatura contemporânea.
+                        Nascemos no coração do Tocantins para ser o ponto de convergência entre o pensamento regional e as vozes
+                        que definem o cenário cultural brasileiro.
+                    </p>
+
+                    <div className={styles.heroStatsMini}>
+                        <div className={styles.statItem}>
+                            <span className={styles.statLine} />
+                            <strong>Diálogo</strong>
+                            <p>Profundo</p>
+                        </div>
+                        <div className={styles.statItem}>
+                            <span className={styles.statLine} />
+                            <strong>Curadoria</strong>
+                            <p>Rigorosa</p>
+                        </div>
+                        <div className={styles.statItem}>
+                            <span className={styles.statLine} />
+                            <strong>Legado</strong>
+                            <p>Cultural</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.heroDivider} />
             </header>
 
             {/* 2. SEÇÃO: MANIFESTO */}
@@ -22,61 +52,94 @@ export default function SobrePage() {
                     <span className={styles.sectionLabel}>01 // A Missão</span>
                     <h2 className={styles.sectionTitle}>Mais que um Talk Show.</h2>
                     <p className={styles.description}>
-                        O Caliandras nasceu da urgência de dar palco às vozes que constroem a identidade cultural brasileira. 
-                        Exploramos as profundezas da literatura regional e nacional, conectando autores consagrados e novos talentos 
+                        O Caliandras nasceu da urgência de dar palco às vozes que constroem a identidade cultural brasileira.
+                        Exploramos as profundezas da literatura regional e nacional, conectando autores consagrados e novos talentos
                         a um público ávido por conteúdo inteligente e sensível.
                     </p>
                 </div>
-                <div style={{ 
-                    flex: 1, 
-                    height: '480px', 
-                    backgroundColor: '#fafafa', 
-                    borderRadius: '8px',
-                    border: '1px solid #f0f0f0',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.03)'
-                }} />
+
+                {/* Imagem com Card de Autoridade */}
+                <div className={styles.imageWrapper}>
+                    <div className={styles.imagePlaceholder}>
+                        <Image
+                            src="/images/mock/cover_vlog.png" // Certifique-se de ter essa imagem ou use um placeholder
+                            alt="Bastidores Caliandras"
+                            fill
+                            className={styles.featuredImage}
+                        />
+                    </div>
+                    <div className={styles.imageFloatingCard}>
+                        <strong>+50</strong>
+                        <span>Autores <br /> Conectados</span>
+                    </div>
+                </div>
             </section>
 
-            {/* 3. CITAÇÃO SUCINTA */}
-            <div className={styles.quoteContainer}>
-                <blockquote className={styles.quoteText}>
-                    “Nossa missão é transformar a conversa em legado literário e a curiosidade em movimento cultural.”
-                </blockquote>
+            {/* 3. CITAÇÃO ESTILIZADA - COM DIVISÓRIAS SUCINTAS */}
+            <div className={styles.quoteWrapper}>
+                {/* Divisória Superior */}
+                <div className={styles.quoteDividerTop}>
+                    <div className={styles.quoteDividerDot} />
+                </div>
+
+                <div className={styles.quoteDecorativeCircle} />
+
+                <div className={styles.quoteContainer}>
+                    <span className={styles.quoteIcon}>“</span>
+                    <blockquote className={styles.quoteText}>
+                        Nossa missão é transformar a <span className={styles.quoteHighlight}>conversa em legado</span> literário e a curiosidade em <span className={styles.quoteHighlight}>movimento cultural</span>.
+                    </blockquote>
+                    <div className={styles.quoteAuthor}>— Manifesto Caliandras</div>
+                </div>
+
+                {/* Divisória Inferior */}
+                <div className={styles.quoteDividerBottom} />
             </div>
 
-            {/* 4. SEÇÃO: EQUIPE (DESTAQUE NA CURADORIA) */}
+            {/* 4. SEÇÃO: EQUIPE & CURADORIA */}
             <section className={styles.contentSection} style={{ marginBottom: '120px' }}>
                 <div className={styles.textBlock} style={{ textAlign: 'center', width: '100%' }}>
                     <span className={styles.sectionLabel}>02 // Quem Faz</span>
-                    <h2 className={styles.sectionTitle} style={{ fontSize: '42px', letterSpacing: '-2.5px' }}>Mentes por trás do projeto</h2>
-                    
+                    <h2 className={styles.sectionTitle} style={{ fontSize: '42px' }}>Mentes por trás do projeto</h2>
+
                     <div className={styles.teamGrid}>
                         <div className={styles.teamMember}>
-                            <h3>Curadoria & Talk</h3>
-                            <p>Nayra, Gleicy & Emily</p>
+                            <div className={styles.memberAvatar}>N</div>
+                            <h3>Nayra, Gleicy & Emily</h3>
+                            <p>Curadoria & Talk</p>
+                            <span className={styles.memberBio}>Conduzem o diálogo com sensibilidade técnica e paixão literária.</span>
                         </div>
                         <div className={styles.teamMember}>
-                            <h3>Visão & Direção</h3>
-                            <p>Pablo Costa</p>
+                            <div className={styles.memberAvatar}>P</div>
+                            <h3>Pablo Costa</h3>
+                            <p>Visão & Direção</p>
+                            <span className={styles.memberBio}>Estrategista criativo focado em expandir a voz da cultura regional.</span>
                         </div>
                         <div className={styles.teamMember}>
-                            <h3>Nosso Palco</h3>
-                            <p>Palmas // TO</p>
+                            <div className={styles.memberAvatar}>T</div>
+                            <h3>Palmas // TO</h3>
+                            <p>Nosso Palco</p>
+                            <span className={styles.memberBio}>Onde a semente do Caliandras floresce para todo o país.</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* 5. CTA FINAL (O FOCO TOTAL) */}
-            <footer style={{ textAlign: 'center', marginTop: '100px', paddingBottom: '120px' }}>
-                <span style={{ display: 'block', fontSize: '10px', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '5px', color: '#bbb', marginBottom: '30px' }}>
-                    Pronto para o próximo capítulo?
-                </span>
+            {/* 5. CTA FINAL - PERSONALIZADO */}
+            <footer className={styles.footerCTA}>
+                <div className={styles.ctaWrapper}>
+                    <span className={styles.footerLabel}>O próximo capítulo começa aqui</span>
+                    <h2 className={styles.ctaTitle}>Descubra o acervo completo do Caliandras.</h2>
 
-                <Link href="/videos" className="cta-premium-btn">
-                    Explorar Galeria 
-                    <span className="arrow-icon">→</span>
-                </Link>
+                    <Link href="/videos" className="cta-premium-btn">
+                        <span className="btn-text">Ver Episódios</span>
+                        <span className="btn-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </span>
+                    </Link>
+                </div>
             </footer>
 
             <style jsx>{`
@@ -115,7 +178,6 @@ export default function SobrePage() {
                     transform: translateX(10px);
                 }
 
-                /* Efeito de brilho (Shine) */
                 .cta-premium-btn::after {
                     content: '';
                     position: absolute;
