@@ -12,46 +12,54 @@ const navItems = [
 
 export default function NavbarClient() {
     const [isOpen, setIsOpen] = useState(false);
-
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
         <nav>
+            {/* BOTÃO HAMBÚRGUER REFINADO */}
             <button 
                 onClick={toggleMenu}
                 style={{
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    width: '24px',
-                    height: '18px',
+                    width: '26px',
+                    height: '16px',
                     background: 'transparent',
                     border: 'none',
                     cursor: 'pointer',
                     padding: 0,
-                    zIndex: 2001,
+                    zIndex: 2005,
                     position: 'relative'
                 }}
                 className="mobile-toggle"
             >
+                {/* As listras agora são pretas para aparecer no header branco, 
+                    mas ficam brancas quando o menu (que é escuro) abre */}
                 <div style={{ 
-                    width: '100%', height: '2px', background: 'white', transition: '0.3s',
-                    transform: isOpen ? 'rotate(45deg) translate(5px, 6px)' : 'rotate(0)' 
+                    width: '100%', height: '1.5px', 
+                    background: isOpen ? 'white' : 'black', 
+                    transition: '0.4s cubic-bezier(0.19, 1, 0.22, 1)',
+                    transform: isOpen ? 'rotate(45deg) translate(5px, 5px)' : 'rotate(0)' 
                 }} />
                 <div style={{ 
-                    width: '100%', height: '2px', background: 'white', transition: '0.3s',
+                    width: '100%', height: '1.5px', 
+                    background: isOpen ? 'white' : 'black', 
+                    transition: '0.4s',
                     opacity: isOpen ? 0 : 1 
                 }} />
                 <div style={{ 
-                    width: '100%', height: '2px', background: 'white', transition: '0.3s',
-                    transform: isOpen ? 'rotate(-45deg) translate(5px, -6px)' : 'rotate(0)' 
+                    width: '100%', height: '1.5px', 
+                    background: isOpen ? 'white' : 'black', 
+                    transition: '0.4s cubic-bezier(0.19, 1, 0.22, 1)',
+                    transform: isOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'rotate(0)' 
                 }} />
             </button>
 
-            {/* GAVETA LATERAL DE NAVEGAÇÃO */}
+            {/* GAVETA LATERAL */}
             <ul className={`nav-list ${isOpen ? 'open' : ''}`}>
                 {navItems.map((item) => (
-                    <li key={item.name}> 
+                    <li key={item.name} className="nav-item"> 
                         <Link href={item.href} 
                             onClick={() => setIsOpen(false)}
                             className="nav-link"
@@ -68,26 +76,38 @@ export default function NavbarClient() {
                     list-style: none;
                     margin: 0;
                     padding: 0;
-                    gap: clamp(8px, 2vw, 20px);
+                    gap: 30px;
                 }
 
                 :global(.nav-link) {
-                    color: black;
-                    font-weight: 600;
-                    font-size: clamp(12px, 1.5vw, 14px);
+                    color: #121212;
+                    font-weight: 700;
+                    font-size: 11px;
                     transition: all 0.3s ease;
-                    letter-spacing: 0.5px;
+                    letter-spacing: 2px;
                     text-transform: uppercase;
-                    padding: 4px 2px;
-                    opacity: 0.8;
                     text-decoration: none;
+                    position: relative;
                 }
 
-                :global(.nav-link:hover) {
-                    opacity: 1;
-                    color: var(--color-accent) !important;
+                /* Linha minimalista no hover para Desktop */
+                @media (min-width: 769px) {
+                    :global(.nav-link::after) {
+                        content: '';
+                        position: absolute;
+                        bottom: -4px;
+                        left: 0;
+                        width: 0;
+                        height: 1px;
+                        background: var(--color-accent);
+                        transition: width 0.3s ease;
+                    }
+                    :global(.nav-link:hover::after) {
+                        width: 100%;
+                    }
                 }
 
+                /* MOBILE LOGIC */
                 .mobile-toggle {
                     display: none !important;
                 }
@@ -102,26 +122,30 @@ export default function NavbarClient() {
                         top: 0;
                         right: 0;
                         height: 100vh;
-                        width: 75%;
-                        background: rgba(10, 10, 10, 0.98);
-                        backdrop-filter: blur(25px);
+                        width: 100%; /* Ocupa a tela toda para um efeito mais dramático */
+                        background: #0a0a0a;
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        gap: 35px;
-                        transform: translateX(100%);
-                        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+                        gap: 40px;
+                        transform: translateY(-100%); /* Abre de cima para baixo ou do lado */
+                        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
                         z-index: 2000;
-                        box-shadow: -15px 0 40px rgba(0,0,0,0.6);
                     }
 
                     .nav-list.open {
-                        transform: translateX(0);
+                        transform: translateY(0);
                     }
 
                     :global(.nav-link) {
-                        font-size: 22px;
-                        letter-spacing: 2px;
+                        color: white !important;
+                        font-size: 24px;
+                        letter-spacing: 4px;
+                        font-weight: 900;
+                    }
+
+                    .nav-item {
+                        overflow: hidden;
                     }
                 }
             `}</style>

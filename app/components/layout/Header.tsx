@@ -61,6 +61,8 @@ export default function Header() {
           flex-direction: row; 
           align-items: center;
           justify-content: space-between;
+          max-width: 1200px; /* Garante alinhamento com o restante do site */
+          margin: 0 auto;
         }
 
         @media (min-width: 768px) {
