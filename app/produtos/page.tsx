@@ -1,4 +1,4 @@
-'use client';
+'use client'; 
 
 import Image from 'next/image';
 import { TODOS_PRODUTOS } from '@/lib/mockData';
@@ -8,7 +8,7 @@ import ChatBot from '../components/ChatBot';
 export default function ProdutosPage() {
     const handleBuyClick = (e: React.MouseEvent) => {
         e.preventDefault();
-        // Dispara a função global definida no ChatBot
+        // Abre o ChatBot do Caliandras para finalizar a compra
         if (typeof window !== 'undefined' && (window as any).openCaliantrasChat) {
             (window as any).openCaliantrasChat();
         }

@@ -10,13 +10,24 @@ export default function SobrePage() {
 
             {/* 1. HERO SECTION */}
             <header className={styles.hero}>
+                
+                {/* DETALHE TÉCNICO (Preenche o vazio superior) */}
+                <div className={styles.technicalHeader}>
+                    <div className={styles.techLine} />
+                    <div className={styles.techText}>
+                        <span>PALMAS - TO</span>
+                        <span className={styles.techDot}>•</span>
+                        <span>10° 11′ 4″ S 48° 20′ 1″ W</span>
+                    </div>
+                    <div className={styles.techLine} />
+                </div>
+
                 <div className={styles.heroBadge}>Estreia 2024</div>
                 <span className={styles.overtitle}>Manifesto Caliandras</span>
                 <h1 className={styles.title}>
                     Cultura que <span className={styles.accentText}>inspira</span> <br /> e conecta.
                 </h1>
 
-                {/* Novo Bloco de Conteúdo para empurrar a imagem */}
                 <div className={styles.heroContentExpand}>
                     <p className={styles.heroDescription}>
                         O Caliandras é uma plataforma de diálogo dedicada a investigar as potências da literatura contemporânea.
@@ -58,11 +69,10 @@ export default function SobrePage() {
                     </p>
                 </div>
 
-                {/* Imagem com Card de Autoridade */}
                 <div className={styles.imageWrapper}>
                     <div className={styles.imagePlaceholder}>
                         <Image
-                            src="/images/mock/cover_vlog.png" // Certifique-se de ter essa imagem ou use um placeholder
+                            src="/images/mock/cover_vlog.png" 
                             alt="Bastidores Caliandras"
                             fill
                             className={styles.featuredImage}
@@ -75,9 +85,8 @@ export default function SobrePage() {
                 </div>
             </section>
 
-            {/* 3. CITAÇÃO ESTILIZADA - COM DIVISÓRIAS SUCINTAS */}
+            {/* 3. CITAÇÃO ESTILIZADA */}
             <div className={styles.quoteWrapper}>
-                {/* Divisória Superior */}
                 <div className={styles.quoteDividerTop}>
                     <div className={styles.quoteDividerDot} />
                 </div>
@@ -92,11 +101,10 @@ export default function SobrePage() {
                     <div className={styles.quoteAuthor}>— Manifesto Caliandras</div>
                 </div>
 
-                {/* Divisória Inferior */}
                 <div className={styles.quoteDividerBottom} />
             </div>
 
-            {/* 4. SEÇÃO: EQUIPE & CURADORIA */}
+            {/* 4. EQUIPE & CURADORIA */}
             <section className={styles.contentSection} style={{ marginBottom: '120px' }}>
                 <div className={styles.textBlock} style={{ textAlign: 'center', width: '100%' }}>
                     <span className={styles.sectionLabel}>02 // Quem Faz</span>
@@ -105,7 +113,7 @@ export default function SobrePage() {
                     <div className={styles.teamGrid}>
                         <div className={styles.teamMember}>
                             <div className={styles.memberAvatar}>N</div>
-                            <h3>Nayra, Gleicy & Emily</h3>
+                            <h3>Pablo, Gleicy, Nayra & Emily</h3>
                             <p>Curadoria & Talk</p>
                             <span className={styles.memberBio}>Conduzem o diálogo com sensibilidade técnica e paixão literária.</span>
                         </div>
@@ -117,7 +125,7 @@ export default function SobrePage() {
                         </div>
                         <div className={styles.teamMember}>
                             <div className={styles.memberAvatar}>T</div>
-                            <h3>Palmas // TO</h3>
+                            <h3>Palmas - TO</h3>
                             <p>Nosso Palco</p>
                             <span className={styles.memberBio}>Onde a semente do Caliandras floresce para todo o país.</span>
                         </div>
@@ -125,7 +133,7 @@ export default function SobrePage() {
                 </div>
             </section>
 
-            {/* 5. CTA FINAL - PERSONALIZADO */}
+            {/* 5. CTA FINAL */}
             <footer className={styles.footerCTA}>
                 <div className={styles.ctaWrapper}>
                     <span className={styles.footerLabel}>O próximo capítulo começa aqui</span>
@@ -133,11 +141,7 @@ export default function SobrePage() {
 
                     <Link href="/videos" className="cta-premium-btn">
                         <span className="btn-text">Ver Episódios</span>
-                        <span className="btn-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </span>
+                    
                     </Link>
                 </div>
             </footer>
@@ -152,7 +156,9 @@ export default function SobrePage() {
                     padding: 28px 90px;
                     border-radius: 100px;
                     text-decoration: none;
-                    display: inline-block;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 15px;
                     text-transform: uppercase;
                     letter-spacing: 6px;
                     transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
@@ -161,45 +167,11 @@ export default function SobrePage() {
                     overflow: hidden;
                 }
 
-                .arrow-icon {
-                    margin-left: 15px;
-                    display: inline-block;
-                    transition: transform 0.4s ease;
-                }
-
                 .cta-premium-btn:hover {
                     background-color: var(--color-accent);
                     transform: translateY(-12px) scale(1.05);
                     box-shadow: 0 40px 80px rgba(255, 107, 0, 0.45);
                     letter-spacing: 8px;
-                }
-
-                .cta-premium-btn:hover .arrow-icon {
-                    transform: translateX(10px);
-                }
-
-                .cta-premium-btn::after {
-                    content: '';
-                    position: absolute;
-                    top: -50%;
-                    left: -60%;
-                    width: 20%;
-                    height: 200%;
-                    background: rgba(255, 255, 255, 0.1);
-                    transform: rotate(30deg);
-                    transition: all 0.6s ease;
-                }
-
-                .cta-premium-btn:hover::after {
-                    left: 120%;
-                }
-
-                @media (max-width: 768px) {
-                    .cta-premium-btn {
-                        padding: 22px 50px;
-                        font-size: 11px;
-                        letter-spacing: 4px;
-                    }
                 }
             `}</style>
         </main>

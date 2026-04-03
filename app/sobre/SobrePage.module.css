@@ -1,17 +1,47 @@
-/* app/sobre/SobrePage.module.css */
-
 .mainContainer {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 20px 40px; /* Reduzido o padding-bottom de 100px para 40px */
+    padding: 20px 20px 40px;
     background-color: #fff;
+}
+
+/* --- NOVO: CABEÇALHO TÉCNICO --- */
+.technicalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    opacity: 0.4;
+}
+
+.techLine {
+    flex: 1;
+    height: 1px;
+    background-color: #000;
+    max-width: 120px;
+}
+
+.techText {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #111;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.techDot {
+    margin: 0 15px;
+    color: var(--color-accent);
 }
 
 /* 1. HERO SECTION */
 .hero {
     text-align: center;
     margin-bottom: 140px; 
-    padding-top: 80px;
+    padding-top: 40px; /* Reduzido para aproximar do techHeader */
     animation: fadeIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -48,9 +78,7 @@
     margin: 0;
 }
 
-.accentText {
-    color: var(--color-accent);
-}
+.accentText { color: var(--color-accent); }
 
 .heroContentExpand {
     max-width: 800px;
@@ -67,7 +95,6 @@
     letter-spacing: -0.2px;
 }
 
-/* Mini métricas horizontais (Estilo Revista) */
 .heroStatsMini {
     display: flex;
     justify-content: center;
@@ -75,10 +102,7 @@
     margin-top: 40px;
 }
 
-.statItem {
-    text-align: left;
-    position: relative;
-}
+.statItem { text-align: left; position: relative; }
 
 .statLine {
     display: block;
@@ -114,7 +138,7 @@
     opacity: 0.3;
 }
 
-/* 2. SEÇÕES DE CONTEÚDO (MISSÃO / BLOCO 1) */
+/* 2. SEÇÕES DE CONTEÚDO */
 .contentSection {
     display: flex;
     flex-direction: column;
@@ -124,9 +148,7 @@
     scroll-margin-top: 120px; 
 }
 
-.textBlock {
-    flex: 1;
-}
+.textBlock { flex: 1; }
 
 .sectionLabel {
     font-size: 10px;
@@ -154,7 +176,7 @@
     text-align: justify;
 }
 
-/* IMAGEM E CARD FLUTUANTE */
+/* IMAGEM */
 .imageWrapper {
     flex: 1;
     width: 100%;
@@ -213,11 +235,11 @@
     color: #eee;
 }
 
-/* 3. CITAÇÃO ESTILIZADA (FRASE) */
+/* 3. CITAÇÃO */
 .quoteWrapper {
     position: relative;
     padding: 120px 20px; 
-    margin: 80px 0 40px;  
+    margin: 80px 0 40px;   
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -225,9 +247,7 @@
     background: radial-gradient(circle at center, #fafafa 0%, #fff 80%);
 }
 
-/* Divisórias SUCINTAS */
-.quoteDividerTop,
-.quoteDividerBottom {
+.quoteDividerTop, .quoteDividerBottom {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -242,11 +262,9 @@
 
 .quoteDividerDot {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 6px;
-    height: 6px;
+    width: 6px; height: 6px;
     background-color: var(--color-accent);
     border-radius: 50%;
     box-shadow: 0 0 12px rgba(255, 107, 0, 0.4);
@@ -258,15 +276,9 @@
     height: 500px;
     border: 1px solid rgba(255, 107, 0, 0.08);
     border-radius: 50%;
-    z-index: 0;
 }
 
-.quoteContainer {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 1100px;
-}
+.quoteContainer { position: relative; z-index: 2; text-align: center; max-width: 1100px; }
 
 .quoteIcon {
     font-family: serif;
@@ -274,8 +286,7 @@
     color: var(--color-accent);
     opacity: 0.12;
     position: absolute;
-    top: -120px;
-    left: 50%;
+    top: -120px; left: 50%;
     transform: translateX(-50%);
     line-height: 1;
 }
@@ -290,26 +301,15 @@
     text-transform: uppercase;
 }
 
-.quoteHighlight {
-    color: var(--color-accent);
-}
+.quoteHighlight { color: var(--color-accent); }
+.quoteAuthor { font-size: 13px; font-weight: 900; letter-spacing: 8px; color: #aaa; margin-top: 30px; }
 
-.quoteAuthor {
-    font-size: 13px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 8px;
-    color: #aaa;
-    margin-top: 30px;
-}
-
-/* 4. EQUIPE (SEÇÃO 02 / BLOCO 2) */
+/* 4. EQUIPE */
 .teamGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     margin-top: 80px;
-    margin-bottom: 10px; 
     width: 100%;
 }
 
@@ -329,14 +329,9 @@
 }
 
 .memberAvatar {
-    width: 60px;
-    height: 60px;
-    background: #000;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
+    width: 60px; height: 60px;
+    background: #000; color: #fff;
+    display: flex; align-items: center; justify-content: center;
     border-radius: 50%;
     margin-bottom: 30px;
     font-size: 20px;
@@ -355,48 +350,9 @@
     font-size: 28px;
     font-weight: 950;
     margin-bottom: 20px;
-    text-transform: uppercase;
     color: #111;
     letter-spacing: -1px;
     line-height: 1;
-}
-
-.memberBio {
-    font-size: 16px;
-    color: #777;
-    line-height: 1.7;
-}
-
-/* 5. FOOTER CTA (BOTÃO FINAL) */
-.footerCTA {
-    text-align: center;
-    margin-top: 20px; 
-    padding: 40px 0 40px; /* Reduzido padding inferior de 120px para 40px */
-    border-top: 1px solid #f2f2f2;
-}
-
-.ctaWrapper {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.footerLabel {
-    display: block;
-    font-size: 11px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    color: var(--color-accent);
-    margin-bottom: 20px;
-}
-
-.ctaTitle {
-    font-size: clamp(24px, 4vw, 38px);
-    font-weight: 950;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    margin-bottom: 35px; 
-    color: #1a1a1a;
 }
 
 /* BOTÃO PREMIUM */
@@ -419,25 +375,33 @@
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
-:global(.cta-premium-btn:hover) {
-    background-color: var(--color-accent);
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(255, 107, 0, 0.3);
+.memberBio { font-size: 16px; color: #777; line-height: 1.7; }
+
+/* 5. FOOTER CTA */
+.footerCTA {
+    text-align: center;
+    margin-top: 20px; 
+    padding: 40px 0;
+    border-top: 1px solid #f2f2f2;
 }
 
-:global(.cta-premium-btn::before) {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transition: left 0.6s ease;
+.footerLabel {
+    display: block;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--color-accent);
+    margin-bottom: 20px;
 }
 
-:global(.cta-premium-btn:hover::before) {
-    left: 100%;
+.ctaTitle {
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 35px; 
+    color: #1a1a1a;
 }
 
 @keyframes fadeIn {
@@ -445,7 +409,6 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* RESPONSIVIDADE */
 @media (min-width: 1024px) {
     .contentSection { flex-direction: row; gap: 120px; text-align: left; }
     .contentSection:nth-child(even) { flex-direction: row-reverse; }
@@ -453,10 +416,10 @@
 
 @media (max-width: 1023px) {
     .hero { margin-bottom: 80px; }
-    .contentSection { text-align: center; margin-bottom: 80px; }
+    .technicalHeader { gap: 15px; }
+    .techLine { max-width: 60px; }
+    .contentSection { text-align: center; }
     .heroStatsMini { gap: 40px; flex-wrap: wrap; }
-    .imageFloatingCard { right: 50%; transform: translateX(50%); bottom: -30px; width: max-content; }
-    .quoteWrapper { padding: 100px 20px; margin: 60px 0 30px; }
-    .quoteDividerTop, .quoteDividerBottom { width: 85%; }
-    .footerCTA { margin-top: 20px; padding-bottom: 40px; } /* Ajuste mobile */
+    .imageFloatingCard { right: 50%; transform: translateX(50%); bottom: -30px; }
+    .quoteWrapper { padding: 100px 20px; }
 }

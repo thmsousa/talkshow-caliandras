@@ -38,7 +38,7 @@ export default async function AutorPage({ params }: PageProps) {
 
         {/* CONTEÚDO EDITORIAL */}
         <div className={styles.infoBox}>
-          <span className={styles.subtitulo}>Convidado // Caliandras</span>
+          <span className={styles.subtitulo}>Convidado • Caliandras</span>
           <h1 className={styles.nome}>{autor.nomeCompleto}</h1>
           
           <div style={{ 

@@ -7,20 +7,45 @@ import SplashScreen from './components/ui/SplashScreen';
 import { Episodio } from './components/utils/types';
 import { TODOS_EPISODIOS, EVENTOS_CALINDRAS } from '@/lib/mockData';
 
-const formatDate = (dateString: string) => {
+// FUNÇÃO DE DATA REFORÇADA (Resolve o "Invalid Date" e o fuso horário)
+const formatFullDate = (dateString: string) => {
+    if (!dateString) return "";
     try {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-    } catch (e) { return dateString; }
+        const onlyDate = dateString.split('T')[0];
+        const parts = onlyDate.split('-');
+        const date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        
+        if (isNaN(date.getTime())) return dateString;
+
+        return date.toLocaleDateString('pt-BR', { 
+            day: '2-digit', 
+            month: 'long', 
+            year: 'numeric' 
+        });
+    } catch (e) { 
+        return dateString; 
+    }
 };
 
 export default function HomePage() {
     const [destaques, setDestaques] = useState<Episodio[]>([]);
+    const [eventosOrdenados, setEventosOrdenados] = useState<any[]>([]);
     const [showSplash, setShowSplash] = useState(true);
     const [dataLoaded, setDataLoaded] = useState(false);
     const [initialCheckComplete, setInitialCheckComplete] = useState(false);
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    
     const carrosselRef = useRef<HTMLDivElement>(null);
     const isInteracting = useRef(false);
+
+    // --- EFEITO: LUZ DE ESTÚDIO ---
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setMousePos({ x: e.clientX, y: e.clientY });
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
 
     // --- SCROLL INFINITO ---
     useEffect(() => {
@@ -48,13 +73,18 @@ export default function HomePage() {
         }
     };
 
-    // --- CARREGAMENTO ---
+    // --- CARREGAMENTO E ORDENAÇÃO ---
     useEffect(() => {
         const loadData = async () => {
-            const sorted = [...TODOS_EPISODIOS].sort((a, b) =>
+            const sortedVideos = [...TODOS_EPISODIOS].sort((a, b) =>
                 new Date(b.dataLancamento).getTime() - new Date(a.dataLancamento).getTime()
             );
-            setDestaques(sorted.slice(0, 4));
+            const sortedEvents = [...EVENTOS_CALINDRAS].sort((a, b) =>
+                new Date(b.data).getTime() - new Date(a.data).getTime()
+            );
+
+            setDestaques(sortedVideos.slice(0, 4));
+            setEventosOrdenados(sortedEvents);
             setDataLoaded(true);
             setInitialCheckComplete(true);
         };
@@ -62,14 +92,27 @@ export default function HomePage() {
         if (typeof window !== 'undefined' && localStorage.getItem('hasSeenSplash') === 'true') setShowSplash(false);
     }, []);
 
-    if (!initialCheckComplete || !dataLoaded) return <div style={{ minHeight: '100vh', backgroundColor: '#fff' }}></div>;
+    if (!initialCheckComplete || !dataLoaded) return <div style={{ minHeight: '100vh', backgroundColor: '#fafafa' }}></div>;
     if (showSplash) return <SplashScreen onComplete={() => { setShowSplash(false); localStorage.setItem('hasSeenSplash', 'true'); }} />;
 
     return (
-        <main style={{ backgroundColor: '#fff', overflowX: 'hidden' }}>
+        <main style={{ backgroundColor: '#fafafa', overflowX: 'hidden', position: 'relative' }}>
+            
+            {/* --- ELEMENTO: LUZ DE ESTÚDIO --- */}
+            <div style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100vw',
+                height: '100vh',
+                pointerEvents: 'none',
+                zIndex: 1,
+                background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 107, 0, 0.06), transparent 80%)`,
+                transition: 'background 0.2s ease-out',
+            }} />
 
-            {/* --- SEÇÃO: EVENTOS (VARAL CONECTADO) --- */}
-            <section style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 20px 0px', position: 'relative' }}>
+            {/* --- SEÇÃO: EVENTOS --- */}
+            <section style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 20px 0px', position: 'relative', zIndex: 2 }}>
                 <header style={{ marginBottom: '40px', borderLeft: '5px solid var(--color-accent)', paddingLeft: '25px' }}>
                     <span style={overtitleStyle}>Agenda Cultural • Caliandras</span>
                     <h2 style={sectionTitleStyle}>Eventos</h2>
@@ -80,14 +123,13 @@ export default function HomePage() {
                     onMouseEnter={() => isInteracting.current = true}
                     onMouseLeave={() => isInteracting.current = false}
                 >
-                    {/* Linha do Varal: Agora com o top ajustado para passar no meio do grampo */}
                     <div style={varalLineStyle} className="hide-mobile varal-line-organic" />
 
                     <button onClick={() => scrollManual('left')} className="nav-button-varal hide-mobile" style={{ ...navButtonStyle, left: '-25px' }}>‹</button>
                     <button onClick={() => scrollManual('right')} className="nav-button-varal hide-mobile" style={{ ...navButtonStyle, right: '-25px' }}>›</button>
 
                     <div ref={carrosselRef} className="carrossel-container" style={carrosselStyle}>
-                        {EVENTOS_CALINDRAS.map((evento, index) => (
+                        {eventosOrdenados.map((evento, index) => (
                             <Link key={evento.id} href="/eventos" style={{ textDecoration: 'none', display: 'block', flexShrink: 0 }}>
                                 <div
                                     style={{
@@ -97,9 +139,7 @@ export default function HomePage() {
                                     }}
                                     className="event-card-hover"
                                 >
-                                    {/* O Grampo/Prendedor */}
                                     <div style={pinStyle} />
-                                    
                                     <div style={eventImageWrapper}>
                                         <Image
                                             src={evento.imagem || '/images/placeholder.jpg'}
@@ -109,7 +149,7 @@ export default function HomePage() {
                                         />
                                     </div>
                                     <div style={{ padding: '25px 20px' }}>
-                                        <span style={dateTagStyle}>{evento.data}</span>
+                                        <span style={dateTagStyle}>{formatFullDate(evento.data)}</span>
                                         <h4 style={eventTitleStyle}>{evento.titulo}</h4>
                                     </div>
                                 </div>
@@ -119,10 +159,11 @@ export default function HomePage() {
                 </div>
             </section>
 
-            <div style={dividerStyle} />
+            {/* --- ESPAÇADOR SIMPLES --- */}
+            <div style={{ height: '100px' }} />
 
             {/* --- SEÇÃO DE VÍDEOS --- */}
-            <section style={{ maxWidth: '1400px', margin: '0 auto', padding: '10px 20px 100px' }}>
+            <section style={{ maxWidth: '1400px', margin: '0 auto', padding: '10px 20px 100px', position: 'relative', zIndex: 2 }}>
                 <header style={{ marginBottom: '40px', borderLeft: '5px solid var(--color-accent)', paddingLeft: '25px' }}>
                     <span style={overtitleStyle}>Mídia & Destaques</span>
                     <h2 style={sectionTitleStyle}>Últimos Vídeos</h2>
@@ -147,7 +188,7 @@ export default function HomePage() {
                                     </div>
                                 </div>
                                 <div style={{ padding: '25px' }} className="video-card-inner-padding">
-                                    <p style={videoDateStyle}>{formatDate(episodio.dataLancamento)}</p>
+                                    <p style={videoDateStyle}>{formatFullDate(episodio.dataLancamento)}</p>
                                     <h3 style={videoTitleStyle}>{episodio.titulo}</h3>
                                     <p style={videoDescStyle}>{episodio.descricao}</p>
                                 </div>
@@ -165,29 +206,29 @@ export default function HomePage() {
                 }
 
                 .event-card-hover { 
-                    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1) !important; 
+                    transition: all 2.2s cubic-bezier(0.19, 1, 0.22, 1) !important; 
                     animation: sway 5s ease-in-out infinite;
                     animation-delay: calc(var(--index) * 0.6s);
-                    transform-origin: top center; /* Pendura pelo topo */
+                    transform-origin: top center;
+                    background: #fff;
                 }
 
                 .event-card-hover:hover {
                     animation-play-state: paused;
-                    /* Mantém a conexão com a linha enquanto aumenta */
-                    transform: rotate(0deg) scale(1.02) !important;
-                    box-shadow: 0 40px 80px rgba(0,0,0,0.12) !important;
+                    transform: rotate(0deg) scale(1.04) !important;
+                    box-shadow: 0 50px 100px rgba(0,0,0,0.1) !important;
                     z-index: 20;
                 }
 
                 .video-card-hover { 
                     animation: fadeInUp 0.8s ease forwards;
                     opacity: 0;
-                    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important; 
+                    transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1) !important; 
                 }
 
                 .video-card-hover:hover {
-                    transform: translateY(-10px) !important;
-                    box-shadow: 0 35px 70px rgba(255, 107, 0, 0.15) !important;
+                    transform: translateY(-15px) !important;
+                    box-shadow: 0 40px 90px rgba(255, 107, 0, 0.08) !important;
                 }
 
                 .play-overlay {
@@ -198,7 +239,7 @@ export default function HomePage() {
                     justify-content: center;
                     background: rgba(0,0,0,0.4);
                     opacity: 0;
-                    transition: opacity 0.3s ease;
+                    transition: opacity 1.2s ease;
                     z-index: 2;
                 }
 
@@ -213,14 +254,13 @@ export default function HomePage() {
                     .video-grid-responsive { grid-template-columns: 1fr !important; }
                     .hide-mobile { display: none !important; }
                     .event-card-hover { animation: none !important; transform: none !important; }
-                    .carrossel-container { gap: 20px !important; padding-top: 20px !important; }
                 }
             `}</style>
         </main>
     );
 }
 
-/* --- ESTILOS REFINADOS --- */
+/* --- ESTILOS FIXOS --- */
 
 const overtitleStyle: React.CSSProperties = {
     fontSize: '12px',
@@ -244,7 +284,7 @@ const sectionTitleStyle: React.CSSProperties = {
 
 const varalLineStyle: React.CSSProperties = {
     position: 'absolute',
-    top: '25px', /* Alinhado para passar no meio do prendedor */
+    top: '25px',
     left: '-50px',
     right: '-50px',
     height: '1.5px',
@@ -255,7 +295,7 @@ const varalLineStyle: React.CSSProperties = {
 
 const pinStyle: React.CSSProperties = {
     position: 'absolute',
-    top: '-5px', /* Sobe um pouco do card para "morder" a linha */
+    top: '-5px',
     left: '50%',
     transform: 'translateX(-50%)',
     width: '12px',
@@ -270,7 +310,7 @@ const carrosselStyle: React.CSSProperties = {
     display: 'flex',
     gap: '35px',
     overflowX: 'auto',
-    padding: '20px 10px 60px', /* Reduzi o topo para encostar na linha */
+    padding: '20px 10px 60px',
     scrollbarWidth: 'none',
     msOverflowStyle: 'none',
     WebkitOverflowScrolling: 'touch',
@@ -282,7 +322,6 @@ const cardBaseStyle: React.CSSProperties = {
     minWidth: '320px',
     height: '500px',
     position: 'relative',
-    backgroundColor: '#fdfdfd',
     boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
     overflow: 'hidden',
     borderRadius: '4px',
@@ -324,8 +363,8 @@ const navButtonStyle: React.CSSProperties = {
     background: '#fff',
     border: '1px solid #eee',
     borderRadius: '50%',
-    width: '50px',
-    height: '50px',
+    width: '55px',
+    height: '55px',
     cursor: 'pointer',
     fontSize: '24px',
     display: 'flex',
@@ -333,12 +372,6 @@ const navButtonStyle: React.CSSProperties = {
     justifyContent: 'center',
     boxShadow: '0 10px 20px rgba(0,0,0,0.08)',
     color: '#000'
-};
-
-const dividerStyle: React.CSSProperties = {
-    height: '60px',
-    background: 'linear-gradient(to bottom, #ffffff, #fafafa, #ffffff)',
-    width: '100%'
 };
 
 const gridStyle: React.CSSProperties = {

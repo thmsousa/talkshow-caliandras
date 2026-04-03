@@ -109,39 +109,40 @@ export const TODOS_PRODUTOS: Produto[] = [
     }
 ];
     
-
 export const EVENTOS_CALINDRAS = [
     { 
         id: 1, 
         titulo: "Lançamento Espiríto Ilícito", 
-        data: "10 de Outubro", 
+        data: "2025-10-10",
         imagem: "/images/mock/eve1.jpeg", 
-        descricao: 'O marco inicial da obra literária, reunindo entusiastas e críticos em uma noite de autógrafos inesquecível no centro cultural.'
+        descricao: 'O marco inicial da obra literária, reunindo entusiastas e críticos em uma noite de autógrafos no Cine Teatro IFTO.'
     },
     { 
         id: 2, 
         titulo: "Aula de Leitura Regional", 
-        data: "18 de Novembro", 
+        data: "2025-11-18", 
         imagem: "/images/mock/eve2.jpeg" ,
-        descricao: 'Uma imersão nas raízes da literatura local, explorando dialetos e a construção da identidade através das palavras.'
+        descricao: 'Uma imersão nas raízes da literatura local, explorando a construção da identidade através das palavras.'
     },
     { 
-        id: 3, titulo: "VIII Feira de Cultura ", 
-        data: "24 de Novembro", 
-        imagem: "/images/mock/eve3.jpeg" 
+        id: 3, 
+        titulo: "VIII Feira de Cultura", 
+        data: "2025-11-24", 
+        imagem: "/images/mock/eve3.jpeg",
+        descricao: 'Participação especial do projeto Caliandras na oitava edição da feira de cultura regional.'
     },
     { 
         id: 4, 
         titulo: "Aula de Língua Portuguesa", 
-        data: "28 de Novembro", 
-        imagem: "/images/mock/eve4.jpeg" 
+        data: "2025-11-28", 
+        imagem: "/images/mock/eve4.jpeg",
+        descricao: 'Intervenção cultural focada na norma culta e na expressão literária contemporânea.'
     },
     { 
         id: 5, 
         titulo: "Intervenções Poéticas", 
-        data: "05 de Dezembro", 
-        imagem: "/images/mock/eve5.jpeg" 
+        data: "2025-12-05", 
+        imagem: "/images/mock/eve5.jpeg",
+        descricao: 'Sarau e leituras dramáticas realizadas ao ar livre para a comunidade.'
     },
-   
-    
 ];

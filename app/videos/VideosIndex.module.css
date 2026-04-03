@@ -1,218 +1,232 @@
-/* VideosIndex.module.css */
-
 .mainContainer {
-    max-width: 1400px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 40px 20px 100px;
+    /* Mantemos o respiro lateral e o fundo reduzido */
+    padding: 0 20px 40px; 
     background-color: #fff;
-    /* Textura de fundo sutil para destacar as linhas brancas/cinzas */
-    background-image: linear-gradient(#fafafa 1px, transparent 1px),
-                      linear-gradient(90deg, #fafafa 1px, transparent 1px);
-    background-size: 50px 50px;
+    min-height: auto;
 }
 
 .headerSection {
+    /* Aumentei aqui de 15px para 50px para o título descer um pouco */
+    padding-top: 50px; 
     margin-bottom: 60px;
-    border-left: 10px solid var(--color-accent);
-    padding-left: 30px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 40px;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.supLabel {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #999;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
 }
 
 .mainTitle {
-    font-size: clamp(32px, 6vw, 58px);
-    font-weight: 950;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 900;
     color: #111;
-    letter-spacing: -3px;
-    line-height: 0.85;
-    text-transform: uppercase;
+    letter-spacing: -1.5px;
+    line-height: 1;
     margin: 0;
+    text-transform: uppercase;
 }
 
-.searchWrapper {
-    position: relative;
+.searchBarContainer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f8f8f8;
+    padding: 12px 20px;
+    border-radius: 50px;
     width: 100%;
-    max-width: 400px;
-    margin-top: 30px;
+    max-width: 320px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.searchBarContainer:focus-within {
+    background: #fff;
+    border-color: #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    max-width: 350px;
+}
+
+.searchIcon {
+    color: #aaa;
 }
 
 .searchInput {
-    width: 100%;
-    padding: 12px 0;
-    font-size: 11px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    flex: 1;
     border: none;
-    border-bottom: 3px solid #111;
     outline: none;
-    background-color: transparent;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 600;
     color: #111;
 }
 
-/* GRID COM DIVISÓRIAS ESTRUTURAIS */
+/* GRID E CARDS - ESTRUTURA 3X3 COM DIVISÓRIAS */
 .videoGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    /* Gap zero porque as bordas dos cards vão criar a divisão */
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
     border-top: 1px solid #eee;
     border-left: 1px solid #eee;
 }
 
-/* CARD COM DESIGN DE "CÉLULA" */
 .videoCard {
     text-decoration: none;
-    display: block;
-    position: relative;
+    display: flex;
+    flex-direction: column;
     padding: 30px;
+    background: #fff;
     border-right: 1px solid #eee;
     border-bottom: 1px solid #eee;
-    background: #fff;
-    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-    overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Efeito de Degradê e Elevação no Hover */
 .videoCard:hover {
-    background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
+    background: #fafafa;
     z-index: 2;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-    transform: translateY(-5px);
+    box-shadow: inset 0 0 0 1px var(--color-accent);
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .thumbnailWrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 9; 
     overflow: hidden;
-    margin-bottom: 25px;
-    border: 1px solid #eee;
+    border-radius: 8px; 
     background-color: #000;
 }
 
-.thumbnailWrapper img {
-    transition: transform 0.8s ease, opacity 0.5s ease;
-    opacity: 0.9;
+.thumbImage {
+    object-fit: cover !important;
+    object-position: center 30% !important;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.videoCard:hover .thumbnailWrapper img {
-    transform: scale(1.05);
-    opacity: 1;
+.videoCard:hover .thumbImage {
+    transform: scale(1.08);
 }
 
-/* Detalhe de Play no canto da imagem */
-.thumbnailWrapper::after {
-    content: "▶";
+.playOverlay {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 35px;
-    height: 35px;
-    background: var(--color-accent);
-    color: #fff;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    background: rgba(0,0,0,0.3);
     opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
-.videoCard:hover .thumbnailWrapper::after {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.badgeNovo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #111;
-    color: #fff;
-    padding: 4px 10px;
-    font-size: 9px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    z-index: 5;
-}
-
-/* CONTEÚDO REFINADO */
-.dateTag {
-    font-size: 9px;
-    color: var(--color-accent);
-    font-weight: 950;
-    margin-bottom: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+.playCircle {
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    color: #000;
+    font-size: 14px;
+    padding-left: 3px;
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
 }
 
-/* Linha de detalhe na data */
-.dateTag::before {
-    content: "";
-    width: 15px;
-    height: 2px;
-    background: var(--color-accent);
+.videoCard:hover .playOverlay {
+    opacity: 1;
+}
+
+.videoCard:hover .playCircle {
+    transform: scale(1);
+}
+
+.cardContent {
+    padding-top: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dateTag {
+    font-size: 11px;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .videoTitle {
-    font-size: 20px;
-    font-weight: 950;
-    line-height: 1.1;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.2;
     color: #111;
-    letter-spacing: -0.8px;
-    text-transform: uppercase;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .videoDescription {
-    font-size: 14px;
-    color: #777;
+    font-size: 13px;
+    color: #666;
     line-height: 1.5;
+    margin-bottom: 20px;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 20px;
 }
 
-/* Metadado de "Duração/Tipo" no rodapé do card */
 .cardFooter {
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #f0f0f0;
     padding-top: 15px;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-}
-
-.videoCard:hover .cardFooter {
-    opacity: 1;
+    border-top: 1px solid #f5f5f5;
 }
 
 .footerInfo {
+    font-size: 9px;
+    font-weight: 800;
+    color: #bbb;
+    letter-spacing: 1px;
+}
+
+.readMore {
     font-size: 10px;
     font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     color: #111;
+    letter-spacing: 1px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+@media (max-width: 1100px) {
+    .videoGrid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Mobile: Ajusta as bordas para não duplicarem */
-@media (max-width: 650px) {
-    .videoGrid {
-        grid-template-columns: 1fr;
-        border-left: none;
-    }
-    .videoCard {
-        border-left: 1px solid #eee;
-    }
+@media (max-width: 768px) {
+    .headerSection { padding-top: 30px; }
+    .headerContent { align-items: flex-start; flex-direction: column; }
+    .videoGrid { grid-template-columns: 1fr; border-left: none; }
+    .videoCard { border-left: 1px solid #eee; }
+    .mainContainer { padding-bottom: 30px; }
 }

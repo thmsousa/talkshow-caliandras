@@ -5,6 +5,21 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import styles from './Eventos.module.css';
 
+// Função para formatar a data por extenso (ex: 10 de outubro)
+const formatFullDate = (dateString: string) => {
+    try {
+        // O replace evita o erro de fuso horário que subtrai 1 dia
+        const localDateString = dateString.replace(/-/g, '/');
+        const date = new Date(localDateString);
+        return date.toLocaleDateString('pt-BR', { 
+            day: 'numeric', 
+            month: 'long' 
+        });
+    } catch (e) { 
+        return dateString; 
+    }
+};
+
 function EventoItem({ evento, index }: { evento: any, index: number }) {
     const itemRef = useRef(null);
     const isInView = useInView(itemRef, { once: true, margin: "-10% 0px" });
@@ -60,7 +75,7 @@ function EventoItem({ evento, index }: { evento: any, index: number }) {
             >
                 <div className={styles.textContainer}>
                     <div className={styles.metaTag}>
-                        <span className={styles.eventDate}>{evento.data}</span>
+                        <span className={styles.eventDate}>{formatFullDate(evento.data)}</span>
                     </div>
                     <h2 className={styles.eventTitle}>{evento.titulo}</h2>
                     <p className={styles.eventDescription}>
@@ -74,6 +89,11 @@ function EventoItem({ evento, index }: { evento: any, index: number }) {
 }
 
 export default function EventosPage() {
+    // ORDENAÇÃO: Do mais ANTIGO para o mais RECENTE (a - b)
+    const eventosOrdenados = [...EVENTOS_CALINDRAS].sort((a, b) => 
+        new Date(a.data).getTime() - new Date(b.data).getTime()
+    );
+
     return (
         <main className={styles.pageWrapper}>
             <header className={styles.pageHeader}>
@@ -106,7 +126,7 @@ export default function EventosPage() {
             <div className={styles.timelineContainer}>
                 <div className={styles.lineBg} />
                 <div className={styles.eventsList}>
-                    {EVENTOS_CALINDRAS.map((evento, index) => (
+                    {eventosOrdenados.map((evento, index) => (
                         <EventoItem key={evento.id} evento={evento} index={index} />
                     ))}
                 </div>
