@@ -55,7 +55,7 @@ export default function IndicacoesPage() {
                                 de {item.autorObra}
                             </p>
                             <p className={styles.description}>
-                                {item.description}
+                                {item.descricao}
                             </p>
                             {item.linkSugerido && (
                                 <a 
