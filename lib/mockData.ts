@@ -1,7 +1,7 @@
 // lib/mockData.ts
-import { Episodio, Autor } from '@/app/components/utils/types';
+import { Episodio, Autor, Resenha, Recomendacao, TimeMember, Produto } from '@/app/components/utils/types';
 
-export const TODOS_AUTORES: Autor[] = [
+export const TODOS_PARCEIROS: Autor[] = [
     {
         id: 'a1',
         nomeCompleto: 'Pablo Costa',
@@ -25,6 +25,9 @@ export const TODOS_AUTORES: Autor[] = [
     }
 ];
 
+// Alias para evitar quebra imediata
+export const TODOS_AUTORES = TODOS_PARCEIROS;
+
 export const TODOS_EPISODIOS: Episodio[] = [
     {
         id: '1',
@@ -34,7 +37,7 @@ export const TODOS_EPISODIOS: Episodio[] = [
         urlVideo: 'ZFValH0rauY',
         descricao: 'Saiba mais sobre o autor da obra "Espiríto Ilícitio", Pablo Costa.',
         imagemCapaUrl: '/images/mock/pablo_cover.jpg',
-        autorId: 'a1' // Pablo Costa
+        autorId: 'a1'
     },
     {
         id: '2',
@@ -64,20 +67,9 @@ export const TODOS_EPISODIOS: Episodio[] = [
         urlVideo: 'f0qlGFNDdEE',
         descricao: 'Resenha do livro Espírito Ilícito, por Gleicielly Medeiros.',
         imagemCapaUrl: '/images/mock/cover_resenha.png',
-        autorId: 'a2' // Gleicy
+        autorId: 'a2'
     },
-
 ];
-
-export interface Produto {
-    id: string;
-    titulo: string;
-    preco: string;
-    imagemUrl: string;
-    descricao: string;
-    linkCompra: string;
-    categoria: 'Livro' | 'E-book' | 'Acessório';
-}
 
 export const TODOS_PRODUTOS: Produto[] = [
     {
@@ -108,7 +100,7 @@ export const TODOS_PRODUTOS: Produto[] = [
         categoria: 'Acessório'
     }
 ];
-    
+
 export const EVENTOS_CALINDRAS = [
     { 
         id: 1, 
@@ -145,4 +137,43 @@ export const EVENTOS_CALINDRAS = [
         imagem: "/images/mock/eve5.jpeg",
         descricao: 'Sarau e leituras dramáticas realizadas ao ar livre para a comunidade.'
     },
+];
+
+export const TODAS_RESENHAS: Resenha[] = [
+    {
+        id: 'r1',
+        tituloObra: 'Espírito Ilícito',
+        autorObra: 'Pablo Costa',
+        textoResenha: 'Uma obra visceral que explora as nuances da cultura regional com uma linguagem moderna.',
+        nota: 5,
+        dataPostagem: '2025-12-30',
+        imagemCapa: '/images/mock/espirito_ilicito_cover.jpg'
+    }
+];
+
+export const TODAS_RECOMENDACOES: Recomendacao[] = [
+    {
+        id: 'rec1',
+        tituloObra: 'Torto Arado',
+        autorObra: 'Itamar Vieira Junior',
+        descricao: 'Uma recomendação essencial para entender a relação com a terra e a ancestralidade.',
+        imagemCapa: '/images/placeholder.jpg'
+    }
+];
+
+export const TIME_CALIANDRAS: TimeMember[] = [
+    {
+        id: 't1',
+        nome: 'Equipe Editorial',
+        cargo: 'Curadoria',
+        fotoUrl: '/images/placeholder.jpg',
+        bio: 'Responsável pela seleção e refinamento das obras apresentadas.'
+    },
+    {
+        id: 't2',
+        nome: 'Produção Audiovisual',
+        cargo: 'Caliandras Show',
+        fotoUrl: '/images/placeholder.jpg',
+        bio: 'Transformando literatura em experiência visual.'
+    }
 ];

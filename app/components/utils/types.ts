@@ -38,3 +38,30 @@ export type EventoCaliandra = {
     imagem: string;
     descricao?: string; 
 };
+
+export type Resenha = {
+    id: string;
+    tituloObra: string;
+    autorObra: string;
+    textoResenha: string;
+    nota: number;
+    dataPostagem: string;
+    imagemCapa?: string;
+};
+
+export type Recomendacao = {
+    id: string;
+    tituloObra: string;
+    autorObra: string;
+    descricao: string;
+    linkSugerido?: string;
+    imagemCapa?: string;
+};
+
+export type TimeMember = {
+    id: string;
+    nome: string;
+    cargo: string;
+    fotoUrl: string;
+    bio?: string;
+};

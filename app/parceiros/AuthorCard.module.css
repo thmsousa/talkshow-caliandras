@@ -1,0 +1,82 @@
+.cardLink {
+    height: clamp(400px, 65vh, 520px);
+    text-decoration: none;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    display: block;
+    position: relative;
+    background-color: #1a1a1a;
+    transform: translateY(0);
+}
+
+.cardLink:hover {
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+    transform: translateY(-12px);
+}
+
+.bgImage {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 15%;
+    transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scale(1);
+    opacity: 0.85;
+}
+
+.cardLink:hover .bgImage {
+    transform: scale(1.12);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(25px, 5vw, 40px);
+}
+
+.name {
+    font-size: clamp(22px, 4vw, 28px);
+    font-weight: 900;
+    color: white;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    line-height: 1;
+    transition: transform 0.4s ease;
+    transform: translateY(0);
+}
+
+.cardLink:hover .name {
+    transform: translateY(-5px);
+}
+
+.accentBar {
+    width: 45px;
+    height: 2px;
+    background-color: var(--color-accent);
+    margin-bottom: 20px;
+    transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cardLink:hover .accentBar {
+    width: 100%;
+}
+
+.ctaText {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.7);
+    transition: all 0.3s ease;
+}
+
+.cardLink:hover .ctaText {
+    color: #fff;
+}

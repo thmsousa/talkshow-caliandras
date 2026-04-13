@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound, useParams } from 'next/navigation';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { TODOS_EPISODIOS, TODOS_AUTORES } from '@/lib/mockData';
+import { TODOS_EPISODIOS, TODOS_PARCEIROS } from '@/lib/mockData';
 import styles from './EpisodioPage.module.css';
 
 const formatDate = (dateString: string) => {
@@ -27,7 +27,7 @@ export default function EpisodioPage() {
     if (!episodio) return notFound();
 
     // Busca o autor do vídeo
-    const autorRelacionado = TODOS_AUTORES.find(a => a.id === episodio.autorId) || TODOS_AUTORES[0];
+    const autorRelacionado = TODOS_PARCEIROS.find(a => a.id === episodio.autorId) || TODOS_PARCEIROS[0];
     
     // Filtra vídeos relacionados (excluindo o atual)
     const relacionados = TODOS_EPISODIOS.filter((ep) => ep.slug !== slug).slice(0, 4);
@@ -78,8 +78,8 @@ export default function EpisodioPage() {
                         className={styles.sidebarCard}
                     >
                         <div className={styles.authorBox}>
-                            <h3 className={styles.miniTag}>Convidado</h3>
-                            <Link href={`/autores/${autorRelacionado.slug}`} className={styles.authorLink}>
+                            <h3 className={styles.miniTag}>Parceiro</h3>
+                            <Link href={`/parceiros/${autorRelacionado.slug}`} className={styles.authorLink}>
                                 <div className={styles.avatar}>
                                     <Image 
                                         src={autorRelacionado.fotoUrl} 

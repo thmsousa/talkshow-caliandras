@@ -5,8 +5,11 @@ import Link from 'next/link';
 const navItems = [
     { name: 'Eventos', href: '/eventos' },
     { name: 'Vídeos', href: '/videos' },
+    { name: 'Resenhas', href: '/resenhas' },
+    { name: 'Parceiros', href: '/parceiros' },
+    { name: 'Indicações', href: '/indicacoes' },
+    { name: 'Nosso Time', href: '/time' },
     { name: 'Produtos', href: '/produtos' },
-    { name: 'Autores', href: '/autores' },
     { name: 'Sobre', href: '/sobre' }, 
 ];
 

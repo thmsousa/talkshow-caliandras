@@ -1,0 +1,128 @@
+.footer {
+    background-color: rgba(12, 12, 12, 0.98);
+    color: white;
+    margin-top: 0;
+    padding: 40px 0 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 10;
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footerBrand {
+    text-align: left;
+}
+
+.brandName {
+    font-size: 28px;
+    font-weight: 950;
+    color: var(--color-accent);
+    margin: 0;
+    letter-spacing: -1.5px;
+    line-height: 1;
+}
+
+.brandDescription {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 15px;
+    max-width: 400px; /* Increased to fit the new long slogan nicely */
+    line-height: 1.6;
+}
+
+.footerNavGroup {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.navLabel {
+    display: block;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+}
+
+.footerNav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footerNav li {
+    margin-bottom: 12px;
+}
+
+.footerLink {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.footerLink:hover {
+    color: var(--color-accent);
+}
+
+.footerBottom {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding: 30px 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.creditTag {
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width: 768px) {
+    .footerContainer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 767px) {
+    .footerContainer {
+        text-align: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+    .footerBrand {
+        text-align: center;
+    }
+    .footerNavGroup {
+        justify-content: center;
+        gap: 40px;
+        text-align: center;
+    }
+    .footerBottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}

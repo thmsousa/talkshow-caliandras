@@ -1,6 +1,6 @@
 import Image from 'next/image'; 
 import { notFound } from 'next/navigation';
-import { TODOS_AUTORES } from '@/lib/mockData'; 
+import { TODOS_PARCEIROS } from '@/lib/mockData'; 
 import styles from './AutorPage.module.css';
 
 interface PageProps {
@@ -9,7 +9,7 @@ interface PageProps {
 
 export default async function AutorPage({ params }: PageProps) {
   const { slug } = await params;
-  const autor = TODOS_AUTORES.find(a => a.slug === slug);
+  const autor = TODOS_PARCEIROS.find(a => a.slug === slug);
 
   if (!autor) return notFound();
 
@@ -38,7 +38,7 @@ export default async function AutorPage({ params }: PageProps) {
 
         {/* CONTEÚDO EDITORIAL */}
         <div className={styles.infoBox}>
-          <span className={styles.subtitulo}>Convidado • Caliandras</span>
+          <span className={styles.subtitulo}>Parceiro • Caliandras</span>
           <h1 className={styles.nome}>{autor.nomeCompleto}</h1>
           
           <div style={{ 
