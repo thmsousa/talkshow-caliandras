@@ -196,16 +196,37 @@ export const TODAS_RECOMENDACOES: Recomendacao[] = [
 export const TIME_CALIANDRAS: TimeMember[] = [
     {
         id: 't1',
-        nome: 'Equipe Editorial',
-        cargo: 'Curadoria',
-        fotoUrl: '/images/placeholder.jpg',
-        bio: 'Responsável pela seleção e refinamento das obras apresentadas.'
+        nome: 'Pablo Costa',
+        cargo: 'Idealizador & Escritor',
+        fotoUrl: '/images/mock/pablo_cover.jpg',
+        bio: 'Idealizador do Caliandras Show e autor de Espírito Ilícito. Sua visão guia o projeto em direção ao diálogo entre a literatura clássica e as novas mídias.'
     },
     {
         id: 't2',
-        nome: 'Produção Audiovisual',
-        cargo: 'Caliandras Show',
+        nome: 'Gleicielly Medeiros',
+        cargo: 'Apresentadora & Resenhista',
+        fotoUrl: '/images/mock/gleicy_autor.jpg',
+        bio: 'A voz por trás das entrevistas e das resenhas críticas. Com naturalidade e carisma, Gleicy conecta o público às obras literárias.'
+    },
+    {
+        id: 't3',
+        nome: 'Nayra',
+        cargo: 'Produtora & Apresentadora',
+        fotoUrl: '/images/mock/nayra.jpg',
+        bio: 'Figura essencial na logística e na condução dos episódios, garantindo que o Caliandras mantenha seu ritmo dinâmico.'
+    },
+    {
+        id: 't4',
+        nome: 'Isabella',
+        cargo: 'Direção & Comunicação',
         fotoUrl: '/images/placeholder.jpg',
-        bio: 'Transformando literatura em experiência visual.'
+        bio: 'Responsável pela estética e pela voz do projeto nos canais digitais, construindo a identidade visual que você vê aqui.'
+    },
+    {
+        id: 't5',
+        nome: 'Thiago',
+        cargo: 'Direção & Tecnologia',
+        fotoUrl: '/images/placeholder.jpg',
+        bio: 'Une a arte à tecnologia, cuidando para que a experiência do Caliandras chegue ao mundo de forma inovadora e acessível.'
     }
 ];

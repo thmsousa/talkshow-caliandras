@@ -1,115 +1,324 @@
 .mainContainer {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 60px 20px 100px;
+    padding: 0px 20px 100px; /* Zerei o topo */
     background-color: #fff;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- BACKGROUND DECO --- */
+.bgDeco {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255, 107, 0, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    top: -300px;
+    right: -200px;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .header {
-    margin-bottom: 100px;
     text-align: center;
-}
-
-.logoIcon {
-    width: 60px;
-    height: 60px;
-    background-color: var(--color-accent);
-    border-radius: 15px;
-    margin: 0 auto 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 28px;
-    font-weight: 900;
+    margin-bottom: 40px;
+    padding-top: 5px; /* Quase no topo */
+    position: relative;
+    z-index: 5;
 }
 
 .title {
-    font-size: clamp(36px, 10vw, 72px);
+    font-size: clamp(32px, 6vw, 64px);
     font-weight: 950;
-    color: #1a1a1a;
-    letter-spacing: -5px;
-    line-height: 0.8;
+    letter-spacing: -3px;
+    line-height: 1;
     text-transform: uppercase;
-    margin: 0;
+    color: #111;
+    margin-bottom: 12px;
 }
 
 .subtitle {
-    font-size: 18px;
+    font-size: 17px;
+    color: #888;
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* --- COLLECTIVE HERO (SPLIT LAYOUT) --- */
+.collectiveHero {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1240px;
+    height: 440px;
+    margin: 0 auto 100px;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+    border: 1px solid #f2f2f2;
+    position: relative;
+    z-index: 5;
+    background: #fff;
+}
+
+.heroImageWrapper {
+    flex: 2.2;
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+}
+
+.heroImage {
+    object-fit: cover;
+    object-position: center 25%;
+    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.collectiveHero:hover .heroImage {
+    transform: scale(1.03);
+}
+
+.heroCaption {
+    flex: 0.8;
+    background-color: #fff;
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    position: relative;
+}
+
+/* Linha vertical premium que tínhamos antes */
+.heroCaption::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #eee, transparent);
+}
+
+.heroCaption h2 {
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--color-accent);
+    margin-bottom: 15px;
+}
+
+.captionTitle {
+    font-size: 32px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    color: #111;
+    margin-bottom: 20px;
+    font-family: serif;
+    font-style: italic;
+}
+
+.heroCaption p {
+    font-size: 15px;
     color: #666;
-    maxWidth: 500px;
-    margin: 30px auto 0;
     line-height: 1.6;
+    font-weight: 400;
+}
+
+/* --- GRID DE MEMBROS --- */
+.gridTitleSection {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.gridTitle {
+    font-size: 9px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #ccc;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 80px 40px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 120px;
+    position: relative;
+    z-index: 5;
 }
 
 .memberCard {
+    background-color: rgba(253, 253, 253, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 60px 40px;
+    border-radius: 40px;
+    border: 1px solid #f5f5f5;
     text-align: center;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.memberCard:hover {
+    transform: translateY(-8px);
+    background-color: #fff;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.05);
+    border-color: #eee;
 }
 
 .photoOuterCircle {
-    position: relative;
-    width: 240px;
-    height: 240px;
-    margin: 0 auto 30px;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 35px;
+    padding: 8px;
+    border: 1px solid #f0f0f0;
     border-radius: 50%;
-    padding: 10px;
-    border: 2px solid #f0f0f0;
+    transition: all 0.6s ease;
+}
+
+.memberCard:hover .photoOuterCircle {
+    border-color: var(--color-accent);
+    transform: rotate(5deg);
 }
 
 .photoInnerCircle {
-    position: relative;
     width: 100%;
     height: 100%;
+    position: relative;
     border-radius: 50%;
     overflow: hidden;
-    background-color: #f5f5f5;
+    background-color: #fcfcfc;
 }
 
 .photo {
     object-fit: cover;
     filter: grayscale(100%);
-    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), filter 0.6s ease;
+    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .memberCard:hover .photo {
-    transform: scale(1.1);
     filter: grayscale(0%);
-}
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent 60%, rgba(255, 107, 0, 0.2));
-    mix-blend-mode: multiply;
+    transform: scale(1.1);
 }
 
 .memberName {
     font-size: 24px;
-    font-weight: 900;
-    color: #1a1a1a;
-    margin: 0 0 5px;
+    font-weight: 950;
+    text-transform: uppercase;
     letter-spacing: -1px;
+    margin-bottom: 8px;
+    color: #111;
 }
 
+/* Badge do cargo que tínhamos antes */
 .memberRole {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 900;
-    color: var(--color-accent);
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+    letter-spacing: 3px;
+    color: var(--color-accent);
+    margin-bottom: 25px;
+    display: inline-block;
+    padding: 3px 12px;
+    background: rgba(255, 107, 0, 0.05);
+    border-radius: 100px;
 }
 
 .memberBio {
     font-size: 15px;
     color: #777;
     line-height: 1.6;
-    max-width: 280px;
+}
+
+/* --- MOMENTOS GALLERY --- */
+.momentsSection {
+    background-color: #fcfcfc;
+    padding: 100px 40px;
+    width: 100%;
+    border-radius: 60px;
+    margin-bottom: 100px;
+    border: 1px solid #f8f8f8;
+}
+
+.momentsGallery {
+    max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+.momentLabel {
+    font-size: 10px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--color-accent);
+    margin-bottom: 25px;
+    display: block;
+}
+
+.momentTitle {
+    font-size: 48px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    line-height: 0.95;
+    margin-bottom: 35px;
+    color: #111;
+}
+
+.momentDescription {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.momentImageWrapper {
+    flex: 1.6;
+    height: 540px;
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 40px 90px rgba(0,0,0,0.08);
+}
+
+.momentImage {
+    object-fit: cover;
+}
+
+/* --- RESPONSIVIDADE (REFINADA) --- */
+@media (max-width: 1024px) {
+    .collectiveHero { flex-direction: column; height: auto; border-radius: 24px; }
+    .heroImageWrapper { height: auto; aspect-ratio: 4 / 3; width: 100%; flex: none; }
+    .heroCaption { padding: 40px 30px; text-align: center; }
+    .heroCaption::before { display: none; }
+    .momentsGallery { flex-direction: column-reverse; text-align: center; gap: 50px; }
+    .momentImageWrapper { height: auto; aspect-ratio: 4 / 3; width: 100%; flex: none; }
+    .momentsSection { padding: 60px 20px; border-radius: 30px; }
+    .momentTitle { font-size: 40px; }
+}
+
+@media (max-width: 768px) {
+    .mainContainer { padding: 0 15px 60px; }
+    .header { padding-top: 5px; margin-bottom: 30px; }
+    .title { font-size: 38px; letter-spacing: -2px; }
+    .subtitle { font-size: 16px; }
+    .grid { grid-template-columns: 1fr; }
+    .memberCard { padding: 50px 30px; }
+}
+
+@media (max-width: 480px) {
+    .title { font-size: 32px; }
+    .captionTitle { font-size: 26px; }
+    .momentTitle { font-size: 32px; }
 }
