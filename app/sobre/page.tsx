@@ -22,34 +22,30 @@ export default function SobrePage() {
                     <div className={styles.techLine} />
                 </div>
 
-                <div className={styles.heroBadge}>Estreia 2024</div>
+                <div className={styles.heroBadge}>Estreia 2025</div>
                 <span className={styles.overtitle}>Manifesto Caliandras</span>
+                <span className={styles.heroSubtitle}>Literatura como sopro de vida</span>
                 <h1 className={styles.title}>
                     Cultura que <span className={styles.accentText}>inspira</span> <br /> e conecta.
                 </h1>
 
                 <div className={styles.heroContentExpand}>
                     <p className={styles.heroDescription}>
-                        O Caliandras é uma plataforma de diálogo dedicada a investigar as potências da literatura contemporânea.
-                        Nascemos no coração do Tocantins para ser o ponto de convergência entre o pensamento regional e as vozes
-                        que definem o cenário cultural brasileiro.
+                        O Caliandras Show é um coletivo que visa debater literatura de forma acessível e didática, no momento, principalmente em Palmas (TO).
                     </p>
 
                     <div className={styles.heroStatsMini}>
                         <div className={styles.statItem}>
                             <span className={styles.statLine} />
-                            <strong>Diálogo</strong>
-                            <p>Profundo</p>
+                            <strong>Visibilizar</strong>
                         </div>
                         <div className={styles.statItem}>
                             <span className={styles.statLine} />
-                            <strong>Curadoria</strong>
-                            <p>Rigorosa</p>
+                            <strong>Oportunizar</strong>
                         </div>
                         <div className={styles.statItem}>
                             <span className={styles.statLine} />
-                            <strong>Legado</strong>
-                            <p>Cultural</p>
+                            <strong>Debater</strong>
                         </div>
                     </div>
                 </div>
@@ -63,9 +59,7 @@ export default function SobrePage() {
                     <span className={styles.sectionLabel}>01 // A Missão</span>
                     <h2 className={styles.sectionTitle}>Mais que um Talk Show.</h2>
                     <p className={styles.description}>
-                        O Caliandras nasceu da urgência de dar palco às vozes que constroem a identidade cultural brasileira.
-                        Exploramos as profundezas da literatura regional e nacional, conectando autores consagrados e novos talentos
-                        a um público ávido por conteúdo inteligente e sensível.
+                        O projeto inaugurou na estreia do livro independente Espírito Ilícito, do autor Pabl. Costa, imaginado para criar um ambiente divertido e reflexivo durante o 1° lançamento dessa obra por meio do formato Talk Show, cujo teve roteirista, entrevistadores, sonoplastas... A partir disso, expandimos o projeto para desginer gráficos e publicações de resenhas, nos consolidando no circuito cultural de Palmas.
                     </p>
                 </div>
 
@@ -77,10 +71,6 @@ export default function SobrePage() {
                             fill
                             className={styles.featuredImage}
                         />
-                    </div>
-                    <div className={styles.imageFloatingCard}>
-                        <strong>+50</strong>
-                        <span>Autores <br /> Conectados</span>
                     </div>
                 </div>
             </section>
@@ -96,7 +86,7 @@ export default function SobrePage() {
                 <div className={styles.quoteContainer}>
                     <span className={styles.quoteIcon}>“</span>
                     <blockquote className={styles.quoteText}>
-                        Nossa missão é transformar a <span className={styles.quoteHighlight}>conversa em legado</span> literário e a curiosidade em <span className={styles.quoteHighlight}>movimento cultural</span>.
+                        Nossa missão é: dar o devido valor ao que dá sentido à vida.
                     </blockquote>
                     <div className={styles.quoteAuthor}>— Manifesto Caliandras</div>
                 </div>
@@ -105,30 +95,14 @@ export default function SobrePage() {
             </div>
 
             {/* 4. EQUIPE & CURADORIA */}
-            <section className={styles.contentSection} style={{ marginBottom: '120px' }}>
+            <section className={styles.contentSection} style={{ marginBottom: '140px', textAlign: 'center' }}>
                 <div className={styles.textBlock} style={{ textAlign: 'center', width: '100%' }}>
                     <span className={styles.sectionLabel}>02 // Quem Faz</span>
-                    <h2 className={styles.sectionTitle} style={{ fontSize: '42px' }}>Mentes por trás do projeto</h2>
-
-                    <div className={styles.teamGrid}>
-                        <div className={styles.teamMember}>
-                            <div className={styles.memberAvatar}>N</div>
-                            <h3>Pablo, Gleicy, Nayra & Emily</h3>
-                            <p>Curadoria & Talk</p>
-                            <span className={styles.memberBio}>Conduzem o diálogo com sensibilidade técnica e paixão literária.</span>
-                        </div>
-                        <div className={styles.teamMember}>
-                            <div className={styles.memberAvatar}>P</div>
-                            <h3>Pablo Costa</h3>
-                            <p>Visão & Direção</p>
-                            <span className={styles.memberBio}>Estrategista criativo focado em expandir a voz da cultura regional.</span>
-                        </div>
-                        <div className={styles.teamMember}>
-                            <div className={styles.memberAvatar}>T</div>
-                            <h3>Palmas - TO</h3>
-                            <p>Nosso Palco</p>
-                            <span className={styles.memberBio}>Onde a semente do Caliandras floresce para todo o país.</span>
-                        </div>
+                    
+                    <div style={{ marginTop: '40px' }}>
+                        <Link href="/time" className="cta-premium-btn">
+                            <span className="btn-text">Nossa Equipe</span>
+                        </Link>
                     </div>
                 </div>
             </section>

@@ -65,7 +65,17 @@
     text-transform: uppercase;
     letter-spacing: 8px;
     display: block;
+    margin-bottom: 10px;
+}
+
+.heroSubtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    display: block;
     margin-bottom: 25px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .title {
