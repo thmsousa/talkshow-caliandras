@@ -2,6 +2,7 @@
 
 import { TODAS_RESENHAS } from '@/lib/mockData';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import styles from './Resenhas.module.css';
 
@@ -36,46 +37,46 @@ export default function ResenhasPage() {
                 {TODAS_RESENHAS.map((resenha, idx) => (
                     <motion.article 
                         key={resenha.id}
-                        initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className={styles.reviewArticle}
-                        style={{ flexDirection: idx % 2 === 0 ? 'row' : 'row-reverse' }}
+                        transition={{ delay: idx * 0.1 }}
+                        className={styles.reviewCard}
                     >
-                        <div className={styles.imageSection}>
+                        <Link href={`/resenhas/${resenha.slug}`} className={styles.cardLink}>
                             <div className={styles.imageWrapper}>
                                 <Image 
                                     src={resenha.imagemCapa || '/images/placeholder.jpg'} 
                                     alt={resenha.tituloObra}
                                     fill
-                                    style={{ objectFit: 'cover' }}
+                                    className={styles.cardImage}
                                 />
+                                <div className={styles.cardOverlay}>
+                                    <span className={styles.readMoreBtn}>Ler Resenha</span>
+                                </div>
                             </div>
-                        </div>
-                        <div className={styles.contentSection}>
-                            <span className={styles.authorTag}>
-                                {resenha.autorObra}
-                            </span>
-                            <h2 className={styles.reviewTitle}>
-                                {resenha.tituloObra}
-                            </h2>
-                            <div className={styles.starsContainer}>
-                                {[...Array(5)].map((_, i) => (
-                                    <span 
-                                        key={i} 
-                                        className={`${styles.star} ${i < resenha.nota ? styles.starActive : styles.starInactive}`}
-                                    >
-                                        ★
-                                    </span>
-                                ))}
+                            
+                            <div className={styles.cardContent}>
+                                <span className={styles.authorTag}>{resenha.autorObra}</span>
+                                <h2 className={styles.cardTitle}>{resenha.tituloObra}</h2>
+                                <div className={styles.starsContainer}>
+                                    {[...Array(5)].map((_, i) => (
+                                        <span 
+                                            key={i} 
+                                            className={`${styles.star} ${i < resenha.nota ? styles.starActive : styles.starInactive}`}
+                                        >
+                                            ★
+                                        </span>
+                                    ))}
+                                </div>
+                                <p className={styles.cardExcerpt}>
+                                    {resenha.textoResenha.substring(0, 160)}...
+                                </p>
+                                <time className={styles.cardDate}>
+                                    {new Date(resenha.dataPostagem).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
+                                </time>
                             </div>
-                            <p className={styles.reviewText}>
-                                "{resenha.textoResenha}"
-                            </p>
-                            <time className={styles.dateTag}>
-                                Publicado em {new Date(resenha.dataPostagem).toLocaleDateString('pt-BR')}
-                            </time>
-                        </div>
+                        </Link>
                     </motion.article>
                 ))}
             </div>

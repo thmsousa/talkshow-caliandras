@@ -10,7 +10,7 @@ export default function SobrePage() {
 
             {/* 1. HERO SECTION */}
             <header className={styles.hero}>
-                
+
                 {/* DETALHE TÉCNICO (Preenche o vazio superior) */}
                 <div className={styles.technicalHeader}>
                     <div className={styles.techLine} />
@@ -66,7 +66,7 @@ export default function SobrePage() {
                 <div className={styles.imageWrapper}>
                     <div className={styles.imagePlaceholder}>
                         <Image
-                            src="/images/mock/cover_vlog.png" 
+                            src="/images/mock/cover_vlog.png"
                             alt="Bastidores Caliandras"
                             fill
                             className={styles.featuredImage}
@@ -98,7 +98,7 @@ export default function SobrePage() {
             <section className={styles.contentSection} style={{ marginBottom: '140px', textAlign: 'center' }}>
                 <div className={styles.textBlock} style={{ textAlign: 'center', width: '100%' }}>
                     <span className={styles.sectionLabel}>02 // Quem Faz</span>
-                    
+
                     <div style={{ marginTop: '40px' }}>
                         <Link href="/time" className="cta-premium-btn">
                             <span className="btn-text">Nossa Equipe</span>
@@ -115,7 +115,7 @@ export default function SobrePage() {
 
                     <Link href="/videos" className="cta-premium-btn">
                         <span className="btn-text">Ver Episódios</span>
-                    
+
                     </Link>
                 </div>
             </footer>

@@ -41,12 +41,16 @@ export type EventoCaliandra = {
 
 export type Resenha = {
     id: string;
+    slug: string;
     tituloObra: string;
     autorObra: string;
     textoResenha: string;
     nota: number;
     dataPostagem: string;
     imagemCapa?: string;
+    resenhista?: string;
+    editor?: string;
+    local?: string;
 };
 
 export type Recomendacao = {

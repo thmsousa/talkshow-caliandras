@@ -57,18 +57,30 @@ export const TODOS_EPISODIOS: Episodio[] = [
         urlVideo: 'Xgoom94yiNw',
         descricao: 'Registros do lançamento do livro Espirito Ilícito, realiado no Cine Teatro IFTO, em 10 de outubro.',
         imagemCapaUrl: '/images/mock/cover_lancamento_ei.png',
-        autorId: 'a1' 
+        autorId: 'a1'
     },
-     {
+    {
         id: '4',
         titulo: 'Resenha de Espírito Ilícito',
         slug: 'resenha-esp-ili-gleicielly',
-        dataLancamento: '2025-12-29T12:00:00',
+        dataLancamento: '2025-10-16T12:00:00',
         urlVideo: 'f0qlGFNDdEE',
-        descricao: 'Resenha do livro Espírito Ilícito, por Gleicielly Medeiros.',
+        descricao: `Em ESPÍRITO ILÍCITO, Pabl. Costa tece uma obra envolvente, sensorial e perturbadora, onde o sagrado se entrelaça com o profano em uma história repleta de cicatrizes e beleza 💐. O leitor é guiado através de conventos, salas de aula abafadas e florestas impregnadas de mistério, conhecendo a jornada de dois jovens marcados pelo abandono, pela culpa e pela vontade de existir ✨️
+
+Margarida é enviada à enigmática Ilha do Bom Passado após um escândalo familiar, descobre que a vida ali vai além da rotina religiosa e do isolamento: ela se depara com os vestígios de Narciso um ex-aluno desaparecido que deixou diários carregados de dor, confissões e visões perturbadoras 🌕. Em um emaranhado de páginas extraviadas e memórias ocultas, passado e presente se entrelaçam de forma a criar um tecido literário que combina lirismo, crítica social e um sutil toque de realismo mágico 📚
+
+Pabl. Costa apresenta personagens multifacetados e humanos, como a severa Madre Sílvia, o enigmático Lírio e o reservado Padre Leon, todos orbitando em torno de um núcleo de afeto ferido e instituições em decadência. Com uma prosa lírica e fluida, o autor transforma a linguagem em um reflexo das emoções mais profundas aquelas que a religião tenta silenciar, que a sociedade prefere ocultar, mas que a literatura busca resgatar 🌷
+
+Espírito Ilícito é uma história que aborda juventudes feridas, a falência das estruturas que deveriam proteger e o poder avassalador da memória. Um livro destinado àqueles que não temem a escuridão e que sabem que, por vezes, é nesse lugar que a luz começa a se manifestar 🌕
+
+✍️Resenha por: Gleice Medeiros
+📷Edição por: Emilly Campos
+
+📍Local: Dunas do Jalapão (TO)
+🗓 Data: 16/10/2025`,
         imagemCapaUrl: '/images/mock/cover_resenha.png',
         autorId: 'a2'
-    },
+    }
 ];
 
 export const TODOS_PRODUTOS: Produto[] = [
@@ -142,6 +154,26 @@ export const EVENTOS_CALINDRAS = [
 export const TODAS_RESENHAS: Resenha[] = [
     {
         id: 'r1',
+        slug: 'resenha-espirito-ilicito-gleice',
+        tituloObra: 'Espírito Ilícito',
+        autorObra: 'Pablo Costa',
+        textoResenha: `Em ESPÍRITO ILÍCITO, Pabl. Costa tece uma obra envolvente, sensorial e perturbadora, onde o sagrado se entrelaça com o profano em uma história repleta de cicatrizes e beleza 💐. O leitor é guiado através de conventos, salas de aula abafadas e florestas impregnadas de mistério, conhecendo a jornada de dois jovens marcados pelo abandono, pela culpa e pela vontade de existir ✨️
+
+Margarida é enviada à enigmática Ilha do Bom Passado após um escândalo familiar, descobre que a vida ali vai além da rotina religiosa e do isolamento: ela se depara com os vestígios de Narciso um ex-aluno desaparecido que deixou diários carregados de dor, confissões e visões perturbadoras 🌕. Em um emaranhado de páginas extraviadas e memórias ocultas, passado e presente se entrelaçam de forma a criar um tecido literário que combina lirismo, crítica social e um sutil toque de realismo mágico 📚
+
+Pabl. Costa apresenta personagens multifacetados e humanos, como a severa Madre Sílvia, o enigmático Lírio e o reservado Padre Leon, todos orbitando em torno de um núcleo de afeto ferido e instituições em decadência. Com uma prosa lírica e fluida, o autor transforma a linguagem em um reflexo das emoções mais profundas aquelas que a religião tenta silenciar, que a sociedade prefere ocultar, mas que a literatura busca resgatar 🌷
+
+Espírito Ilícito é uma história que aborda juventudes feridas, a falência das estruturas que deveriam proteger e o poder avassalador da memória. Um livro destinado àqueles que não temem a escuridão e que sabem que, por vezes, é nesse lugar que a luz começa a se manifestar 🌕`,
+        nota: 5,
+        dataPostagem: '2025-10-16',
+        imagemCapa: '/images/mock/cover_resenha.png',
+        resenhista: 'Gleice Medeiros',
+        editor: 'Emilly Campos',
+        local: 'Dunas do Jalapão (TO)'
+    },
+    {
+        id: 'r2',
+        slug: 'uma-obra-visceral-regional',
         tituloObra: 'Espírito Ilícito',
         autorObra: 'Pablo Costa',
         textoResenha: 'Uma obra visceral que explora as nuances da cultura regional com uma linguagem moderna.',

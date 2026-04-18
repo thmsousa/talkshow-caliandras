@@ -275,6 +275,7 @@
     font-size: 19px;
     line-height: 1.8;
     color: #333;
+    white-space: pre-line;
 }
 
 .descriptionText::first-letter {
