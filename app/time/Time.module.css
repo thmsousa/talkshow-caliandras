@@ -23,8 +23,8 @@
 
 .header {
     text-align: center;
-    margin-bottom: 40px;
-    padding-top: 5px; /* Quase no topo */
+    margin-bottom: 30px;
+    margin-top: -15px; /* Subindo o título */
     position: relative;
     z-index: 5;
 }
@@ -92,6 +92,7 @@
     justify-content: center;
     text-align: left;
     position: relative;
+    flex: 0.8;
 }
 
 /* Linha vertical premium que tínhamos antes */
@@ -254,6 +255,12 @@
     display: flex;
     gap: 80px;
     align-items: center;
+    width: 100%;
+}
+
+.momentInfo {
+    flex: 1;
+    min-width: 0;
 }
 
 .momentLabel {
@@ -290,6 +297,8 @@
     border-radius: 40px;
     overflow: hidden;
     box-shadow: 0 40px 90px rgba(0,0,0,0.08);
+    display: block; /* Ensure it stays block in flex container if needed */
+    min-width: 300px;
 }
 
 .momentImage {

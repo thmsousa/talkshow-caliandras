@@ -57,13 +57,13 @@ export default function TimePage() {
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 className={styles.collectiveHero}
             >
                 <div className={styles.heroImageWrapper}>
                     <Image 
-                        src="/images/time/coletivo_2.jpg" 
-                        alt="Coletivo Caliandras em Ação"
+                        src="/images/time/coletivo_1.jpg" 
+                        alt="Time Caliandras em momento de diálogo"
                         fill
                         className={styles.heroImage}
                         priority
@@ -97,7 +97,7 @@ export default function TimePage() {
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-50px" }}
                 className={styles.grid}
             >
                 {TIME_CALIANDRAS.map((membro) => (
@@ -129,7 +129,7 @@ export default function TimePage() {
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.1 }}
                     className={styles.momentsGallery}
                 >
                     <div className={styles.momentInfo}>
@@ -141,8 +141,8 @@ export default function TimePage() {
                     </div>
                     <div className={styles.momentImageWrapper}>
                         <Image 
-                            src="/images/time/coletivo_1.jpg" 
-                            alt="Time Caliandras em momento de diálogo"
+                            src="/images/time/coletivo_2.jpg" 
+                            alt="Coletivo Caliandras em Ação"
                             fill
                             className={styles.momentImage}
                         />
