@@ -1,7 +1,7 @@
 .mainContainer {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0px 20px 100px; /* Zerei o topo */
+    padding: 0px 20px 40px; /* Reduzi o padding inferior */
     background-color: #fff;
     min-height: 100vh;
     position: relative;
@@ -245,7 +245,7 @@
     padding: 100px 40px;
     width: 100%;
     border-radius: 60px;
-    margin-bottom: 100px;
+    margin-bottom: 40px; /* Reduzi a margem inferior */
     border: 1px solid #f8f8f8;
 }
 
