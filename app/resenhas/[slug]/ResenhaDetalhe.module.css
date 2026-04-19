@@ -62,6 +62,7 @@
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 30px 80px rgba(0,0,0,0.12);
+    background-color: #f9f9f9; /* Fallback caso a imagem demore */
 }
 
 .detailsSide {
@@ -269,16 +270,36 @@
 }
 
 @media (max-width: 1024px) {
-    .impactSection { flex-direction: column; gap: 40px; }
-    .imageSide { height: 400px; }
-    .detailsSide { border-left: none; border-top: 1px solid #f0f0f0; padding: 40px 0 0; }
-    .contentLayout { flex-direction: column; gap: 60px; }
-    .sidebar { width: 100%; order: 2; }
-    .articleBody { order: 1; }
+    .mainContainer { padding: 30px 15px 60px; }
+    .impactSection { flex-direction: column; gap: 30px; width: 100%; max-width: 600px; margin-bottom: 40px; }
+    .imageSide { height: 450px; width: 100%; min-width: 100%; flex: none; display: block; }
+    .detailsSide { 
+        flex: none;
+        border-left: none; 
+        border-top: 1px solid #f0f0f0; 
+        padding: 30px 0 0; 
+        text-align: center; 
+        width: 100%;
+    }
+    .stars { justify-content: center; }
+    .contentLayout { flex-direction: column; gap: 50px; padding-top: 40px; }
+    .sidebar { width: 100%; order: 2; border-top: 1px solid #f0f0f0; padding-top: 40px; }
+    .articleBody { order: 1; width: 100%; }
 }
 
 @media (max-width: 768px) {
-    .mainContainer { padding-top: 40px; }
-    .title { font-size: 42px; }
-    .imageSide { height: 300px; }
+    .title { font-size: 38px; }
+    .imageSide { height: 320px; flex: none; }
+    .reviewText { font-size: 18px; line-height: 1.7; }
+    .reviewText::first-letter { font-size: 60px; }
+    .dramaticQuote { font-size: 24px; padding: 0 10px; margin-bottom: 50px; }
+    .dramaticQuote::before { font-size: 80px; top: -30px; }
+    .videoCTA { padding: 25px 15px; }
+}
+
+@media (max-width: 480px) {
+    .title { font-size: 32px; }
+    .imageSide { height: 280px; }
+    .authorName { font-size: 14px; }
+    .techValue { font-size: 14px; }
 }

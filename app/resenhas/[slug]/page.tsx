@@ -54,13 +54,13 @@ export default function ResenhaDetalhePage() {
             {/* --- NOVO: IMPACT SECTION (SPLIT) --- */}
             <section className={styles.impactSection}>
                 <motion.div 
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                     className={styles.imageSide}
                 >
                     <Image 
-                        src={resenha.imagemCapa || '/images/placeholder.jpg'} 
+                        src={resenha.imagemCapa || '/images/mock/cover_resenha.png'} 
                         alt={resenha.tituloObra}
                         fill
                         className={styles.featuredImage}
@@ -69,8 +69,8 @@ export default function ResenhaDetalhePage() {
                 </motion.div>
 
                 <motion.div 
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
                     className={styles.detailsSide}
                 >
