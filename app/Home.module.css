@@ -26,8 +26,21 @@
 
 .sectionHeader {
     margin-bottom: 50px;
-    border-left: 5px solid var(--color-accent);
     padding-left: 25px;
+    position: relative;
+}
+
+.sectionHeader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: calc(100% + 20px);
+    background: var(--color-accent);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
+    z-index: 1;
 }
 
 .overtitle {
