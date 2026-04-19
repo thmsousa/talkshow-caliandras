@@ -7,27 +7,29 @@
 
 .header {
     margin-bottom: 80px;
-    text-align: center;
+    border-left: 5px solid var(--color-accent);
+    padding-left: 25px;
+    text-align: left;
 }
 
 .overtitle {
     font-size: 11px;
-    font-weight: 900;
-    color: var(--color-accent);
-    letter-spacing: 6px;
+    font-weight: 800;
+    color: #999;
+    letter-spacing: 4px;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .title {
-    font-size: clamp(32px, 8vw, 64px);
+    font-size: clamp(32px, 6vw, 54px);
     font-weight: 950;
-    color: #1a1a1a;
+    color: #111;
     letter-spacing: -3px;
-    line-height: 0.9;
+    line-height: 0.85;
     text-transform: uppercase;
-    margin: 0 0 20px;
+    margin: 0;
 }
 
 .divider {

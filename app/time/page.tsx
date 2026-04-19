@@ -67,6 +67,7 @@ export default function TimePage() {
                         fill
                         className={styles.heroImage}
                         priority
+                        sizes="(max-width: 1024px) 100vw, 800px"
                     />
                 </div>
                 <div className={styles.heroCaption}>
@@ -113,6 +114,7 @@ export default function TimePage() {
                                     alt={membro.nome}
                                     fill
                                     className={styles.photo}
+                                    sizes="200px"
                                 />
                             </div>
                         </div>
@@ -145,6 +147,7 @@ export default function TimePage() {
                             alt="Coletivo Caliandras em Ação"
                             fill
                             className={styles.momentImage}
+                            sizes="(max-width: 1024px) 100vw, 600px"
                         />
                     </div>
                 </motion.section>

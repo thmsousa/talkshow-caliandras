@@ -4,6 +4,7 @@ import { TODAS_RESENHAS } from '@/lib/mockData';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { formatFullDate } from '@/lib/utils/formatters';
 import styles from './Resenhas.module.css';
 
 export default function ResenhasPage() {
@@ -50,6 +51,7 @@ export default function ResenhasPage() {
                                     alt={resenha.tituloObra}
                                     fill
                                     className={styles.cardImage}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                                 <div className={styles.cardOverlay}>
                                     <span className={styles.readMoreBtn}>Ler Resenha</span>
@@ -73,7 +75,7 @@ export default function ResenhasPage() {
                                     {resenha.textoResenha.substring(0, 160)}...
                                 </p>
                                 <time className={styles.cardDate}>
-                                    {new Date(resenha.dataPostagem).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
+                                    {formatFullDate(resenha.dataPostagem)}
                                 </time>
                             </div>
                         </Link>

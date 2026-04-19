@@ -8,11 +8,10 @@
 }
 
 .headerSection {
-    /* Aumentei aqui de 15px para 50px para o título descer um pouco */
     padding-top: 50px; 
-    margin-bottom: 60px;
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 40px;
+    margin-bottom: 80px;
+    border-left: 5px solid var(--color-accent);
+    padding-left: 25px;
 }
 
 .headerContent {
@@ -26,19 +25,19 @@
 .supLabel {
     font-size: 11px;
     font-weight: 800;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     color: #999;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .mainTitle {
-    font-size: clamp(32px, 5vw, 48px);
-    font-weight: 900;
+    font-size: clamp(32px, 6vw, 54px);
+    font-weight: 950;
     color: #111;
-    letter-spacing: -1.5px;
-    line-height: 1;
+    letter-spacing: -3px;
+    line-height: 0.85;
     margin: 0;
     text-transform: uppercase;
 }
@@ -52,6 +51,7 @@
     border-radius: 50px;
     width: 100%;
     max-width: 320px;
+    margin-top: 30px;
     transition: all 0.3s ease;
     border: 1px solid transparent;
 }

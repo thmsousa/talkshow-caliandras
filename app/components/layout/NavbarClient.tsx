@@ -1,6 +1,9 @@
 'use client'; 
+
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
     { name: 'Eventos', href: '/eventos' },
@@ -15,6 +18,8 @@ const navItems = [
 
 export default function NavbarClient() {
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
+    
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
@@ -22,6 +27,8 @@ export default function NavbarClient() {
             {/* BOTÃO HAMBÚRGUER REFINADO */}
             <button 
                 onClick={toggleMenu}
+                className="mobile-toggle"
+                aria-label="Menu"
                 style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -35,10 +42,7 @@ export default function NavbarClient() {
                     zIndex: 2005,
                     position: 'relative'
                 }}
-                className="mobile-toggle"
             >
-                {/* As listras agora são pretas para aparecer no header branco, 
-                    mas ficam brancas quando o menu (que é escuro) abre */}
                 <div style={{ 
                     width: '100%', height: '1.5px', 
                     background: isOpen ? 'white' : 'black', 
@@ -59,19 +63,51 @@ export default function NavbarClient() {
                 }} />
             </button>
 
-            {/* GAVETA LATERAL */}
-            <ul className={`nav-list ${isOpen ? 'open' : ''}`}>
+            {/* DESKTOP NAV */}
+            <ul className="nav-list desktop-only">
                 {navItems.map((item) => (
                     <li key={item.name} className="nav-item"> 
-                        <Link href={item.href} 
-                            onClick={() => setIsOpen(false)}
-                            className="nav-link"
+                        <Link 
+                            href={item.href} 
+                            className={`nav-link ${pathname === item.href ? 'active' : ''}`}
                         >
                             {item.name}
                         </Link>
                     </li>
                 ))}
             </ul>
+
+            {/* MOBILE GAVETA (Framer Motion) */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div 
+                        initial={{ y: '-100%' }}
+                        animate={{ y: 0 }}
+                        exit={{ y: '-100%' }}
+                        transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
+                        className="mobile-drawer"
+                    >
+                        <ul className="mobile-list">
+                            {navItems.map((item, i) => (
+                                <motion.li 
+                                    key={item.name}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.1 + i * 0.05 }}
+                                >
+                                    <Link 
+                                        href={item.href} 
+                                        onClick={() => setIsOpen(false)}
+                                        className={`nav-link-mobile ${pathname === item.href ? 'active-mobile' : ''}`}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                </motion.li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             <style jsx>{`
                 .nav-list {
@@ -91,65 +127,78 @@ export default function NavbarClient() {
                     text-transform: uppercase;
                     text-decoration: none;
                     position: relative;
+                    opacity: 0.6;
                 }
 
-                /* Linha minimalista no hover para Desktop */
+                :global(.nav-link:hover), :global(.nav-link.active) {
+                    opacity: 1;
+                    color: var(--color-accent);
+                }
+
+                /* Linha minimalista no active/hover para Desktop */
                 @media (min-width: 769px) {
                     :global(.nav-link::after) {
                         content: '';
                         position: absolute;
-                        bottom: -4px;
-                        left: 0;
+                        bottom: -6px;
+                        left: 50%;
                         width: 0;
-                        height: 1px;
+                        height: 2px;
                         background: var(--color-accent);
-                        transition: width 0.3s ease;
+                        transition: all 0.3s ease;
+                        transform: translateX(-50%);
+                        border-radius: 2px;
                     }
-                    :global(.nav-link:hover::after) {
-                        width: 100%;
+                    :global(.nav-link:hover::after), :global(.nav-link.active::after) {
+                        width: 15px;
                     }
                 }
 
-                /* MOBILE LOGIC */
-                .mobile-toggle {
-                    display: none !important;
+                .mobile-drawer {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100vh;
+                    background: #0a0a0a;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 2000;
+                }
+
+                .mobile-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                }
+
+                :global(.nav-link-mobile) {
+                    color: white;
+                    font-size: 28px;
+                    font-weight: 950;
+                    text-transform: uppercase;
+                    letter-spacing: 4px;
+                    text-decoration: none;
+                    opacity: 0.4;
+                    transition: opacity 0.3s;
+                }
+
+                :global(.active-mobile) {
+                    opacity: 1;
+                    color: var(--color-accent);
                 }
 
                 @media (max-width: 768px) {
-                    .mobile-toggle {
-                        display: flex !important;
-                    }
+                    .desktop-only { display: none; }
+                }
 
-                    .nav-list {
-                        position: fixed;
-                        top: 0;
-                        right: 0;
-                        height: 100vh;
-                        width: 100%; /* Ocupa a tela toda para um efeito mais dramático */
-                        background: #0a0a0a;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 40px;
-                        transform: translateY(-100%); /* Abre de cima para baixo ou do lado */
-                        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-                        z-index: 2000;
-                    }
-
-                    .nav-list.open {
-                        transform: translateY(0);
-                    }
-
-                    :global(.nav-link) {
-                        color: white !important;
-                        font-size: 24px;
-                        letter-spacing: 4px;
-                        font-weight: 900;
-                    }
-
-                    .nav-item {
-                        overflow: hidden;
-                    }
+                @media (min-width: 769px) {
+                    .mobile-toggle { display: none !important; }
                 }
             `}</style>
         </nav>

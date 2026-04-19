@@ -70,6 +70,7 @@ export default function SobrePage() {
                             alt="Bastidores Caliandras"
                             fill
                             className={styles.featuredImage}
+                            sizes="(max-width: 1024px) 100vw, 600px"
                         />
                     </div>
                 </div>

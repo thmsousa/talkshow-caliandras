@@ -8,26 +8,7 @@ import { TODOS_EPISODIOS } from '@/lib/mockData';
 import { Episodio } from '../components/utils/types';
 import styles from './VideosIndex.module.css';
 
-// FUNÇÃO DE DATA REFORÇADA (Blindada contra "Invalid Date")
-const formatFullDate = (dateString: string) => {
-    if (!dateString) return "";
-    
-    try {
-        const onlyDate = dateString.split('T')[0];
-        const parts = onlyDate.split('-');
-        const date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-        
-        if (isNaN(date.getTime())) return dateString;
-
-        return date.toLocaleDateString('pt-BR', { 
-            day: '2-digit', 
-            month: 'long', 
-            year: 'numeric' 
-        });
-    } catch (e) { 
-        return dateString; 
-    }
-};
+import { formatFullDate } from '@/lib/utils/formatters';
 
 export default function VideosIndexPage() {
     const [busca, setBusca] = useState('');
@@ -77,7 +58,7 @@ export default function VideosIndexPage() {
                                 alt={episodio.titulo} 
                                 fill 
                                 className={styles.thumbImage}
-                                sizes="(max-width: 768px) 100vw, 33vw"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
                             />
                             <div className={styles.playOverlay}>
                                 <div className={styles.playCircle}>▶</div>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { TODAS_RESENHAS, TODOS_EPISODIOS } from '@/lib/mockData';
+import { formatFullDate } from '@/lib/utils/formatters';
 import styles from './ResenhaDetalhe.module.css';
 
 export default function ResenhaDetalhePage() {
@@ -99,7 +100,7 @@ export default function ResenhaDetalhePage() {
                         <div className={styles.techItem}>
                             <span className={styles.techLabel}>Data da Obra</span>
                             <span className={styles.techValue}>
-                                {new Date(resenha.dataPostagem).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}
+                                {formatFullDate(resenha.dataPostagem)}
                             </span>
                         </div>
                         {resenha.local && (
