@@ -106,21 +106,26 @@ export default function EventosPage() {
                     PERSPECTIVA HISTÓRICA
                 </motion.div>
 
-                <motion.h1
-                    initial={{ clipPath: 'inset(0 100% 0 0)' }}
-                    animate={{ clipPath: 'inset(0 0% 0 0)' }}
-                    transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-                    className={styles.mainTitle}
-                >
-                    EVENTOS
-                </motion.h1>
+                <div className={styles.headerBody}>
+                    <motion.h1
+                        initial={{ clipPath: 'inset(0 100% 0 0)' }}
+                        animate={{ clipPath: 'inset(0 0% 0 0)' }}
+                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+                        className={styles.mainTitle}
+                    >
+                        EVENTOS
+                    </motion.h1>
 
-                <motion.div
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className={styles.titleDivider}
-                />
+                    <motion.p 
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.8, duration: 1 }}
+                        className={styles.headerDescription}
+                    >
+                        Uma jornada documental pelas intervenções, lançamentos e diálogos que moldam o ecossistema cultural do Caliandras em Palmas.
+                    </motion.p>
+                </div>
+
             </header>
 
             <div className={styles.timelineContainer}>

@@ -26,12 +26,6 @@ export default function ResenhasPage() {
                 >
                     Resenhas
                 </motion.h1>
-                <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: '80px' }}
-                    transition={{ delay: 0.3 }}
-                    className={styles.divider}
-                />
             </header>
 
             <div className={styles.reviewsGrid}>
