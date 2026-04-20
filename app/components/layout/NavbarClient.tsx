@@ -216,7 +216,7 @@ export default function NavbarClient() {
                     text-align: left;
                     display: flex;
                     flex-direction: column;
-                    gap: 25px;
+                    gap: 45px;
                 }
  
                 :global(.nav-link-mobile) {
