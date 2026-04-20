@@ -1,6 +1,7 @@
 'use client'; 
 
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -16,15 +17,67 @@ const navItems = [
     { name: 'Sobre', href: '/sobre' }, 
 ];
 
+export default function NavbarClient() {
+    const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
+    const [mounted, setMounted] = useState(false);
     useEffect(() => {
+        setMounted(true);
         if (isOpen) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
         }
+        return () => { document.body.style.overflow = 'unset'; };
     }, [isOpen]);
 
     const toggleMenu = () => setIsOpen(!isOpen);
+
+    const menuContent = (
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
+                    className="mobile-drawer"
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100vh',
+                        backgroundColor: '#0a0a0a',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        zIndex: 9999, // Valor altíssimo no portal
+                    }}
+                >
+                    <ul className="mobile-list">
+                        {navItems.map((item, i) => (
+                            <motion.li 
+                                key={item.name}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 + i * 0.05 }}
+                            >
+                                <Link 
+                                    href={item.href} 
+                                    onClick={() => setIsOpen(false)}
+                                    className={`nav-link-mobile ${pathname === item.href ? 'active-mobile' : ''}`}
+                                >
+                                    {item.name}
+                                </Link>
+                            </motion.li>
+                        ))}
+                    </ul>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    );
 
     return (
         <nav>
@@ -44,7 +97,7 @@ const navItems = [
                     border: 'none',
                     cursor: 'pointer',
                     padding: 0,
-                    zIndex: 2005,
+                    zIndex: 10000, // Acima do portal para permitir fechar
                     position: 'relative'
                 }}
             >
@@ -88,37 +141,8 @@ const navItems = [
                 ))}
             </ul>
 
-            {/* MOBILE GAVETA (Framer Motion) */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div 
-                        initial={{ y: '-100%' }}
-                        animate={{ y: 0 }}
-                        exit={{ y: '-100%' }}
-                        transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
-                        className="mobile-drawer"
-                    >
-                        <ul className="mobile-list">
-                            {navItems.map((item, i) => (
-                                <motion.li 
-                                    key={item.name}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 + i * 0.05 }}
-                                >
-                                    <Link 
-                                        href={item.href} 
-                                        onClick={() => setIsOpen(false)}
-                                        className={`nav-link-mobile ${pathname === item.href ? 'active-mobile' : ''}`}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                </motion.li>
-                            ))}
-                        </ul>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            {/* PORTAL PARA O MENU MOBILE */}
+            {mounted && createPortal(menuContent, document.body)}
 
             <style jsx>{`
                 .nav-list {
