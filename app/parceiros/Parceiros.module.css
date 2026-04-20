@@ -78,5 +78,6 @@
     }
     .header {
         margin-bottom: 40px !important;
+        padding-left: 35px;
     }
 }

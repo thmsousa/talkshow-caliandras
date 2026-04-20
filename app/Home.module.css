@@ -305,6 +305,7 @@
 }
 
 @media (max-width: 900px) {
+    .sectionHeader { padding-left: 35px; }
     .videoGrid { grid-template-columns: 1fr; gap: 30px; }
     .navButton, .varalLine, .pin { display: none !important; }
     .eventCard { 

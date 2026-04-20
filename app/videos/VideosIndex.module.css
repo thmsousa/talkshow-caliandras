@@ -237,7 +237,10 @@
 }
 
 @media (max-width: 768px) {
-    .headerSection { padding-top: 30px; }
+    .headerSection { 
+        padding-top: 30px; 
+        padding-left: 35px;
+    }
     .headerContent { align-items: flex-start; flex-direction: column; }
     .videoGrid { grid-template-columns: 1fr; border-left: none; }
     .videoCard { border-left: 1px solid #eee; }

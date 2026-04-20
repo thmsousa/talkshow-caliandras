@@ -52,7 +52,8 @@ export default function NavbarClient() {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
-                        alignItems: 'center',
+                        alignItems: 'flex-start',
+                        paddingLeft: '15%',
                         zIndex: 9999, // Valor altíssimo no portal
                     }}
                 >
@@ -60,15 +61,21 @@ export default function NavbarClient() {
                         {navItems.map((item, i) => (
                             <motion.li 
                                 key={item.name}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.1 + i * 0.05 }}
+                                initial={{ opacity: 0, x: -30 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ 
+                                    delay: 0.2 + i * 0.08,
+                                    duration: 0.5,
+                                    ease: "easeOut"
+                                }}
+                                style={{ width: '100%' }}
                             >
                                 <Link 
                                     href={item.href} 
                                     onClick={() => setIsOpen(false)}
                                     className={`nav-link-mobile ${pathname === item.href ? 'active-mobile' : ''}`}
                                 >
+                                    <span className="nav-index">{(i + 1).toString().padStart(2, '0')}</span>
                                     {item.name}
                                 </Link>
                             </motion.li>
@@ -206,26 +213,38 @@ export default function NavbarClient() {
                     list-style: none;
                     padding: 0;
                     margin: 0;
-                    text-align: center;
+                    text-align: left;
                     display: flex;
                     flex-direction: column;
-                    gap: 30px;
+                    gap: 25px;
                 }
-
+ 
                 :global(.nav-link-mobile) {
                     color: white;
-                    font-size: 28px;
-                    font-weight: 950;
+                    font-size: 24px;
+                    font-weight: 900;
                     text-transform: uppercase;
-                    letter-spacing: 4px;
+                    letter-spacing: 5px;
                     text-decoration: none;
                     opacity: 0.4;
-                    transition: opacity 0.3s;
+                    transition: all 0.3s;
+                    display: flex;
+                    align-items: baseline;
+                    gap: 20px;
                 }
-
+ 
+                :global(.nav-index) {
+                    font-size: 10px;
+                    letter-spacing: 1px;
+                    color: var(--color-accent);
+                    opacity: 0.7;
+                    font-weight: 400;
+                }
+ 
                 :global(.active-mobile) {
                     opacity: 1;
                     color: var(--color-accent);
+                    transform: translateX(10px);
                 }
 
                 @media (max-width: 768px) {

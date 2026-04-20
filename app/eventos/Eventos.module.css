@@ -254,7 +254,10 @@
 }
 
 @media (max-width: 768px) {
-    .pageHeader { padding: 40px 0; }
+    .pageHeader { 
+        padding: 40px 0;
+        padding-left: 35px;
+    }
     .lineBg { display: none; }
     
     .eventRow {
