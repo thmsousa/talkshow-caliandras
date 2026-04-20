@@ -66,18 +66,18 @@
 .headerBody {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    gap: 60px;
+    align-items: flex-start; /* Alinhado ao topo para estabilidade */
+    gap: 40px;
     width: 100%;
 }
 
 .headerDescription {
-    max-width: 450px;
+    max-width: 380px; /* Um pouco mais estreito melhora a legibilidade */
     font-size: 15px;
     line-height: 1.6;
     color: #666;
     font-style: italic;
-    margin-bottom: 5px;
+    margin-top: 5px;
     position: relative;
 }
 

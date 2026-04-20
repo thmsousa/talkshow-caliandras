@@ -1,6 +1,6 @@
 'use client'; 
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -16,10 +16,14 @@ const navItems = [
     { name: 'Sobre', href: '/sobre' }, 
 ];
 
-export default function NavbarClient() {
-    const [isOpen, setIsOpen] = useState(false);
-    const pathname = usePathname();
-    
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [isOpen]);
+
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
@@ -32,9 +36,10 @@ export default function NavbarClient() {
                 style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    width: '26px',
-                    height: '16px',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: '30px',
+                    height: '30px',
                     background: 'transparent',
                     border: 'none',
                     cursor: 'pointer',
@@ -43,24 +48,30 @@ export default function NavbarClient() {
                     position: 'relative'
                 }}
             >
-                <div style={{ 
-                    width: '100%', height: '1.5px', 
-                    background: isOpen ? 'white' : 'black', 
-                    transition: '0.4s cubic-bezier(0.19, 1, 0.22, 1)',
-                    transform: isOpen ? 'rotate(45deg) translate(5px, 5px)' : 'rotate(0)' 
-                }} />
-                <div style={{ 
-                    width: '100%', height: '1.5px', 
-                    background: isOpen ? 'white' : 'black', 
-                    transition: '0.4s',
-                    opacity: isOpen ? 0 : 1 
-                }} />
-                <div style={{ 
-                    width: '100%', height: '1.5px', 
-                    background: isOpen ? 'white' : 'black', 
-                    transition: '0.4s cubic-bezier(0.19, 1, 0.22, 1)',
-                    transform: isOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'rotate(0)' 
-                }} />
+                <motion.div 
+                    animate={isOpen ? { rotate: 45, y: 1 } : { rotate: 0, y: -6 }}
+                    style={{ 
+                        width: '24px', height: '1.5px', 
+                        background: isOpen ? 'white' : 'black', 
+                        position: 'absolute'
+                    }} 
+                />
+                <motion.div 
+                    animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+                    style={{ 
+                        width: '24px', height: '1.5px', 
+                        background: 'black',
+                        position: 'absolute'
+                    }} 
+                />
+                <motion.div 
+                    animate={isOpen ? { rotate: -45, y: 1 } : { rotate: 0, y: 6 }}
+                    style={{ 
+                        width: '24px', height: '1.5px', 
+                        background: isOpen ? 'white' : 'black', 
+                        position: 'absolute'
+                    }} 
+                />
             </button>
 
             {/* DESKTOP NAV */}
