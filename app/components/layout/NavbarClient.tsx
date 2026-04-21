@@ -1,4 +1,4 @@
-'use client'; 
+'use client';
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
@@ -14,7 +14,7 @@ const navItems = [
     { name: 'Indicações', href: '/indicacoes' },
     { name: 'Nosso Time', href: '/time' },
     { name: 'Produtos', href: '/produtos' },
-    { name: 'Sobre', href: '/sobre' }, 
+    { name: 'Sobre', href: '/sobre' },
 ];
 
 export default function NavbarClient() {
@@ -36,7 +36,7 @@ export default function NavbarClient() {
     const menuContent = (
         <AnimatePresence>
             {isOpen && (
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
@@ -59,19 +59,19 @@ export default function NavbarClient() {
                 >
                     <ul className="mobile-list">
                         {navItems.map((item, i) => (
-                            <motion.li 
+                            <motion.li
                                 key={item.name}
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                transition={{ 
+                                transition={{
                                     delay: 0.2 + i * 0.08,
                                     duration: 0.5,
                                     ease: "easeOut"
                                 }}
                                 style={{ width: '100%' }}
                             >
-                                <Link 
-                                    href={item.href} 
+                                <Link
+                                    href={item.href}
                                     onClick={() => setIsOpen(false)}
                                     className={`nav-link-mobile ${pathname === item.href ? 'active-mobile' : ''}`}
                                 >
@@ -88,8 +88,8 @@ export default function NavbarClient() {
 
     return (
         <nav>
-            {/* BOTÃO HAMBÚRGUER REFINADO */}
-            <button 
+            {/* BOTÃO mobile*/}
+            <button
                 onClick={toggleMenu}
                 className="mobile-toggle"
                 aria-label="Menu"
@@ -104,42 +104,42 @@ export default function NavbarClient() {
                     border: 'none',
                     cursor: 'pointer',
                     padding: 0,
-                    zIndex: 10000, // Acima do portal para permitir fechar
+                    zIndex: 10000,
                     position: 'relative'
                 }}
             >
-                <motion.div 
+                <motion.div
                     animate={isOpen ? { rotate: 45, y: 1 } : { rotate: 0, y: -6 }}
-                    style={{ 
-                        width: '24px', height: '1.5px', 
-                        background: isOpen ? 'white' : 'black', 
+                    style={{
+                        width: '24px', height: '1.5px',
+                        background: isOpen ? 'white' : 'black',
                         position: 'absolute'
-                    }} 
+                    }}
                 />
-                <motion.div 
+                <motion.div
                     animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-                    style={{ 
-                        width: '24px', height: '1.5px', 
+                    style={{
+                        width: '24px', height: '1.5px',
                         background: 'black',
                         position: 'absolute'
-                    }} 
+                    }}
                 />
-                <motion.div 
+                <motion.div
                     animate={isOpen ? { rotate: -45, y: 1 } : { rotate: 0, y: 6 }}
-                    style={{ 
-                        width: '24px', height: '1.5px', 
-                        background: isOpen ? 'white' : 'black', 
+                    style={{
+                        width: '24px', height: '1.5px',
+                        background: isOpen ? 'white' : 'black',
                         position: 'absolute'
-                    }} 
+                    }}
                 />
             </button>
 
             {/* DESKTOP NAV */}
             <ul className="nav-list desktop-only">
                 {navItems.map((item) => (
-                    <li key={item.name} className="nav-item"> 
-                        <Link 
-                            href={item.href} 
+                    <li key={item.name} className="nav-item">
+                        <Link
+                            href={item.href}
                             className={`nav-link ${pathname === item.href ? 'active' : ''}`}
                         >
                             {item.name}

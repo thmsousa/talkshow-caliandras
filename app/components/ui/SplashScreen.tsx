@@ -1,12 +1,12 @@
 // app/components/ui/SplashScreen.tsx
-'use client'; 
+'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
 
 // Tamanhos para a capa dividida
-const COVER_WIDTH = 500; 
-const COVER_HEIGHT = 700; 
+const COVER_WIDTH = 500;
+const COVER_HEIGHT = 700;
 
 export default function SplashScreen({ onComplete }: { onComplete: () => void }) {
     const [isVisible, setIsVisible] = useState(true);
@@ -14,18 +14,18 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
 
     const handleButtonClick = () => {
         setIsClicked(true); // Ativa as classes CSS de animação
-        
+
         // Dá tempo para a animação CSS (0.8s) e chama onComplete
         setTimeout(() => {
             setIsVisible(false);
             onComplete();
-        }, 850); 
+        }, 850);
     };
 
     if (!isVisible) return null;
 
     return (
-        <div 
+        <div
             // Fundo fixo de transição
             style={{
                 position: 'fixed',
@@ -35,21 +35,21 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                opacity: isVisible ? 1 : 0, 
+                opacity: isVisible ? 1 : 0,
                 transition: isClicked ? 'none' : 'opacity 0.5s ease-out',
             }}
         >
-            
+
             {/* STAGE DO LIVRO (book-stage) */}
             <div className="book-stage" style={{ width: `${COVER_WIDTH * 2}px`, height: `${COVER_HEIGHT}px`, display: 'flex', position: 'relative' }}>
 
                 {/* 1. CAPA ESQUERDA (GIRA PARA A ESQUERDA) */}
-                <div 
-                    className={isClicked ? "page-left" : ""} 
+                <div
+                    className={isClicked ? "page-left" : ""}
                     style={{
                         width: `${COVER_WIDTH}px`,
                         height: `${COVER_HEIGHT}px`,
-                        backgroundColor: 'var(--color-primary)', 
+                        backgroundColor: 'var(--color-primary)',
                         position: 'relative',
                         transformStyle: 'preserve-3d',
                         transition: 'box-shadow 0.2s',
@@ -66,8 +66,8 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                 </div>
 
                 {/* 2. CAPA DIREITA (GIRA PARA A DIREITA) */}
-                <div 
-                    className={isClicked ? "page-right" : ""} 
+                <div
+                    className={isClicked ? "page-right" : ""}
                     style={{
                         width: `${COVER_WIDTH}px`,
                         height: `${COVER_HEIGHT}px`,
@@ -85,22 +85,22 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                         height={COVER_HEIGHT}
                         style={{ objectFit: 'cover', objectPosition: 'right' }}
                     />
-                    
-                    {/* BOTÃO DE AÇÃO (Colocado na capa direita) */}
-                    <div style={{ 
-                        position: 'absolute', 
-                        bottom: '15%', 
-                        left: '50%', 
+
+                    {/* BOTÃO DE AÇÃO */}
+                    <div style={{
+                        position: 'absolute',
+                        bottom: '15%',
+                        left: '50%',
                         transform: 'translateX(-150%)',
                         textAlign: 'center',
                         zIndex: 10
                     }}>
-                        <button 
+                        <button
                             onClick={handleButtonClick}
                             disabled={isClicked} // Desabilita após o clique
-                            style={{ 
-                                backgroundColor: 'var(--color-accent)', 
-                                color: 'var(--color-dark)', 
+                            style={{
+                                backgroundColor: 'var(--color-accent)',
+                                color: 'var(--color-dark)',
                                 padding: '15px 40px',
                                 borderRadius: '50px',
                                 fontSize: '20px',

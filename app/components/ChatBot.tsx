@@ -4,28 +4,27 @@ import styles from './ChatBot.module.css';
 
 export default function ChatBot() {
     const [isOpen, setIsOpen] = useState(false);
-    // Agora o estado armazena apenas a interação atual (Pergunta + Resposta)
-    const [currentView, setCurrentView] = useState<{pergunta?: string, resposta: string}>({
+    const [currentView, setCurrentView] = useState<{ pergunta?: string, resposta: string }>({
         resposta: 'Olá! Notei seu interesse em nossas obras. Como podemos ajudar você hoje?'
     });
-    
+
     const chatBodyRef = useRef<HTMLDivElement>(null);
 
     const faq = [
-        { 
+        {
             id: 1,
-            pergunta: "Como comprar os livros?", 
-            resposta: "Você pode adquirir nossas obras diretamente via WhatsApp ou Instagram. Clique em um dos botões abaixo para falar com nossa curadoria!" 
+            pergunta: "Como comprar os livros?",
+            resposta: "Você pode adquirir nossas obras diretamente via WhatsApp ou Instagram. Clique em um dos botões abaixo para falar com nossa curadoria!"
         },
-        { 
+        {
             id: 2,
-            pergunta: "Quais os horários dos eventos?", 
-            resposta: "Nossos Talk Shows acontecem mensalmente em Palmas. Acompanhe a agenda atualizada no nosso Instagram!" 
+            pergunta: "Quais os horários dos eventos?",
+            resposta: "Nossos Talk Shows acontecem mensalmente em Palmas. Acompanhe a agenda atualizada no nosso Instagram!"
         },
-        { 
+        {
             id: 3,
-            pergunta: "Sou autor, como participar?", 
-            resposta: "Ficamos felizes com o interesse! Envie um Direct no Instagram com seu portfólio para nossa equipe avaliar." 
+            pergunta: "Sou autor, como participar?",
+            resposta: "Ficamos felizes com o interesse! Envie um Direct no Instagram com seu portfólio para nossa equipe avaliar."
         }
     ];
 
@@ -80,8 +79,8 @@ export default function ChatBot() {
                     <div className={styles.faqContainer}>
                         <p className={styles.faqTitle}>Escolha um tópico:</p>
                         {faq.map((item) => (
-                            <button 
-                                key={item.id} 
+                            <button
+                                key={item.id}
                                 onClick={() => handleQuestion(item)}
                                 className={styles.faqButton}
                             >
@@ -102,7 +101,7 @@ export default function ChatBot() {
                     </div>
                 </div>
             </div>
-            
+
             <div className={styles.footer}>
                 Atendimento Exclusivo • {new Date().getFullYear()}
             </div>

@@ -7,7 +7,6 @@ import styles from './SobrePage.module.css';
 export default function SobrePage() {
     return (
         <main className={styles.mainContainer}>
-
             {/* 1. HERO SECTION */}
             <header className={styles.hero}>
 
@@ -16,8 +15,6 @@ export default function SobrePage() {
                     <div className={styles.techLine} />
                     <div className={styles.techText}>
                         <span>PALMAS - TO</span>
-                        <span className={styles.techDot}>•</span>
-                        <span>10° 11′ 4″ S 48° 20′ 1″ W</span>
                     </div>
                     <div className={styles.techLine} />
                 </div>
@@ -76,7 +73,7 @@ export default function SobrePage() {
                 </div>
             </section>
 
-            {/* 3. CITAÇÃO ESTILIZADA */}
+            {/* 3. CITAÇÃO ESTILIZADA (REVERTIDA) */}
             <div className={styles.quoteWrapper}>
                 <div className={styles.quoteDividerTop}>
                     <div className={styles.quoteDividerDot} />
@@ -86,19 +83,36 @@ export default function SobrePage() {
 
                 <div className={styles.quoteContainer}>
                     <span className={styles.quoteIcon}>“</span>
+
                     <blockquote className={styles.quoteText}>
-                        Nossa missão é: dar o devido valor ao que dá sentido à vida.
+                        Nossa missão é: dar o devido valor ao que dá sentido à vida
                     </blockquote>
+
+                    <span className={styles.quoteIconEnd}>”</span>
+
                     <div className={styles.quoteAuthor}>— Manifesto Caliandras</div>
                 </div>
 
                 <div className={styles.quoteDividerBottom} />
             </div>
 
-            {/* 4. EQUIPE & CURADORIA */}
-            <section className={styles.contentSection} style={{ marginBottom: '140px', textAlign: 'center' }}>
+            {/* 4. CTA FINAL (Acervo) */}
+            <footer className={styles.footerCTA}>
+                <div className={styles.ctaWrapper}>
+                    <span className={styles.footerLabel}>O próximo capítulo começa aqui</span>
+                    <h2 className={styles.ctaTitle}>Descubra o acervo completo do Caliandras.</h2>
+
+                    <Link href="/videos" className="cta-premium-btn">
+                        <span className="btn-text">Ver Episódios</span>
+                    </Link>
+                </div>
+            </footer>
+
+            {/* 5. EQUIPE & CURADORIA */}
+            <section className={styles.contentSection} style={{ marginBottom: '140px', textAlign: 'center', marginTop: '120px' }}>
                 <div className={styles.textBlock} style={{ textAlign: 'center', width: '100%' }}>
                     <span className={styles.sectionLabel}>02 // Quem Faz</span>
+                    <h2 className={styles.ctaTitle}>Conheça os idealizadores.</h2>
 
                     <div style={{ marginTop: '40px' }}>
                         <Link href="/time" className="cta-premium-btn">
@@ -107,19 +121,6 @@ export default function SobrePage() {
                     </div>
                 </div>
             </section>
-
-            {/* 5. CTA FINAL */}
-            <footer className={styles.footerCTA}>
-                <div className={styles.ctaWrapper}>
-                    <span className={styles.footerLabel}>O próximo capítulo começa aqui</span>
-                    <h2 className={styles.ctaTitle}>Descubra o acervo completo do Caliandras.</h2>
-
-                    <Link href="/videos" className="cta-premium-btn">
-                        <span className="btn-text">Ver Episódios</span>
-
-                    </Link>
-                </div>
-            </footer>
 
             <style jsx>{`
                 .cta-premium-btn {
