@@ -2,11 +2,23 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 import styles from './SobrePage.module.css';
 
 export default function SobrePage() {
     return (
         <main className={styles.mainContainer}>
+            {/* FLORES DECORATIVAS FLUTUANTES */}
+            <div className={styles.flowerDecoration1}>
+                <Image src="/images/decor/caliandra.png" alt="" width={300} height={300} />
+            </div>
+            <div className={styles.flowerDecoration2}>
+                <Image src="/images/decor/caliandra.png" alt="" width={200} height={200} />
+            </div>
+
+            {/* MARCA D'ÁGUA VERTICAL DISCRETA */}
+            <div className={styles.verticalWatermark}>CALIANDRAS SHOW</div>
+
             {/* 1. HERO SECTION */}
             <header className={styles.hero}>
 
@@ -52,24 +64,24 @@ export default function SobrePage() {
 
             {/* 2. SEÇÃO: MANIFESTO */}
             <section className={styles.contentSection}>
+                <div className={styles.imageWrapper}>
+                    <div className={styles.imageDecorBackground} />
+                    <div className={styles.imagePlaceholder}>
+                        <img
+                            src="/images/mock/talkshow-escolapub_sobre.jpg"
+                            alt="Bastidores Caliandras"
+                            className={styles.featuredImage}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                        />
+                    </div>
+                </div>
+
                 <div className={styles.textBlock}>
                     <span className={styles.sectionLabel}>01 // A Missão</span>
                     <h2 className={styles.sectionTitle}>Mais que um Talk Show.</h2>
                     <p className={styles.description}>
                         O projeto inaugurou na estreia do livro independente Espírito Ilícito, do autor Pabl. Costa, imaginado para criar um ambiente divertido e reflexivo durante o 1° lançamento dessa obra por meio do formato Talk Show, cujo teve roteirista, entrevistadores, sonoplastas... A partir disso, expandimos o projeto para desginer gráficos e publicações de resenhas, nos consolidando no circuito cultural de Palmas.
                     </p>
-                </div>
-
-                <div className={styles.imageWrapper}>
-                    <div className={styles.imagePlaceholder}>
-                        <Image
-                            src="/images/mock/talkshow-escolapub_sobre.jpg"
-                            alt="Bastidores Caliandras"
-                            fill
-                            className={styles.featuredImage}
-                            sizes="(max-width: 1024px) 100vw, 600px"
-                        />
-                    </div>
                 </div>
             </section>
 
@@ -102,8 +114,9 @@ export default function SobrePage() {
                     <span className={styles.footerLabel}>O próximo capítulo começa aqui</span>
                     <h2 className={styles.ctaTitle}>Descubra o acervo completo do Caliandras.</h2>
 
-                    <Link href="/videos" className="cta-premium-btn">
-                        <span className="btn-text">Ver Episódios</span>
+                    <Link href="/videos" className={styles.premiumBtn}>
+                        <span>Ver Episódios</span>
+                        <ArrowRight size={18} />
                     </Link>
                 </div>
             </footer>
@@ -111,45 +124,17 @@ export default function SobrePage() {
             {/* 5. EQUIPE & CURADORIA */}
             <section className={styles.contentSection} style={{ marginBottom: '140px', textAlign: 'center', marginTop: '120px' }}>
                 <div className={styles.textBlock} style={{ textAlign: 'center', width: '100%' }}>
-                    <span className={styles.sectionLabel}>02 // Quem Faz</span>
+                    <span className={styles.sectionLabelCenter}>02 // Quem Faz</span>
                     <h2 className={styles.ctaTitle}>Conheça os idealizadores.</h2>
 
                     <div style={{ marginTop: '40px' }}>
-                        <Link href="/time" className="cta-premium-btn">
-                            <span className="btn-text">Nossa Equipe</span>
+                        <Link href="/time" className={styles.premiumBtn}>
+                            <span>Nossa Equipe</span>
+                            <ArrowRight size={18} />
                         </Link>
                     </div>
                 </div>
             </section>
-
-            <style jsx>{`
-                .cta-premium-btn {
-                    position: relative;
-                    font-size: 13px;
-                    color: #fff;
-                    font-weight: 950;
-                    background-color: #000;
-                    padding: 28px 90px;
-                    border-radius: 100px;
-                    text-decoration: none;
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 15px;
-                    text-transform: uppercase;
-                    letter-spacing: 6px;
-                    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-                    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    overflow: hidden;
-                }
-
-                .cta-premium-btn:hover {
-                    background-color: var(--color-accent);
-                    transform: translateY(-12px) scale(1.05);
-                    box-shadow: 0 40px 80px rgba(255, 107, 0, 0.45);
-                    letter-spacing: 8px;
-                }
-            `}</style>
         </main>
     );
 }
