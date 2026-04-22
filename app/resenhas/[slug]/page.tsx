@@ -147,7 +147,7 @@ export default function ResenhaDetalhePage() {
 
                         <div className={styles.sidebarBlock}>
                             <Link href="/resenhas" className={styles.backLink}>
-                                ← Todas as Resenhas
+                                → Todas as Resenhas
                             </Link>
                         </div>
                     </div>

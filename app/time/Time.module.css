@@ -150,29 +150,51 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 40px;
     max-width: 1200px;
-    margin: 0 auto 120px;
+    margin: 0 auto 60px;
     position: relative;
     z-index: 5;
 }
 
+.sectionDivider {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.dividerLine {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent);
+}
+
 .memberCard {
-    background-color: rgba(253, 253, 253, 0.7);
-    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 60px 40px;
     border-radius: 40px;
-    border: 1px solid #f5f5f5;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     text-align: center;
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .memberCard:hover {
-    transform: translateY(-8px);
-    background-color: #fff;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.05);
-    border-color: #eee;
+    transform: translateY(-12px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 30px 60px -12px rgba(0, 0, 0, 0.08),
+        0 18px 36px -18px rgba(0, 0, 0, 0.1);
 }
 
 .photoOuterCircle {
@@ -222,21 +244,54 @@
 /* Badge do cargo que tínhamos antes */
 .memberRole {
     font-size: 10px;
-    font-weight: 900;
+    font-weight: 950;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     color: var(--color-accent);
     margin-bottom: 25px;
     display: inline-block;
-    padding: 3px 12px;
-    background: rgba(255, 107, 0, 0.05);
+    padding: 6px 16px;
+    background: rgba(255, 107, 0, 0.08);
     border-radius: 100px;
+    transition: all 0.3s ease;
 }
 
 .memberBio {
-    font-size: 15px;
-    color: #777;
-    line-height: 1.6;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    text-align: justify;
+    flex-grow: 1;
+}
+
+.memberContact {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.contactLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contactLink:hover {
+    opacity: 1;
+    color: var(--color-accent);
+    transform: translateY(-2px);
 }
 
 /* --- MOMENTOS GALLERY --- */
@@ -292,7 +347,8 @@
 
 .momentImageWrapper {
     flex: 1.6;
-    height: 540px;
+    height: auto;
+    aspect-ratio: auto;
     position: relative;
     border-radius: 40px;
     overflow: hidden;
@@ -302,7 +358,8 @@
 }
 
 .momentImage {
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #f0f0f0; /* Fundo neutro caso a imagem seja muito estreita */
 }
 
 /* --- RESPONSIVIDADE (REFINADA) --- */

@@ -66,6 +66,9 @@ export type TimeMember = {
     id: string;
     nome: string;
     cargo: string;
+    minibio?: string;
     fotoUrl: string;
     bio?: string;
+    email?: string;
+    instagram?: string;
 };

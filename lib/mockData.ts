@@ -5,21 +5,21 @@ export const TODOS_PARCEIROS: Autor[] = [
     {
         id: 'a1',
         nomeCompleto: 'Pablo Costa',
-        fotoUrl: '/images/mock/pablo_cover.jpg', 
+        fotoUrl: '/images/mock/pablo_cover.jpg',
         slug: 'pablo-costa',
         bio: "Escritor e entusiasta das artes, é uma das vozes que ajudam a tecer a tapeçaria cultural do Caliandras. Com uma trajetória marcada pela investigação da literatura regional e das novas linguagens audiovisuais, atua como convidado principal trazendo um olhar crítico e poético sobre a produção artística contemporânea. Sua presença nas intervenções poéticas e lives do projeto reforça o compromisso do Caliandras em fomentar o diálogo entre a tradição literária e a inovação cultural."
     },
     {
         id: 'a2',
         nomeCompleto: 'Gleicielly Medeiros',
-        fotoUrl: '/images/mock/gleicy_autor.jpg', 
+        fotoUrl: '/images/mock/gleicy_autor.jpg',
         slug: 'gleicielly-medeiros',
         bio: "Apresentadora/Entrevistadora e entusiasta cultural."
     },
     {
         id: 'a3',
         nomeCompleto: 'Nayra',
-        fotoUrl: '/images/mock/nayra.jpg', 
+        fotoUrl: '/images/mock/nayra.jpg',
         slug: 'nayra',
         bio: "Apresentadora e produtora do Caliandras."
     }
@@ -114,38 +114,38 @@ export const TODOS_PRODUTOS: Produto[] = [
 ];
 
 export const EVENTOS_CALINDRAS = [
-    { 
-        id: 1, 
-        titulo: "Lançamento Espiríto Ilícito", 
+    {
+        id: 1,
+        titulo: "Lançamento Espiríto Ilícito",
         data: "2025-10-10",
-        imagem: "/images/mock/eve1.jpeg", 
+        imagem: "/images/mock/eve1.jpeg",
         descricao: 'O marco inicial da obra literária, reunindo entusiastas e críticos em uma noite de autógrafos no Cine Teatro IFTO.'
     },
-    { 
-        id: 2, 
-        titulo: "Aula de Leitura Regional", 
-        data: "2025-11-18", 
-        imagem: "/images/mock/eve2.jpeg" ,
+    {
+        id: 2,
+        titulo: "Aula de Leitura Regional",
+        data: "2025-11-18",
+        imagem: "/images/mock/eve2.jpeg",
         descricao: 'Uma imersão nas raízes da literatura local, explorando a construção da identidade através das palavras.'
     },
-    { 
-        id: 3, 
-        titulo: "VIII Feira de Cultura", 
-        data: "2025-11-24", 
+    {
+        id: 3,
+        titulo: "VIII Feira de Cultura",
+        data: "2025-11-24",
         imagem: "/images/mock/eve3.jpeg",
         descricao: 'Participação especial do projeto Caliandras na oitava edição da feira de cultura regional.'
     },
-    { 
-        id: 4, 
-        titulo: "Aula de Língua Portuguesa", 
-        data: "2025-11-28", 
+    {
+        id: 4,
+        titulo: "Aula de Língua Portuguesa",
+        data: "2025-11-28",
         imagem: "/images/mock/eve4.jpeg",
         descricao: 'Intervenção cultural focada na norma culta e na expressão literária contemporânea.'
     },
-    { 
-        id: 5, 
-        titulo: "Intervenções Poéticas", 
-        data: "2025-12-05", 
+    {
+        id: 5,
+        titulo: "Intervenções Poéticas",
+        data: "2025-12-05",
         imagem: "/images/mock/eve5.jpeg",
         descricao: 'Sarau e leituras dramáticas realizadas ao ar livre para a comunidade.'
     },
@@ -171,16 +171,7 @@ Espírito Ilícito é uma história que aborda juventudes feridas, a falência d
         editor: 'Emilly Campos',
         local: 'Dunas do Jalapão (TO)'
     },
-    {
-        id: 'r2',
-        slug: 'uma-obra-visceral-regional',
-        tituloObra: 'Espírito Ilícito',
-        autorObra: 'Pablo Costa',
-        textoResenha: 'Uma obra visceral que explora as nuances da cultura regional com uma linguagem moderna.',
-        nota: 5,
-        dataPostagem: '2025-12-30',
-        imagemCapa: '/images/mock/espirito_ilicito_cover.jpg'
-    }
+
 ];
 
 export const TODAS_RECOMENDACOES: Recomendacao[] = [
@@ -197,36 +188,88 @@ export const TIME_CALIANDRAS: TimeMember[] = [
     {
         id: 't1',
         nome: 'Pablo Costa',
-        cargo: 'Idealizador & Escritor',
+        cargo: 'Designer gráfico, conselheiro criativo e sonoplasta.',
+        minibio: 'Designer gráfico, conselheiro criativo e sonoplasta.',
         fotoUrl: '/images/mock/pablo_cover.jpg',
-        bio: 'Idealizador do Caliandras Show e autor de Espírito Ilícito. Sua visão guia o projeto em direção ao diálogo entre a literatura clássica e as novas mídias.'
+        bio: 'Pablo Costa é nascido na periferia de Palmas (TO) e em 2026 completa 20 anos. Publicou sua primeira obra em 2022 pela Editora Coerência, “As Estacões de Demp Esmerald e o Gato da Penumbra”, e a segunda de forma completamente independente, “Espírito Ilícito” em 2025. Autor queer na flor da idade, faz ilustrações e poemas para os próprios livros, atualmente cursa licenciatura em Letras pelo IFTO e faz designer gráficos e lidera o coletivo de literatura Caliandras Show.',
+        email: 'ps.cosescritor@gmail.com',
+        instagram: '@ps.co'
     },
     {
         id: 't2',
         nome: 'Gleicielly Medeiros',
-        cargo: 'Apresentadora & Resenhista',
-        fotoUrl: '/images/mock/gleicy_autor.jpg',
-        bio: 'A voz por trás das entrevistas e das resenhas críticas. Com naturalidade e carisma, Gleicy conecta o público às obras literárias.'
+        cargo: 'Entrevistadora e Resenhista',
+        minibio: 'Entrevistadora e Resenhista',
+        fotoUrl: '/images/time/gleice.jpg',
+        bio: 'Gleicielly Medeiros, mais conhecida como Gleice, é natural do Maranhão, mas cresceu e vive em Palmas (TO), atualmente, em 2026, cursa Licenciatura em Letras pelo IFTO. Tem interesse em linguagem, ensino e literatura, além de escrever resenhas autorais e desenvolver projetos acadêmicos sobre essas perspectivas. Integra o coletivo Caliandras Show como apresentadora e resenhista. Sendo uma leitora ativa, busca construir sua trajetória na educação com foco e constância.',
+        email: 'gleiciellym7@gmail.com',
+        instagram: '@gleici.smedeiros'
     },
     {
         id: 't3',
-        nome: 'Nayra',
-        cargo: 'Produtora & Apresentadora',
-        fotoUrl: '/images/mock/nayra.jpg',
-        bio: 'Figura essencial na logística e na condução dos episódios, garantindo que o Caliandras mantenha seu ritmo dinâmico.'
+        nome: 'Nayra Souza',
+        cargo: 'Roteirista, entrevistadora e secretária interna.',
+        minibio: 'Roteirista, entrevistadora e secretária interna.',
+        fotoUrl: '/images/time/nayra.jpg',
+        bio: 'Nayra Souza nasceu em Barra do Corda, no interior do Maranhão. Estudante de Letras no Instituto Federal do Tocantins (IFTO), Campus Palmas, integrou a Coletânea Dos Sonhos: Primeiros Textos com a crônica Rotina, escrita quando ainda cursava o ensino médio. É apaixonada por café e por histórias que aquecem e fazem palpitar o coração. Em sua escrita, tenta projetar essas mesmas façanhas através palavras e sentidos. No papel, mistura poesia com prosa, realidade com devaneio. Atualmente cria os roteiros para os Caliandras Talk Show’s e também desempenha a função de entrevistadora. Uma loucura! Seu objetivo? Encantar o leitor com simplicidade, verdade e um tantinho de caos poético.'
     },
     {
         id: 't4',
+        nome: 'Emilly Campos',
+        cargo: 'Designer gráfica, Videomaker e Entrevistadora',
+        fotoUrl: '/images/time/emilly.jpg',
+        bio: 'De Palmas (TO), Emilly Campos, atualmente em 2026, faz parte do CALINTRAS, (Centro Acadêmico de Licenciatura em Letras), realizando trabalhos gráficos e organizando eventos voltados à leitura. Estendendo suas habilidades, edita vídeos e produz postagens para o coletivo de literatura Caliandras Show.',
+        email: 'emilycampos2408@gmail.com',
+        instagram: '@emillycsmps'
+    },
+
+    {
+        id: 't5',
+        nome: 'Rayssa Montelo',
+        cargo: 'Resenhista',
+        fotoUrl: '/images/time/rayssa.jpg',
+        bio: 'Rayssa Montelo possui 20 anos em 2026, nascida em Palmas, Tocantins. Atualmente cursa Biomedicina e desde criança sempre foi apaixonada por leitura. Adora unir suas duas paixões, a ciência e a literatura, resultando em ótimas resenhas para o Caliandras Show, plataforma que compartilha suas impressões e descobertas. Além de tudo isso, também é uma das organizadoras do clube do livro Conversa de Bois.',
+        email: 'rayssamontelo10@gmail.com',
+        instagram: '@rayssa_montelo'
+    },
+
+    {
+        id: 't6',
+        nome: 'Sávio Rodrigues',
+        cargo: 'Resenhista',
+        fotoUrl: '/images/time/savio.jpg',
+        bio: 'Sávio Rodrigues tem 20 anos em 2026. É estudante de Psicologia, interessado em compreender o comportamento humano e o desenvolvimento pessoal. Amante de música pop e histórias de fantasia e suspense. Lidera o clube do livro Conversas de Bois e quando sobra um tempinho, também faz resenhas para o Caliandras Show. Está em constante aprendizado, buscando crescimento pessoal e acadêmico.'
+    },
+    {
+        id: 't7',
+        nome: 'Mirelle Freitas',
+        cargo: 'Conselheira para Administração e Finanças',
+        fotoUrl: '/images/time/mirelle.jpg',
+        bio: 'Mirelle Freitas é guiada pela curiosidade, foi assim que conquistou diplomas e títulos na sua vida acadêmica (doutorados, mestrados, especializações e por aí vai). Nascida no interior de Goiás, na infância e adolescência escrevia redações e diários, mas foi na escrita acadêmica que se firmou. A convivência com estudantes na sua atuação como formadora de professores, no Instituto Federal do Tocantins (IFTO), a fez se redescobrir leitora. Esse trajeto a reconectou com a escrita literária.',
+        email: 'mirelle.sf11@gmail.com',
+        instagram: '@mih_sfreitas'
+    },
+    {
+        id: 't8',
+        nome: 'Luciano Gonçalves',
+        cargo: 'Conselheiro Comunicacional',
+        fotoUrl: '/images/time/luciano.jpg',
+        bio: 'Luciano Gonçalves, doutor pelo Programa de Pós-Graduação em Literatura Brasileira da Universidade de São Paulo (USP), mestre e licenciado em Letras pela Universidade Federal de Mato Grosso Sul (UFMS), realizou dissertação e tese sobre a obra de Samuel Rawet, escritor judeu-polonês, naturalizado brasileiro. No presente, pesquisa a crônica édita de Dinah Silveira de Queiroz, publicada no jornal Correio Braziliense. Atua como professor de Português e suas literaturas no Instituto Federal do Tocantins (IFTO). Natural de Teixeira de Freitas, Bahia, é autor de Crônicas espectrais, notas sobre o TEA (Editora Patuá, 2024), sua estreia na prosa.'
+    },
+
+    {
+        id: 't12',
         nome: 'Isabella',
-        cargo: 'Direção & Comunicação',
-        fotoUrl: '/images/placeholder.jpg',
+        cargo: 'Direção & Tecnologia',
+        fotoUrl: '/images/time/isabella.jpg',
         bio: 'Responsável pela estética e pela voz do projeto nos canais digitais, construindo a identidade visual que você vê aqui.'
     },
     {
-        id: 't5',
-        nome: 'Thiago',
+        id: 't13',
+        nome: 'Thiago Medeiros',
         cargo: 'Direção & Tecnologia',
-        fotoUrl: '/images/placeholder.jpg',
-        bio: 'Une a arte à tecnologia, cuidando para que a experiência do Caliandras chegue ao mundo de forma inovadora e acessível.'
+        fotoUrl: '/images/time/thiagom.jpeg',
+        bio: 'Thiago Medeiros tem 21 anos, nascido em 2004. Com formação técnica em Mecatrônica e uma trajetória dedicada à programação, ele é o motor tecnológico por trás do Caliandras Show. Amante da tecnologia e da inovação, Thiago acredita no poder das ferramentas digitais como pontes para a democratização do saber. No Caliandras, sua missão é unir a precisão dos códigos à sensibilidade das artes, garantindo que a cultura e a literatura regional alcancem novos horizontes através de uma experiência digital moderna, fluida e acessível.',
+        email: 'thiagosousam2004@gmail.com',
     }
 ];

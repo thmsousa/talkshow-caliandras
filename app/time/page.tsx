@@ -3,9 +3,12 @@
 import { TIME_CALIANDRAS } from '@/lib/mockData';
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
+import { Instagram, Mail } from 'lucide-react';
 import styles from './Time.module.css';
 
 export default function TimePage() {
+    console.log("Dados carregados:", TIME_CALIANDRAS);
+
     // Variantes para animações coordenadas
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
@@ -40,7 +43,7 @@ export default function TimePage() {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className={styles.title}
                 >
-                    Nosso Time
+                    Equipe
                 </motion.h1>
                 <motion.p 
                     initial={{ opacity: 0 }}
@@ -62,12 +65,13 @@ export default function TimePage() {
             >
                 <div className={styles.heroImageWrapper}>
                     <Image 
-                        src="/images/time/coletivo_1.jpg" 
+                        src="/images/time/time1.jpeg" 
                         alt="Time Caliandras em momento de diálogo"
                         fill
                         className={styles.heroImage}
                         priority
                         sizes="(max-width: 1024px) 100vw, 800px"
+                        style={{ objectPosition: '50% 35%' }}
                     />
                 </div>
                 <div className={styles.heroCaption}>
@@ -121,9 +125,36 @@ export default function TimePage() {
                         <h3 className={styles.memberName}>{membro.nome}</h3>
                         <span className={styles.memberRole}>{membro.cargo}</span>
                         <p className={styles.memberBio}>{membro.bio}</p>
+
+                        {(membro.email || membro.instagram) && (
+                            <div className={styles.memberContact}>
+                                {membro.email && (
+                                    <a href={`mailto:${membro.email}`} className={styles.contactLink} title={membro.email}>
+                                        <Mail size={16} />
+                                        <span>E-mail</span>
+                                    </a>
+                                )}
+                                {membro.instagram && (
+                                    <a 
+                                        href={`https://instagram.com/${membro.instagram.replace('@', '')}`} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className={styles.contactLink}
+                                        title={membro.instagram}
+                                    >
+                                        <Instagram size={16} />
+                                        <span>Instagram</span>
+                                    </a>
+                                )}
+                            </div>
+                        )}
                     </motion.div>
                 ))}
             </motion.div>
+
+            <div className={styles.sectionDivider}>
+                <div className={styles.dividerLine} />
+            </div>
 
             {/* 3. MOMENTOS GALLERY SECTION */}
             <div className={styles.momentsSection}>
@@ -142,12 +173,11 @@ export default function TimePage() {
                         </p>
                     </div>
                     <div className={styles.momentImageWrapper}>
-                        <Image 
-                            src="/images/time/coletivo_2.jpg" 
+                        <img 
+                            src="/images/time/time2.jpeg" 
                             alt="Coletivo Caliandras em Ação"
-                            fill
                             className={styles.momentImage}
-                            sizes="(max-width: 1024px) 100vw, 600px"
+                            style={{ width: '100%', height: 'auto', display: 'block' }}
                         />
                     </div>
                 </motion.section>
