@@ -17,7 +17,7 @@ export default function HomePage() {
     const [dataLoaded, setDataLoaded] = useState(false);
     const [initialCheckComplete, setInitialCheckComplete] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-    
+
     const carrosselRef = useRef<HTMLDivElement>(null);
     const isInteracting = useRef(false);
 
@@ -77,9 +77,9 @@ export default function HomePage() {
             setDataLoaded(true);
             setInitialCheckComplete(true);
         };
-        
+
         loadData();
-        
+
         if (typeof window !== 'undefined' && localStorage.getItem('hasSeenSplash') === 'true') {
             setShowSplash(false);
         }
@@ -90,15 +90,15 @@ export default function HomePage() {
     return (
         <AnimatePresence>
             {showSplash ? (
-                <SplashScreen 
+                <SplashScreen
                     key="splash"
-                    onComplete={() => { 
-                        setShowSplash(false); 
-                        if (typeof window !== 'undefined') localStorage.setItem('hasSeenSplash', 'true'); 
-                    }} 
+                    onComplete={() => {
+                        setShowSplash(false);
+                        if (typeof window !== 'undefined') localStorage.setItem('hasSeenSplash', 'true');
+                    }}
                 />
             ) : (
-                <motion.main 
+                <motion.main
                     key="content"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -106,11 +106,11 @@ export default function HomePage() {
                     className={styles.mainWrapper}
                 >
                     {/* --- ELEMENTO: LUZ DE ESTÚDIO --- */}
-                    <div 
+                    <div
                         className={styles.studioLight}
                         style={{
                             background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 107, 0, 0.08), transparent 80%)`,
-                        }} 
+                        }}
                     />
 
                     {/* --- SEÇÃO: EVENTOS --- */}
@@ -135,9 +135,9 @@ export default function HomePage() {
                                     <Link key={evento.id} href="/eventos" style={{ textDecoration: 'none' }}>
                                         <div
                                             className={styles.eventCard}
-                                            style={{ 
+                                            style={{
                                                 // Definimos a variável CSS para a animação sway
-                                                ['--index' as any]: index 
+                                                ['--index' as any]: index
                                             }}
                                         >
                                             <div className={styles.pin} />

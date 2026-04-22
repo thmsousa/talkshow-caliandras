@@ -8,7 +8,19 @@ import styles from './SobrePage.module.css';
 export default function SobrePage() {
     return (
         <main className={styles.mainContainer}>
-            {/* FLORES DECORATIVAS FLUTUANTES */}
+            {/* ANIMAÇÃO APRIMORADA: FIOS DO CERRADO (CAPIM DOURADO) */}
+            <div className={styles.cerradoFlowContainer}>
+                <div className={styles.goldenThread} />
+                <div className={styles.goldenThread} />
+                <div className={styles.goldenThread} />
+                <div className={styles.goldenThread} />
+                <div className={styles.goldenThread} />
+                <div className={styles.sparkle} />
+                <div className={styles.sparkle} />
+                <div className={styles.sparkle} />
+            </div>
+
+            {/* FLORES DECORATIVAS FLUTUANTES (PÉTALAS) */}
             <div className={styles.flowerDecoration1}>
                 <Image src="/images/decor/caliandra.png" alt="" width={300} height={300} />
             </div>

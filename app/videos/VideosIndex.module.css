@@ -2,13 +2,13 @@
     max-width: 1300px;
     margin: 0 auto;
     /* Mantemos o respiro lateral e o fundo reduzido */
-    padding: 0 20px 40px; 
+    padding: 0 20px 40px;
     background-color: #fff;
     min-height: auto;
 }
 
 .headerSection {
-    padding-top: 50px; 
+    padding-top: 50px;
     margin-bottom: 80px;
     padding-left: 25px;
     position: relative;
@@ -17,12 +17,13 @@
 .headerSection::before {
     content: '';
     position: absolute;
-    top: 50px; /* Alinhado com o padding-top do container */
+    top: 50px;
+    /* Alinhado com o padding-top do container */
     left: 0;
     width: 4px;
     height: calc(100% - 50px + 5px);
     background: var(--color-accent);
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
     z-index: 1;
 }
@@ -72,7 +73,7 @@
 .searchBarContainer:focus-within {
     background: #fff;
     border-color: #eee;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     max-width: 350px;
 }
 
@@ -119,15 +120,18 @@
 }
 
 @keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0); }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .thumbnailWrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9; 
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-    border-radius: 8px; 
+    border-radius: 8px;
     background-color: #000;
 }
 
@@ -147,7 +151,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition: all 0.4s ease;
 }
@@ -233,16 +237,32 @@
 }
 
 @media (max-width: 1100px) {
-    .videoGrid { grid-template-columns: repeat(2, 1fr); }
+    .videoGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-    .headerSection { 
-        padding-top: 30px; 
+    .headerSection {
+        padding-top: 30px;
         padding-left: 35px;
     }
-    .headerContent { align-items: flex-start; flex-direction: column; }
-    .videoGrid { grid-template-columns: 1fr; border-left: none; }
-    .videoCard { border-left: 1px solid #eee; }
-    .mainContainer { padding-bottom: 30px; }
+
+    .headerContent {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .videoGrid {
+        grid-template-columns: 1fr;
+        border-left: none;
+    }
+
+    .videoCard {
+        border-left: 1px solid #eee;
+    }
+
+    .mainContainer {
+        padding-bottom: 30px;
+    }
 }

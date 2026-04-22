@@ -20,7 +20,7 @@
     width: 4px;
     height: calc(100% + 5px);
     background: var(--color-accent);
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
     z-index: 1;
 }
@@ -57,12 +57,12 @@
     overflow: hidden;
     border: 1px solid #f0f0f0;
     transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 .reviewCard:hover {
     transform: translateY(-10px);
-    box-shadow: 0 40px 80px rgba(0,0,0,0.08);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
     border-color: #ddd;
 }
 
@@ -90,8 +90,11 @@
 
 .cardOverlay {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 60%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, transparent 60%);
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -111,7 +114,7 @@
     text-transform: uppercase;
     letter-spacing: 3px;
     padding: 12px 24px;
-    border: 1px solid rgba(255,255,255,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 100px;
     backdrop-filter: blur(10px);
 }
@@ -145,9 +148,17 @@
     margin-bottom: 20px;
 }
 
-.star { font-size: 14px; }
-.starActive { color: var(--color-accent); }
-.starInactive { color: #eee; }
+.star {
+    font-size: 14px;
+}
+
+.starActive {
+    color: var(--color-accent);
+}
+
+.starInactive {
+    color: #eee;
+}
 
 .cardExcerpt {
     font-size: 15px;
@@ -169,7 +180,10 @@
 }
 
 @media (max-width: 768px) {
-    .header { padding-left: 35px; }
+    .header {
+        padding-left: 35px;
+    }
+
     .reviewsGrid {
         grid-template-columns: 1fr;
     }
