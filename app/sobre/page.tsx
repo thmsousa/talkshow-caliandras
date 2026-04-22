@@ -63,7 +63,7 @@ export default function SobrePage() {
                 <div className={styles.imageWrapper}>
                     <div className={styles.imagePlaceholder}>
                         <Image
-                            src="/images/mock/cover_vlog.png"
+                            src="/images/mock/talkshow-escolapub_sobre.jpg"
                             alt="Bastidores Caliandras"
                             fill
                             className={styles.featuredImage}
