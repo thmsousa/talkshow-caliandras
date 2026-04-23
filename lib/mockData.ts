@@ -152,12 +152,12 @@ export const EVENTOS_CALINDRAS = [
     }
 ];
 
-export const TIME_CALIANDRAS: TimeMember[] = [
+export const EQUIPE_CALIANDRAS: TimeMember[] = [
     {
         id: 't1',
         nome: 'Pablo Costa',
         cargo: 'Designer gráfico, conselheiro criativo e sonoplasta.',
-        fotoUrl: '/images/team/pablo.jpg',
+        fotoUrl: '/images/equipe/pablo.jpg',
         bio: 'Pablo Costa é nascido na periferia de Palmas (TO) e em 2026 completa 20 anos. Publicou sua primeira obra em 2022 pela Editora Coerência, “As Estacões de Demp Esmerald e o Gato da Penumbra”, e a segunda de forma completamente independente, “Espírito Ilícito” em 2025. Autor queer na flor da idade, faz ilustrações e poemas para os próprios livros, atualmente cursa licenciatura em Letras pelo IFTO e faz designer gráficos e lidera o coletivo de literatura Caliandras Show.',
         email: 'ps.cosescritor@gmail.com',
         instagram: '@ps.co'
@@ -166,7 +166,7 @@ export const TIME_CALIANDRAS: TimeMember[] = [
         id: 't2',
         nome: 'Gleicielly Medeiros',
         cargo: 'Entrevistadora e Resenhista',
-        fotoUrl: '/images/team/gleice.jpg',
+        fotoUrl: '/images/equipe/gleice.jpg',
         bio: 'Gleicielly Medeiros, mais conhecida como Gleice, é natural do Maranhão, mas cresceu e vive em Palmas (TO), atualmente, em 2026, cursa Licenciatura em Letras pelo IFTO. Integra o coletivo Caliandras Show como apresentadora e resenhista.',
         email: 'gleiciellym7@gmail.com',
         instagram: '@gleici.smedeiros'
@@ -175,7 +175,7 @@ export const TIME_CALIANDRAS: TimeMember[] = [
         id: 't3',
         nome: 'Nayra Souza',
         cargo: 'Roteirista, entrevistadora e secretária interna.',
-        fotoUrl: '/images/team/nayra.jpg',
+        fotoUrl: '/images/equipe/nayra.jpg',
         bio: 'Nayra Souza nasceu em Barra do Corda, no interior do Maranhão. Estudante de Letras no IFTO Palmas. Atualmente cria os roteiros para os Caliandras Talk Show’s e também desempenha a função de entrevistadora.',
         email: 'nayra@gmail.com',
         instagram: '@nayra_souza'
@@ -184,7 +184,7 @@ export const TIME_CALIANDRAS: TimeMember[] = [
         id: 't4',
         nome: 'Emilly Campos',
         cargo: 'Designer gráfica, Videomaker e Entrevistadora',
-        fotoUrl: '/images/team/emilly.jpg',
+        fotoUrl: '/images/equipe/emilly.jpg',
         bio: 'De Palmas (TO), Emilly Campos, atualmente em 2026, faz parte do CALINTRAS, realizando trabalhos gráficos e organizando eventos voltados à leitura.',
         email: 'emilycampos2408@gmail.com',
         instagram: '@emillycsmps'
@@ -193,7 +193,7 @@ export const TIME_CALIANDRAS: TimeMember[] = [
         id: 't5',
         nome: 'Rayssa Montelo',
         cargo: 'Resenhista',
-        fotoUrl: '/images/team/rayssa.jpg',
+        fotoUrl: '/images/equipe/rayssa.jpg',
         bio: 'Rayssa Montelo possui 20 anos em 2026, nascida em Palmas, Tocantins. Atualmente cursa Biomedicina e integra o Caliandras Show.',
         email: 'rayssamontelo10@gmail.com',
         instagram: '@rayssa_montelo'
@@ -202,14 +202,14 @@ export const TIME_CALIANDRAS: TimeMember[] = [
         id: 't6',
         nome: 'Sávio Rodrigues',
         cargo: 'Resenhista',
-        fotoUrl: '/images/team/savio.jpg',
+        fotoUrl: '/images/equipe/savio.jpg',
         bio: 'Sávio Rodrigues tem 20 anos em 2026. É estudante de Psicologia e faz resenhas para o Caliandras Show.'
     },
     {
         id: 't7',
         nome: 'Mirelle Freitas',
         cargo: 'Conselheira para Administração e Finanças',
-        fotoUrl: '/images/team/mirelle.jpg',
+        fotoUrl: '/images/equipe/mirelle.jpg',
         bio: 'Mirelle Freitas é doutora e formadora de professores no IFTO Palmas. Atua como conselheira do coletivo Caliandras Show.',
         email: 'mirelle.sf11@gmail.com',
         instagram: '@mih_sfreitas'
@@ -222,7 +222,13 @@ export const TODAS_RESENHAS: Resenha[] = [
         slug: 'resenha-espirito-ilicito-gleice',
         tituloObra: 'Espírito Ilícito',
         autorObra: 'Pablo Costa',
-        textoResenha: `Em ESPÍRITO ILÍCITO, Pabl. Costa tece uma obra envolvente, sensorial e perturbadora, onde o sagrado se entrelaça com o profano em uma história repleta de cicatrizes e beleza 💐. Espírito Ilícito é uma história que aborda juventudes feridas e o poder avassalador da memória.`,
+        textoResenha: `Em ESPÍRITO ILÍCITO, Pabl. Costa tece uma obra envolvente, sensorial e perturbadora, onde o sagrado se entrelaça com o profano em uma história repleta de cicatrizes e beleza 💐. O leitor é guiado através de conventos, salas de aula abafadas e florestas impregnadas de mistério, conhecendo a jornada de dois jovens marcados pelo abandono, pela culpa e pela vontade de existir ✨️
+
+Margarida é enviada à enigmática Ilha do Bom Passado após um escândalo familiar, descobre que a vida ali vai além da rotina religiosa e do isolamento: ela se depara com os vestígios de Narciso um ex-aluno desaparecido que deixou diários carregados de dor, confissões e visões perturbadoras 🌕. Em um emaranhado de páginas extraviadas e memórias ocultas, passado e presente se entrelaçam de forma a criar um tecido literário que combina lirismo, crítica social e um sutil toque de realismo mágico 📚
+
+Pabl. Costa apresenta personagens multifacetados e humanos, como a severa Madre Sílvia, o enigmático Lírio e o reservado Padre Leon, todos orbitando em torno de um núcleo de afeto ferido e instituições em decadência. Com uma prosa lírica e fluida, o autor transforma a linguagem em um reflexo das emoções mais profundas aquelas que a religião tenta silenciar, que a sociedade prefere ocultar, mas que a literatura busca resgatar 🌷
+
+Espírito Ilícito é uma história que aborda juventudes feridas, a falência das estruturas que deveriam proteger e o poder avassalador da memória. Um livro destinado àqueles que não temem a escuridão e que sabem que, por vezes, é nesse lugar que a luz começa a se manifestar 🦇.`,
         nota: 5,
         dataPostagem: '2025-10-16',
         imagemCapa: '/images/reviews/resenha_espirito_ilicito.png',

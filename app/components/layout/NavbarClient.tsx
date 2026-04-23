@@ -12,7 +12,7 @@ const navItems = [
     { name: 'Resenhas', href: '/resenhas' },
     // { name: 'Parceiros', href: '/parceiros' },
     { name: 'Indicações', href: '/indicacoes' },
-    { name: 'Equipe', href: '/time' },
+    { name: 'Equipe', href: '/equipe' },
     { name: 'Produtos', href: '/produtos' },
     { name: 'Sobre', href: '/sobre' },
 ];

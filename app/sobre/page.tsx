@@ -152,7 +152,7 @@ export default function SobrePage() {
                     <h2 className={styles.ctaTitle}>Conheça os idealizadores.</h2>
 
                     <div style={{ marginTop: '40px' }}>
-                        <Link href="/time" className={styles.premiumBtn}>
+                        <Link href="/equipe" className={styles.premiumBtn}>
                             <span>Nossa Equipe</span>
                             <ArrowRight size={18} />
                         </Link>

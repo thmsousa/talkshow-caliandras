@@ -1,13 +1,13 @@
 'use client';
 
-import { TIME_CALIANDRAS } from '@/lib/mockData';
+import { EQUIPE_CALIANDRAS } from '@/lib/mockData';
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 import { Instagram, Mail } from 'lucide-react';
 import styles from './Time.module.css';
 
-export default function TimePage() {
-    console.log("Dados carregados:", TIME_CALIANDRAS);
+export default function EquipePage() {
+    console.log("Dados carregados:", EQUIPE_CALIANDRAS);
 
     // Variantes para animações coordenadas
     const containerVariants: Variants = {
@@ -32,9 +32,6 @@ export default function TimePage() {
 
     return (
         <main className={styles.mainContainer}>
-            {/* BACKGROUND DECORATION */}
-            <div className={styles.bgDeco} />
-
             {/* HEADER */}
             <header className={styles.header}>
                 <motion.h1 
@@ -65,7 +62,7 @@ export default function TimePage() {
             >
                 <div className={styles.heroImageWrapper}>
                     <Image 
-                        src="/images/team/time1.jpeg" 
+                        src="/images/equipe/time1.jpeg" 
                         alt="Time Caliandras em momento de diálogo"
                         fill
                         className={styles.heroImage}
@@ -105,7 +102,7 @@ export default function TimePage() {
                 viewport={{ once: true, margin: "-50px" }}
                 className={styles.grid}
             >
-                {TIME_CALIANDRAS.map((membro) => (
+                {EQUIPE_CALIANDRAS.map((membro) => (
                     <motion.div 
                         key={membro.id}
                         variants={itemVariants}
@@ -174,7 +171,7 @@ export default function TimePage() {
                     </div>
                     <div className={styles.momentImageWrapper}>
                         <img 
-                            src="/images/team/time2.jpeg" 
+                            src="/images/equipe/time2.jpeg" 
                             alt="Coletivo Caliandras em Ação"
                             className={styles.momentImage}
                             style={{ width: '100%', height: 'auto', display: 'block' }}
