@@ -143,7 +143,7 @@ export default function HomePage() {
                                             <div className={styles.pin} />
                                             <div className={styles.eventImageWrapper}>
                                                 <Image
-                                                    src={evento.imagem || '/images/mock/cover_resenha.png'}
+                                                    src={evento.imagem || '/images/reviews/cover_resenha.png'}
                                                     alt={evento.titulo}
                                                     fill
                                                     className={styles.eventImage}

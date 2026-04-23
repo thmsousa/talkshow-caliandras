@@ -86,7 +86,7 @@ export default function SobrePage() {
                         <div className={styles.imageCornerBottomRight} />
                         
                         <img
-                            src="/images/mock/biblioteca.jpg"
+                            src="/images/about/biblioteca.jpg"
                             alt="Bastidores Caliandras"
                             className={styles.featuredImage}
                             style={{ 

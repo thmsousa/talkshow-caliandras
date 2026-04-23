@@ -65,7 +65,7 @@ export default function TimePage() {
             >
                 <div className={styles.heroImageWrapper}>
                     <Image 
-                        src="/images/time/time1.jpeg" 
+                        src="/images/team/time1.jpeg" 
                         alt="Time Caliandras em momento de diálogo"
                         fill
                         className={styles.heroImage}
@@ -174,7 +174,7 @@ export default function TimePage() {
                     </div>
                     <div className={styles.momentImageWrapper}>
                         <img 
-                            src="/images/time/time2.jpeg" 
+                            src="/images/team/time2.jpeg" 
                             alt="Coletivo Caliandras em Ação"
                             className={styles.momentImage}
                             style={{ width: '100%', height: 'auto', display: 'block' }}

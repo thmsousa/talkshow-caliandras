@@ -61,7 +61,7 @@ export default function ResenhaDetalhePage() {
                     className={styles.imageSide}
                 >
                     <Image 
-                        src={resenha.imagemCapa || '/images/mock/cover_resenha.png'} 
+                        src={resenha.imagemCapa || '/images/reviews/cover_resenha.png'} 
                         alt={resenha.tituloObra}
                         fill
                         className={styles.featuredImage}

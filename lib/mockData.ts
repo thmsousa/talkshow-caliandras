@@ -5,27 +5,26 @@ export const TODOS_PARCEIROS: Autor[] = [
     {
         id: 'a1',
         nomeCompleto: 'Pablo Costa',
-        fotoUrl: '/images/mock/pablo_cover.jpg',
+        fotoUrl: '/images/team/pablo.jpg',
         slug: 'pablo-costa',
-        bio: "Escritor e entusiasta das artes, é uma das vozes que ajudam a tecer a tapeçaria cultural do Caliandras. Com uma trajetória marcada pela investigação da literatura regional e das novas linguagens audiovisuais, atua como convidado principal trazendo um olhar crítico e poético sobre a produção artística contemporânea. Sua presença nas intervenções poéticas e lives do projeto reforça o compromisso do Caliandras em fomentar o diálogo entre a tradição literária e a inovação cultural."
+        bio: "Escritor e entusiasta das artes, é uma das vozes que ajudam a tecer a tapeçaria cultural do Caliandras."
     },
     {
         id: 'a2',
         nomeCompleto: 'Gleicielly Medeiros',
-        fotoUrl: '/images/mock/gleicy_autor.jpg',
+        fotoUrl: '/images/team/gleice.jpg',
         slug: 'gleicielly-medeiros',
         bio: "Apresentadora/Entrevistadora e entusiasta cultural."
     },
     {
         id: 'a3',
         nomeCompleto: 'Nayra',
-        fotoUrl: '/images/mock/nayra.jpg',
+        fotoUrl: '/images/team/nayra.jpg',
         slug: 'nayra',
         bio: "Apresentadora e produtora do Caliandras."
     }
 ];
 
-// Alias para evitar quebra imediata
 export const TODOS_AUTORES = TODOS_PARCEIROS;
 
 export const TODOS_EPISODIOS: Episodio[] = [
@@ -36,7 +35,7 @@ export const TODOS_EPISODIOS: Episodio[] = [
         dataLancamento: '2025-11-24T12:00:00',
         urlVideo: 'ZFValH0rauY',
         descricao: 'Saiba mais sobre o autor da obra "Espiríto Ilícitio", Pablo Costa.',
-        imagemCapaUrl: '/images/mock/pablo_cover.jpg',
+        imagemCapaUrl: '/images/episodes/pablo_cover.jpg',
         autorId: 'a1'
     },
     {
@@ -46,7 +45,7 @@ export const TODOS_EPISODIOS: Episodio[] = [
         dataLancamento: '2025-11-28T12:00:00',
         urlVideo: 'NpGOg2fvgz4',
         descricao: 'Um pequeno Vlog do encontro "Espirito Ilícito", realizado no dia 10 de outubro.',
-        imagemCapaUrl: '/images/mock/cover_vlog_encontro.png',
+        imagemCapaUrl: '/images/episodes/cover_vlog_encontro.png',
         autorId: 'a1'
     },
     {
@@ -56,7 +55,7 @@ export const TODOS_EPISODIOS: Episodio[] = [
         dataLancamento: '2025-10-10T12:00:00',
         urlVideo: 'Xgoom94yiNw',
         descricao: 'Registros do lançamento do livro Espirito Ilícito, realiado no Cine Teatro IFTO, em 10 de outubro.',
-        imagemCapaUrl: '/images/mock/cover_lancamento_ei.png',
+        imagemCapaUrl: '/images/episodes/cover_lancamento_ei.png',
         autorId: 'a1'
     },
     {
@@ -65,20 +64,8 @@ export const TODOS_EPISODIOS: Episodio[] = [
         slug: 'resenha-esp-ili-gleicielly',
         dataLancamento: '2025-10-16T12:00:00',
         urlVideo: 'f0qlGFNDdEE',
-        descricao: `Em ESPÍRITO ILÍCITO, Pabl. Costa tece uma obra envolvente, sensorial e perturbadora, onde o sagrado se entrelaça com o profano em uma história repleta de cicatrizes e beleza 💐. O leitor é guiado através de conventos, salas de aula abafadas e florestas impregnadas de mistério, conhecendo a jornada de dois jovens marcados pelo abandono, pela culpa e pela vontade de existir ✨️
-
-Margarida é enviada à enigmática Ilha do Bom Passado após um escândalo familiar, descobre que a vida ali vai além da rotina religiosa e do isolamento: ela se depara com os vestígios de Narciso um ex-aluno desaparecido que deixou diários carregados de dor, confissões e visões perturbadoras 🌕. Em um emaranhado de páginas extraviadas e memórias ocultas, passado e presente se entrelaçam de forma a criar um tecido literário que combina lirismo, crítica social e um sutil toque de realismo mágico 📚
-
-Pabl. Costa apresenta personagens multifacetados e humanos, como a severa Madre Sílvia, o enigmático Lírio e o reservado Padre Leon, todos orbitando em torno de um núcleo de afeto ferido e instituições em decadência. Com uma prosa lírica e fluida, o autor transforma a linguagem em um reflexo das emoções mais profundas aquelas que a religião tenta silenciar, que a sociedade prefere ocultar, mas que a literatura busca resgatar 🌷
-
-Espírito Ilícito é uma história que aborda juventudes feridas, a falência das estruturas que deveriam proteger e o poder avassalador da memória. Um livro destinado àqueles que não temem a escuridão e que sabem que, por vezes, é nesse lugar que a luz começa a se manifestar 🌕
-
-✍️Resenha por: Gleice Medeiros
-📷Edição por: Emilly Campos
-
-📍Local: Dunas do Jalapão (TO)
-🗓 Data: 16/10/2025`,
-        imagemCapaUrl: '/images/mock/cover_resenha.png',
+        descricao: `Em ESPÍRITO ILÍCITO, Pabl. Costa tece uma obra envolvente, sensorial e perturbadora, onde o sagrado se entrelaça com o profano em uma história repleta de cicatrizes e beleza.`,
+        imagemCapaUrl: '/images/episodes/cover_resenha.png',
         autorId: 'a2'
     }
 ];
@@ -88,7 +75,7 @@ export const TODOS_PRODUTOS: Produto[] = [
         id: 'p1',
         titulo: 'Livro Espírito Ilícito',
         preco: 'Entre em contato',
-        imagemUrl: '/images/mock/espirito_ilicito_cover.jpg',
+        imagemUrl: '/images/products/espirito_ilicito_cover.jpg',
         descricao: 'A obra física completa de Pablo Costa, explorando os limites da mente e da cultura.',
         linkCompra: 'https://www.instagram.com/calintras/',
         categoria: 'Livro'
@@ -97,17 +84,17 @@ export const TODOS_PRODUTOS: Produto[] = [
         id: 'p2',
         titulo: 'E-book Espírito Ilícito',
         preco: 'R$30,00',
-        imagemUrl: '/images/mock/espirito_ilicito_cover.jpg',
+        imagemUrl: '/images/products/espirito_ilicito_cover.jpg',
         descricao: 'Versão digital otimizada para Kindle e dispositivos móveis.',
-        linkCompra: 'https://www.amazon.com.br/Esp%C3%ADrito-Il%C3%ADcito-Pabl-Costa-ebook/dp/B0FX1D9DYX/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3TQZYRJ5H5OQX&dib=eyJ2IjoiMSJ9.qvDPruSj4VphiwDeQ1ZwXz9tQ-ZpasBxhSNx_UpLLn6TaYxxM_ic44Uif1AUr2fY_VDFHB5FOIIEg31_oPhM-piVn6s0R0tHP5klRWKVt7c.EQk2nWxE_ccFeRCTr7Q7QjXgNeiQGZRvJZGzBY5u2_w&dib_tag=se&keywords=espirito+ilicito&qid=1766987259&s=books&sprefix=espirito+ilicito%2Cstripbooks%2C226&sr=1-1',
+        linkCompra: 'https://www.amazon.com.br/Esp%C3%ADrito-Il%C3%ADcito-Pabl-Costa-ebook/dp/B0FX1D9DYX/',
         categoria: 'E-book'
     },
     {
         id: 'p3',
         titulo: 'Marca-Páginas',
         preco: 'Entre em contato',
-        imagemUrl: '/images/mock/marca_pagina.png',
-        descricao: 'Camiseta oficial em algodão premium com a estampa exclusiva da temporada.',
+        imagemUrl: '/images/products/marca_pagina.png',
+        descricao: 'Marcador de páginas oficial do projeto Caliandras.',
         linkCompra: 'https://www.instagram.com/calintras/',
         categoria: 'Acessório'
     }
@@ -118,69 +105,50 @@ export const EVENTOS_CALINDRAS = [
         id: 1,
         titulo: "Lançamento Espiríto Ilícito",
         data: "2025-10-10",
-        imagem: "/images/mock/eve1.jpeg",
+        imagem: "/images/events/eve1.jpeg",
         descricao: 'O marco inicial da obra literária, reunindo entusiastas e críticos em uma noite de autógrafos no Cine Teatro IFTO.'
     },
     {
         id: 2,
         titulo: "Aula de Leitura Regional",
         data: "2025-11-18",
-        imagem: "/images/mock/eve2.jpeg",
+        imagem: "/images/events/eve2.jpeg",
         descricao: 'Uma imersão nas raízes da literatura local, explorando a construção da identidade através das palavras.'
     },
     {
         id: 3,
         titulo: "VIII Feira de Cultura",
         data: "2025-11-24",
-        imagem: "/images/mock/eve3.jpeg",
+        imagem: "/images/events/eve3.jpeg",
         descricao: 'Participação especial do projeto Caliandras na oitava edição da feira de cultura regional.'
     },
     {
         id: 4,
         titulo: "Aula de Língua Portuguesa",
         data: "2025-11-28",
-        imagem: "/images/mock/eve4.jpeg",
+        imagem: "/images/events/eve4.jpeg",
         descricao: 'Intervenção cultural focada na norma culta e na expressão literária contemporânea.'
     },
     {
         id: 5,
         titulo: "Intervenções Poéticas",
         data: "2025-12-05",
-        imagem: "/images/mock/eve5.jpeg",
+        imagem: "/images/events/eve5.jpeg",
         descricao: 'Sarau e leituras dramáticas realizadas ao ar livre para a comunidade.'
     },
-];
-
-export const TODAS_RESENHAS: Resenha[] = [
     {
-        id: 'r1',
-        slug: 'resenha-espirito-ilicito-gleice',
-        tituloObra: 'Espírito Ilícito',
-        autorObra: 'Pablo Costa',
-        textoResenha: `Em ESPÍRITO ILÍCITO, Pabl. Costa tece uma obra envolvente, sensorial e perturbadora, onde o sagrado se entrelaça com o profano em uma história repleta de cicatrizes e beleza 💐. O leitor é guiado através de conventos, salas de aula abafadas e florestas impregnadas de mistério, conhecendo a jornada de dois jovens marcados pelo abandono, pela culpa e pela vontade de existir ✨️
-
-Margarida é enviada à enigmática Ilha do Bom Passado após um escândalo familiar, descobre que a vida ali vai além da rotina religiosa e do isolamento: ela se depara com os vestígios de Narciso um ex-aluno desaparecido que deixou diários carregados de dor, confissões e visões perturbadoras 🌕. Em um emaranhado de páginas extraviadas e memórias ocultas, passado e presente se entrelaçam de forma a criar um tecido literário que combina lirismo, crítica social e um sutil toque de realismo mágico 📚
-
-Pabl. Costa apresenta personagens multifacetados e humanos, como a severa Madre Sílvia, o enigmático Lírio e o reservado Padre Leon, todos orbitando em torno de um núcleo de afeto ferido e instituições em decadência. Com uma prosa lírica e fluida, o autor transforma a linguagem em um reflexo das emoções mais profundas aquelas que a religião tenta silenciar, que a sociedade prefere ocultar, mas que a literatura busca resgatar 🌷
-
-Espírito Ilícito é uma história que aborda juventudes feridas, a falência das estruturas que deveriam proteger e o poder avassalador da memória. Um livro destinado àqueles que não temem a escuridão e que sabem que, por vezes, é nesse lugar que a luz começa a se manifestar 🌕`,
-        nota: 5,
-        dataPostagem: '2025-10-16',
-        imagemCapa: '/images/mock/cover_resenha.png',
-        resenhista: 'Gleice Medeiros',
-        editor: 'Emilly Campos',
-        local: 'Dunas do Jalapão (TO)'
+        id: 6,
+        titulo: "Para Além das Letras - Espaço Cultural",
+        data: "2026-03-09",
+        imagem: "/images/events/eve6.png",
+        descricao: 'Noite de lançamento da obra coletiva no Espaço Cultural de Palmas.'
     },
-
-];
-
-export const TODAS_RECOMENDACOES: Recomendacao[] = [
     {
-        id: 'rec1',
-        tituloObra: 'Torto Arado',
-        autorObra: 'Itamar Vieira Junior',
-        descricao: 'Uma recomendação essencial para entender a relação com a terra e a ancestralidade.',
-        imagemCapa: '/images/placeholder.jpg'
+        id: 7,
+        titulo: "Para Além das Letras - São Paulo",
+        data: "2026-04-07",
+        imagem: "/images/events/eve7.jpg",
+        descricao: 'Oficina prática que deu origem à obra "Para Além das Letras".'
     }
 ];
 
@@ -189,8 +157,7 @@ export const TIME_CALIANDRAS: TimeMember[] = [
         id: 't1',
         nome: 'Pablo Costa',
         cargo: 'Designer gráfico, conselheiro criativo e sonoplasta.',
-        minibio: 'Designer gráfico, conselheiro criativo e sonoplasta.',
-        fotoUrl: '/images/time/pablo.jpg',
+        fotoUrl: '/images/team/pablo.jpg',
         bio: 'Pablo Costa é nascido na periferia de Palmas (TO) e em 2026 completa 20 anos. Publicou sua primeira obra em 2022 pela Editora Coerência, “As Estacões de Demp Esmerald e o Gato da Penumbra”, e a segunda de forma completamente independente, “Espírito Ilícito” em 2025. Autor queer na flor da idade, faz ilustrações e poemas para os próprios livros, atualmente cursa licenciatura em Letras pelo IFTO e faz designer gráficos e lidera o coletivo de literatura Caliandras Show.',
         email: 'ps.cosescritor@gmail.com',
         instagram: '@ps.co'
@@ -199,9 +166,8 @@ export const TIME_CALIANDRAS: TimeMember[] = [
         id: 't2',
         nome: 'Gleicielly Medeiros',
         cargo: 'Entrevistadora e Resenhista',
-        minibio: 'Entrevistadora e Resenhista',
-        fotoUrl: '/images/time/gleice.jpg',
-        bio: 'Gleicielly Medeiros, mais conhecida como Gleice, é natural do Maranhão, mas cresceu e vive em Palmas (TO), atualmente, em 2026, cursa Licenciatura em Letras pelo IFTO. Tem interesse em linguagem, ensino e literatura, além de escrever resenhas autorais e desenvolver projetos acadêmicos sobre essas perspectivas. Integra o coletivo Caliandras Show como apresentadora e resenhista. Sendo uma leitora ativa, busca construir sua trajetória na educação com foco e constância.',
+        fotoUrl: '/images/team/gleice.jpg',
+        bio: 'Gleicielly Medeiros, mais conhecida como Gleice, é natural do Maranhão, mas cresceu e vive em Palmas (TO), atualmente, em 2026, cursa Licenciatura em Letras pelo IFTO. Integra o coletivo Caliandras Show como apresentadora e resenhista.',
         email: 'gleiciellym7@gmail.com',
         instagram: '@gleici.smedeiros'
     },
@@ -209,67 +175,69 @@ export const TIME_CALIANDRAS: TimeMember[] = [
         id: 't3',
         nome: 'Nayra Souza',
         cargo: 'Roteirista, entrevistadora e secretária interna.',
-        minibio: 'Roteirista, entrevistadora e secretária interna.',
-        fotoUrl: '/images/time/nayra.jpg',
-        bio: 'Nayra Souza nasceu em Barra do Corda, no interior do Maranhão. Estudante de Letras no Instituto Federal do Tocantins (IFTO), Campus Palmas, integrou a Coletânea Dos Sonhos: Primeiros Textos com a crônica Rotina, escrita quando ainda cursava o ensino médio. É apaixonada por café e por histórias que aquecem e fazem palpitar o coração. Em sua escrita, tenta projetar essas mesmas façanhas através palavras e sentidos. No papel, mistura poesia com prosa, realidade com devaneio. Atualmente cria os roteiros para os Caliandras Talk Show’s e também desempenha a função de entrevistadora. Uma loucura! Seu objetivo? Encantar o leitor com simplicidade, verdade e um tantinho de caos poético.'
+        fotoUrl: '/images/team/nayra.jpg',
+        bio: 'Nayra Souza nasceu em Barra do Corda, no interior do Maranhão. Estudante de Letras no IFTO Palmas. Atualmente cria os roteiros para os Caliandras Talk Show’s e também desempenha a função de entrevistadora.',
+        email: 'nayra@gmail.com',
+        instagram: '@nayra_souza'
     },
     {
         id: 't4',
         nome: 'Emilly Campos',
         cargo: 'Designer gráfica, Videomaker e Entrevistadora',
-        fotoUrl: '/images/time/emilly.jpg',
-        bio: 'De Palmas (TO), Emilly Campos, atualmente em 2026, faz parte do CALINTRAS, (Centro Acadêmico de Licenciatura em Letras), realizando trabalhos gráficos e organizando eventos voltados à leitura. Estendendo suas habilidades, edita vídeos e produz postagens para o coletivo de literatura Caliandras Show.',
+        fotoUrl: '/images/team/emilly.jpg',
+        bio: 'De Palmas (TO), Emilly Campos, atualmente em 2026, faz parte do CALINTRAS, realizando trabalhos gráficos e organizando eventos voltados à leitura.',
         email: 'emilycampos2408@gmail.com',
         instagram: '@emillycsmps'
     },
-
     {
         id: 't5',
         nome: 'Rayssa Montelo',
         cargo: 'Resenhista',
-        fotoUrl: '/images/time/rayssa.jpg',
-        bio: 'Rayssa Montelo possui 20 anos em 2026, nascida em Palmas, Tocantins. Atualmente cursa Biomedicina e desde criança sempre foi apaixonada por leitura. Adora unir suas duas paixões, a ciência e a literatura, resultando em ótimas resenhas para o Caliandras Show, plataforma que compartilha suas impressões e descobertas. Além de tudo isso, também é uma das organizadoras do clube do livro Conversa de Bois.',
+        fotoUrl: '/images/team/rayssa.jpg',
+        bio: 'Rayssa Montelo possui 20 anos em 2026, nascida em Palmas, Tocantins. Atualmente cursa Biomedicina e integra o Caliandras Show.',
         email: 'rayssamontelo10@gmail.com',
         instagram: '@rayssa_montelo'
     },
-
     {
         id: 't6',
         nome: 'Sávio Rodrigues',
         cargo: 'Resenhista',
-        fotoUrl: '/images/time/savio.jpg',
-        bio: 'Sávio Rodrigues tem 20 anos em 2026. É estudante de Psicologia, interessado em compreender o comportamento humano e o desenvolvimento pessoal. Amante de música pop e histórias de fantasia e suspense. Lidera o clube do livro Conversas de Bois e quando sobra um tempinho, também faz resenhas para o Caliandras Show. Está em constante aprendizado, buscando crescimento pessoal e acadêmico.'
+        fotoUrl: '/images/team/savio.jpg',
+        bio: 'Sávio Rodrigues tem 20 anos em 2026. É estudante de Psicologia e faz resenhas para o Caliandras Show.'
     },
     {
         id: 't7',
         nome: 'Mirelle Freitas',
         cargo: 'Conselheira para Administração e Finanças',
-        fotoUrl: '/images/time/mirelle.jpg',
-        bio: 'Mirelle Freitas é guiada pela curiosidade, foi assim que conquistou diplomas e títulos na sua vida acadêmica (doutorados, mestrados, especializações e por aí vai). Nascida no interior de Goiás, na infância e adolescência escrevia redações e diários, mas foi na escrita acadêmica que se firmou. A convivência com estudantes na sua atuação como formadora de professores, no Instituto Federal do Tocantins (IFTO), a fez se redescobrir leitora. Esse trajeto a reconectou com a escrita literária.',
+        fotoUrl: '/images/team/mirelle.jpg',
+        bio: 'Mirelle Freitas é doutora e formadora de professores no IFTO Palmas. Atua como conselheira do coletivo Caliandras Show.',
         email: 'mirelle.sf11@gmail.com',
         instagram: '@mih_sfreitas'
-    },
-    {
-        id: 't8',
-        nome: 'Luciano Gonçalves',
-        cargo: 'Conselheiro Comunicacional',
-        fotoUrl: '/images/time/luciano.jpg',
-        bio: 'Luciano Gonçalves, doutor pelo Programa de Pós-Graduação em Literatura Brasileira da Universidade de São Paulo (USP), mestre e licenciado em Letras pela Universidade Federal de Mato Grosso Sul (UFMS), realizou dissertação e tese sobre a obra de Samuel Rawet, escritor judeu-polonês, naturalizado brasileiro. No presente, pesquisa a crônica édita de Dinah Silveira de Queiroz, publicada no jornal Correio Braziliense. Atua como professor de Português e suas literaturas no Instituto Federal do Tocantins (IFTO). Natural de Teixeira de Freitas, Bahia, é autor de Crônicas espectrais, notas sobre o TEA (Editora Patuá, 2024), sua estreia na prosa.'
-    },
+    }
+];
 
+export const TODAS_RESENHAS: Resenha[] = [
     {
-        id: 't12',
-        nome: 'Isabella',
-        cargo: 'Direção & Tecnologia',
-        fotoUrl: '/images/time/isabella.jpg',
-        bio: 'Responsável pela estética e pela voz do projeto nos canais digitais, construindo a identidade visual que você vê aqui.'
-    },
+        id: 'r1',
+        slug: 'resenha-espirito-ilicito-gleice',
+        tituloObra: 'Espírito Ilícito',
+        autorObra: 'Pablo Costa',
+        textoResenha: `Em ESPÍRITO ILÍCITO, Pabl. Costa tece uma obra envolvente, sensorial e perturbadora, onde o sagrado se entrelaça com o profano em uma história repleta de cicatrizes e beleza 💐. Espírito Ilícito é uma história que aborda juventudes feridas e o poder avassalador da memória.`,
+        nota: 5,
+        dataPostagem: '2025-10-16',
+        imagemCapa: '/images/reviews/resenha_espirito_ilicito.png',
+        resenhista: 'Gleice Medeiros',
+        editor: 'Emilly Campos',
+        local: 'Dunas do Jalapão (TO)'
+    }
+];
+
+export const TODAS_RECOMENDACOES: Recomendacao[] = [
     {
-        id: 't13',
-        nome: 'Thiago Medeiros',
-        cargo: 'Direção & Tecnologia',
-        fotoUrl: '/images/time/thiagom.jpeg',
-        bio: 'Thiago Medeiros tem 21 anos, nascido em 2004. Com formação técnica em Mecatrônica e uma trajetória dedicada à programação, ele é o motor tecnológico por trás do Caliandras Show. Amante da tecnologia e da inovação, Thiago acredita no poder das ferramentas digitais como pontes para a democratização do saber. No Caliandras, sua missão é unir a precisão dos códigos à sensibilidade das artes, garantindo que a cultura e a literatura regional alcancem novos horizontes através de uma experiência digital moderna, fluida e acessível.',
-        email: 'thiagosousam2004@gmail.com',
+        id: 'rec1',
+        tituloObra: 'Torto Arado',
+        autorObra: 'Itamar Vieira Junior',
+        descricao: 'Uma recomendação essencial para entender a relação com a terra e a ancestralidade.',
+        imagemCapa: '/images/products/torto_arado.jpg'
     }
 ];

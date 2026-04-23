@@ -57,7 +57,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                     }}
                 >
                     <Image
-                        src="/images/cover.jpg" // Capa (Parte Esquerda)
+                        src="/images/decor/cover.jpg" // Capa (Parte Esquerda)
                         alt="Capa Esquerda"
                         width={COVER_WIDTH}
                         height={COVER_HEIGHT}
@@ -79,7 +79,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                     }}
                 >
                     <Image
-                        src="/images/cover.jpg" // Capa (Parte Direita)
+                        src="/images/decor/cover.jpg" // Capa (Parte Direita)
                         alt="Capa Direita"
                         width={COVER_WIDTH}
                         height={COVER_HEIGHT}
