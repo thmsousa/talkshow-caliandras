@@ -1,124 +1,254 @@
 .mainContainer {
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px 100px;
     min-height: 100vh;
+    position: relative;
 }
 
 .header {
-    marginBottom: 80px;
-    border-left: 8px solid var(--color-accent);
-    padding-left: 30px;
+    margin-bottom: 50px;
+    padding-left: 25px;
+    text-align: left;
+    position: relative;
+    max-width: 900px;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--color-accent);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
 .overtitle {
-    font-size: 12px;
-    font-weight: 900;
-    color: #aaa;
+    font-size: 11px;
+    font-weight: 800;
+    color: #999;
     letter-spacing: 4px;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .title {
-    font-size: clamp(32px, 7vw, 52px);
+    font-size: clamp(32px, 7vw, 64px);
     font-weight: 950;
-    color: #1a1a1a;
-    letter-spacing: -2px;
-    line-height: 1;
+    color: #111;
+    letter-spacing: -3px;
+    line-height: 0.85;
     text-transform: uppercase;
-    margin: 0;
+    margin: 0 0 15px 0;
+}
+
+.headerSubtitle {
+    font-size: 15px;
+    font-weight: 500;
+    color: #666;
+    display: block;
+    max-width: 600px;
+    line-height: 1.5;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 40px;
-}
-
-.card {
-    background-color: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.06);
     display: flex;
     flex-direction: column;
-    height: 100%;
-    border: 1px solid #f5f5f5;
+    gap: 80px;
 }
 
-.imageWrapper {
+.recommendationCard {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.03);
+}
+
+.cardLayout {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.imageColumn {
+    flex: 0 0 350px;
+}
+
+.imageContainer {
     position: relative;
     width: 100%;
-    height: 450px;
+    aspect-ratio: 2/3;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1);
 }
 
-.badge {
+.imageFrame {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--color-accent);
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 30px;
-    font-size: 11px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    inset: -10px;
+    border: 1px solid #eee;
+    z-index: -1;
 }
 
-.content {
-    padding: 30px;
+.cornerL,
+.cornerR {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-accent);
+    z-index: 10;
+}
+
+.cornerL {
+    top: -5px;
+    left: -5px;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.cornerR {
+    bottom: -5px;
+    right: -5px;
+    border-left: 0;
+    border-top: 0;
+}
+
+.bookCover {
+    object-fit: cover;
+}
+
+.contentColumn {
     flex: 1;
-    display: flex;
-    flex-direction: column;
 }
 
-.cardTitle {
-    font-size: 24px;
-    font-weight: 900;
-    color: #1a1a1a;
-    margin-bottom: 8px;
-    letter-spacing: -0.5px;
-}
-
-.authorTag {
-    color: var(--color-accent);
-    font-weight: 800;
-    font-size: 13px;
-    text-transform: uppercase;
+.categoryBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 950;
+    color: #aaa;
+    letter-spacing: 2px;
     margin-bottom: 20px;
 }
 
-.description {
-    font-size: 15px;
-    color: #666;
-    line-height: 1.7;
-    flex: 1;
+.obraTitle {
+    font-size: 32px;
+    font-weight: 950;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
 }
 
-.buyButton {
-    margin-top: 25px;
-    padding: 12px 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    text-decoration: none;
-    color: #000;
+.authorName {
+    font-size: 13px;
     font-weight: 700;
-    font-size: 14px;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: #eee;
+    margin: 25px 0;
+}
+
+.obraDescription {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.technicalInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 9px;
+    font-weight: 900;
+    color: #ccc;
+    letter-spacing: 1px;
+}
+
+.actionButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background-color: #1a1a1a;
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: 2px;
     transition: all 0.3s;
 }
 
-.buyButton:hover {
-    background-color: #1a1a1a;
-    color: #fff !important;
-    border-color: #1a1a1a;
+.actionButton:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-5px);
 }
 
-@media (max-width: 500px) {
-    .grid {
-        grid-template-columns: 1fr;
+.footerDecor {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.decorLine {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #eee, transparent);
+}
+
+.decorText {
+    font-size: 10px;
+    font-weight: 950;
+    color: #ddd;
+    letter-spacing: 5px;
+}
+
+@media (max-width: 1000px) {
+    .cardLayout {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .imageColumn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .obraTitle {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .mainContainer {
+        padding: 20px 20px;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .recommendationCard {
+        padding: 20px;
     }
 }

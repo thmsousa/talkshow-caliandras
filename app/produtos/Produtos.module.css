@@ -53,7 +53,7 @@
 
 .productCard:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     border-color: var(--color-accent);
 }
 
@@ -153,7 +153,16 @@
 }
 
 @media (max-width: 600px) {
-    .productGrid { grid-template-columns: 1fr; }
-    .imageWrapper { height: 320px; }
-    .container { padding-top: 10px; padding-bottom: 30px; }
+    .productGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .imageWrapper {
+        height: 320px;
+    }
+
+    .container {
+        padding-top: 10px;
+        padding-bottom: 30px;
+    }
 }

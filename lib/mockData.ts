@@ -238,6 +238,6 @@ export const TODAS_RECOMENDACOES: Recomendacao[] = [
         tituloObra: 'Torto Arado',
         autorObra: 'Itamar Vieira Junior',
         descricao: 'Uma recomendação essencial para entender a relação com a terra e a ancestralidade.',
-        imagemCapa: '/images/products/torto_arado.jpg'
+        imagemCapa: '/images/recommendations/torto_arado.jpg'
     }
 ];

@@ -3,73 +3,96 @@
 import { TODAS_RECOMENDACOES } from '@/lib/mockData';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { BookOpen, ArrowUpRight } from 'lucide-react';
 import styles from './Indicacoes.module.css';
 
 export default function IndicacoesPage() {
     return (
         <main className={styles.mainContainer}>
             <header className={styles.header}>
-                <motion.span 
+                <motion.div 
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className={styles.overtitle}
+                    className={styles.headerContent}
                 >
-                    Curadoria Caliandras
-                </motion.span>
-                <motion.h1 
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className={styles.title}
-                >
-                    Indicações de Obras
-                </motion.h1>
+                    <span className={styles.overtitle}>RECOMENDAÇÕES CALIANDRAS</span>
+                    <h1 className={styles.title}>Indicações Literárias</h1>
+                    <p className={styles.headerSubtitle}>
+                        Obras selecionadas que dialogam com a alma do cerrado e a força da literatura.
+                    </p>
+                </motion.div>
             </header>
 
             <div className={styles.grid}>
                 {TODAS_RECOMENDACOES.map((item, idx) => (
                     <motion.div 
                         key={item.id}
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.1 }}
+                        transition={{ delay: idx * 0.2, duration: 0.8 }}
                         viewport={{ once: true }}
-                        className={styles.card}
+                        className={styles.recommendationCard}
                     >
-                        <div className={styles.imageWrapper}>
-                            <Image 
-                                src={item.imagemCapa || '/images/placeholder.jpg'} 
-                                alt={item.tituloObra}
-                                fill
-                                style={{ objectFit: 'cover' }}
-                            />
-                            <div className={styles.badge}>
-                                Recomendado
+                        <div className={styles.cardLayout}>
+                            {/* COLUNA DA IMAGEM */}
+                            <div className={styles.imageColumn}>
+                                <div className={styles.imageContainer}>
+                                    <div className={styles.imageFrame} />
+                                    <div className={styles.cornerL} />
+                                    <div className={styles.cornerR} />
+                                    <Image 
+                                        src={item.imagemCapa || '/images/placeholder.jpg'} 
+                                        alt={item.tituloObra}
+                                        fill
+                                        className={styles.bookCover}
+                                        sizes="(max-width: 768px) 100vw, 400px"
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className={styles.content}>
-                            <h3 className={styles.cardTitle}>
-                                {item.tituloObra}
-                            </h3>
-                            <p className={styles.authorTag}>
-                                de {item.autorObra}
-                            </p>
-                            <p className={styles.description}>
-                                {item.descricao}
-                            </p>
-                            {item.linkSugerido && (
-                                <a 
-                                    href={item.linkSugerido} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className={styles.buyButton}
-                                >
-                                    Onde encontrar
-                                </a>
-                            )}
+
+                            {/* COLUNA DE CONTEÚDO */}
+                            <div className={styles.contentColumn}>
+                                <div className={styles.categoryBadge}>
+                                    <BookOpen size={12} />
+                                    OBRA RECOMENDADA
+                                </div>
+                                
+                                <h2 className={styles.obraTitle}>{item.tituloObra}</h2>
+                                <span className={styles.authorName}>por {item.autorObra}</span>
+                                
+                                <div className={styles.divider} />
+                                
+                                <p className={styles.obraDescription}>
+                                    {item.descricao}
+                                </p>
+
+                                <div className={styles.cardFooter}>
+                                    <div className={styles.technicalInfo}>
+                                        <span>CAT: LITERATURA REGIONAL</span>
+                                        <span>REF: {item.id.toUpperCase()}</span>
+                                    </div>
+                                    
+                                    {item.linkSugerido && (
+                                        <a 
+                                            href={item.linkSugerido} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className={styles.actionButton}
+                                        >
+                                            CONHECER OBRA <ArrowUpRight size={16} />
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
                 ))}
+            </div>
+
+            {/* DECORAÇÃO DE RODAPÉ */}
+            <div className={styles.footerDecor}>
+                <div className={styles.decorLine} />
+                <span className={styles.decorText}>CALIANDRAS SHOW • COLETIVO LITERÁRIO</span>
             </div>
         </main>
     );
