@@ -275,8 +275,34 @@
     overflow: hidden;
     position: relative;
     z-index: 2;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.12);
 }
+
+.imageInternalFrame {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.imageCornerTopLeft, .imageCornerTopRight, .imageCornerBottomLeft, .imageCornerBottomRight {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-color: rgba(255, 255, 255, 0.8);
+    border-style: solid;
+    z-index: 11;
+    pointer-events: none;
+}
+
+.imageCornerTopLeft { top: 15px; left: 15px; border-width: 1px 0 0 1px; }
+.imageCornerTopRight { top: 15px; right: 15px; border-width: 1px 1px 0 0; }
+.imageCornerBottomLeft { bottom: 15px; left: 15px; border-width: 0 0 1px 1px; }
+.imageCornerBottomRight { bottom: 15px; right: 15px; border-width: 0 1px 1px 0; }
 
 .imageDecorBackground {
     position: absolute;
@@ -624,28 +650,63 @@
     position: absolute;
     width: 150%;
     height: 2px;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(255, 215, 0, 0.05) 10%, 
-        rgba(255, 215, 0, 0.4) 50%, 
-        rgba(255, 107, 0, 0.2) 80%, 
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 215, 0, 0.05) 10%,
+            rgba(255, 215, 0, 0.4) 50%,
+            rgba(255, 107, 0, 0.2) 80%,
+            transparent 100%);
     filter: blur(1.5px);
     animation: flowThread 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     transform-origin: left center;
 }
 
-.goldenThread:nth-child(1) { top: 15%; animation-duration: 25s; opacity: 0.6; }
-.goldenThread:nth-child(2) { top: 35%; animation-duration: 35s; animation-delay: -7s; opacity: 0.3; }
-.goldenThread:nth-child(3) { top: 55%; animation-duration: 28s; animation-delay: -12s; opacity: 0.5; }
-.goldenThread:nth-child(4) { top: 75%; animation-duration: 40s; animation-delay: -3s; opacity: 0.2; }
-.goldenThread:nth-child(5) { top: 90%; animation-duration: 22s; animation-delay: -18s; opacity: 0.4; }
+.goldenThread:nth-child(1) {
+    top: 15%;
+    animation-duration: 25s;
+    opacity: 0.6;
+}
+
+.goldenThread:nth-child(2) {
+    top: 35%;
+    animation-duration: 35s;
+    animation-delay: -7s;
+    opacity: 0.3;
+}
+
+.goldenThread:nth-child(3) {
+    top: 55%;
+    animation-duration: 28s;
+    animation-delay: -12s;
+    opacity: 0.5;
+}
+
+.goldenThread:nth-child(4) {
+    top: 75%;
+    animation-duration: 40s;
+    animation-delay: -3s;
+    opacity: 0.2;
+}
+
+.goldenThread:nth-child(5) {
+    top: 90%;
+    animation-duration: 22s;
+    animation-delay: -18s;
+    opacity: 0.4;
+}
 
 @keyframes flowThread {
-    0% { transform: translateX(-30%) skewY(-2deg) scaleX(0.8); }
-    50% { transform: translateX(10%) skewY(2deg) scaleX(1.2); }
-    100% { transform: translateX(-30%) skewY(-2deg) scaleX(0.8); }
+    0% {
+        transform: translateX(-30%) skewY(-2deg) scaleX(0.8);
+    }
+
+    50% {
+        transform: translateX(10%) skewY(2deg) scaleX(1.2);
+    }
+
+    100% {
+        transform: translateX(-30%) skewY(-2deg) scaleX(0.8);
+    }
 }
 
 .sparkle {
@@ -659,18 +720,55 @@
     animation: sparkleFloat 15s ease-in-out infinite;
 }
 
-.sparkle:nth-child(6) { top: 25%; left: 20%; animation-delay: 0s; }
-.sparkle:nth-child(7) { top: 65%; left: 70%; animation-delay: -5s; }
-.sparkle:nth-child(8) { top: 45%; left: 40%; animation-delay: -10s; }
+.sparkle:nth-child(6) {
+    top: 25%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.sparkle:nth-child(7) {
+    top: 65%;
+    left: 70%;
+    animation-delay: -5s;
+}
+
+.sparkle:nth-child(8) {
+    top: 45%;
+    left: 40%;
+    animation-delay: -10s;
+}
 
 @keyframes sparkleFloat {
-    0%, 100% { transform: translate(0, 0) scale(0.5); opacity: 0; }
-    20% { opacity: 0.8; transform: scale(1); }
-    50% { transform: translate(200px, -100px) scale(1.2); opacity: 0.4; }
-    80% { opacity: 0.8; transform: scale(1); }
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    50% {
+        transform: translate(200px, -100px) scale(1.2);
+        opacity: 0.4;
+    }
+
+    80% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
 }
 
 @media (max-width: 768px) {
-    .goldenThread { width: 300%; opacity: 0.2 !important; }
-    .sparkle { display: none; }
+    .goldenThread {
+        width: 300%;
+        opacity: 0.2 !important;
+    }
+
+    .sparkle {
+        display: none;
+    }
 }

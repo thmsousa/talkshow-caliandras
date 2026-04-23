@@ -190,7 +190,7 @@ export const TIME_CALIANDRAS: TimeMember[] = [
         nome: 'Pablo Costa',
         cargo: 'Designer gráfico, conselheiro criativo e sonoplasta.',
         minibio: 'Designer gráfico, conselheiro criativo e sonoplasta.',
-        fotoUrl: '/images/mock/pablo_cover.jpg',
+        fotoUrl: '/images/time/pablo.jpg',
         bio: 'Pablo Costa é nascido na periferia de Palmas (TO) e em 2026 completa 20 anos. Publicou sua primeira obra em 2022 pela Editora Coerência, “As Estacões de Demp Esmerald e o Gato da Penumbra”, e a segunda de forma completamente independente, “Espírito Ilícito” em 2025. Autor queer na flor da idade, faz ilustrações e poemas para os próprios livros, atualmente cursa licenciatura em Letras pelo IFTO e faz designer gráficos e lidera o coletivo de literatura Caliandras Show.',
         email: 'ps.cosescritor@gmail.com',
         instagram: '@ps.co'

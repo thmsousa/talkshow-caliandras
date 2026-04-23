@@ -79,11 +79,23 @@ export default function SobrePage() {
                 <div className={styles.imageWrapper}>
                     <div className={styles.imageDecorBackground} />
                     <div className={styles.imagePlaceholder}>
+                        <div className={styles.imageInternalFrame} />
+                        <div className={styles.imageCornerTopLeft} />
+                        <div className={styles.imageCornerTopRight} />
+                        <div className={styles.imageCornerBottomLeft} />
+                        <div className={styles.imageCornerBottomRight} />
+                        
                         <img
-                            src="/images/mock/talkshow-escolapub_sobre.jpg"
+                            src="/images/mock/biblioteca.jpg"
                             alt="Bastidores Caliandras"
                             className={styles.featuredImage}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                            style={{ 
+                                width: '100%', 
+                                height: '100%', 
+                                objectFit: 'cover', 
+                                objectPosition: 'center 20%', 
+                                display: 'block' 
+                            }}
                         />
                     </div>
                 </div>
