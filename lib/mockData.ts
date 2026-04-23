@@ -167,7 +167,7 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         nome: 'Gleicielly Medeiros',
         cargo: 'Entrevistadora e Resenhista',
         fotoUrl: '/images/equipe/gleice.jpg',
-        bio: 'Gleicielly Medeiros, mais conhecida como Gleice, é natural do Maranhão, mas cresceu e vive em Palmas (TO), atualmente, em 2026, cursa Licenciatura em Letras pelo IFTO. Integra o coletivo Caliandras Show como apresentadora e resenhista.',
+        bio: 'Gleicielly Medeiros, mais conhecida como Gleice, é natural do Maranhão, mas cresceu e vive em Palmas (TO), atualmente, em 2026, cursa Licenciatura em Letras pelo IFTO. Tem interesse em linguagem, ensino e literatura, além de escrever resenhas autorais e desenvolver projetos acadêmicos sobre essas perspectivas. Integra o coletivo Caliandras Show como apresentadora e resenhista. Sendo uma leitora ativa, busca construir sua trajetória na educação com foco e constância.',
         email: 'gleiciellym7@gmail.com',
         instagram: '@gleici.smedeiros'
     },
@@ -176,7 +176,7 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         nome: 'Nayra Souza',
         cargo: 'Roteirista, entrevistadora e secretária interna.',
         fotoUrl: '/images/equipe/nayra.jpg',
-        bio: 'Nayra Souza nasceu em Barra do Corda, no interior do Maranhão. Estudante de Letras no IFTO Palmas. Atualmente cria os roteiros para os Caliandras Talk Show’s e também desempenha a função de entrevistadora.',
+        bio: 'Nayra Souza nasceu em Barra do Corda, no interior do Maranhão. Estudante de Letras no Instituto Federal do Tocantins (IFTO), Campus Palmas, integrou a Coletânea Dos Sonhos: Primeiros Textos com a crônica Rotina, escrita quando ainda cursava o ensino médio. É apaixonada por café e por histórias que aquecem e fazem palpitar o coração. Em sua escrita, tenta projetar essas mesmas façanhas através palavras e sentidos. No papel, mistura poesia com prosa, realidade com devaneio. Atualmente cria os roteiros para os Caliandras Talk Show’s e também desempenha a função de entrevistadora. Uma loucura! Seu objetivo? Encantar o leitor com simplicidade, verdade e um tantinho de caos poético.',
         email: 'nayra@gmail.com',
         instagram: '@nayra_souza'
     },
@@ -185,7 +185,7 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         nome: 'Emilly Campos',
         cargo: 'Designer gráfica, Videomaker e Entrevistadora',
         fotoUrl: '/images/equipe/emilly.jpg',
-        bio: 'De Palmas (TO), Emilly Campos, atualmente em 2026, faz parte do CALINTRAS, realizando trabalhos gráficos e organizando eventos voltados à leitura.',
+        bio: 'De Palmas (TO), Emilly Campos, atualmente em 2026, faz parte do CALINTRAS, (Centro Acadêmico de Licenciatura em Letras), realizando trabalhos gráficos e organizando eventos voltados à leitura. Estendendo suas habilidades, edita vídeos e produz postagens para o coletivo de literatura Caliandras Show.',
         email: 'emilycampos2408@gmail.com',
         instagram: '@emillycsmps'
     },
@@ -194,7 +194,7 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         nome: 'Rayssa Montelo',
         cargo: 'Resenhista',
         fotoUrl: '/images/equipe/rayssa.jpg',
-        bio: 'Rayssa Montelo possui 20 anos em 2026, nascida em Palmas, Tocantins. Atualmente cursa Biomedicina e integra o Caliandras Show.',
+        bio: 'Rayssa Montelo possui 20 anos em 2026, nascida em Palmas, Tocantins. Atualmente cursa Biomedicina e desde criança sempre foi apaixonada por leitura. Adora unir suas duas paixões, a ciência e a literatura, resultando em ótimas resenhas para o Caliandras Show, plataforma que compartilha suas impressões e descobertas. Além de tudo isso, também é uma das organizadoras do clube do livro Conversa de Bois.',
         email: 'rayssamontelo10@gmail.com',
         instagram: '@rayssa_montelo'
     },
@@ -203,16 +203,38 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         nome: 'Sávio Rodrigues',
         cargo: 'Resenhista',
         fotoUrl: '/images/equipe/savio.jpg',
-        bio: 'Sávio Rodrigues tem 20 anos em 2026. É estudante de Psicologia e faz resenhas para o Caliandras Show.'
+        bio: 'Sávio Rodrigues tem 20 anos em 2026. É estudante de Psicologia, interessado em compreender o comportamento humano e o desenvolvimento pessoal. Amante de música pop e histórias de fantasia e suspense. Lidera o clube do livro Conversas de Bois e quando sobra um tempinho, também faz resenhas para o Caliandras Show. Está em constante aprendizado, buscando crescimento pessoal e acadêmico.'
     },
     {
         id: 't7',
         nome: 'Mirelle Freitas',
         cargo: 'Conselheira para Administração e Finanças',
         fotoUrl: '/images/equipe/mirelle.jpg',
-        bio: 'Mirelle Freitas é doutora e formadora de professores no IFTO Palmas. Atua como conselheira do coletivo Caliandras Show.',
+        bio: 'Mirelle Freitas é guiada pela curiosidade, foi assim que conquistou diplomas e títulos na sua vida acadêmica (doutorados, mestrados, especializações e por aí vai). Nascida no interior de Goiás, na infância e adolescência escrevia redações e diários, mas foi na escrita acadêmica que se firmou. A convivência com estudantes na sua atuação como formadora de professores, no Instituto Federal do Tocantins (IFTO), a fez se redescobrir leitora. Esse trajeto a reconectou com a escrita literária.',
         email: 'mirelle.sf11@gmail.com',
         instagram: '@mih_sfreitas'
+    },
+    {
+        id: 't8',
+        nome: 'Luciano Gonçalves',
+        cargo: 'Conselheiro Comunicacional',
+        fotoUrl: '/images/equipe/luciano.jpg',
+        bio: 'Luciano Gonçalves, doutor pelo Programa de Pós-Graduação em Literatura Brasileira da Universidade de São Paulo (USP), mestre e licenciado em Letras pela Universidade Federal de Mato Grosso Sul (UFMS), realizou dissertação e tese sobre a obra de Samuel Rawet, escritor judeu-polonês, naturalizado brasileiro. No presente, pesquisa a crônica édita de Dinah Silveira de Queiroz, publicada no jornal Correio Braziliense. Atua como professor de Português e suas literaturas no Instituto Federal do Tocantins (IFTO). Natural de Teixeira de Freitas, Bahia, é autor de Crônicas espectrais, notas sobre o TEA (Editora Patuá, 2024), sua estreia na prosa.'
+    },
+    {
+        id: 't9',
+        nome: 'Isabella',
+        cargo: 'Direção & Tecnologia',
+        fotoUrl: '/images/equipe/isabella.jpg',
+        bio: 'Responsável pela estética e pela voz do projeto nos canais digitais, construindo a identidade visual que você vê aqui.'
+    },
+    {
+        id: 't10',
+        nome: 'Thiago Medeiros',
+        cargo: 'Direção & Tecnologia',
+        fotoUrl: '/images/equipe/thiagom.jpeg',
+        bio: 'Thiago Medeiros tem 21 anos, nascido em 2004. Com formação técnica em Mecatrônica e uma trajetória dedicada à programação, ele é o motor tecnológico por trás do Caliandras Show. Amante da tecnologia e da inovação, Thiago acredita no poder das ferramentas digitais como pontes para a democratização do saber. No Caliandras, sua missão é unir a precisão dos códigos à sensibilidade das artes, garantindo que a cultura e a literatura regional alcancem novos horizontes através de uma experiência digital moderna, fluida e acessível.',
+        email: 'thiagosousam2004@gmail.com',
     }
 ];
 
