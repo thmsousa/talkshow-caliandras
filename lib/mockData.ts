@@ -5,21 +5,21 @@ export const TODOS_PARCEIROS: Autor[] = [
     {
         id: 'a1',
         nomeCompleto: 'Pablo Costa',
-        fotoUrl: '/images/team/pablo.jpg',
+        fotoUrl: '/images/equipe/pablo.jpg',
         slug: 'pablo-costa',
         bio: "Escritor e entusiasta das artes, é uma das vozes que ajudam a tecer a tapeçaria cultural do Caliandras."
     },
     {
         id: 'a2',
         nomeCompleto: 'Gleicielly Medeiros',
-        fotoUrl: '/images/team/gleice.jpg',
+        fotoUrl: '/images/equipe/gleice.jpg',
         slug: 'gleicielly-medeiros',
         bio: "Apresentadora/Entrevistadora e entusiasta cultural."
     },
     {
         id: 'a3',
         nomeCompleto: 'Nayra',
-        fotoUrl: '/images/team/nayra.jpg',
+        fotoUrl: '/images/equipe/nayra.jpg',
         slug: 'nayra',
         bio: "Apresentadora e produtora do Caliandras."
     }

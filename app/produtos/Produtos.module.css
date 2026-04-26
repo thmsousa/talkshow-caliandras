@@ -1,8 +1,8 @@
 .container {
     max-width: 1300px;
     margin: 0 auto;
-    /* Ajuste de respiro: 15px topo (próximo à nav) e 40px fundo (sem vácuo branco) */
-    padding: 15px 20px 40px;
+    /* Ajuste de respiro padronizado: 40px topo */
+    padding: 40px 20px 40px;
     background-color: #fff;
     min-height: auto;
 }
@@ -11,19 +11,19 @@
     margin-bottom: 50px;
     padding-left: 25px;
     position: relative;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .sectionHeader::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
     width: 4px;
-    height: calc(100% + 5px);
+    height: calc(100% - 8px);
     background: var(--color-accent);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 95%, 0 100%);
     z-index: 1;
 }
 

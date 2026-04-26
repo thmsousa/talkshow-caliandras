@@ -24,25 +24,23 @@ export default function VideosIndexPage() {
 
     return (
         <main className={styles.mainContainer}>
-            <header className={styles.headerSection}>
-                <div className={styles.headerContent}>
-                    <div className={styles.titleBlock}>
-                        <span className={styles.supLabel}>Acervo • Caliandras</span>
-                        <h1 className={styles.mainTitle}>Galeria de Vídeos</h1>
-                    </div>
-
-                    <div className={styles.searchBarContainer}>
-                        <Search size={18} className={styles.searchIcon} />
-                        <input
-                            type="text"
-                            placeholder="Buscar conteúdo..."
-                            value={busca}
-                            onChange={(e) => setBusca(e.target.value)}
-                            className={styles.searchInput}
-                        />
-                    </div>
-                </div>
+            <header className={styles.sectionHeader}>
+                <span className={styles.overtitle}>Acervo • Caliandras</span>
+                <h1 className={styles.sectionTitle}>Galeria de Vídeos</h1>
             </header>
+
+            <div className={styles.searchSection}>
+                <div className={styles.searchBarContainer}>
+                    <Search size={18} className={styles.searchIcon} />
+                    <input
+                        type="text"
+                        placeholder="Buscar conteúdo..."
+                        value={busca}
+                        onChange={(e) => setBusca(e.target.value)}
+                        className={styles.searchInput}
+                    />
+                </div>
+            </div>
 
             <div className={styles.videoGrid}>
                 {videosFiltrados.map((episodio, index) => (

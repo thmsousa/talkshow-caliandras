@@ -1,12 +1,14 @@
-'use client'; // Precisamos disso para detectar a mudança de página
-import { Inter } from "next/font/google";
+'use client';
+import { Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import ChatBot from "./components/ChatBot";
-import { usePathname } from "next/navigation"; // Importante para detectar a troca
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 
-const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700", "900"] });
+const outfit = Outfit({ subsets: ["latin"], weight: ["300", "400", "600", "800"] });
 
 export default function RootLayout({
   children,
@@ -17,18 +19,21 @@ export default function RootLayout({
 
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>
+      <body className={outfit.className} style={{ backgroundColor: '#ffffff' }}>
         <Header />
 
-        {/* Adicionamos o "key={pathname}". 
-            Isso força o React a reiniciar a animação toda vez que o link muda */}
-        <main
-          key={pathname}
-          className="container page-transition-wrapper"
-          style={{ paddingTop: '20px', paddingBottom: '50px' }}
-        >
-          {children}
-        </main>
+        <AnimatePresence mode="wait">
+          <motion.main
+            key={pathname}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="page-transition-wrapper"
+          >
+            {children}
+          </motion.main>
+        </AnimatePresence>
 
         <Footer />
         <ChatBot />

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound, useParams } from 'next/navigation';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { TODOS_EPISODIOS, TODOS_PARCEIROS } from '@/lib/mockData';
+import { TODOS_EPISODIOS, TODOS_PARCEIROS, EQUIPE_CALIANDRAS } from '@/lib/mockData';
 import styles from './EpisodioPage.module.css';
 
 const formatDate = (dateString: string) => {
@@ -26,8 +26,24 @@ export default function EpisodioPage() {
 
     if (!episodio) return notFound();
 
-    // Busca o autor do vídeo
-    const autorRelacionado = TODOS_PARCEIROS.find(a => a.id === episodio.autorId) || TODOS_PARCEIROS[0];
+    // Busca o autor do vídeo (Pode estar em Parceiros ou na Equipe)
+    const autorNaLista = TODOS_PARCEIROS.find(a => a.id === episodio.autorId);
+    const membroNaEquipe = !autorNaLista ? EQUIPE_CALIANDRAS.find(t => t.id === episodio.autorId) : null;
+    
+    // Normaliza os dados para o componente
+    const autorRelacionado = autorNaLista ? {
+        nomeCompleto: autorNaLista.nomeCompleto,
+        fotoUrl: autorNaLista.fotoUrl,
+        slug: autorNaLista.slug
+    } : membroNaEquipe ? {
+        nomeCompleto: membroNaEquipe.nome,
+        fotoUrl: membroNaEquipe.fotoUrl,
+        slug: 'gleicielly-medeiros' // Slug fixo para membros da equipe ou mapeado
+    } : {
+        nomeCompleto: 'Caliandras Show',
+        fotoUrl: '/images/logo.png',
+        slug: 'sobre'
+    };
     
     // Filtra vídeos relacionados (excluindo o atual)
     const relacionados = TODOS_EPISODIOS.filter((ep) => ep.slug !== slug).slice(0, 4);
@@ -35,14 +51,15 @@ export default function EpisodioPage() {
 
     return (
         <div className={styles.mainContainer}>
-            {/* Título com Reveal */}
-            <motion.h1 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className={styles.title}
-            >
-                {episodio.titulo}
-            </motion.h1>
+            <header className={styles.sectionHeader}>
+                <motion.h1 
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className={styles.title}
+                >
+                    {episodio.titulo}
+                </motion.h1>
+            </header>
 
             <div className={styles.upperLayout}>
                 {/* LADO ESQUERDO: PLAYER */}

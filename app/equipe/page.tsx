@@ -33,12 +33,13 @@ export default function EquipePage() {
     return (
         <main className={styles.mainContainer}>
             {/* HEADER */}
-            <header className={styles.header}>
+            <header className={styles.sectionHeader}>
+                <span className={styles.overtitle}>Coletivo Criativo • Caliandras</span>
                 <motion.h1 
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className={styles.title}
+                    className={styles.sectionTitle}
                 >
                     Equipe
                 </motion.h1>

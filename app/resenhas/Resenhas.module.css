@@ -6,19 +6,20 @@
 }
 
 .header {
-    margin-bottom: 80px;
+    margin-bottom: 50px; /* Ajustado para um meio-termo elegante */
     padding-left: 25px;
     text-align: left;
     position: relative;
+    padding-top: 10px;
 }
 
 .header::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
     width: 4px;
-    height: calc(100% + 5px);
+    height: calc(100% - 8px);
     background: var(--color-accent);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);

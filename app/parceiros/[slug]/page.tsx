@@ -15,46 +15,36 @@ export default async function AutorPage({ params }: PageProps) {
 
   return (
     <main className={styles.mainContainer}>
-      <article className={styles.headerSection}>
+      {/* CABEÇALHO EDITORIAL (ESTILO TIME) */}
+      <header className={styles.headerSection}>
+        <span className={styles.subtitulo}>Parceiro • Caliandras</span>
+        <h1 className={styles.nome}>{autor.nomeCompleto}</h1>
         
-        {/* PILHA DE FOTOGRAFIAS */}
-        <div className={styles.photoStack}>
-          <div className={`${styles.photoLayer} ${styles.layerBack}`} />
-          <div className={`${styles.photoLayer} ${styles.layerMiddle}`} />
-          
-          <div className={`${styles.photoLayer} ${styles.avatarWrapper}`}>
-            <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', backgroundColor: '#f9f9f9' }}>
-              <Image
-                src={autor.fotoUrl}
-                alt={autor.nomeCompleto}
-                fill
-                sizes="(max-width: 900px) 100vw, 450px"
-                style={{ objectFit: 'cover' }}
-                priority
-              />
-            </div>
+        <div className={styles.bio}>
+          {autor.bio.split('\n').map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+      </header>
+
+      {/* FOTO EM DESTAQUE (ESTILO POLAROID REFINADO) */}
+      <div className={styles.photoStack}>
+        <div className={`${styles.photoLayer} ${styles.layerBack}`} />
+        <div className={`${styles.photoLayer} ${styles.layerMiddle}`} />
+        
+        <div className={`${styles.photoLayer} ${styles.avatarWrapper}`}>
+          <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', backgroundColor: '#f9f9f9' }}>
+            <Image
+              src={autor.fotoUrl}
+              alt={autor.nomeCompleto}
+              fill
+              sizes="(max-width: 900px) 100vw, 450px"
+              style={{ objectFit: 'cover' }}
+              priority
+            />
           </div>
         </div>
-
-        {/* CONTEÚDO EDITORIAL */}
-        <div className={styles.infoBox}>
-          <span className={styles.subtitulo}>Parceiro • Caliandras</span>
-          <h1 className={styles.nome}>{autor.nomeCompleto}</h1>
-          
-          <div style={{ 
-            width: '60px', 
-            height: '2px', 
-            backgroundColor: 'var(--color-accent)', 
-            margin: '35px 0' 
-          }} />
-
-          <div className={styles.bio}>
-            {autor.bio.split('\n').map((paragraph, index) => (
-              <p key={index} style={{ marginBottom: '20px' }}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </article>
+      </div>
     </main>
   );
 }

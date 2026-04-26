@@ -2,30 +2,51 @@
     max-width: 1300px;
     margin: 0 auto;
     /* Mantemos o respiro lateral e o fundo reduzido */
-    padding: 0 20px 40px;
+    padding: 25px 20px 40px;
     background-color: #fff;
     min-height: auto;
 }
 
-.headerSection {
-    padding-top: 50px;
-    margin-bottom: 80px;
+.sectionHeader {
+    margin-bottom: 30px;
     padding-left: 25px;
     position: relative;
+    padding-top: 5px;
+    /* Mais espaço para não colar no header */
 }
 
-.headerSection::before {
+.sectionHeader::before {
     content: '';
     position: absolute;
-    top: 50px;
-    /* Alinhado com o padding-top do container */
+    top: 5px; /* Alinhado com o padding-top: 5px */
     left: 0;
     width: 4px;
-    height: calc(100% - 50px + 5px);
+    height: 60px; /* Tamanho fixo para o título */
     background: var(--color-accent);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
-    z-index: 1;
+    z-index: 10;
+}
+
+.overtitle {
+    font-size: 11px;
+    color: #999;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.sectionTitle {
+    font-size: clamp(32px, 6vw, 54px);
+    font-weight: 950;
+    color: #111;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    line-height: 0.85;
+    margin-bottom: 25px;
 }
 
 .headerContent {
@@ -36,24 +57,9 @@
     flex-wrap: wrap;
 }
 
-.supLabel {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 4px;
-    color: #999;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 12px;
-}
-
-.mainTitle {
-    font-size: clamp(32px, 6vw, 54px);
-    font-weight: 950;
-    color: #111;
-    letter-spacing: -3px;
-    line-height: 0.85;
-    margin: 0;
-    text-transform: uppercase;
+.searchSection {
+    margin-bottom: 20px; /* Reduzido de 40px */
+    padding-left: 25px;
 }
 
 .searchBarContainer {
@@ -65,7 +71,7 @@
     border-radius: 50px;
     width: 100%;
     max-width: 320px;
-    margin-top: 30px;
+    margin-top: 15px; /* Reduzido de 30px */
     transition: all 0.3s ease;
     border: 1px solid transparent;
 }

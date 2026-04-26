@@ -1,19 +1,39 @@
 /* EpisodioPage.module.css */
 
-.mainztainer {
-    /* Padding superior ajustado para o Header branco translúcido */
-    padding: 120px 20px 80px; 
+.mainContainer {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 20px 20px 60px; /* Reduzido de 40px para 20px no topo */
+}
+
+.sectionHeader {
+    margin-bottom: 15px; /* Reduzido drasticamente para o player subir */
+    padding-left: 25px;
+    position: relative;
+    padding-top: 10px;
+}
+
+.sectionHeader::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 4px;
+    height: calc(100% - 8px);
+    background: var(--color-accent);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
+    z-index: 1;
 }
 
 .title {
-    font-size: clamp(26px, 5vw, 42px); 
-    font-weight: 900;
-    color: #1a1a1a; /* Texto escuro para fundo branco */
-    margin-bottom: 20px;
+    font-size: clamp(28px, 4vw, 48px); 
+    font-weight: 950;
+    color: #1a1a1a;
+    margin: 0;
     letter-spacing: -2px;
-    line-height: 1.1;   
+    line-height: 1;
+    text-transform: uppercase;
 }
 
 .upperLayout {

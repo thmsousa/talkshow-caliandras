@@ -6,8 +6,9 @@
   --color-accent: #ff6b00;
   --color-accent-rgb: 255, 107, 0;
   --color-text: #121212;
-  --color-bg-alt: #f6f6f6;
-  --font-serif: "Times New Roman", Times, serif;
+  --color-bg-alt: #ffffff;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Outfit', sans-serif;
 }
 
 html,
@@ -56,13 +57,16 @@ h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  font-family: var(--font-serif);
+}
+
 p,
 a,
 li,
 span,
 button {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
 }
 
 .font-amoresa {
@@ -184,12 +188,14 @@ ul {
 }
 
 .hero-title {
-  font-size: clamp(32px, 5vw, 64px);
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 5.5vw, 72px);
   font-weight: 900;
   color: #ffffff;
-  line-height: 1.1;
-  margin-bottom: 24px;
-  letter-spacing: -2px;
+  line-height: 0.95;
+  margin-bottom: 30px;
+  letter-spacing: -3px;
+  text-transform: uppercase;
 }
 
 .hero-title .highlight {
@@ -197,10 +203,14 @@ ul {
 }
 
 .hero-subtitle {
-  font-size: 20px;
-  color: #b0b0b0;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin-bottom: 45px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
 }
 
 .hero-actions {
@@ -238,8 +248,8 @@ ul {
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(var(--color-accent-rgb), 0.3);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(var(--color-accent-rgb), 0.4);
 }
 
 .btn-secondary {
