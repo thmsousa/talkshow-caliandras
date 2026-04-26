@@ -10,7 +10,6 @@ const navItems = [
     { name: 'Eventos', href: '/eventos' },
     { name: 'Vídeos', href: '/videos' },
     { name: 'Resenhas', href: '/resenhas' },
-    // { name: 'Parceiros', href: '/parceiros' },
     { name: 'Indicações', href: '/indicacoes' },
     { name: 'Equipe', href: '/equipe' },
     { name: 'Produtos', href: '/produtos' },
@@ -21,6 +20,7 @@ export default function NavbarClient() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
     const [mounted, setMounted] = useState(false);
+    
     useEffect(() => {
         setMounted(true);
         if (isOpen) {
@@ -54,7 +54,7 @@ export default function NavbarClient() {
                         justifyContent: 'center',
                         alignItems: 'flex-start',
                         paddingLeft: '15%',
-                        zIndex: 9999, // Valor altíssimo no portal
+                        zIndex: 9999,
                     }}
                 >
                     <ul className="mobile-list">
@@ -164,7 +164,7 @@ export default function NavbarClient() {
                     color: #121212;
                     font-weight: 700;
                     font-size: 11px;
-                    transition: all 0.3s ease;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     letter-spacing: 2px;
                     text-transform: uppercase;
                     text-decoration: none;
@@ -177,22 +177,20 @@ export default function NavbarClient() {
                     color: var(--color-accent);
                 }
 
-                /* Linha minimalista no active/hover para Desktop */
                 @media (min-width: 769px) {
                     :global(.nav-link::after) {
                         content: '';
                         position: absolute;
                         bottom: -6px;
-                        left: 50%;
+                        left: 0;
                         width: 0;
                         height: 2px;
-                        background: var(--color-accent);
-                        transition: all 0.3s ease;
-                        transform: translateX(-50%);
+                        background: #ff6b00;
+                        transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                         border-radius: 2px;
                     }
                     :global(.nav-link:hover::after), :global(.nav-link.active::after) {
-                        width: 15px;
+                        width: 100%;
                     }
                 }
 
@@ -236,14 +234,14 @@ export default function NavbarClient() {
                 :global(.nav-index) {
                     font-size: 10px;
                     letter-spacing: 1px;
-                    color: var(--color-accent);
+                    color: #ff6b00;
                     opacity: 0.7;
                     font-weight: 400;
                 }
  
                 :global(.active-mobile) {
                     opacity: 1;
-                    color: var(--color-accent);
+                    color: #ff6b00;
                     transform: translateX(10px);
                 }
 

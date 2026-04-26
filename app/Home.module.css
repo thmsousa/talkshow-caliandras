@@ -1,19 +1,12 @@
 .mainWrapper {
-    background-color: #fafafa;
+    background-color: #ffffff;
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
 }
 
 .studioLight {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 1;
-    transition: background 0.2s ease-out;
+    display: none;
 }
 
 .section {
@@ -103,7 +96,7 @@
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
     border-radius: 4px;
     border: 1px solid #f0f0f0;
-    transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     animation: sway 6s ease-in-out infinite;
     animation-delay: calc(var(--index) * 0.5s);
     transform-origin: top center;
@@ -111,11 +104,11 @@
 }
 
 .eventCard:hover {
-    animation-play-state: paused;
-    transform: rotate(0deg) scale(1.05) translateY(10px);
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.12);
+    animation: none; /* Desativa o balanço no hover para não bugar a subida */
+    transform: translateY(-25px) scale(1.08) rotate(0deg) !important;
+    box-shadow: 0 45px 100px rgba(0, 0, 0, 0.12);
     z-index: 20;
-    border-color: #e0e0e0;
+    border-color: var(--color-accent);
 }
 
 .pin {
@@ -187,7 +180,7 @@
 
 .videoCard:hover {
     transform: translateY(-20px);
-    box-shadow: 0 40px 100px rgba(255, 107, 0, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
 }
 
 .videoThumbnailWrapper {

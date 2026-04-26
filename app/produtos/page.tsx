@@ -16,9 +16,9 @@ export default function ProdutosPage() {
 
     return (
         <main className={styles.container}>
-            <header className={styles.header}>
-                <h1 className={styles.modernTitle}>Loja Caliandras</h1>
-                <div className={styles.redLine} />
+            <header className={styles.sectionHeader}>
+                <span className={styles.overtitle}>Livraria & Merch • Caliandras</span>
+                <h1 className={styles.sectionTitle}>Loja Caliandras</h1>
                 <p className={styles.subtitle}>
                     Adquira as obras literárias e materiais exclusivos do nosso universo cultural.
                 </p>

@@ -16,25 +16,10 @@ export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
     const [dataLoaded, setDataLoaded] = useState(false);
     const [initialCheckComplete, setInitialCheckComplete] = useState(false);
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
     const carrosselRef = useRef<HTMLDivElement>(null);
     const isInteracting = useRef(false);
 
-    // --- EFEITO: LUZ DE ESTÚDIO (Otimizado) ---
-    useEffect(() => {
-        let rafId: number;
-        const handleMouseMove = (e: MouseEvent) => {
-            rafId = requestAnimationFrame(() => {
-                setMousePos({ x: e.clientX, y: e.clientY });
-            });
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-            cancelAnimationFrame(rafId);
-        };
-    }, []);
 
     // --- SCROLL INFINITO ---
     useEffect(() => {
@@ -105,13 +90,6 @@ export default function HomePage() {
                     transition={{ duration: 1 }}
                     className={styles.mainWrapper}
                 >
-                    {/* --- ELEMENTO: LUZ DE ESTÚDIO --- */}
-                    <div
-                        className={styles.studioLight}
-                        style={{
-                            background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 107, 0, 0.08), transparent 80%)`,
-                        }}
-                    />
 
                     {/* --- SEÇÃO: EVENTOS --- */}
                     <section className={styles.section}>
