@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { Instagram, Youtube } from 'lucide-react';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -22,26 +23,26 @@ export default function Footer() {
                 <div className={styles.footerNavGroup}>
                     <nav className={styles.footerNav}>
                         <span className={styles.navLabel}>Conecte-se</span>
-                        <ul>
-                            <li>
-                                <Link 
-                                    href="https://www.instagram.com/caliandrasshow/" 
-                                    target="_blank" 
-                                    className={styles.footerLink}
-                                >
-                                    Instagram
-                                </Link>
-                            </li>
-                            <li>
-                                <Link 
-                                    href="https://youtube.com" 
-                                    target="_blank" 
-                                    className={styles.footerLink}
-                                >
-                                    YouTube
-                                </Link>
-                            </li>
-                        </ul>
+                        <div className={styles.socialGrid}>
+                            <Link 
+                                href="https://www.instagram.com/caliandrasshow/" 
+                                target="_blank" 
+                                className={styles.socialLink}
+                                aria-label="Instagram"
+                            >
+                                <Instagram size={20} />
+                                <span>Instagram</span>
+                            </Link>
+                            <Link 
+                                href="https://www.youtube.com/@CaliantrasTalkShow" 
+                                target="_blank" 
+                                className={styles.socialLink}
+                                aria-label="YouTube"
+                            >
+                                <Youtube size={20} />
+                                <span>YouTube</span>
+                            </Link>
+                        </div>
                     </nav>
                 </div>
             </div>

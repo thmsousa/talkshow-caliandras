@@ -103,52 +103,62 @@ export const TODOS_PRODUTOS: Produto[] = [
 export const EVENTOS_CALINDRAS = [
     {
         id: 1,
-        titulo: "Lançamento Espiríto Ilícito",
+        titulo: "Lançamento Espírito Ilícito",
         data: "2025-10-10",
         imagem: "/images/events/eve1.jpeg",
-        descricao: 'O marco inicial da obra literária, reunindo entusiastas e críticos em uma noite de autógrafos no Cine Teatro IFTO.'
+        descricao: 'Lançamento do livro independente queer Espírito Ilícito, do autor Pabl. Costa em formato Talk Show. Foi o marco oficial do Caliandras Show no Cine Teatro IFTO (Palmas, TO).'
     },
     {
         id: 2,
-        titulo: "Aula de Leitura Regional",
+        titulo: "Aula de Literatura Regional",
         data: "2025-11-18",
         imagem: "/images/events/eve2.jpeg",
-        descricao: 'Uma imersão nas raízes da literatura local, explorando a construção da identidade através das palavras.'
+        descricao: 'Lançamento do livro independente queer Espírito Ilícito, do autor Pabl. Costa em formato Talk Show. Participação especial na aula de Literatura Regional do curso de Letras do IFTO Campus Palmas (TO).'
     },
     {
         id: 3,
-        titulo: "VIII Feira de Cultura",
+        titulo: "VIII Feira Cultural",
         data: "2025-11-24",
         imagem: "/images/events/eve3.jpeg",
-        descricao: 'Participação especial do projeto Caliandras na oitava edição da feira de cultura regional.'
+        descricao: 'Lançamento do livro independente queer Espírito Ilícito, do autor Pabl. Costa em formato Talk Show. À convite da Biblioteca Professor José de Souza Porto na VIII Feira Cultural (Palmas, TO).'
     },
     {
         id: 4,
-        titulo: "Aula de Língua Portuguesa",
+        titulo: "Santa Rita de Cássia",
         data: "2025-11-28",
         imagem: "/images/events/eve4.jpeg",
-        descricao: 'Intervenção cultural focada na norma culta e na expressão literária contemporânea.'
+        descricao: 'Lançamento do livro independente queer Espírito Ilícito, do autor Pabl. Costa em formato Talk Show. Participação especial na aula de Língua Portuguesa nas turmas da escola Santa Rita de Cássia, na região de Taquaralto (Palmas, TO).'
     },
     {
         id: 5,
         titulo: "Intervenções Poéticas",
-        data: "2025-12-05",
+        data: "2025-12-04",
         imagem: "/images/events/eve5.jpeg",
-        descricao: 'Sarau e leituras dramáticas realizadas ao ar livre para a comunidade.'
+        descricao: 'Intervenções Poéticas de autores da região mediados pelo Caliandras Show ao ar livre no Bar do Torresmo (Palmas, TO).'
     },
     {
         id: 6,
         titulo: "Para Além das Letras - Espaço Cultural",
         data: "2026-03-09",
         imagem: "/images/events/eve6.png",
-        descricao: 'Noite de lançamento da obra coletiva no Espaço Cultural de Palmas.'
+        imagemVerso: "/images/events/eve6_2.png",
+        descricao: 'Lançamento do livro antologia Para Além das Letras, das organizadoras Mirelle Freitas e Vanessa Trajano em formato Talk Show. O evento ocorreu no Espaço Cultural.'
     },
     {
         id: 7,
-        titulo: "Para Além das Letras - São Paulo",
+        titulo: "Para Além das Letras - São Paulo ",
         data: "2026-04-07",
         imagem: "/images/events/eve7.jpg",
-        descricao: 'Oficina prática que deu origem à obra "Para Além das Letras".'
+        imagemVerso: "/images/events/eve7_2.jpg",
+        descricao: 'Lançamento do livro antologia Para Além das Letras, das organizadoras Mirelle Freitas e Vanessa Trajano em formato roda de conversa. O evento ocorreu na Livraria Patuscada, em São Paulo.'
+    },
+    {
+        id: 8,
+        titulo: "Para Além das Letras - Pequizeiro",
+        data: "2026-05-08",
+        imagem: "/images/events/eve8.jpeg",
+        imagemVerso: "/images/events/eve8_2.jpeg",
+        descricao: 'Evento adicional de lançamento e celebração da antologia Para Além das Letras, reunindo autores e leitores.'
     }
 ];
 

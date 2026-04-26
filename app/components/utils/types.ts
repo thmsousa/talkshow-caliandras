@@ -36,6 +36,7 @@ export type EventoCaliandra = {
     titulo: string;
     data: string;
     imagem: string;
+    imagemVerso?: string;
     descricao?: string; 
 };
 
