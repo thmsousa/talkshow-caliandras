@@ -267,6 +267,32 @@ Espírito Ilícito é uma história que aborda juventudes feridas, a falência d
         resenhista: 'Gleice Medeiros',
         editor: 'Emilly Campos',
         local: 'Dunas do Jalapão (TO)'
+    },
+    {
+        id: 'r2',
+        slug: 'resenha-para-alem-das-letras-rayssa',
+        tituloObra: 'Para Além das Letras',
+        autorObra: 'Mirelle Freitas & Vanessa Trajano',
+        textoResenha: `Resumo da resenha feita por Rayssa Montelo, destacando a estrutura e temas da antologia Para Além das Letras.`,
+        nota: 5,
+        dataPostagem: '2026-04-20',
+        imagemCapa: '/images/reviews/resenha_para_alem_letras_rayssa.png',
+        resenhista: 'Rayssa Montelo',
+        editor: 'Emilly Campos',
+        local: 'Conversa de Bois'
+    },
+    {
+        id: 'r3',
+        slug: 'resenha-para-alem-das-letras-savio',
+        tituloObra: 'Para Além das Letras',
+        autorObra: 'Mirelle Freitas & Vanessa Trajano',
+        textoResenha: `Resumo da resenha feita por Sávio Rodrigues, abordando a diversidade de vozes e a proposta da antologia Para Além das Letras.`,
+        nota: 5,
+        dataPostagem: '2026-04-22',
+        imagemCapa: '/images/reviews/resenha_para_alem_letras_savio.png',
+        resenhista: 'Sávio Rodrigues',
+        editor: 'Emilly Campos',
+        local: 'Conversa de Bois'
     }
 ];
 
