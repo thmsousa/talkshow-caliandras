@@ -126,6 +126,76 @@
     letter-spacing: -0.5px;
 }
 
+.reviewerProfile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.reviewerProfileLink {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 6px 8px;
+    margin: -6px -8px;
+    transition: background 0.2s ease;
+}
+
+.reviewerProfileLink:hover {
+    background: #f5f5f5;
+}
+
+.reviewerProfileLink:hover .reviewerAvatar {
+    border-color: #111;
+}
+
+.reviewerLinkHint {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 3px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.reviewerProfileLink:hover .reviewerLinkHint {
+    opacity: 1;
+}
+
+.reviewerAvatar {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--color-accent);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.avatarImage {
+    object-fit: cover;
+    object-position: center top;
+}
+
+.reviewerAvatarFallback {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
 .featuredImage {
     object-fit: cover;
 }

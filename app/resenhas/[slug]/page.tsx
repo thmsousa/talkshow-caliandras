@@ -88,7 +88,28 @@ export default function ResenhaDetalhePage() {
                         {resenha.resenhista && (
                             <div className={styles.techItem}>
                                 <span className={styles.techLabel}>Resenhista</span>
-                                <span className={styles.techValue}>{resenha.resenhista}</span>
+                                <Link href="/equipe" className={styles.reviewerProfileLink}>
+                                    <div className={styles.reviewerProfile}>
+                                        {resenha.fotoResenhista ? (
+                                            <div className={styles.reviewerAvatar}>
+                                                <Image
+                                                    src={resenha.fotoResenhista}
+                                                    alt={resenha.resenhista}
+                                                    fill
+                                                    className={styles.avatarImage}
+                                                />
+                                            </div>
+                                        ) : (
+                                            <div className={styles.reviewerAvatarFallback}>
+                                                {resenha.resenhista.charAt(0)}
+                                            </div>
+                                        )}
+                                        <div>
+                                            <span className={styles.techValue}>{resenha.resenhista}</span>
+                                            <span className={styles.reviewerLinkHint}>Ver perfil na equipe</span>
+                                        </div>
+                                    </div>
+                                </Link>
                             </div>
                         )}
                         {resenha.editor && (

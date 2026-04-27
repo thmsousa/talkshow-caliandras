@@ -35,7 +35,7 @@ export const TODOS_EPISODIOS: Episodio[] = [
         dataLancamento: '2025-11-24T12:00:00',
         urlVideo: 'ZFValH0rauY',
         descricao: 'Saiba mais sobre o autor da obra "Espiríto Ilícitio", Pablo Costa.',
-        imagemCapaUrl: '/images/episodes/pablo_cover.jpg',
+        imagemCapaUrl: '/images/episodes/pablo_autor_esp_ili.jpg',
         autorId: 'a1'
     },
     {
@@ -67,6 +67,50 @@ export const TODOS_EPISODIOS: Episodio[] = [
         descricao: `Em ESPÍRITO ILÍCITO, Pabl. Costa tece uma obra envolvente, sensorial e perturbadora, onde o sagrado se entrelaça com o profano em uma história repleta de cicatrizes e beleza.`,
         imagemCapaUrl: '/images/episodes/cover_resenha.png',
         autorId: 'a2'
+    },
+    {
+        id: '5',
+        titulo: 'Minivlog Caliandras: Para Além das Letras',
+        slug: 'minivlog-para-alem-das-letras',
+        dataLancamento: '2026-04-06T12:00:00',
+        urlVideo: 'DWzujsWPTfG',
+        tipoVideo: 'instagram',
+        descricao: 'Minivlog dos bastidores do lançamento da antologia Para Além das Letras, das organizadoras Mirelle Freitas e Vanessa Trajano.',
+        imagemCapaUrl: '/images/episodes/minivlog_espaco_cultural.jpg',
+        autorId: 'caliandras'
+    },
+    {
+        id: '6',
+        titulo: 'Chamado para o Lançamento: Para Além das Letras',
+        slug: 'chamado-lancamento-para-alem-das-letras',
+        dataLancamento: '2026-03-02T12:00:00',
+        urlVideo: 'DVZmjYxEbAg',
+        tipoVideo: 'instagram',
+        descricao: 'Convite oficial para o lançamento da antologia Para Além das Letras, realizado no Espaço Cultural em Palmas (TO).',
+        imagemCapaUrl: '/images/episodes/para_alem_das_letras.jpeg',
+        autorId: 'caliandras'
+    },
+    {
+        id: '7',
+        titulo: 'Chamado para o Lançamento: Espírito Ilícito',
+        slug: 'chamado-lancamento-espirito-ilicito',
+        dataLancamento: '2025-09-25T12:00:00',
+        urlVideo: 'DPCgMhYErjl',
+        tipoVideo: 'instagram',
+        descricao: 'Convite oficial para o lançamento do livro independente Espírito Ilícito, de Pabl. Costa, no Cine Teatro IFTO em Palmas (TO).',
+        imagemCapaUrl: '/images/episodes/chamado_espirito_ilicito.jpeg',
+        autorId: 'caliandras'
+    },
+    {
+        id: '8',
+        titulo: 'Campanha de Arrecadação de Livros',
+        slug: 'campanha-arrecadacao-livros',
+        dataLancamento: '2025-04-30T12:00:00',
+        urlVideo: 'DJFr1dqxQOn',
+        tipoVideo: 'instagram',
+        descricao: 'Campanha do Caliandras Show para arrecadação de livros. Doe livros e ajude a democratizar o acesso à literatura em Palmas (TO).',
+        imagemCapaUrl: '/images/episodes/doacao_livros.jpeg',
+        autorId: 'caliandras'
     }
 ];
 
@@ -267,6 +311,7 @@ Espírito Ilícito é uma história que aborda juventudes feridas, a falência d
         dataPostagem: '2025-10-16',
         imagemCapa: '/images/reviews/resenha_gleicy_espiritoilicito.png',
         resenhista: 'Gleice Medeiros',
+        fotoResenhista: '/images/equipe/gleice.jpg',
         editor: 'Emilly Campos',
         local: 'Dunas do Jalapão (TO)'
     },
@@ -294,6 +339,7 @@ Esse texto reflete muito nos dias de hoje. Quantas pessoas ainda acreditam em pr
         dataPostagem: '2026-04-20',
         imagemCapa: '/images/reviews/resenha_para_alem_letras_rayssa.png',
         resenhista: 'Rayssa Montelo',
+        fotoResenhista: '/images/equipe/rayssa.jpg',
         editor: 'Emilly Campos',
         local: 'Clube do Livro Conversa de Bois'
     },
@@ -315,6 +361,7 @@ Enfim, ler Para Além das Letras foi uma experiência que realmente me marcou. D
         dataPostagem: '2026-04-22',
         imagemCapa: '/images/reviews/resenha_para_alem_letras_savio.png',
         resenhista: 'Sávio Rodrigues',
+        fotoResenhista: '/images/equipe/savio.jpg',
         editor: 'Emilly Campos',
         local: 'Clube do Livro Conversa de Bois'
     }

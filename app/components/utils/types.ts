@@ -5,7 +5,8 @@ export type Episodio = {
   titulo: string; 
   slug: string; 
   dataLancamento: string; 
-  urlVideo: string; 
+  urlVideo: string;
+  tipoVideo?: 'youtube' | 'instagram';
   descricao: string; 
   imagemCapaUrl: string; 
   autorId: string; 
@@ -50,6 +51,7 @@ export type Resenha = {
     dataPostagem: string;
     imagemCapa?: string;
     resenhista?: string;
+    fotoResenhista?: string;
     editor?: string;
     local?: string;
 };

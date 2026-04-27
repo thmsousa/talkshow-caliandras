@@ -64,6 +64,67 @@
     top: 0; left: 0; width: 100%; height: 100%; border: none;
 }
 
+/* --- INSTAGRAM CARD --- */
+.instagramCard {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.instagramCover {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+.instagramOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.instagramLabel {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.9;
+}
+
+.instagramBtn {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 24px rgba(220, 39, 67, 0.35);
+}
+
+.instagramBtn:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 12px 32px rgba(220, 39, 67, 0.5);
+}
+
 .playerBar {
     display: flex;
     justify-content: space-between;
