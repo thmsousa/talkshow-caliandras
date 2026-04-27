@@ -228,8 +228,8 @@
 .imageCard {
     width: 100%;
     height: 100%;
-    overflow: visible;
-    background: #f0f0f0;
+    overflow: hidden;
+    background: #fcfcfc; /* Fundo sutil para áreas não preenchidas */
     position: relative;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -237,10 +237,10 @@
 .imageCard img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%) contrast(1.1);
+    object-fit: contain; /* Mostra o panfleto 100% sem cortes */
+    padding: 5px; /* Respiro mínimo para não colar nas bordas */
     transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 /* Quando o mouse passa ou está virado, o panfleto "salta" do quadro */
@@ -251,8 +251,7 @@
 }
 
 .imageCardWrapper:hover img {
-    filter: grayscale(0%) contrast(1);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
 }
 
 .imageCaption {

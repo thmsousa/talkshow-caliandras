@@ -128,14 +128,14 @@
     position: relative;
     width: 100%;
     height: 360px;
-    background-color: #fff;
-    border-bottom: 1px solid #f8f8f8;
+    background-color: #fcfcfc; /* Fundo sutil para áreas vazias */
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .eventImage {
     object-fit: contain;
-    object-position: center 30%;
-    padding: 25px;
+    object-position: center; /* Centralizado perfeitamente */
+    padding: 10px; /* Reduzido de 25px para mostrar mais da imagem */
 }
 
 .cardDetails {
