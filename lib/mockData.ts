@@ -248,6 +248,8 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
     }
 ];
 
+// lib/mockData.ts
+
 export const TODAS_RESENHAS: Resenha[] = [
     {
         id: 'r1',
@@ -263,7 +265,7 @@ Pabl. Costa apresenta personagens multifacetados e humanos, como a severa Madre 
 Espírito Ilícito é uma história que aborda juventudes feridas, a falência das estruturas que deveriam proteger e o poder avassalador da memória. Um livro destinado àqueles que não temem a escuridão e que sabem que, por vezes, é nesse lugar que a luz começa a se manifestar 🦇.`,
         nota: 5,
         dataPostagem: '2025-10-16',
-        imagemCapa: '/images/reviews/resenha_espirito_ilicito.png',
+        imagemCapa: '/images/reviews/resenha_gleicy_espiritoilicito.png',
         resenhista: 'Gleice Medeiros',
         editor: 'Emilly Campos',
         local: 'Dunas do Jalapão (TO)'
@@ -273,26 +275,48 @@ Espírito Ilícito é uma história que aborda juventudes feridas, a falência d
         slug: 'resenha-para-alem-das-letras-rayssa',
         tituloObra: 'Para Além das Letras',
         autorObra: 'Mirelle Freitas & Vanessa Trajano',
-        textoResenha: `Resumo da resenha feita por Rayssa Montelo, destacando a estrutura e temas da antologia Para Além das Letras.`,
+        textoResenha: `"Houve o poeta que encontrou poesia em morrer lentamente e
+em matar lentamente. Haverá poesia também, ou apenas o
+prazer inerrável dos traiçoeiros sádicos, ávidos por aniquilar
+qualquer possibilidade de sonhar ou qualquer um que ouse
+esperançar?"
+
+        DIANTE dessa citação do conto de Mirelle Freitas, "Do esperar, do lançar, do esperançar", começo a repensar minhas sensações ao ler Para Além das Letras, um livro composto por uma antologia de contos diversos e poéticos que nos fazem refletir sobre como a poesia pode nos fazer viver e morrer ao mesmo tempo diante das palavras. Cada texto traz experiências únicas, marcadas por sentimentos intensos, questionamentos e esperanças, mostrando que a literatura pode ser um espaço de criação, resistência e descoberta. É um livro que me fez refletir sobre todos os âmbitos da vida.
+
+Fiquei emocionada pela história de luta e sabedoria de "Ela só queria amar", da Daniella Figuereido — a história de uma mulher que lutou muito pelo amor e que, além de tudo, amava e acreditava que poderia ser amada diante de todas as coisas ruins que passara. Nessa história, vi a vida de várias mulheres que sofrem violência doméstica sendo contada: a dor de amar alguém que a machuca, seja fisicamente ou psicologicamente, o acaso de perder totalmente sua identidade por alguém que ama e, no processo, afastar-se de pessoas que realmente a amam, apenas por pensar que é aquele amor que deveria receber.
+
+A constatação da vida no conto "A efemeridade da vida", de Paulo Plácido, foi como um ensinamento de como a depressão é silenciosa, o vazio e a dor interna evidenciados pela sensação de rotina e do cotidiano. Jericó é uma pessoa observadora, que vê a vida com todas as suas falácias e feições, que tem sonhos possíveis e possibilidades de vida para realizá-los, mas, mesmo assim, não consegue consertar o que está quebrado por dentro. O conto me fez refletir sobre como a existência humana é frágil, instável e profundamente contraditória. Mesmo com a conexão com Raquel, que ele acreditava que poderia preencher esse vazio, isso não foi suficiente. A verdadeira escolha de Jericó foi entre a morte e a paixão. A morte, então, significou o desfecho de uma luta interna que, apesar do amor, nunca foi totalmente vencida.
+
+Em "Palácio de Odara", de Mirelle Freitas, me surpreendi com a força da promessa de ascensão e mobilidade social. Odara, seduzida por um palácio, acreditava que encontraria a salvação. Adão, impulsionado por essa promessa, partiu rumo ao palácio. Mas, no fim, era tudo uma farsa: o palácio estava no meio de uma guerra. Adão, ao seguir essa ilusão, traiu a confiança de Odara. Essa promessa vazia do capitalismo deixou ambos vulneráveis.
+
+Esse texto reflete muito nos dias de hoje. Quantas pessoas ainda acreditam em promessas de uma vida melhor, de lugares que se apresentam como saída, mas que, na realidade, são armadilhas. Sinto que aprendi muito com cada uma das histórias desse livro. Cada conto me ensinou algo diferente sobre amor, dor, identidade e esperança. Foi uma leitura que me tocou e que, com certeza, vou levar os ensinamentos para a minha vida.`,
         nota: 5,
         dataPostagem: '2026-04-20',
         imagemCapa: '/images/reviews/resenha_para_alem_letras_rayssa.png',
         resenhista: 'Rayssa Montelo',
         editor: 'Emilly Campos',
-        local: 'Conversa de Bois'
+        local: 'Clube do Livro Conversa de Bois'
     },
     {
         id: 'r3',
         slug: 'resenha-para-alem-das-letras-savio',
         tituloObra: 'Para Além das Letras',
         autorObra: 'Mirelle Freitas & Vanessa Trajano',
-        textoResenha: `Resumo da resenha feita por Sávio Rodrigues, abordando a diversidade de vozes e a proposta da antologia Para Além das Letras.`,
+        textoResenha: `O livro Para Além das Letras me chamou atenção justamente pela variedade de textos e estilos. Durante a leitura, senti que não era apenas um livro para entreter, mas algo que realmente me provocou à reflexão. As histórias, mesmo diferentes entre si, abordam temas tão caros nesses últimos tempos, como a violência contra a mulher, dificuldades vividas em contextos sociais mais complexos, preconceitos... Isso fez com que eu me envolvesse mais com a leitura não só pela curiosidade, mas também pelo impacto emocional.
+
+Um dos textos que me chamou atenção foi "Mal Presságio" da org. Vanessa Teodoro Trajano. A história da garota que passou por um trauma tão forte mexeu comigo, principalmente pela forma como isso aparece no comportamento dela. Não é algo exagerado, mas sim sutil, o que torna tudo mais realista. O final também me deixou pensativo, porque não entrega tudo de forma clara, fazendo com que eu ficasse tentando processar o que aconteceu.
+
+Outro texto que me prendeu especialmente foi "A Última Chama", da escritora Ana Karla. Me envolvi com a forma como o suspense é construído nele, me deixando atento o tempo todo. Foi aquele tipo de leitura que dá vontade de continuar sem parar, justamente para descobrir o desfecho. A sensação de mistério é bem forte e faz com que a história fique ainda mais instigante.
+
+Já em "Liberdade Falsa", do autor Pabl. Costa, o que mais me atraiu foi a questão da expectativa dos personagens em relação a uma vida melhor. Enquanto eu lia, refleti em como isso se relaciona com a realidade, já que muitas vezes as pessoas idealizam mudanças como uma forma de escapar do sofrimento. No entanto, o texto mostra que nem sempre as coisas acontecem como esperado, dando uma mudança de chave no enredo.
+
+Enfim, ler Para Além das Letras foi uma experiência que realmente me marcou. Durante a leitura, me peguei refletindo sobre várias situações e até relacionando algumas delas com vivências próprias. Foi um livro que, de certa forma, me fez enxergar algumas coisas com mais sensibilidade.`,
         nota: 5,
         dataPostagem: '2026-04-22',
         imagemCapa: '/images/reviews/resenha_para_alem_letras_savio.png',
         resenhista: 'Sávio Rodrigues',
         editor: 'Emilly Campos',
-        local: 'Conversa de Bois'
+        local: 'Clube do Livro Conversa de Bois'
     }
 ];
 
