@@ -63,7 +63,7 @@ export default function EquipePage() {
             >
                 <div className={styles.heroImageWrapper}>
                     <Image 
-                        src="/images/equipe/time1.jpeg" 
+                        src="/images/equipe/time_1.jpg" 
                         alt="Time Caliandras em momento de diálogo"
                         fill
                         className={styles.heroImage}
