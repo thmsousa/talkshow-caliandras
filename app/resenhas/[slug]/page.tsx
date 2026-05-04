@@ -6,17 +6,18 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { TODAS_RESENHAS, TODOS_EPISODIOS } from '@/lib/mockData';
 import { formatFullDate } from '@/lib/utils/formatters';
+import PDFSlider from '@/app/components/ui/PDFSlider';
 import styles from './ResenhaDetalhe.module.css';
 
 export default function ResenhaDetalhePage() {
     const params = useParams();
     const slug = params?.slug as string;
-    
+
     const resenha = TODAS_RESENHAS.find((r) => r.slug === slug);
 
     if (!resenha) return notFound();
 
-    const episodioRelacionado = TODOS_EPISODIOS.find(ep => 
+    const episodioRelacionado = TODOS_EPISODIOS.find(ep =>
         (ep.titulo.toLowerCase().includes('resenha') && ep.titulo.toLowerCase().includes(resenha.tituloObra.toLowerCase())) ||
         ep.slug === resenha.slug ||
         ep.descricao.includes(resenha.resenhista || '')
@@ -26,14 +27,14 @@ export default function ResenhaDetalhePage() {
         <main className={styles.mainContainer}>
             <header className={styles.hero}>
                 <div className={styles.heroContent}>
-                    <motion.span 
+                    <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         className={styles.overtitle}
                     >
                         Resenha Crítica
                     </motion.span>
-                    <motion.h1 
+                    <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
@@ -41,7 +42,7 @@ export default function ResenhaDetalhePage() {
                     >
                         {resenha.tituloObra}
                     </motion.h1>
-                    <motion.p 
+                    <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2 }}
@@ -54,14 +55,14 @@ export default function ResenhaDetalhePage() {
 
             {/* --- NOVO: IMPACT SECTION (SPLIT) --- */}
             <section className={styles.impactSection}>
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                     className={styles.imageSide}
                 >
-                    <Image 
-                        src={resenha.imagemCapa || '/images/reviews/cover_resenha.png'} 
+                    <Image
+                        src={resenha.imagemCapa || '/images/reviews/cover_resenha.png'}
                         alt={resenha.tituloObra}
                         fill
                         className={styles.featuredImage}
@@ -69,7 +70,7 @@ export default function ResenhaDetalhePage() {
                     />
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
@@ -133,6 +134,12 @@ export default function ResenhaDetalhePage() {
                     </div>
                 </motion.div>
             </section>
+
+            {resenha.pdfUrl && (
+                <section className={styles.massiveMuralSection}>
+                    <PDFSlider pdfUrl={resenha.pdfUrl} />
+                </section>
+            )}
 
             <div className={styles.contentLayout}>
                 {/* LADO ESQUERDO: TEXTO DA RESENHA */}

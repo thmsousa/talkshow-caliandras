@@ -23,8 +23,8 @@ export default function EquipePage() {
 
     const itemVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
-        visible: { 
-            opacity: 1, 
+        visible: {
+            opacity: 1,
             y: 0,
             transition: { duration: 0.8, ease: [0.19, 1, 0.22, 1] }
         }
@@ -35,7 +35,7 @@ export default function EquipePage() {
             {/* HEADER */}
             <header className={styles.sectionHeader}>
                 <span className={styles.overtitle}>Coletivo Criativo • Caliandras</span>
-                <motion.h1 
+                <motion.h1
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
@@ -43,7 +43,7 @@ export default function EquipePage() {
                 >
                     Equipe
                 </motion.h1>
-                <motion.p 
+                <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4, duration: 1 }}
@@ -54,7 +54,7 @@ export default function EquipePage() {
             </header>
 
             {/* 1. COLLECTIVE HERO (SPLIT LAYOUT) */}
-            <motion.section 
+            <motion.section
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
@@ -62,8 +62,8 @@ export default function EquipePage() {
                 className={styles.collectiveHero}
             >
                 <div className={styles.heroImageWrapper}>
-                    <Image 
-                        src="/images/equipe/time_1.jpg" 
+                    <Image
+                        src="/images/equipe/time_1.jpg"
                         alt="Time Caliandras em momento de diálogo"
                         fill
                         className={styles.heroImage}
@@ -87,7 +87,7 @@ export default function EquipePage() {
 
             {/* 2. GRID DE MEMBROS */}
             <section className={styles.gridTitleSection}>
-                <motion.span 
+                <motion.span
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     className={styles.gridTitle}
@@ -96,7 +96,7 @@ export default function EquipePage() {
                 </motion.span>
             </section>
 
-            <motion.div 
+            <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -104,15 +104,15 @@ export default function EquipePage() {
                 className={styles.grid}
             >
                 {EQUIPE_CALIANDRAS.map((membro) => (
-                    <motion.div 
+                    <motion.div
                         key={membro.id}
                         variants={itemVariants}
                         className={styles.memberCard}
                     >
                         <div className={styles.photoOuterCircle}>
                             <div className={styles.photoInnerCircle}>
-                                <Image 
-                                    src={membro.fotoUrl || '/images/placeholder.jpg'} 
+                                <Image
+                                    src={membro.fotoUrl || '/images/placeholder.jpg'}
                                     alt={membro.nome}
                                     fill
                                     className={styles.photo}
@@ -133,10 +133,10 @@ export default function EquipePage() {
                                     </a>
                                 )}
                                 {membro.instagram && (
-                                    <a 
-                                        href={`https://instagram.com/${membro.instagram.replace('@', '')}`} 
-                                        target="_blank" 
-                                        rel="noopener noreferrer" 
+                                    <a
+                                        href={`https://instagram.com/${membro.instagram.replace('@', '')}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className={styles.contactLink}
                                         title={membro.instagram}
                                     >
@@ -156,7 +156,7 @@ export default function EquipePage() {
 
             {/* 3. MOMENTOS GALLERY SECTION */}
             <div className={styles.momentsSection}>
-                <motion.section 
+                <motion.section
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
@@ -171,8 +171,8 @@ export default function EquipePage() {
                         </p>
                     </div>
                     <div className={styles.momentImageWrapper}>
-                        <img 
-                            src="/images/equipe/time2.jpeg" 
+                        <img
+                            src="/images/equipe/time2.jpeg"
                             alt="Coletivo Caliandras em Ação"
                             className={styles.momentImage}
                             style={{ width: '100%', height: 'auto', display: 'block' }}

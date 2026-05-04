@@ -54,6 +54,7 @@ export type Resenha = {
     fotoResenhista?: string;
     editor?: string;
     local?: string;
+    pdfUrl?: string;
 };
 
 export type Recomendacao = {

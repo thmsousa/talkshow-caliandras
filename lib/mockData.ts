@@ -341,7 +341,8 @@ Esse texto reflete muito nos dias de hoje. Quantas pessoas ainda acreditam em pr
         resenhista: 'Rayssa Montelo',
         fotoResenhista: '/images/equipe/rayssa.jpg',
         editor: 'Emilly Campos',
-        local: 'Clube do Livro Conversa de Bois'
+        local: 'Clube do Livro Conversa de Bois',
+        pdfUrl: '/docs/resenhas/resenha_rayssa.pdf'
     },
     {
         id: 'r3',
@@ -363,7 +364,8 @@ Enfim, ler Para Além das Letras foi uma experiência que realmente me marcou. D
         resenhista: 'Sávio Rodrigues',
         fotoResenhista: '/images/equipe/savio.jpg',
         editor: 'Emilly Campos',
-        local: 'Clube do Livro Conversa de Bois'
+        local: 'Clube do Livro Conversa de Bois',
+        pdfUrl: '/docs/resenhas/resenha_savio.pdf'
     }
 ];
 
