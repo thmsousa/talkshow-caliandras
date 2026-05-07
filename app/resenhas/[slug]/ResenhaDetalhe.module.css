@@ -47,8 +47,10 @@
     opacity: 0.6;
 }
 
-/* --- NOVO: IMPACT SECTION (SPLIT) --- */
+/* --- IMPACT SECTION (SPLIT) --- */
 .impactSection {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: stretch;
     gap: 30px;
@@ -64,7 +66,17 @@
     overflow: hidden;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
     background-color: #f9f9f9;
-    /* Fallback caso a imagem demore */
+}
+
+.featuredImage {
+    object-fit: cover;
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.15) 0%, transparent 30%);
+    pointer-events: none;
 }
 
 .detailsSide {
@@ -77,8 +89,9 @@
     border-left: 1px solid #f0f0f0;
 }
 
-.detailsHeader {
-    margin-bottom: 40px;
+.glassCard {
+    /* Fundo original, sem cor/glassmorphism */
+    width: 100%;
 }
 
 .detailsLabel {
@@ -209,39 +222,266 @@
 
 .massiveMuralSection {
     width: 100%;
-    margin: 120px 0 60px;
-    background-color: #0a0a0a;
+    margin: 160px 0 30px;
+    background-color: transparent;
+}
+
+.muralHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.muralTitle {
+    font-size: 28px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: #111;
+}
+
+.muralHint {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #666;
+    background: #f5f5f5;
+    padding: 8px 16px;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.muralHintIcon {
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /* --- LAYOUT DO CONTEÚDO --- */
 .contentLayout {
+    position: relative;
     display: flex;
-    gap: 80px;
-    max-width: 1100px;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
     margin: 0 auto;
     padding-top: 60px;
-    border-top: 1px solid #f5f5f5;
-    align-items: flex-start;
+    border-top: 1px solid #eaeaea;
+}
+
+/* Decorações Laterais e Minimalistas */
+.decorGrid {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -120px;
+    right: -120px;
+    background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+    background-size: 25px 25px;
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, transparent);
+}
+
+.decorGlow1, .decorGlow2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+@keyframes floatGlow1 {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+    50% { transform: translate(40px, -40px) scale(1.05); opacity: 0.7; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+}
+
+@keyframes floatGlow2 {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+    50% { transform: translate(-50px, 30px) scale(1.1); opacity: 0.6; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+}
+
+.decorGlow1 {
+    top: 20%;
+    left: -150px;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 126, 95, 0.05);
+    animation: floatGlow1 12s ease-in-out infinite;
+}
+
+.decorGlow2 {
+    bottom: 30%;
+    right: -150px;
+    width: 450px;
+    height: 450px;
+    background: rgba(100, 150, 255, 0.04);
+    animation: floatGlow2 15s ease-in-out infinite;
+}
+
+.decorCrossTL, .decorCrossTR {
+    position: absolute;
+    top: 30px;
+    width: 15px;
+    height: 15px;
+}
+.decorCrossTL { left: -67px; }
+.decorCrossTR { right: -67px; }
+
+.decorCrossTL::before, .decorCrossTL::after,
+.decorCrossTR::before, .decorCrossTR::after {
+    content: '';
+    position: absolute;
+    background: #ccc;
+}
+.decorCrossTL::before, .decorCrossTR::before {
+    top: 7px; left: 0; width: 15px; height: 1px;
+}
+.decorCrossTL::after, .decorCrossTR::after {
+    left: 7px; top: 0; width: 1px; height: 15px;
+}
+
+.decorLineLeft, .decorLineRight {
+    position: absolute;
+    top: 100px;
+    bottom: 100px;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #e5e5e5 15%, #e5e5e5 85%, transparent);
+}
+
+.decorLineLeft {
+    left: -60px;
+}
+
+.decorLineRight {
+    right: -60px;
+}
+
+.decorTextLeft, .decorTextRight {
+    position: absolute;
+    writing-mode: vertical-rl;
+    font-family: monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: #bbb;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+.decorTextLeft {
+    left: -85px;
+    top: 250px;
+    transform: rotate(180deg);
+}
+
+.decorTextRight {
+    right: -85px;
+    bottom: 250px;
 }
 
 .articleBody {
-    flex: 2;
+    position: relative;
+    width: 100%;
+}
+
+.abstractTypography1, .abstractTypography2 {
+    position: absolute;
+    font-size: 250px;
+    font-weight: 950;
+    font-family: serif;
+    color: rgba(0,0,0,0.02);
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+    line-height: 0.8;
+}
+
+.abstractTypography1 {
+    top: 15%;
+    left: -15%;
+}
+
+.abstractTypography2 {
+    bottom: 25%;
+    right: -15%;
+}
+
+.articleHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.decorBadge {
+    font-size: 9px;
+    font-family: monospace;
+    font-weight: 600;
+    color: #aaa;
+    border: 1px solid #eee;
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.articleSubtitle {
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.articleTitle {
+    font-size: 36px;
+    font-weight: 950;
+    color: #111;
+    letter-spacing: -1.5px;
+    margin: 0 0 25px;
+    text-align: center;
+}
+
+.headerDivider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-accent);
+    border-radius: 2px;
 }
 
 .reviewText {
     font-size: 20px;
     line-height: 1.8;
     color: #333;
-    white-space: pre-line;
     text-align: justify;
 }
 
-.reviewText::first-letter {
+.reviewText p {
+    margin-bottom: 1.5em;
+}
+
+.reviewText p:last-child {
+    margin-bottom: 0;
+}
+
+.reviewText p:first-child::first-letter {
     float: left;
     font-size: 72px;
     line-height: 1;
     font-weight: 950;
-    padding-right: 15px;
+    padding-right: 12px;
     color: var(--color-accent);
     font-family: serif;
 }
@@ -294,17 +534,25 @@
 }
 
 .sidebar {
-    flex: 1;
-    min-width: 300px;
+    width: 100%;
+    margin-top: 40px;
 }
 
 .stickySidebar {
-    position: sticky;
-    top: 120px;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    border-top: 1px dotted #ccc;
+    padding-top: 50px;
 }
 
 .sidebarBlock {
-    margin-bottom: 50px;
+    margin-bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .backLink {
@@ -327,9 +575,11 @@
 
 .videoCTA {
     background-color: #fafafa;
-    padding: 35px;
+    padding: 35px 50px;
     border-radius: 20px;
     text-align: center;
+    width: 100%;
+    max-width: 400px;
 }
 
 .videoCTA p {
@@ -357,12 +607,17 @@
     transition: all 0.3s;
 }
 
-.videoLink:hover {
-    background-color: var(--color-accent);
-    transform: scale(1.05);
-}
+    .videoLink:hover {
+        background-color: var(--color-accent);
+        transform: scale(1.05);
+    }
 
-@media (max-width: 1024px) {
+    @media (max-width: 1024px) {
+        .decorLineLeft, .decorLineRight, 
+        .decorTextLeft, .decorTextRight,
+        .decorGrid, .decorCrossTL, .decorCrossTR {
+            display: none;
+        }
     .mainContainer {
         padding: 30px 15px 60px;
     }
@@ -428,10 +683,12 @@
     .reviewText {
         font-size: 18px;
         line-height: 1.7;
+        text-align: left;
     }
 
-    .reviewText::first-letter {
+    .reviewText p:first-child::first-letter {
         font-size: 60px;
+        padding-right: 8px;
     }
 
     .dramaticQuote {
@@ -465,5 +722,15 @@
 
     .techValue {
         font-size: 14px;
+    }
+
+    .muralHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .muralTitle {
+        font-size: 22px;
     }
 }

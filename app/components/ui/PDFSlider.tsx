@@ -27,7 +27,8 @@ export default function PDFSlider({ pdfUrl }: PDFSliderProps) {
     useEffect(() => {
         const update = () => {
             setViewWidth(window.innerWidth);
-            setViewHeight(Math.round(window.innerHeight * 0.80));
+            const isMobile = window.innerWidth <= 768;
+            setViewHeight(Math.round(window.innerHeight * (isMobile ? 0.60 : 0.80)));
         };
         update();
         window.addEventListener('resize', update);
@@ -73,10 +74,8 @@ export default function PDFSlider({ pdfUrl }: PDFSliderProps) {
                 position: 'relative',
                 width: '100%',
                 height: `${viewHeight}px`,
-                background: '#0a0a0a',
+                background: 'transparent',
                 overflow: 'visible',
-                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
                 cursor: 'grab'
             }}
             whileTap={{ cursor: 'grabbing' }}
@@ -103,7 +102,7 @@ export default function PDFSlider({ pdfUrl }: PDFSliderProps) {
                     <Document
                         file={pdfUrl}
                         onLoadSuccess={() => { }}
-                        loading={<div style={{ color: '#fff', textAlign: 'center', width: '100vw' }}>CARREGANDO MURAL...</div>}
+                        loading={<div style={{ color: '#111', fontWeight: 800, textAlign: 'center', width: '100vw', paddingTop: '20px' }}>CARREGANDO MURAL...</div>}
                     >
                         <Page
                             pageNumber={1}
@@ -120,14 +119,18 @@ export default function PDFSlider({ pdfUrl }: PDFSliderProps) {
             <button
                 onClick={() => scroll(-1)}
                 style={{
-                    position: 'absolute', left: '30px', top: '50%',
+                    position: 'absolute', left: '15px', top: '50%',
                     transform: 'translateY(-50%)', zIndex: 100,
-                    width: '54px', height: '54px', borderRadius: '50%',
-                    border: '1px solid rgba(255,255,255,0.15)',
-                    background: canGoLeft ? '#ff7e5f' : 'transparent',
+                    width: '56px', height: '56px', borderRadius: '50%',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    background: 'rgba(0, 0, 0, 0.4)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
                     color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: canGoLeft ? 'pointer' : 'default', opacity: canGoLeft ? 1 : 0.05,
-                    transition: 'all 0.3s'
+                    cursor: canGoLeft ? 'pointer' : 'default', opacity: canGoLeft ? 1 : 0,
+                    pointerEvents: canGoLeft ? 'auto' : 'none',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
                 }}
             >
                 <ChevronLeft size={28} />
@@ -136,14 +139,18 @@ export default function PDFSlider({ pdfUrl }: PDFSliderProps) {
             <button
                 onClick={() => scroll(1)}
                 style={{
-                    position: 'absolute', right: '30px', top: '50%',
+                    position: 'absolute', right: '15px', top: '50%',
                     transform: 'translateY(-50%)', zIndex: 100,
-                    width: '54px', height: '54px', borderRadius: '50%',
-                    border: '1px solid rgba(255,255,255,0.15)',
-                    background: canGoRight ? '#ff7e5f' : 'transparent',
+                    width: '56px', height: '56px', borderRadius: '50%',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    background: 'rgba(0, 0, 0, 0.4)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
                     color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: canGoRight ? 'pointer' : 'default', opacity: canGoRight ? 1 : 0.05,
-                    transition: 'all 0.3s'
+                    cursor: canGoRight ? 'pointer' : 'default', opacity: canGoRight ? 1 : 0,
+                    pointerEvents: canGoRight ? 'auto' : 'none',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
                 }}
             >
                 <ChevronRight size={28} />

@@ -137,26 +137,96 @@ export default function ResenhaDetalhePage() {
 
             {resenha.pdfUrl && (
                 <section className={styles.massiveMuralSection}>
+                    <div className={styles.muralHeader}>
+                        <h2 className={styles.muralTitle}>Mural da Resenha</h2>
+                        <div className={styles.muralHint}>
+                            <span className={styles.muralHintIcon}>↔</span>
+                            Arraste ou use as setas para ler
+                        </div>
+                    </div>
                     <PDFSlider pdfUrl={resenha.pdfUrl} />
                 </section>
             )}
 
             <div className={styles.contentLayout}>
+                {/* DECORAÇÕES LATERAIS */}
+                <div className={styles.decorGrid}></div>
+                <div className={styles.decorGlow1}></div>
+                <div className={styles.decorGlow2}></div>
+                <div className={styles.decorCrossTL}></div>
+                <div className={styles.decorCrossTR}></div>
+                <div className={styles.decorLineLeft}></div>
+                <div className={styles.decorLineRight}></div>
+                <div className={styles.decorTextLeft}>Resenha Crítica</div>
+                <div className={styles.decorTextRight}>Caliandras</div>
+
                 {/* LADO ESQUERDO: TEXTO DA RESENHA */}
                 <article className={styles.articleBody}>
-                    <p className={styles.reviewText}>
-                        {resenha.textoResenha}
-                    </p>
+                    {/* Elementos tipográficos de fundo */}
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.9, x: -50 }}
+                        whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        className={styles.abstractTypography1}
+                    >01</motion.div>
+                    
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.9, x: 50 }}
+                        whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+                        className={styles.abstractTypography2}
+                    >TXT</motion.div>
 
-                    <div className={styles.quoteDivider}>
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className={styles.articleHeader}
+                    >
+                        <div className={styles.decorBadge}>LEITURA</div>
+                        <span className={styles.articleSubtitle}>Transcrição da Resenha</span>
+                        <h3 className={styles.articleTitle}>Texto Integral</h3>
+                        <div className={styles.headerDivider}></div>
+                    </motion.div>
+
+                    <div className={styles.reviewText}>
+                        {resenha.textoResenha.split('\n\n').map((paragraph, idx) => (
+                            <motion.p 
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.6, delay: Math.min(idx * 0.1, 0.5) }}
+                            >
+                                {paragraph.replace(/\n/g, ' ')}
+                            </motion.p>
+                        ))}
+                    </div>
+
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 0.3, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className={styles.quoteDivider}
+                    >
                         <div className={styles.dot} />
                         <div className={styles.line} />
                         <div className={styles.dot} />
-                    </div>
+                    </motion.div>
 
-                    <blockquote className={styles.dramaticQuote}>
+                    <motion.blockquote 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className={styles.dramaticQuote}
+                    >
                         "Nossa missão é: dar o devido valor ao que dá sentido à vida."
-                    </blockquote>
+                    </motion.blockquote>
                 </article>
 
                 {/* LADO DIREITO: LINKS E EXTRA */}

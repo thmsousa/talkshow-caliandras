@@ -340,7 +340,7 @@ Esse texto reflete muito nos dias de hoje. Quantas pessoas ainda acreditam em pr
         imagemCapa: '/images/reviews/resenha_para_alem_letras_rayssa.png',
         resenhista: 'Rayssa Montelo',
         fotoResenhista: '/images/equipe/rayssa.jpg',
-        editor: 'Emilly Campos',
+        editor: 'Pablo Costa',
         local: 'Clube do Livro Conversa de Bois',
         pdfUrl: '/docs/resenhas/resenha_rayssa.pdf'
     },
@@ -363,7 +363,7 @@ Enfim, ler Para Além das Letras foi uma experiência que realmente me marcou. D
         imagemCapa: '/images/reviews/resenha_para_alem_letras_savio.png',
         resenhista: 'Sávio Rodrigues',
         fotoResenhista: '/images/equipe/savio.jpg',
-        editor: 'Emilly Campos',
+        editor: 'Pablo Costa',
         local: 'Clube do Livro Conversa de Bois',
         pdfUrl: '/docs/resenhas/resenha_savio.pdf'
     }
