@@ -36,7 +36,7 @@
     /* Alinhado com o padding-top */
     left: 0;
     width: 4px;
-    height: calc(100% - 60px + 5px);
+    height: 85px;
     background: var(--color-accent);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);

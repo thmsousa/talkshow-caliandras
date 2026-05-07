@@ -99,7 +99,7 @@ function EventoItem({ evento, index }: { evento: any, index: number }) {
 
                     <div className={styles.imageCaption}>
                         {hasBackSide && <span className={styles.flipHint}>TOQUE PARA VIRAR</span>}
-                        <span>REGISTRO N. {index + 1}</span>
+                        <span>EDIÇÃO {String(index + 1).padStart(2, '0')}</span>
                     </div>
                 </motion.div>
             </div>
@@ -131,7 +131,7 @@ function EventoItem({ evento, index }: { evento: any, index: number }) {
                     >
                         {evento.descricao}
                     </motion.p>
-                    <div className={styles.editorialFooter}>CRONOLOGIA DOCUMENTADA</div>
+                    <div className={styles.editorialFooter}>ACERVO CULTURAL</div>
                 </div>
             </motion.div>
         </section>
@@ -162,7 +162,7 @@ export default function EventosPage() {
                     transition={{ duration: 0.8 }}
                     className={styles.supLabel}
                 >
-                    PERSPECTIVA HISTÓRICA
+                    AGENDA CULTURAL
                 </motion.div>
 
                 <div className={styles.headerBody}>
@@ -172,7 +172,7 @@ export default function EventosPage() {
                         transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
                         className={styles.mainTitle}
                     >
-                        EVENTOS
+                        NOSSOS ENCONTROS
                     </motion.h1>
 
                     <motion.p 
@@ -181,7 +181,7 @@ export default function EventosPage() {
                         transition={{ delay: 0.8, duration: 1 }}
                         className={styles.headerDescription}
                     >
-                        Uma jornada documental pelas intervenções, lançamentos e diálogos que moldam o ecossistema cultural do Caliandras em Palmas.
+                        Acompanhe nossos encontros presenciais, lançamentos literários e tudo o que movimenta o ecossistema do Caliandras.
                     </motion.p>
                 </div>
             </header>
