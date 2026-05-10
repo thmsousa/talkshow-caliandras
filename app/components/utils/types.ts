@@ -69,6 +69,7 @@ export type Recomendacao = {
 export type TimeMember = {
     id: string;
     nome: string;
+    slug?: string;
     cargo: string;
     minibio?: string;
     fotoUrl: string;

@@ -286,7 +286,7 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         id: 't10',
         nome: 'Thiago Medeiros',
         cargo: 'Direção & Tecnologia',
-        fotoUrl: '/images/equipe/thiagom.jpeg',
+        fotoUrl: '/images/equipe/thiago.jpeg',
         bio: 'Thiago Medeiros tem 21 anos, nascido em 2004. Com formação técnica em Mecatrônica e uma trajetória dedicada à programação, ele é o motor tecnológico por trás do Caliandras Show. Amante da tecnologia e da inovação, Thiago acredita no poder das ferramentas digitais como pontes para a democratização do saber. No Caliandras, sua missão é unir a precisão dos códigos à sensibilidade das artes, garantindo que a cultura e a literatura regional alcancem novos horizontes através de uma experiência digital moderna, fluida e acessível.',
         email: 'thiagosousam2004@gmail.com',
     }

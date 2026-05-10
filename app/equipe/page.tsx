@@ -2,6 +2,7 @@
 
 import { EQUIPE_CALIANDRAS } from '@/lib/mockData';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { Instagram, Mail } from 'lucide-react';
 import styles from './Time.module.css';
@@ -103,12 +104,14 @@ export default function EquipePage() {
                 viewport={{ once: true, margin: "-50px" }}
                 className={styles.grid}
             >
-                {EQUIPE_CALIANDRAS.map((membro) => (
-                    <motion.div
-                        key={membro.id}
-                        variants={itemVariants}
-                        className={styles.memberCard}
-                    >
+                {EQUIPE_CALIANDRAS.map((membro) => {
+                    const slug = membro.slug || membro.nome.toLowerCase().replace(/ /g, '-').normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+                    return (
+                    <Link href={`/equipe/${slug}`} key={membro.id} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <motion.div
+                            variants={itemVariants}
+                            className={styles.memberCard}
+                        >
                         <div className={styles.photoOuterCircle}>
                             <div className={styles.photoInnerCircle}>
                                 <Image
@@ -146,8 +149,10 @@ export default function EquipePage() {
                                 )}
                             </div>
                         )}
-                    </motion.div>
-                ))}
+                        </motion.div>
+                    </Link>
+                    );
+                })}
             </motion.div>
 
             <div className={styles.sectionDivider}>
