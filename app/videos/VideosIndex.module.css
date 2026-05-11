@@ -28,7 +28,7 @@
 
 .overtitle {
     font-size: 11px;
-    color: #999;
+    color: var(--color-accent);
     font-weight: 800;
     letter-spacing: 4px;
     text-transform: uppercase;

@@ -15,7 +15,7 @@ export default function IndicacoesPage() {
                     animate={{ opacity: 1, x: 0 }}
                     className={styles.headerContent}
                 >
-                    <span className={styles.overtitle}>RECOMENDAÇÕES CALIANDRAS</span>
+                    <span className={styles.overtitle}>RECOMENDAÇÕES • CALIANDRAS</span>
                     <h1 className={styles.title}>Indicações Literárias</h1>
                     <p className={styles.headerSubtitle}>
                         Obras selecionadas que dialogam com a alma do cerrado e a força da literatura.

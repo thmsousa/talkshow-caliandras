@@ -30,7 +30,7 @@
 .overtitle {
     font-size: 11px;
     font-weight: 800;
-    color: #999;
+    color: var(--color-accent);
     letter-spacing: 4px;
     text-transform: uppercase;
     display: block;

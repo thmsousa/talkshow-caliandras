@@ -1,7 +1,8 @@
 .mainContainer {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0px 20px 40px; /* Reduzi o padding inferior */
+    padding: 0px 20px 40px;
+    /* Reduzi o padding inferior */
     background-color: #fff;
     min-height: 100vh;
     position: relative;
@@ -23,7 +24,8 @@
 
 .sectionHeader {
     margin-bottom: 50px;
-    padding-top: 20px; /* Bem mais compacto para caber tudo na tela */
+    padding-top: 20px;
+    /* Bem mais compacto para caber tudo na tela */
     text-align: center;
     position: relative;
     max-width: 800px;
@@ -33,7 +35,7 @@
 
 .overtitle {
     font-size: 11px;
-    color: #bbb;
+    color: #ff6b00; /* Laranja aplicado com hexadecimal direto */
     font-weight: 800;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -82,7 +84,7 @@
     margin: 0 auto 60px;
     border-radius: 32px;
     overflow: hidden;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
     border: 1px solid #f2f2f2;
     position: relative;
     z-index: 5;
@@ -192,7 +194,7 @@
 .dividerLine {
     width: 100%;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent);
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.08), transparent);
 }
 
 .memberCard {
@@ -213,7 +215,7 @@
 .memberCard:hover {
     transform: translateY(-12px);
     background: rgba(255, 255, 255, 0.9);
-    box-shadow: 
+    box-shadow:
         0 30px 60px -12px rgba(0, 0, 0, 0.08),
         0 18px 36px -18px rgba(0, 0, 0, 0.1);
 }
@@ -292,7 +294,7 @@
     justify-content: center;
     gap: 20px;
     padding-top: 30px;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .contactLink {
@@ -321,7 +323,8 @@
     padding: 100px 40px;
     width: 100%;
     border-radius: 60px;
-    margin-bottom: 40px; /* Reduzi a margem inferior */
+    margin-bottom: 40px;
+    /* Reduzi a margem inferior */
     border: 1px solid #f8f8f8;
 }
 
@@ -373,39 +376,103 @@
     position: relative;
     border-radius: 40px;
     overflow: hidden;
-    box-shadow: 0 40px 90px rgba(0,0,0,0.08);
-    display: block; /* Ensure it stays block in flex container if needed */
+    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.08);
+    display: block;
+    /* Ensure it stays block in flex container if needed */
     min-width: 300px;
 }
 
 .momentImage {
     object-fit: contain;
-    background-color: #f0f0f0; /* Fundo neutro caso a imagem seja muito estreita */
+    background-color: #f0f0f0;
+    /* Fundo neutro caso a imagem seja muito estreita */
 }
 
 /* --- RESPONSIVIDADE (REFINADA) --- */
 @media (max-width: 1024px) {
-    .collectiveHero { flex-direction: column; height: auto; border-radius: 24px; }
-    .heroImageWrapper { height: auto; aspect-ratio: 4 / 3; width: 100%; flex: none; }
-    .heroCaption { padding: 40px 30px; text-align: center; }
-    .heroCaption::before { display: none; }
-    .momentsGallery { flex-direction: column-reverse; text-align: center; gap: 50px; }
-    .momentImageWrapper { height: auto; aspect-ratio: 4 / 3; width: 100%; flex: none; }
-    .momentsSection { padding: 60px 20px; border-radius: 30px; }
-    .momentTitle { font-size: 40px; }
+    .collectiveHero {
+        flex-direction: column;
+        height: auto;
+        border-radius: 24px;
+    }
+
+    .heroImageWrapper {
+        height: auto;
+        aspect-ratio: 4 / 3;
+        width: 100%;
+        flex: none;
+    }
+
+    .heroCaption {
+        padding: 40px 30px;
+        text-align: center;
+    }
+
+    .heroCaption::before {
+        display: none;
+    }
+
+    .momentsGallery {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 50px;
+    }
+
+    .momentImageWrapper {
+        height: auto;
+        aspect-ratio: 4 / 3;
+        width: 100%;
+        flex: none;
+    }
+
+    .momentsSection {
+        padding: 60px 20px;
+        border-radius: 30px;
+    }
+
+    .momentTitle {
+        font-size: 40px;
+    }
 }
 
 @media (max-width: 768px) {
-    .mainContainer { padding: 0 15px 60px; }
-    .header { padding-top: 5px; margin-bottom: 30px; }
-    .title { font-size: 38px; letter-spacing: -2px; }
-    .subtitle { font-size: 16px; }
-    .grid { grid-template-columns: 1fr; }
-    .memberCard { padding: 50px 30px; }
+    .mainContainer {
+        padding: 0 15px 60px;
+    }
+
+    .header {
+        padding-top: 5px;
+        margin-bottom: 30px;
+    }
+
+    .title {
+        font-size: 38px;
+        letter-spacing: -2px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .memberCard {
+        padding: 50px 30px;
+    }
 }
 
 @media (max-width: 480px) {
-    .title { font-size: 32px; }
-    .captionTitle { font-size: 26px; }
-    .momentTitle { font-size: 32px; }
+    .title {
+        font-size: 32px;
+    }
+
+    .captionTitle {
+        font-size: 26px;
+    }
+
+    .momentTitle {
+        font-size: 32px;
+    }
 }
