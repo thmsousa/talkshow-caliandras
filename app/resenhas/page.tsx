@@ -10,13 +10,17 @@ import styles from './Resenhas.module.css';
 export default function ResenhasPage() {
     return (
         <main className={styles.mainContainer}>
+            {/* Decorações Editoriais de Fundo */}
+            <div className={styles.decoVerticalTextLeft}>Crítica</div>
+            <div className={styles.decoVerticalTextRight}>Dossiê</div>
+
             <header className={styles.header}>
                 <motion.span 
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className={styles.overtitle}
                 >
-                    Crítica & Literatura
+                    Crítica & Literatura • Caliandras
                 </motion.span>
                 <motion.h1 
                     initial={{ opacity: 0, y: 20 }}
@@ -61,8 +65,11 @@ export default function ResenhasPage() {
                             </div>
                             
                             <div className={styles.cardContent}>
-                                <span className={styles.authorTag}>{resenha.autorObra}</span>
+                                <time className={styles.cardDate}>
+                                    {formatFullDate(resenha.dataPostagem)}
+                                </time>
                                 <h2 className={styles.cardTitle}>{resenha.tituloObra}</h2>
+                                <span className={styles.authorTag}>{resenha.autorObra}</span>
                                 <div className={styles.starsContainer}>
                                     {[...Array(5)].map((_, i) => (
                                         <span 
@@ -76,9 +83,6 @@ export default function ResenhasPage() {
                                 <p className={styles.cardExcerpt}>
                                     {resenha.textoResenha.substring(0, 160)}...
                                 </p>
-                                <time className={styles.cardDate}>
-                                    {formatFullDate(resenha.dataPostagem)}
-                                </time>
                             </div>
                         </Link>
                     </motion.article>

@@ -1,102 +1,127 @@
 .mainContainer {
-    max-width: 1200px;
+    max-width: 1400px; /* Expandido novamente para dar mais largura real aos 3 cards */
     margin: 0 auto;
-    padding: 40px 20px 100px;
+    padding: 30px 20px 100px;
     background-color: #fff;
-}
-
-.header {
-    margin-bottom: 50px; /* Ajustado para um meio-termo elegante */
-    padding-left: 25px;
-    text-align: left;
+    min-height: 100vh;
     position: relative;
-    padding-top: 10px;
+    overflow-x: hidden;
 }
 
-.header::before {
-    content: '';
+/* DECORAÇÕES EDITORIAIS */
+.decoVerticalTextLeft, .decoVerticalTextRight {
     position: absolute;
-    top: 10px;
-    left: 0;
-    width: 4px;
-    height: calc(100% - 8px);
-    background: var(--color-accent);
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
+    top: 0;
+    bottom: 0;
+    font-size: 11px;
+    letter-spacing: 16px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.05);
+    writing-mode: vertical-rl;
+    z-index: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.decoVerticalTextLeft { left: 15px; transform: rotate(180deg); }
+.decoVerticalTextRight { right: 15px; }
+
+/* HEADER */
+.header {
+    text-align: center; /* Centralizado novamente para teste */
+    margin-bottom: 40px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centralizado novamente para teste */
+    position: relative;
     z-index: 1;
 }
 
 .overtitle {
     font-size: 11px;
-    font-weight: 800;
-    color: #999;
-    letter-spacing: 4px;
+    color: var(--color-accent);
+    font-weight: 900;
+    letter-spacing: 8px;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 
 .title {
     font-size: clamp(32px, 6vw, 54px);
     font-weight: 950;
     color: #111;
+    margin: 0;
+    text-transform: uppercase;
     letter-spacing: -3px;
     line-height: 0.85;
-    text-transform: uppercase;
-    margin: 0 0 15px 0;
+    margin-bottom: 24px;
+    position: relative;
+    display: inline-block;
 }
 
 .headerSubtitle {
     font-size: 15px;
-    font-weight: 500;
-    color: #666;
-    display: block;
-    max-width: 500px;
+    color: #777;
+    max-width: 500px; 
     line-height: 1.6;
-    margin: 0;
+    margin: 10px auto 0; /* Centraliza o bloco na tela */
+    text-align: center; /* Centraliza o texto */
 }
 
+/* GRID & CARDS */
 .reviewsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px 40px; /* Gap horizontal reduzido para que os cards possam crescer mais */
+    position: relative;
+    z-index: 1;
 }
 
 .reviewCard {
-    background-color: #fff;
-    border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid #f0f0f0;
-    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-}
-
-.reviewCard:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
-    border-color: #ddd;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    group: true;
 }
 
 .cardLink {
     text-decoration: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
     color: inherit;
+    height: 100%;
 }
 
 .imageWrapper {
     position: relative;
     width: 100%;
-    height: 280px;
+    aspect-ratio: 1 / 1; /* Formato quadrado, perfeito para focar tanto verticais quanto horizontais */
+    background-color: transparent; /* Removemos o fundo, pois a imagem cobrirá tudo */
+    border-radius: 8px; 
     overflow: hidden;
+    margin-bottom: 25px;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.reviewCard:hover .imageWrapper {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
 }
 
 .cardImage {
-    object-fit: cover;
-    transition: transform 0.8s ease;
+    object-fit: cover; /* Dá o "zoom" necessário para preencher o quadrado sem distorcer */
+    transition: transform 0.8s ease, opacity 0.4s ease;
+    opacity: 0.95;
 }
 
 .reviewCard:hover .cardImage {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    opacity: 1;
 }
 
 .cardOverlay {
@@ -105,13 +130,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, transparent 60%);
+    background: rgba(0, 0, 0, 0.3); /* Escurecimento muito leve e elegante */
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
-    padding-bottom: 30px;
     opacity: 0;
     transition: opacity 0.4s ease;
+    z-index: 2;
 }
 
 .reviewCard:hover .cardOverlay {
@@ -120,37 +145,80 @@
 
 .readMoreBtn {
     color: #fff;
-    font-size: 11px;
-    font-weight: 950;
+    font-size: 10px;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 3px;
-    padding: 12px 24px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 100px;
-    backdrop-filter: blur(10px);
+    padding: 14px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50px;
+    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(10px);
+    transition: all 0.4s ease;
 }
 
+.reviewCard:hover .readMoreBtn {
+    transform: translateY(0);
+}
+
+.readMoreBtn:hover {
+    background: #fff;
+    color: #111;
+}
+
+/* CONTENT */
 .cardContent {
-    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cardDate {
+    font-size: 10px;
+    color: #aaa;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.cardTitle {
+    font-size: 24px; /* Aumentado proporcionalmente aos cards maiores */
+    font-weight: 900;
+    margin: 0 0 8px;
+    letter-spacing: -0.5px;
+    color: #111;
+    line-height: 1.2;
+    text-transform: uppercase;
+    position: relative;
+    align-self: flex-start;
+    display: inline-block;
+}
+
+.cardTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.4s ease;
+}
+
+.reviewCard:hover .cardTitle::after {
+    width: 100%;
 }
 
 .authorTag {
     color: var(--color-accent);
     font-weight: 800;
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     display: block;
-    margin-bottom: 12px;
-}
-
-.cardTitle {
-    font-size: 24px;
-    font-weight: 900;
-    margin: 0 0 15px;
-    letter-spacing: -1px;
-    color: #1a1a1a;
-    line-height: 1.1;
+    margin-bottom: 15px;
 }
 
 .starsContainer {
@@ -172,30 +240,36 @@
 }
 
 .cardExcerpt {
-    font-size: 15px;
+    font-size: 15px; 
     line-height: 1.6;
     color: #666;
-    margin-bottom: 25px;
+    margin-bottom: 0;
+    margin-top: 15px; /* Espaçamento do resto do conteúdo */
+    padding-left: 15px; /* Respiro para a borda */
+    border-left: 2px solid var(--color-accent); /* Linha vertical sutil com a cor da marca */
+    font-style: italic; /* Dá cara de citação/crítica */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-.cardDate {
-    font-size: 11px;
-    color: #aaa;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+@media (max-width: 900px) {
+    .reviewsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 20px;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .header {
-        padding-left: 35px;
+        margin-bottom: 50px;
     }
-
     .reviewsGrid {
         grid-template-columns: 1fr;
+        gap: 80px 20px; /* Aumentado de 50px para 80px para mais respiro vertical */
+    }
+    .cardTitle {
+        font-size: 22px;
     }
 }
