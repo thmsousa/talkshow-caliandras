@@ -1,10 +1,10 @@
 .mainContainer {
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
     padding: 40px 20px 100px;
-    /* Reduzido drasticamente para aproximar do header */
     background-color: #fff;
     min-height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero {
@@ -222,7 +222,8 @@
 
 .massiveMuralSection {
     width: 100%;
-    margin: 160px 0 30px;
+    max-width: 1400px;
+    margin: 160px auto 30px;
     background-color: transparent;
 }
 
@@ -623,7 +624,7 @@
     }
 
     .massiveMuralSection {
-        margin: 80px 0 30px;
+        margin: 80px auto 30px;
     }
 
     .impactSection {
@@ -677,11 +678,17 @@
 @media (max-width: 768px) {
     .title {
         font-size: 38px;
+        letter-spacing: -1.5px;
     }
 
     .imageSide {
-        height: 320px;
+        height: auto;
+        aspect-ratio: 4 / 3;
         flex: none;
+    }
+
+    .featuredImage {
+        object-fit: contain;
     }
 
     .reviewText {
@@ -696,7 +703,7 @@
     }
 
     .massiveMuralSection {
-        margin: 50px 0 20px;
+        margin: 50px auto 20px;
     }
 
     .dramaticQuote {
@@ -718,10 +725,12 @@
 @media (max-width: 480px) {
     .title {
         font-size: 32px;
+        letter-spacing: -1px;
     }
 
     .imageSide {
-        height: 280px;
+        height: auto;
+        aspect-ratio: 1 / 1;
     }
 
     .authorName {
@@ -740,5 +749,77 @@
 
     .muralTitle {
         font-size: 22px;
+    }
+}
+
+/* DECORACOES TOPO / BACKGROUND LATERAIS */
+.topBgDeco {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.decoCircleLeft {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+}
+
+.decoCircleRight {
+    position: absolute;
+    top: 200px;
+    right: -50px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+}
+
+.decoVerticalTextLeft {
+    position: absolute;
+    top: 350px;
+    left: 40px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 24px;
+    color: rgba(0, 0, 0, 0.12);
+    text-transform: uppercase;
+}
+
+.decoVerticalTextRight {
+    position: absolute;
+    top: 350px;
+    right: 40px;
+    writing-mode: vertical-rl;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 24px;
+    color: rgba(0, 0, 0, 0.12);
+    text-transform: uppercase;
+}
+
+.decoGridTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 900px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+}
+
+@media (max-width: 1024px) {
+    .topBgDeco {
+        display: none;
     }
 }

@@ -4,7 +4,7 @@ import { useParams, notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { TODAS_RESENHAS, TODOS_EPISODIOS } from '@/lib/mockData';
+import { TODAS_RESENHAS, TODOS_EPISODIOS, EQUIPE_CALIANDRAS } from '@/lib/mockData';
 import { formatFullDate } from '@/lib/utils/formatters';
 import PDFSlider from '@/app/components/ui/PDFSlider';
 import styles from './ResenhaDetalhe.module.css';
@@ -23,8 +23,33 @@ export default function ResenhaDetalhePage() {
         ep.descricao.includes(resenha.resenhista || '')
     );
 
+    // Encontrar o membro correto da equipe mesmo que o nome na resenha seja um apelido (ex: Gleice -> Gleicielly)
+    let resenhistaSlug = '';
+    if (resenha.resenhista) {
+        const primeiroNomeBase = resenha.resenhista.split(' ')[0].toLowerCase().substring(0, 5); // pega as primeiras letras (ex: 'gleic')
+        const membro = EQUIPE_CALIANDRAS.find(m => 
+            m.nome.toLowerCase().includes(primeiroNomeBase) || 
+            (resenha.resenhista && resenha.resenhista.toLowerCase().includes(m.nome.split(' ')[0].toLowerCase().substring(0, 5)))
+        );
+        
+        if (membro) {
+            resenhistaSlug = membro.slug || membro.nome.toLowerCase().replace(/ /g, '-').normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        } else {
+            resenhistaSlug = resenha.resenhista.toLowerCase().replace(/ /g, '-').normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        }
+    }
+
     return (
         <main className={styles.mainContainer}>
+            {/* BACKGROUND DECORATIONS PARA PREENCHER ESPAÇOS VAZIOS */}
+            <div className={styles.topBgDeco}>
+                <div className={styles.decoCircleLeft} />
+                <div className={styles.decoCircleRight} />
+                <div className={styles.decoGridTop} />
+                <div className={styles.decoVerticalTextLeft}>Resenha</div>
+                <div className={styles.decoVerticalTextRight}>Acervo</div>
+            </div>
+
             <header className={styles.hero}>
                 <div className={styles.heroContent}>
                     <motion.span
@@ -89,7 +114,7 @@ export default function ResenhaDetalhePage() {
                         {resenha.resenhista && (
                             <div className={styles.techItem}>
                                 <span className={styles.techLabel}>Resenhista</span>
-                                <Link href={`/equipe/${resenha.resenhista.toLowerCase().replace(/ /g, '-').normalize('NFD').replace(/[\\u0300-\\u036f]/g, "")}`} className={styles.reviewerProfileLink}>
+                                <Link href={`/equipe/${resenhistaSlug}`} className={styles.reviewerProfileLink}>
                                     <div className={styles.reviewerProfile}>
                                         {resenha.fotoResenhista ? (
                                             <div className={styles.reviewerAvatar}>
@@ -161,15 +186,15 @@ export default function ResenhaDetalhePage() {
                 {/* LADO ESQUERDO: TEXTO DA RESENHA */}
                 <article className={styles.articleBody}>
                     {/* Elementos tipográficos de fundo */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.9, x: -50 }}
                         whileInView={{ opacity: 1, scale: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                         className={styles.abstractTypography1}
                     >01</motion.div>
-                    
-                    <motion.div 
+
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.9, x: 50 }}
                         whileInView={{ opacity: 1, scale: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -177,7 +202,7 @@ export default function ResenhaDetalhePage() {
                         className={styles.abstractTypography2}
                     >TXT</motion.div>
 
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -192,7 +217,7 @@ export default function ResenhaDetalhePage() {
 
                     <div className={styles.reviewText}>
                         {resenha.textoResenha.split('\n\n').map((paragraph, idx) => (
-                            <motion.p 
+                            <motion.p
                                 key={idx}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -204,7 +229,7 @@ export default function ResenhaDetalhePage() {
                         ))}
                     </div>
 
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 0.3, scale: 1 }}
                         viewport={{ once: true }}
@@ -216,7 +241,7 @@ export default function ResenhaDetalhePage() {
                         <div className={styles.dot} />
                     </motion.div>
 
-                    <motion.blockquote 
+                    <motion.blockquote
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}

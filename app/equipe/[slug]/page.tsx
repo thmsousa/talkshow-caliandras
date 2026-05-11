@@ -19,12 +19,17 @@ export default async function EquipeMembroPage({ params }: { params: Promise<{ s
         ep.descricao.toLowerCase().includes(membro.nome.toLowerCase()) || 
         ep.titulo.toLowerCase().includes(membro.nome.toLowerCase()) ||
         (ep.autorId && ep.autorId.replace('a', '') === membro.id.replace('t', ''))
-    ).sort((a, b) => new Date(b.dataLancamento).getTime() - new Date(a.dataLancamento).getTime());
+    );
     
     const resenhasDoMembro = TODAS_RESENHAS.filter(r => 
         (r.resenhista && r.resenhista.toLowerCase().includes(membro.nome.toLowerCase())) || 
         (r.editor && r.editor.toLowerCase().includes(membro.nome.toLowerCase()))
-    ).sort((a, b) => new Date(b.dataPostagem).getTime() - new Date(a.dataPostagem).getTime());
+    );
+
+    const obrasEContribuicoes = [
+        ...videosDoMembro.map(v => ({ ...v, tipoItem: 'video' as const, dataOrdenacao: new Date(v.dataLancamento).getTime() })),
+        ...resenhasDoMembro.map(r => ({ ...r, tipoItem: 'resenha' as const, dataOrdenacao: new Date(r.dataPostagem).getTime() }))
+    ].sort((a, b) => b.dataOrdenacao - a.dataOrdenacao);
 
     return (
         <main className={styles.mainContainer}>
@@ -77,35 +82,40 @@ export default async function EquipeMembroPage({ params }: { params: Promise<{ s
                 </article>
 
                 {/* CONTEÚDO PRODUZIDO PELO MEMBRO */}
-                {(videosDoMembro.length > 0 || resenhasDoMembro.length > 0) && (
+                {obrasEContribuicoes.length > 0 && (
                     <section className={styles.portfolioSection}>
                         <h2 className={styles.portfolioTitle}>Obras & Contribuições</h2>
                         
                         <div className={styles.portfolioGrid}>
-                            
-                            {/* VÍDEOS */}
-                            {videosDoMembro.map(video => (
-                                <Link href={`/videos/${video.slug}`} key={`video-${video.id}`} className={styles.portfolioCard}>
-                                    <div className={styles.cardIcon}><Video size={20} /></div>
-                                    <div className={styles.cardContent}>
-                                        <span className={styles.cardMeta}>{formatFullDate(video.dataLancamento)}</span>
-                                        <h3 className={styles.cardTitle}>{video.titulo}</h3>
-                                        <span className={styles.cardAction}>Assistir ao Vídeo &rarr;</span>
-                                    </div>
-                                </Link>
-                            ))}
-
-                            {/* RESENHAS */}
-                            {resenhasDoMembro.map(resenha => (
-                                <Link href={`/resenhas/${resenha.slug}`} key={`res-${resenha.id}`} className={styles.portfolioCard}>
-                                    <div className={styles.cardIcon}><PenTool size={20} /></div>
-                                    <div className={styles.cardContent}>
-                                        <span className={styles.cardMeta}>{formatFullDate(resenha.dataPostagem)}</span>
-                                        <h3 className={styles.cardTitle}>Resenha: {resenha.tituloObra}</h3>
-                                        <span className={styles.cardAction}>Ler Resenha &rarr;</span>
-                                    </div>
-                                </Link>
-                            ))}
+                            {obrasEContribuicoes.map(item => {
+                                if (item.tipoItem === 'video') {
+                                    // @ts-ignore
+                                    const video = item;
+                                    return (
+                                        <Link href={`/videos/${video.slug}`} key={`video-${video.id}`} className={styles.portfolioCard}>
+                                            <div className={styles.cardIcon}><Video size={20} /></div>
+                                            <div className={styles.cardContent}>
+                                                <span className={styles.cardMeta}>{formatFullDate(video.dataLancamento)}</span>
+                                                <h3 className={styles.cardTitle}>{video.titulo}</h3>
+                                                <span className={styles.cardAction}>Assistir ao Vídeo &rarr;</span>
+                                            </div>
+                                        </Link>
+                                    );
+                                } else {
+                                    // @ts-ignore
+                                    const resenha = item;
+                                    return (
+                                        <Link href={`/resenhas/${resenha.slug}`} key={`res-${resenha.id}`} className={styles.portfolioCard}>
+                                            <div className={styles.cardIcon}><PenTool size={20} /></div>
+                                            <div className={styles.cardContent}>
+                                                <span className={styles.cardMeta}>{formatFullDate(resenha.dataPostagem)}</span>
+                                                <h3 className={styles.cardTitle}>Resenha: {resenha.tituloObra}</h3>
+                                                <span className={styles.cardAction}>Ler Resenha &rarr;</span>
+                                            </div>
+                                        </Link>
+                                    );
+                                }
+                            })}
                         </div>
                     </section>
                 )}
