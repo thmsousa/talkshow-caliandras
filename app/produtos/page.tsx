@@ -16,12 +16,14 @@ export default function ProdutosPage() {
 
     return (
         <main className={styles.container}>
+            {/* Decorações Editoriais de Fundo */}
+            <div className={styles.decoVerticalTextLeft}>Catálogo</div>
+            <div className={styles.decoVerticalTextRight}>Acervo</div>
+            <div className={styles.bgGridPattern}></div>
+
             <header className={styles.sectionHeader}>
                 <span className={styles.overtitle}>Livraria & Merch • Caliandras</span>
                 <h1 className={styles.sectionTitle}>Loja Caliandras</h1>
-                <p className={styles.subtitle}>
-                    Adquira as obras literárias e materiais exclusivos do nosso universo cultural.
-                </p>
             </header>
 
             <div className={styles.productGrid}>
