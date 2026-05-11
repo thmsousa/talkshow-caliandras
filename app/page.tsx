@@ -3,8 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import SplashScreen from './components/ui/SplashScreen';
+import { motion } from 'framer-motion';
 import { Episodio } from './components/utils/types';
 import { TODOS_EPISODIOS, EVENTOS_CALINDRAS } from '@/lib/mockData';
 import { formatFullDate } from '@/lib/utils/formatters';
@@ -13,7 +12,6 @@ import styles from './Home.module.css';
 export default function HomePage() {
     const [destaques, setDestaques] = useState<Episodio[]>([]);
     const [eventosOrdenados, setEventosOrdenados] = useState<any[]>([]);
-    const [showSplash, setShowSplash] = useState(true);
     const [dataLoaded, setDataLoaded] = useState(false);
     const [initialCheckComplete, setInitialCheckComplete] = useState(false);
 
@@ -64,32 +62,18 @@ export default function HomePage() {
         };
 
         loadData();
-
-        if (typeof window !== 'undefined' && localStorage.getItem('hasSeenSplash') === 'true') {
-            setShowSplash(false);
-        }
     }, []);
 
     if (!initialCheckComplete || !dataLoaded) return <div className={styles.mainWrapper} />;
 
     return (
-        <AnimatePresence>
-            {showSplash ? (
-                <SplashScreen
-                    key="splash"
-                    onComplete={() => {
-                        setShowSplash(false);
-                        if (typeof window !== 'undefined') localStorage.setItem('hasSeenSplash', 'true');
-                    }}
-                />
-            ) : (
-                <motion.main
-                    key="content"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                    className={styles.mainWrapper}
-                >
+        <motion.main
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className={styles.mainWrapper}
+        >
 
                     {/* --- SEÇÃO: EVENTOS --- */}
                     <section className={styles.section}>
@@ -180,8 +164,6 @@ export default function HomePage() {
                             ))}
                         </div>
                     </section>
-                </motion.main>
-            )}
-        </AnimatePresence>
+        </motion.main>
     );
 }

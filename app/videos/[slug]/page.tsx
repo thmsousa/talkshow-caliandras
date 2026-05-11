@@ -38,11 +38,11 @@ export default function EpisodioPage() {
     } : membroNaEquipe ? {
         nomeCompleto: membroNaEquipe.nome,
         fotoUrl: membroNaEquipe.fotoUrl,
-        slug: 'gleicielly-medeiros' // Slug fixo para membros da equipe ou mapeado
+        slug: membroNaEquipe.slug || membroNaEquipe.nome.toLowerCase().replace(/ /g, '-').normalize('NFD').replace(/[\u0300-\u036f]/g, "")
     } : {
         nomeCompleto: 'Caliandras Show',
         fotoUrl: '/favicon.ico',
-        slug: 'equipe'
+        slug: ''
     };
     
     // Filtra vídeos relacionados (excluindo o atual)
@@ -130,7 +130,7 @@ export default function EpisodioPage() {
                         <div className={styles.authorBox}>
                             <h3 className={styles.miniTag}>Autor</h3>
                             <Link 
-                                href="/equipe"
+                                href={autorRelacionado.slug ? `/equipe/${autorRelacionado.slug}` : '/sobre'}
                                 className={styles.authorLink}
                             >
                                 <div className={styles.avatar}>

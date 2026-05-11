@@ -19,22 +19,21 @@ export default async function EquipeMembroPage({ params }: { params: Promise<{ s
         ep.descricao.toLowerCase().includes(membro.nome.toLowerCase()) || 
         ep.titulo.toLowerCase().includes(membro.nome.toLowerCase()) ||
         (ep.autorId && ep.autorId.replace('a', '') === membro.id.replace('t', ''))
-    );
+    ).sort((a, b) => new Date(b.dataLancamento).getTime() - new Date(a.dataLancamento).getTime());
     
     const resenhasDoMembro = TODAS_RESENHAS.filter(r => 
         (r.resenhista && r.resenhista.toLowerCase().includes(membro.nome.toLowerCase())) || 
         (r.editor && r.editor.toLowerCase().includes(membro.nome.toLowerCase()))
-    );
+    ).sort((a, b) => new Date(b.dataPostagem).getTime() - new Date(a.dataPostagem).getTime());
 
     return (
         <main className={styles.mainContainer}>
             {/* BACKGROUND DECO */}
             <div className={styles.bgNoise} />
-            <div className={styles.bgGlow} />
 
             <div className={styles.contentWrapper}>
                 <Link href="/equipe" className={styles.backButton}>
-                    <ArrowLeft size={16} /> Voltar para Equipe
+                    <ArrowLeft size={16} /> Ver Equipe
                 </Link>
 
                 <article className={styles.profileSection}>

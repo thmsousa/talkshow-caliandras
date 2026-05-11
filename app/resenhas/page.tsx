@@ -37,7 +37,7 @@ export default function ResenhasPage() {
             </header>
 
             <div className={styles.reviewsGrid}>
-                {TODAS_RESENHAS.map((resenha, idx) => (
+                {[...TODAS_RESENHAS].sort((a, b) => new Date(b.dataPostagem).getTime() - new Date(a.dataPostagem).getTime()).map((resenha, idx) => (
                     <motion.article 
                         key={resenha.id}
                         initial={{ opacity: 0, y: 30 }}

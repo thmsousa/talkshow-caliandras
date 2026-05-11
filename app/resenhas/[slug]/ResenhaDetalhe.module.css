@@ -622,6 +622,10 @@
         padding: 30px 15px 60px;
     }
 
+    .massiveMuralSection {
+        margin: 80px 0 30px;
+    }
+
     .impactSection {
         flex-direction: column;
         gap: 30px;
@@ -689,6 +693,10 @@
     .reviewText p:first-child::first-letter {
         font-size: 60px;
         padding-right: 8px;
+    }
+
+    .massiveMuralSection {
+        margin: 50px 0 20px;
     }
 
     .dramaticQuote {

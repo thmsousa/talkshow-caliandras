@@ -89,7 +89,7 @@ export default function ResenhaDetalhePage() {
                         {resenha.resenhista && (
                             <div className={styles.techItem}>
                                 <span className={styles.techLabel}>Resenhista</span>
-                                <Link href="/equipe" className={styles.reviewerProfileLink}>
+                                <Link href={`/equipe/${resenha.resenhista.toLowerCase().replace(/ /g, '-').normalize('NFD').replace(/[\\u0300-\\u036f]/g, "")}`} className={styles.reviewerProfileLink}>
                                     <div className={styles.reviewerProfile}>
                                         {resenha.fotoResenhista ? (
                                             <div className={styles.reviewerAvatar}>
@@ -151,8 +151,6 @@ export default function ResenhaDetalhePage() {
             <div className={styles.contentLayout}>
                 {/* DECORAÇÕES LATERAIS */}
                 <div className={styles.decorGrid}></div>
-                <div className={styles.decorGlow1}></div>
-                <div className={styles.decorGlow2}></div>
                 <div className={styles.decorCrossTL}></div>
                 <div className={styles.decorCrossTR}></div>
                 <div className={styles.decorLineLeft}></div>
