@@ -3,7 +3,8 @@
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
-    padding-bottom: 80px; /* Respiro antes do footer */
+    padding-bottom: 80px;
+    /* Respiro antes do footer */
 }
 
 .studioLight {
@@ -41,7 +42,8 @@
 
 .overtitle {
     font-size: 11px;
-    color: var(--color-accent); /* Agora laranja como solicitado */
+    color: var(--color-accent);
+    /* Agora laranja como solicitado */
     font-weight: 800;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -346,14 +348,20 @@
     }
 
     .section {
-        padding: 10px 15px; /* Reduzi de 40px para 10px no mobile */
+        padding: 10px 15px; /* Revertido conforme solicitado */
     }
 
     .mainWrapper {
         padding-top: 0;
     }
 
+    .sectionTitle {
+        letter-spacing: 1px !important; /* Mantendo apenas o respiro entre letras */
+        line-height: 1.1 !important;
+    }
+
     .videoCardTitle {
         font-size: 22px;
+        letter-spacing: 0.2px;
     }
 }
