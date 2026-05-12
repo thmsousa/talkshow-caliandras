@@ -5,6 +5,8 @@ import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Instagram, Mail, Youtube, Twitter } from 'lucide-react';
+import styles from './Navbar.module.css';
 
 const navItems = [
     { name: 'Eventos', href: '/eventos' },
@@ -37,50 +39,52 @@ export default function NavbarClient() {
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
-                    className="mobile-drawer"
-                    style={{
-                        position: 'fixed',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100vh',
-                        backgroundColor: '#0a0a0a',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'flex-start',
-                        paddingLeft: '15%',
-                        zIndex: 9999,
-                    }}
+                    initial={{ opacity: 0, x: '100%' }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: '100%' }}
+                    transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                    className={styles.mobileDrawer}
                 >
-                    <ul className="mobile-list">
+                    <ul className={styles.mobileList}>
                         {navItems.map((item, i) => (
                             <motion.li
                                 key={item.name}
-                                initial={{ opacity: 0, x: -30 }}
+                                initial={{ opacity: 0, x: 50 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{
-                                    delay: 0.2 + i * 0.08,
-                                    duration: 0.5,
-                                    ease: "easeOut"
+                                    delay: 0.3 + i * 0.08,
+                                    duration: 0.8,
+                                    ease: [0.19, 1, 0.22, 1]
                                 }}
-                                style={{ width: '100%' }}
                             >
                                 <Link
                                     href={item.href}
                                     onClick={() => setIsOpen(false)}
-                                    className={`nav-link-mobile ${pathname === item.href ? 'active-mobile' : ''}`}
+                                    className={`${styles.navLinkMobile} ${pathname === item.href ? styles.activeMobile : ''}`}
                                 >
-                                    <span className="nav-index">{(i + 1).toString().padStart(2, '0')}</span>
+                                    <span className={styles.navIndex}>{(i + 1).toString().padStart(2, '0')}</span>
                                     {item.name}
                                 </Link>
                             </motion.li>
                         ))}
                     </ul>
+
+                    <motion.div 
+                        className={styles.mobileFooter}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8, duration: 0.5 }}
+                    >
+                        <div className={styles.socialLinks}>
+                            <a href="https://www.instagram.com/caliandrasshow/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}><Instagram size={20} /></a>
+                            <a href="https://www.youtube.com/@CaliantrasTalkShow" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}><Youtube size={20} /></a>
+                            <a href="mailto:caliandrasshow@gmail.com" className={styles.socialIcon}><Mail size={20} /></a>
+                        </div>
+                        <div className={styles.mobileInfo}>
+                            <span>Caliandras • 2026</span>
+                            <span>Coletivo Criativo</span>
+                        </div>
+                    </motion.div>
                 </motion.div>
             )}
         </AnimatePresence>
@@ -91,7 +95,7 @@ export default function NavbarClient() {
             {/* BOTÃO mobile*/}
             <button
                 onClick={toggleMenu}
-                className="mobile-toggle"
+                className={styles.mobileToggle}
                 aria-label="Menu"
                 style={{
                     display: 'flex',
@@ -109,38 +113,41 @@ export default function NavbarClient() {
                 }}
             >
                 <motion.div
-                    animate={isOpen ? { rotate: 45, y: 1 } : { rotate: 0, y: -6 }}
+                    animate={isOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -5 }}
                     style={{
                         width: '24px', height: '1.5px',
-                        background: isOpen ? 'white' : 'black',
+                        background: isOpen ? 'white' : '#111',
                         position: 'absolute'
                     }}
+                    transition={{ duration: 0.3 }}
                 />
                 <motion.div
-                    animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+                    animate={isOpen ? { opacity: 0, x: 20 } : { opacity: 1, x: 0 }}
                     style={{
                         width: '24px', height: '1.5px',
-                        background: 'black',
+                        background: '#111',
                         position: 'absolute'
                     }}
+                    transition={{ duration: 0.3 }}
                 />
                 <motion.div
-                    animate={isOpen ? { rotate: -45, y: 1 } : { rotate: 0, y: 6 }}
+                    animate={isOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 5 }}
                     style={{
                         width: '24px', height: '1.5px',
-                        background: isOpen ? 'white' : 'black',
+                        background: isOpen ? 'white' : '#111',
                         position: 'absolute'
                     }}
+                    transition={{ duration: 0.3 }}
                 />
             </button>
 
             {/* DESKTOP NAV */}
-            <ul className="nav-list desktop-only">
+            <ul className={`${styles.navList} ${styles.desktopOnly}`}>
                 {navItems.map((item) => (
-                    <li key={item.name} className="nav-item">
+                    <li key={item.name} className={styles.navItem}>
                         <Link
                             href={item.href}
-                            className={`nav-link ${pathname === item.href ? 'active' : ''}`}
+                            className={`${styles.navLink} ${pathname === item.href ? styles.active : ''}`}
                         >
                             {item.name}
                         </Link>
@@ -150,109 +157,6 @@ export default function NavbarClient() {
 
             {/* PORTAL PARA O MENU MOBILE */}
             {mounted && createPortal(menuContent, document.body)}
-
-            <style jsx>{`
-                .nav-list {
-                    display: flex;
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
-                    gap: 30px;
-                }
-
-                :global(.nav-link) {
-                    color: #121212;
-                    font-weight: 700;
-                    font-size: 11px;
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                    letter-spacing: 2px;
-                    text-transform: uppercase;
-                    text-decoration: none;
-                    position: relative;
-                    opacity: 0.6;
-                }
-
-                :global(.nav-link:hover), :global(.nav-link.active) {
-                    opacity: 1;
-                    color: var(--color-accent);
-                }
-
-                @media (min-width: 769px) {
-                    :global(.nav-link::after) {
-                        content: '';
-                        position: absolute;
-                        bottom: -6px;
-                        left: 0;
-                        width: 0;
-                        height: 2px;
-                        background: #ff6b00;
-                        transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                        border-radius: 2px;
-                    }
-                    :global(.nav-link:hover::after), :global(.nav-link.active::after) {
-                        width: 100%;
-                    }
-                }
-
-                .mobile-drawer {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100vh;
-                    background: #0a0a0a;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    z-index: 2000;
-                }
-
-                .mobile-list {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0;
-                    text-align: left;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 65px;
-                }
- 
-                :global(.nav-link-mobile) {
-                    color: white;
-                    font-size: 24px;
-                    font-weight: 900;
-                    text-transform: uppercase;
-                    letter-spacing: 5px;
-                    text-decoration: none;
-                    opacity: 0.4;
-                    transition: all 0.3s;
-                    display: flex;
-                    align-items: baseline;
-                    gap: 20px;
-                }
- 
-                :global(.nav-index) {
-                    font-size: 10px;
-                    letter-spacing: 1px;
-                    color: #ff6b00;
-                    opacity: 0.7;
-                    font-weight: 400;
-                }
- 
-                :global(.active-mobile) {
-                    opacity: 1;
-                    color: #ff6b00;
-                    transform: translateX(10px);
-                }
-
-                @media (max-width: 768px) {
-                    .desktop-only { display: none; }
-                }
-
-                @media (min-width: 769px) {
-                    .mobile-toggle { display: none !important; }
-                }
-            `}</style>
         </nav>
     );
 }
