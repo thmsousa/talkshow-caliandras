@@ -22,7 +22,7 @@
 }
 
 .pageHeader {
-    padding: 60px 0 30px;
+    padding: 60px 0 40px; /* Abaixado conforme solicitado */
     text-align: left;
     padding-left: 25px;
     margin-bottom: 20px;
@@ -32,11 +32,10 @@
 .pageHeader::before {
     content: '';
     position: absolute;
-    top: 60px;
-    /* Alinhado com o padding-top */
+    top: 60px; /* Alinhado com o novo padding-top */
     left: 0;
     width: 4px;
-    height: 85px;
+    height: 95px; /* Aumentado para cobrir o novo título abaixado */
     background: var(--color-accent);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
@@ -46,7 +45,7 @@
 .supLabel {
     font-size: 11px;
     letter-spacing: 4px;
-    color: #999;
+    color: var(--color-accent); /* Agora laranja */
     font-weight: 800;
     margin-bottom: 12px;
     text-transform: uppercase;
@@ -57,11 +56,18 @@
     font-size: clamp(32px, 6vw, 64px);
     font-weight: 950;
     color: #111;
-    letter-spacing: -3px;
-    line-height: 0.85;
+    letter-spacing: -1.5px;
+    line-height: 0.95;
     margin: 0;
     text-transform: uppercase;
     flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .mainTitle {
+        letter-spacing: 0.5px;
+        line-height: 1.1;
+    }
 }
 
 .headerBody {
@@ -402,9 +408,9 @@
 .eventTitle {
     font-size: clamp(32px, 5vw, 60px);
     font-weight: 950;
-    line-height: 0.85;
+    line-height: 0.95;
     margin-bottom: 25px;
-    letter-spacing: -4px;
+    letter-spacing: -3px;
     color: #111;
     text-transform: uppercase;
 }
@@ -466,42 +472,41 @@
     .pageWrapper {
         padding-left: 25px;
         padding-right: 25px;
-    }
-
-    .progressLine,
-    .progressDot {
-        display: none !important;
+        padding-top: 0; /* Remove espaço extra no topo */
     }
 
     .pageHeader {
-        padding: 60px 0 30px;
+        padding: 10px 0 15px; /* Subi um pouco mais em relação ao header */
         padding-left: 20px;
-        /* Recuo para não bater no marcador */
+        position: relative;
     }
 
     .pageHeader::before {
-        top: 60px;
-        height: calc(100% - 60px);
-        width: 3px;
+        top: 10px; /* Alinhado ao novo padding */
+        height: calc(100% - 10px);
+        width: 4px;
+        background: var(--color-accent);
+        left: 0;
+        position: absolute;
+        clip-path: none;
     }
 
     .eventRow {
         grid-template-columns: 1fr;
         grid-template-areas: "image" "text" !important;
         min-height: auto;
-        gap: 35px;
+        gap: 30px;
         text-align: left !important;
         margin-bottom: 80px;
-        padding-top: 30px;
+        padding-top: 10px;
     }
 
     .eventTitle {
         font-size: 28px !important;
-        letter-spacing: 0 !important;
-        /* Letras respirando */
-        line-height: 1.2 !important;
-        /* Espaço para duas linhas */
+        letter-spacing: 0.5px !important;
+        line-height: 1.15 !important;
         margin-bottom: 15px;
+        word-break: break-word; /* Evita quebra estranha */
     }
 
     .eventDescription {
@@ -510,66 +515,38 @@
         padding-left: 0 !important;
         padding-right: 0 !important;
         text-align: left;
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .mainTitle {
-        letter-spacing: -1px;
-        line-height: 1;
-        margin-left: 0;
-    }
-
-    .lineBg {
-        display: none;
-    }
-
-    .odd .textContainer {
-        margin-left: 0;
-        text-align: center;
-    }
-
-    .textContainer {
-        max-width: 100%;
-    }
-
-    .odd .metaTag {
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .metaTag {
-        justify-content: center;
-    }
-
-    .imageCardWrapper {
-        max-width: 100%;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-    }
-
-    .bgNumber {
-        top: 20px;
-        transform: translateX(-50%);
-        left: 50%;
-        opacity: 0.1;
-        z-index: -1;
-        /* Força ficar atrás de tudo no mobile */
-    }
-
-    .mainTitle {
-        letter-spacing: -2px;
+        font-size: 15.5px;
+        line-height: 1.7;
+        margin-bottom: 20px;
     }
 
     .headerBody {
         flex-direction: column;
         align-items: flex-start;
-        gap: 30px;
+        gap: 20px;
     }
 
     .headerDescription {
         max-width: 100%;
         text-align: left;
         padding-left: 0;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-top: 5px;
+    }
+
+    .progressLine,
+    .progressDot,
+    .activeProgress {
+        display: none !important;
+    }
+
+    .mainTitle {
+        letter-spacing: 0.5px;
+        line-height: 1.1;
+        margin-left: 0;
+        font-size: clamp(28px, 6vw, 36px);
+        margin-top: 5px;
     }
 
     .headerDescription::before {

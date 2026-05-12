@@ -60,9 +60,15 @@
     color: #111;
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: -3px;
+    letter-spacing: -2.5px;
     line-height: 0.85;
     margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        letter-spacing: -1px;
+    }
 }
 
 .subtitle {

@@ -122,11 +122,18 @@
 .title {
     font-size: clamp(42px, 9vw, 84px);
     font-weight: 950;
-    line-height: 0.85;
-    letter-spacing: -4px;
+    line-height: 0.95;
+    letter-spacing: -2px;
     text-transform: uppercase;
     color: #1a1a1a;
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    .title {
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+    }
 }
 
 .accentText {
@@ -244,10 +251,17 @@
 .sectionTitle {
     font-size: 42px;
     font-weight: 950;
-    letter-spacing: -2px;
+    letter-spacing: -1.5px;
     margin-bottom: 30px;
-    line-height: 1;
+    line-height: 1.1;
     text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 32px;
+        letter-spacing: -0.5px;
+    }
 }
 
 .description {
@@ -440,10 +454,10 @@
 .quoteText {
     font-size: clamp(28px, 6vw, 52px);
     font-weight: 950;
-    line-height: 1.1;
+    line-height: 1.2;
     color: #111;
     margin-bottom: 10px;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
     text-transform: uppercase;
 }
 
@@ -609,7 +623,12 @@
     }
 
     .hero {
-        margin-bottom: 80px;
+        margin-bottom: 60px;
+        padding-top: 10px; /* Sobe o conteúdo do manifesto */
+    }
+
+    .mainContainer {
+        padding-top: 0; /* Remove respiro superior no mobile */
     }
 
     .technicalHeader {

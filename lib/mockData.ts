@@ -278,7 +278,7 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
     {
         id: 't9',
         nome: 'Isabella',
-        cargo: 'Direção & Tecnologia',
+        cargo: 'Direção & Tecnol',
         fotoUrl: '/images/equipe/isabella.jpg',
         bio: 'Responsável pela estética e pela voz do projeto nos canais digitais, construindo a identidade visual que você vê aqui.'
     },

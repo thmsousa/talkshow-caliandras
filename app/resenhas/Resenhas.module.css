@@ -56,11 +56,18 @@
     color: #111;
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: -3px;
-    line-height: 0.85;
+    letter-spacing: -1.5px;
+    line-height: 0.95;
     margin-bottom: 24px;
     position: relative;
     display: inline-block;
+}
+
+@media (max-width: 600px) {
+    .title {
+        letter-spacing: 0.5px;
+        line-height: 1.1;
+    }
 }
 
 .headerSubtitle {

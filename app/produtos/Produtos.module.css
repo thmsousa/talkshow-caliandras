@@ -67,16 +67,23 @@
 }
 
 .sectionTitle {
-    font-size: clamp(32px, 6vw, 54px); /* Padrão das outras páginas */
+    font-size: clamp(32px, 6vw, 54px);
     font-weight: 950;
     color: #111;
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: -3px; /* Padrão das outras páginas */
-    line-height: 0.85;
+    letter-spacing: -2.5px;
+    line-height: 0.95; /* Aumentado levemente */
     margin-bottom: 24px;
     position: relative;
     display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        letter-spacing: -1px;
+        line-height: 1.1;
+    }
 }
 
 .subtitle {

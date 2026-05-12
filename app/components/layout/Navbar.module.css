@@ -141,6 +141,25 @@
     .desktopOnly { display: none; }
 }
 
+.closeButton {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10001;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.closeButton:hover {
+    transform: rotate(90deg);
+}
+
 @media (min-width: 769px) {
     .mobileToggle { display: none !important; }
 }

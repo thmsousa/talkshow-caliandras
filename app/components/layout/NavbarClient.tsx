@@ -45,6 +45,24 @@ export default function NavbarClient() {
                     transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
                     className={styles.mobileDrawer}
                 >
+                    {/* Botão de Fechar dentro do Drawer */}
+                    <button 
+                        onClick={() => setIsOpen(false)}
+                        className={styles.closeButton}
+                        aria-label="Fechar Menu"
+                    >
+                        <motion.div
+                            initial={{ rotate: -90, opacity: 0 }}
+                            animate={{ rotate: 0, opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </motion.div>
+                    </button>
+
                     <ul className={styles.mobileList}>
                         {navItems.map((item, i) => (
                             <motion.li

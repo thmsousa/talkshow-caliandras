@@ -41,7 +41,7 @@
 
 .overtitle {
     font-size: 11px;
-    color: #999;
+    color: var(--color-accent); /* Agora laranja como solicitado */
     font-weight: 800;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -346,7 +346,11 @@
     }
 
     .section {
-        padding: 40px 15px;
+        padding: 10px 15px; /* Reduzi de 40px para 10px no mobile */
+    }
+
+    .mainWrapper {
+        padding-top: 0;
     }
 
     .videoCardTitle {

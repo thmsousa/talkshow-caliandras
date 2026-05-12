@@ -42,9 +42,16 @@
     color: #111;
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: -3px;
-    line-height: 0.85;
+    letter-spacing: -1.5px;
+    line-height: 0.95;
     margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        letter-spacing: 0.5px; /* Mais aberto para legibilidade total */
+        line-height: 1.1;
+    }
 }
 
 /* SEARCH */
