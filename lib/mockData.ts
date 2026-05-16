@@ -228,7 +228,7 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
     {
         id: 't3',
         nome: 'Nayra Souza',
-        cargo: 'Roteirista, entrevistadora e secretária interna.',
+        cargo: 'Roteirista, entrevistadora e secretária interna',
         fotoUrl: '/images/equipe/nayra.jpg',
         bio: 'Nayra Souza nasceu em Barra do Corda, no interior do Maranhão. Estudante de Letras no Instituto Federal do Tocantins (IFTO), Campus Palmas, integrou a Coletânea Dos Sonhos: Primeiros Textos com a crônica Rotina, escrita quando ainda cursava o ensino médio. É apaixonada por café e por histórias que aquecem e fazem palpitar o coração. Em sua escrita, tenta projetar essas mesmas façanhas através palavras e sentidos. No papel, mistura poesia com prosa, realidade com devaneio. Atualmente cria os roteiros para os Caliandras Talk Show’s e também desempenha a função de entrevistadora. Uma loucura! Seu objetivo? Encantar o leitor com simplicidade, verdade e um tantinho de caos poético.',
         email: 'nayra@gmail.com',

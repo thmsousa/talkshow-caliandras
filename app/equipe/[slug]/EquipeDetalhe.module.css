@@ -102,15 +102,15 @@
 
 .roleBadge {
     display: inline-block;
-    padding: 8px 18px; /* Ajustado */
-    background: #111;
-    color: #fff;
-    font-size: 11px; /* Aumentado de 9px para 11px */
-    font-weight: 900;
+    padding: 0 0 8px 0;
+    background: transparent;
+    color: var(--color-accent);
+    font-size: 11px;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 100px;
-    margin-bottom: 15px;
+    letter-spacing: 4px;
+    border-bottom: 2px solid var(--color-accent);
+    margin-bottom: 20px;
 }
 
 .memberName {
@@ -123,11 +123,12 @@
     margin: 0;
 }
 
-.divider {
-    width: 60px;
-    height: 4px;
-    background: var(--color-accent);
-    margin: 25px 0; /* Reduzido de 40px */
+.nameDivider {
+    width: 100%;
+    height: 1px;
+    background: #f0f0f0;
+    margin: 20px 0 30px;
+    transform-origin: left;
 }
 
 .bioContainer {

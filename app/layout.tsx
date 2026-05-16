@@ -20,8 +20,8 @@ export default function RootLayout({
   const { scrollYProgress } = useScroll();
 
   return (
-    <html lang="pt-BR">
-      <body className={outfit.className} style={{ backgroundColor: '#ffffff' }}>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body className={outfit.className} style={{ backgroundColor: '#ffffff' }} suppressHydrationWarning>
         {/* Barra de Progresso de Leitura */}
         <motion.div
           className="reading-progress-bar"
