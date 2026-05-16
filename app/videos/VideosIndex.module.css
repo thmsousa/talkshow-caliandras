@@ -224,6 +224,14 @@
 .videoCard {
     text-decoration: none;
     display: block;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+    border-radius: 20px;
+    background: transparent;
+}
+
+.videoCard:hover {
+    transform: translateY(-12px);
 }
 
 .cardInner {

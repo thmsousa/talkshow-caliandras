@@ -482,13 +482,13 @@
     }
 
     .pageHeader::before {
-        top: 10px; /* Alinhado ao novo padding */
-        height: calc(100% - 10px);
+        top: 10px;
+        height: 60px; /* Tamanho fixo para o marcador de livro */
         width: 4px;
         background: var(--color-accent);
         left: 0;
         position: absolute;
-        clip-path: none;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
     }
 
     .eventRow {

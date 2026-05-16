@@ -1,151 +1,134 @@
 .footer {
-    background-color: rgba(12, 12, 12, 0.98);
+    background: #0a0a0a;
     color: white;
-    margin-top: 0;
-    padding: 40px 0 60px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    width: 100%;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    padding: 40px 0 40px; /* Reduzido de 80px */
+    margin-top: 80px;
     position: relative;
-    z-index: 10;
+    border-top: 1px solid rgba(255, 107, 0, 0.1);
 }
 
-.footerContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
 }
 
-.footerBrand {
-    text-align: left;
+.topRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
 }
 
-.brandName {
-    font-size: 28px;
-    font-weight: 950;
-    color: var(--color-accent);
-    margin: 0;
-    letter-spacing: -1.5px;
-    line-height: 1;
+.brandInfo {
+    max-width: 500px;
 }
 
-.brandDescription {
+.logoText {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #ffffff, #ff6b00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline {
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.4);
-    margin-top: 15px;
-    max-width: 400px; /* Increased to fit the new long slogan nicely */
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     line-height: 1.6;
 }
 
-.footerNavGroup {
-    display: flex;
-    gap: 60px;
-    flex-wrap: wrap;
-}
-
-.navLabel {
-    display: block;
-    font-size: 12px;
-    font-weight: 900;
+.colTitle {
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 2px;
     margin-bottom: 20px;
-}
-
-.socialGrid {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.socialLink {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.socialLink:hover {
     color: var(--color-accent);
-    transform: translateX(5px);
 }
 
-.socialLink svg {
-    transition: transform 0.3s ease;
+.socialLinks {
+    display: flex;
+    gap: 20px;
 }
 
-.socialLink:hover svg {
-    transform: scale(1.1);
+.socialIcon {
+    color: white;
+    opacity: 0.4;
+    transition: all 0.3s ease;
 }
 
-.footerBottom {
-    max-width: 1200px;
-    margin: 20px auto 0;
-    padding: 30px 40px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+.socialIcon:hover {
+    opacity: 1;
+    color: var(--color-accent);
+    transform: translateY(-3px);
+}
+
+.divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 40px 0;
+}
+
+.bottomRow {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.3);
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-.creditTag {
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.5);
+.copyright {
+    font-size: 12px;
+    opacity: 0.3;
+    font-family: var(--font-sans);
 }
 
-@media (min-width: 768px) {
-    .footerContainer {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
+.scrollTopBtn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.scrollTopBtn:hover {
+    opacity: 1;
+    color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 20px 0 40px; /* Reduzido de 60px no mobile */
+        margin-top: 60px;
     }
-}
 
-@media (max-width: 767px) {
-    .footerContainer {
+    .topRow {
+        flex-direction: column;
+        gap: 40px;
         text-align: center;
         align-items: center;
-        padding: 0 20px;
-        gap: 30px;
     }
-    .footerBrand {
-        text-align: center;
-    }
-    .footerNavGroup {
-        width: 100%;
-        display: flex;
+
+    .socialLinks {
         justify-content: center;
     }
-    .socialGrid {
-        flex-direction: row !important; /* Ícones lado a lado no mobile */
-        justify-content: center;
-        gap: 30px;
-        margin-top: 10px;
-    }
-    .socialLink span {
-        display: none; /* Esconde o texto no mobile para focar nos ícones */
-    }
-    .socialLink svg {
-        width: 24px;
-        height: 24px;
-    }
-    .footerBottom {
-        flex-direction: column;
-        gap: 15px;
+
+    .bottomRow {
+        flex-direction: column-reverse;
+        gap: 20px;
         text-align: center;
-        margin-top: 40px;
+    }
+
+    .logoText {
+        font-size: 20px;
     }
 }

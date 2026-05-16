@@ -162,7 +162,7 @@ export default function EventosPage() {
                     transition={{ duration: 0.8 }}
                     className={styles.supLabel}
                 >
-                    AGENDA CULTURAL
+                    AGENDA CULTURAL • CALIANDRAS
                 </motion.div>
 
                 <div className={styles.headerBody}>
@@ -207,4 +207,4 @@ export default function EventosPage() {
             </div>
         </main>
     );
-}
+}
