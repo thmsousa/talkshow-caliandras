@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { TODOS_PRODUTOS } from '@/lib/mockData';
 import styles from './Produtos.module.css';
-import ChatBot from '../components/ChatBot';
 
 export default function ProdutosPage() {
     const handleBuyClick = (e: React.MouseEvent) => {
@@ -59,7 +58,6 @@ export default function ProdutosPage() {
                 ))}
             </div>
 
-            <ChatBot />
         </main>
     );
 }

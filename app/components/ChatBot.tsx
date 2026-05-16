@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { MessageCircle } from 'lucide-react';
 import styles from './ChatBot.module.css';
 
 export default function ChatBot() {
@@ -49,7 +50,19 @@ export default function ChatBot() {
         });
     };
 
-    if (!isOpen) return null;
+    // Trigger Flutuante quando fechado
+    if (!isOpen) {
+        return (
+            <button 
+                onClick={() => setIsOpen(true)}
+                className={styles.floatingTrigger}
+                aria-label="Abrir Chat"
+            >
+                <MessageCircle size={24} />
+                <span className={styles.triggerPulse} />
+            </button>
+        );
+    }
 
     return (
         <div className={styles.overlay}>

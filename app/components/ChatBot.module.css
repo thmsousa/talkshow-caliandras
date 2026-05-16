@@ -224,3 +224,56 @@
         bottom: 0; right: 0; width: 100%; height: 100vh; max-height: 100vh; border-radius: 0; 
     }
 }
+
+/* --- NOVO: TRIGGER FLUTUANTE --- */
+.floatingTrigger {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--color-accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 107, 0, 0.3);
+    z-index: 9999;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floatingTrigger:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 40px rgba(255, 107, 0, 0.4);
+}
+
+.triggerPulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--color-accent);
+    z-index: -1;
+    animation: pulseCircle 2s infinite;
+}
+
+@keyframes pulseCircle {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .floatingTrigger {
+        bottom: 25px;
+        right: 20px;
+        width: 54px;
+        height: 54px;
+        z-index: 10002;
+    }
+    .floatingTrigger svg {
+        width: 20px;
+        height: 20px;
+    }
+}
