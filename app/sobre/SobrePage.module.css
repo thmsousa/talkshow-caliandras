@@ -1,7 +1,7 @@
 .mainContainer {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 20px 40px;
+    padding: 0 20px 40px;
     background-color: #fff;
     position: relative;
     overflow-x: hidden;
@@ -42,8 +42,8 @@
     align-items: center;
     justify-content: center;
     gap: 30px;
-    margin-bottom: 40px;
-    opacity: 0.4;
+    margin-bottom: 30px;
+    opacity: 0.6;
 }
 
 .techLine {
@@ -67,36 +67,24 @@
 /* 1. HERO SECTION */
 .hero {
     text-align: center;
-    margin-bottom: 140px;
-    padding-top: 40px;
+    margin-bottom: 120px;
+    padding-top: 50px;
+    margin-top: 0;
     animation: fadeIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .heroBadge {
     display: inline-block;
-    padding: 8px 24px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    background: rgba(0, 0, 0, 0.02);
-    border-radius: 100px;
+    padding: 10px 0;
+    background: transparent;
     font-size: 10px;
-    font-weight: 950;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #999;
-    margin-bottom: 30px;
+    letter-spacing: 6px;
+    color: #222;
+    margin-bottom: 40px;
     position: relative;
-}
-
-.heroBadge::before {
-    content: '';
-    position: absolute;
-    left: -10px;
-    top: 50%;
-    width: 4px;
-    height: 4px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    transform: translateY(-50%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .overtitle {
@@ -248,10 +236,10 @@
     background: rgba(0, 0, 0, 0.1);
 }
 
-.sectionTitle {
+.sectionTitle, .ctaTitle {
     font-size: 42px;
     font-weight: 950;
-    letter-spacing: -1.5px;
+    letter-spacing: 0;
     margin-bottom: 30px;
     line-height: 1.1;
     text-transform: uppercase;
@@ -303,7 +291,10 @@
     pointer-events: none;
 }
 
-.imageCornerTopLeft, .imageCornerTopRight, .imageCornerBottomLeft, .imageCornerBottomRight {
+.imageCornerTopLeft,
+.imageCornerTopRight,
+.imageCornerBottomLeft,
+.imageCornerBottomRight {
     position: absolute;
     width: 15px;
     height: 15px;
@@ -313,10 +304,29 @@
     pointer-events: none;
 }
 
-.imageCornerTopLeft { top: 15px; left: 15px; border-width: 1px 0 0 1px; }
-.imageCornerTopRight { top: 15px; right: 15px; border-width: 1px 1px 0 0; }
-.imageCornerBottomLeft { bottom: 15px; left: 15px; border-width: 0 0 1px 1px; }
-.imageCornerBottomRight { bottom: 15px; right: 15px; border-width: 0 1px 1px 0; }
+.imageCornerTopLeft {
+    top: 15px;
+    left: 15px;
+    border-width: 1px 0 0 1px;
+}
+
+.imageCornerTopRight {
+    top: 15px;
+    right: 15px;
+    border-width: 1px 1px 0 0;
+}
+
+.imageCornerBottomLeft {
+    bottom: 15px;
+    left: 15px;
+    border-width: 0 0 1px 1px;
+}
+
+.imageCornerBottomRight {
+    bottom: 15px;
+    right: 15px;
+    border-width: 0 1px 1px 0;
+}
 
 .imageDecorBackground {
     position: absolute;
@@ -475,12 +485,13 @@
     text-transform: uppercase;
 }
 
-/* 5. FOOTER CTA */
 .footerCTA {
     text-align: center;
-    margin-top: 20px;
-    padding: 40px 0;
-    border-top: 1px solid #f2f2f2;
+    padding: 60px 20px 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
 }
 
 .footerLabel {
@@ -497,52 +508,54 @@
     font-size: clamp(24px, 4vw, 38px);
     font-weight: 950;
     text-transform: uppercase;
-    letter-spacing: -1px;
+    letter-spacing: 0;
     margin-bottom: 35px;
     color: #1a1a1a;
 }
 
-/* BOTÃO PREMIUM */
+/* BOTÃO PREMIUM REESTILIZADO */
 .premiumBtn {
     position: relative;
     font-size: 11px;
-    color: #111;
-    font-weight: 900;
-    background-color: transparent;
-    padding: 22px 60px;
+    color: #fff;
+    font-weight: 800;
+    background-color: #111;
+    padding: 12px 12px 12px 36px;
     border-radius: 100px;
     text-decoration: none !important;
     display: inline-flex;
     align-items: center;
     gap: 15px;
     text-transform: uppercase;
-    letter-spacing: 5px;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-    border: 1px solid #111;
+    letter-spacing: 2px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
     z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.premiumBtn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: #111;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-    z-index: -1;
+.btnIconWrapper {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .premiumBtn:hover {
-    color: #fff;
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-.premiumBtn:hover::before {
-    width: 100%;
+.premiumBtn:hover .btnIconWrapper {
+    background-color: var(--color-accent);
+    transform: translateX(5px);
+    color: #fff;
 }
 
 /* ANIMAÇÕES */
@@ -558,27 +571,6 @@
     100% {
         transform: translateY(0px) rotate(0deg);
     }
-}
-
-.flowerDecoration1,
-.flowerDecoration2 {
-    position: absolute;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.10;
-    filter: blur(10px);
-}
-
-.flowerDecoration1 {
-    top: 500px;
-    right: -100px;
-    animation: float 15s ease-in-out infinite;
-}
-
-.flowerDecoration2 {
-    top: 1500px;
-    left: -80px;
-    animation: float 20s ease-in-out infinite reverse;
 }
 
 @keyframes fadeIn {
@@ -624,11 +616,13 @@
 
     .hero {
         margin-bottom: 60px;
-        padding-top: 10px; /* Sobe o conteúdo do manifesto */
+        padding-top: 10px;
+        /* Sobe o conteúdo do manifesto */
     }
 
     .mainContainer {
-        padding-top: 0; /* Remove respiro superior no mobile */
+        padding-top: 0;
+        /* Remove respiro superior no mobile */
     }
 
     .technicalHeader {
@@ -789,5 +783,214 @@
 
     .sparkle {
         display: none;
+    }
+}
+
+/* --- NOVAS SEÇÕES: PILARES E AVATARES --- */
+.pillarsSection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin: 100px 0 140px;
+    padding: 0 20px;
+}
+
+.pillarItem {
+    text-align: center;
+    padding: 40px 30px;
+    background: #fdfdfd;
+    border: 1px solid #f0f0f0;
+    border-radius: 30px;
+    transition: all 0.5s ease;
+}
+
+.pillarItem:hover {
+    background: #fff;
+    border-color: var(--color-accent);
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(255, 107, 0, 0.08);
+}
+
+.pillarIcon {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--color-accent);
+}
+
+.pillarNumber {
+    display: block;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+.pillarTitle {
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.pillarText {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.teamTeaserSection {
+    text-align: center;
+    padding: 40px 20px 60px;
+    margin: 10px 0 20px;
+}
+
+.avatarStack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 40px;
+}
+
+.avatarItem {
+    width: 64px;
+    height: 64px;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: -15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.avatarItem:first-child {
+    margin-left: 0;
+}
+
+.avatarItem:hover {
+    transform: translateY(-8px) scale(1.1);
+    z-index: 20 !important;
+}
+
+.avatarImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatarCount {
+    width: 64px;
+    height: 64px;
+    background: #111;
+    color: #fff;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 900;
+    margin-left: -15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ctaGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+    padding: 0 10px;
+}
+
+.ctaCard {
+    background: #fff;
+    padding: 35px 25px;
+    border: 1px solid #f0f0f0;
+    border-radius: 24px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.ctaCard:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.ctaCardIcon {
+    width: 44px;
+    height: 44px;
+    background: #fafafa;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--color-accent);
+    transition: all 0.3s ease;
+}
+
+.ctaCard:hover .ctaCardIcon {
+    background: var(--color-accent);
+    color: #fff;
+    transform: rotate(10deg);
+}
+
+.ctaCard h3 {
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.ctaCard p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #777;
+}
+
+@media (max-width: 900px) {
+    .pillarsSection {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 40px 0 60px;
+    }
+
+    .sectionLabelCenter {
+        margin-bottom: 15px;
+    }
+
+    .ctaTitle {
+        letter-spacing: 0.5px;
+        margin-bottom: 25px;
+    }
+
+    .teamTeaserSection {
+        padding: 10px 20px 20px;
+        margin-top: 0;
+    }
+
+    .footerCTA {
+        padding-top: 10px;
+        margin-top: 0;
+    }
+
+    .ctaGrid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .ctaCard {
+        padding: 25px;
     }
 }
