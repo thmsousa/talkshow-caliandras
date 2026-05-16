@@ -204,32 +204,48 @@
 }
 
 .memberCard {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 60px 40px;
+    background-color: #fff;
     border-radius: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 60px 40px;
     text-align: center;
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f8f8f8;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.memberCard::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    width: 4px;
+    height: 60px;
+    background-color: var(--color-accent);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transform-origin: center;
+    border-radius: 0 4px 4px 0;
 }
 
 .memberCard:hover {
     transform: translateY(-12px);
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow:
-        0 30px 60px -12px rgba(0, 0, 0, 0.08),
-        0 18px 36px -18px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.08);
+    border-color: rgba(255, 107, 0, 0.15);
+}
+
+.memberCard:hover::before {
+    transform: translateY(-50%) scaleY(1);
 }
 
 .photoOuterCircle {
     width: 130px;
     height: 130px;
-    margin: 0 auto 35px;
+    margin: 0 auto 12px; /* Reduzido ainda mais para 12px */
     padding: 8px;
     border: 1px solid #f0f0f0;
     border-radius: 50%;
@@ -266,23 +282,50 @@
     font-weight: 950;
     text-transform: uppercase;
     letter-spacing: -1px;
-    margin-bottom: 8px;
+    margin-bottom: 5px; /* Reduzido para ficar mais perto do cargo */
     color: #111;
+    transition: color 0.3s ease;
 }
 
-/* Badge do cargo que tínhamos antes */
-.memberRole {
-    font-size: 10px;
-    font-weight: 950;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.memberCard:hover .memberName {
     color: var(--color-accent);
+}
+
+.memberBio {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    text-align: justify;
+    flex-grow: 1;
+    opacity: 0.7; /* Foco suave */
+    transition: opacity 0.4s ease;
+}
+
+.memberCard:hover .memberBio {
+    opacity: 1; /* Foco total ao interagir */
+}
+
+/* Badge do cargo redesenhada: Estilo Minimalista/Editorial */
+.memberRole {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ff6b00;
     margin-bottom: 25px;
-    display: inline-block;
-    padding: 6px 16px;
-    background: rgba(255, 107, 0, 0.08);
-    border-radius: 100px;
+    display: inline-flex; /* Mudado para flex para alinhar o dot */
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-top: 1px solid rgba(255, 107, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 107, 0, 0.15);
     transition: all 0.3s ease;
+}
+
+.memberCard:hover .memberRole {
+    border-color: var(--color-accent);
+    background: rgba(255, 107, 0, 0.02);
 }
 
 .memberBio {

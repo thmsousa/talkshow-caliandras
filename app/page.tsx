@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { Episodio } from './components/utils/types';
 import { TODOS_EPISODIOS, EVENTOS_CALINDRAS } from '@/lib/mockData';
 import { formatFullDate } from '@/lib/utils/formatters';
+import { Skeleton, CardSkeleton } from './components/ui/Skeleton';
 import styles from './Home.module.css';
 
 export default function HomePage() {
@@ -64,7 +65,22 @@ export default function HomePage() {
         loadData();
     }, []);
 
-    if (!initialCheckComplete || !dataLoaded) return <div className={styles.mainWrapper} />;
+    if (!initialCheckComplete || !dataLoaded) {
+        return (
+            <div className={styles.mainWrapper}>
+                <section className={styles.section}>
+                    <div className={styles.sectionHeader}>
+                        <Skeleton width="150px" height="12px" className={styles.mbSmall} />
+                        <Skeleton width="300px" height="40px" />
+                    </div>
+                    <div style={{ display: 'flex', gap: '30px', overflow: 'hidden' }}>
+                        <CardSkeleton />
+                        <CardSkeleton />
+                    </div>
+                </section>
+            </div>
+        );
+    }
 
     return (
         <motion.main

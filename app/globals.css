@@ -405,3 +405,32 @@ ul {
     border-radius: 0;
   }
 }
+
+/* --- LINKS PREMIUM --- */
+.premium-link {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.premium-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.5px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--color-accent);
+    transform-origin: bottom center;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.premium-link:hover {
+    color: var(--color-accent);
+}
+
+.premium-link:hover::after {
+    transform: scaleX(1);
+}

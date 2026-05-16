@@ -34,7 +34,7 @@ export default function Footer() {
                         © 2026 Caliandras Talkshow. Todos os direitos reservados.
                     </div>
                     <button onClick={scrollToTop} className={styles.scrollTopBtn} aria-label="Voltar ao topo">
-                        <span>VOLTAR AO TOPO</span>
+                        <span className="premium-link">VOLTAR AO TOPO</span>
                         <ArrowUp size={16} />
                     </button>
                 </div>
