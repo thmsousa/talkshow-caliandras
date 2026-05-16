@@ -18,6 +18,7 @@ export default function PDFSlider({ pdfUrl }: PDFSliderProps) {
     const [pdfWidth, setPdfWidth] = useState(0);
     const [viewWidth, setViewWidth] = useState(1200);
     const [viewHeight, setViewHeight] = useState(600);
+    const [isMobile, setIsMobile] = useState(false);
 
     // Espaço extra no final para o conteúdo não grudar na borda/seta
     const END_PADDING = 200;
@@ -26,9 +27,10 @@ export default function PDFSlider({ pdfUrl }: PDFSliderProps) {
 
     useEffect(() => {
         const update = () => {
+            const mobile = window.innerWidth <= 768;
+            setIsMobile(mobile);
             setViewWidth(window.innerWidth);
-            const isMobile = window.innerWidth <= 768;
-            setViewHeight(Math.round(window.innerHeight * (isMobile ? 0.60 : 0.80)));
+            setViewHeight(Math.round(window.innerHeight * (mobile ? 0.60 : 0.80)));
         };
         update();
         window.addEventListener('resize', update);
@@ -119,41 +121,59 @@ export default function PDFSlider({ pdfUrl }: PDFSliderProps) {
             <button
                 onClick={() => scroll(-1)}
                 style={{
-                    position: 'absolute', left: '15px', top: '50%',
-                    transform: 'translateY(-50%)', zIndex: 100,
-                    width: '56px', height: '56px', borderRadius: '50%',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    background: 'rgba(0, 0, 0, 0.4)',
-                    backdropFilter: 'blur(12px)',
-                    WebkitBackdropFilter: 'blur(12px)',
+                    position: 'absolute', 
+                    left: isMobile ? '2px' : '15px', 
+                    top: '50%',
+                    transform: 'translateY(-50%)', 
+                    zIndex: 100,
+                    width: isMobile ? '40px' : '56px', 
+                    height: isMobile ? '40px' : '56px', 
+                    borderRadius: '50%',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    background: isMobile ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.4)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
                     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
-                    color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: canGoLeft ? 'pointer' : 'default', opacity: canGoLeft ? 1 : 0,
+                    color: '#fff', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    cursor: canGoLeft ? 'pointer' : 'default', 
+                    opacity: canGoLeft ? (isMobile ? 0.85 : 1) : 0,
                     pointerEvents: canGoLeft ? 'auto' : 'none',
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
                 }}
             >
-                <ChevronLeft size={28} />
+                <ChevronLeft size={isMobile ? 22 : 28} />
             </button>
 
             <button
                 onClick={() => scroll(1)}
                 style={{
-                    position: 'absolute', right: '15px', top: '50%',
-                    transform: 'translateY(-50%)', zIndex: 100,
-                    width: '56px', height: '56px', borderRadius: '50%',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    background: 'rgba(0, 0, 0, 0.4)',
-                    backdropFilter: 'blur(12px)',
-                    WebkitBackdropFilter: 'blur(12px)',
+                    position: 'absolute', 
+                    right: isMobile ? '2px' : '15px', 
+                    top: '50%',
+                    transform: 'translateY(-50%)', 
+                    zIndex: 100,
+                    width: isMobile ? '40px' : '56px', 
+                    height: isMobile ? '40px' : '56px', 
+                    borderRadius: '50%',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    background: isMobile ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.4)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
                     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
-                    color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: canGoRight ? 'pointer' : 'default', opacity: canGoRight ? 1 : 0,
+                    color: '#fff', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    cursor: canGoRight ? 'pointer' : 'default', 
+                    opacity: canGoRight ? (isMobile ? 0.85 : 1) : 0,
                     pointerEvents: canGoRight ? 'auto' : 'none',
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
                 }}
             >
-                <ChevronRight size={28} />
+                <ChevronRight size={isMobile ? 22 : 28} />
             </button>
         </motion.div>
     );
