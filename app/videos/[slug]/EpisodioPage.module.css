@@ -1,39 +1,25 @@
 /* EpisodioPage.module.css */
 
 .mainContainer {
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 20px 20px 60px; /* Reduzido de 40px para 20px no topo */
+    padding: 20px 20px 60px;
+    /* Reduzido de 40px para 20px no topo */
 }
 
 .sectionHeader {
-    margin-bottom: 15px; /* Reduzido drasticamente para o player subir */
-    padding-left: 25px;
+    margin-bottom: 20px;
     position: relative;
     padding-top: 10px;
 }
 
-.sectionHeader::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 0;
-    width: 4px;
-    height: calc(100% - 8px);
-    background: var(--color-accent);
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
-    z-index: 1;
-}
-
 .title {
-    font-size: clamp(28px, 4vw, 48px); 
-    font-weight: 950;
+    font-size: clamp(20px, 2.8vw, 32px);
+    font-weight: 900;
     color: #1a1a1a;
     margin: 0;
-    letter-spacing: -1px;
-    line-height: 1.1;
-    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
 }
 
 @media (max-width: 768px) {
@@ -43,15 +29,39 @@
     }
 }
 
+.backButton {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    text-decoration: none;
+    margin-bottom: 25px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.backButton:hover {
+    color: var(--color-accent);
+    transform: translateX(-4px);
+}
+
+.descriptionText::selection,
+.title::selection,
+.metaValue::selection {
+    background-color: var(--color-accent);
+    color: #fff;
+}
+
 .upperLayout {
     display: flex;
     gap: 40px;
     align-items: flex-start;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 .playerSection {
-    flex: 2.8;
+    flex: 2.4;
 }
 
 .playerWrapper {
@@ -60,21 +70,27 @@
     padding-bottom: 56.25%;
     height: 0;
     background-color: #000;
-    border-radius: 16px;
+    border-radius: 8px;
     overflow: hidden;
-    /* Profundidade com sombra em camadas para estilo editorial */
-    box-shadow: 0 30px 60px rgba(0,0,0,0.12); 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .iframe {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%; border: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* --- INSTAGRAM CARD --- */
 .instagramCard {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -88,7 +104,7 @@
 .instagramOverlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,7 +129,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    background: #111;
     color: #fff;
     padding: 14px 32px;
     border-radius: 100px;
@@ -124,12 +140,13 @@
     letter-spacing: 1px;
     white-space: nowrap;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-    box-shadow: 0 8px 24px rgba(220, 39, 67, 0.35);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .instagramBtn:hover {
-    transform: translateX(-50%) scale(1.05);
-    box-shadow: 0 12px 32px rgba(220, 39, 67, 0.5);
+    transform: translateX(-50%) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    background: #000;
 }
 
 .playerBar {
@@ -140,27 +157,34 @@
 }
 
 .badge {
-    background-color: #f5f5f5;
+    background-color: transparent;
     color: #666;
-    padding: 6px 14px;
-    border-radius: 4px; /* Bordas mais retas estilo Penguin */
+    padding: 6px 16px;
+    border-radius: 100px;
     font-size: 10px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 1px solid #eee;
-    transition: all 0.2s ease;
+    letter-spacing: 2px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
 }
 
 .badge:hover {
-    background-color: var(--color-accent);
-    color: #fff;
+    background-color: #fafafa;
+    color: var(--color-accent);
     border-color: var(--color-accent);
+}
+
+.tagList {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .iconBtnYouTube {
     text-decoration: none;
-    background-color: #1a1a1a; /* Cinza asfalto no botão */
+    background-color: #1a1a1a;
+    /* Cinza asfalto no botão */
     color: #fff;
     padding: 12px 24px;
     border-radius: 8px;
@@ -184,43 +208,29 @@
 }
 
 .sidebarCard {
-    /* Um cinza "off-white" que separa do fundo branco sem ser preto */
-    background-color: #f8f9fa; 
+    background-color: #fff;
     padding: 35px 25px;
-    border-radius: 20px;
+    border-radius: 12px;
     color: #1a1a1a;
-    border: 1px solid #eee;
-    /* Sombra suave para dar profundidade */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
     position: relative;
-}
-
-/* Detalhe de cor no topo para identidade visual */
-.sidebarCard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 40px;
-    right: 40px;
-    height: 3px;
-    background-color: var(--color-accent);
-    border-radius: 0 0 4px 4px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 .miniTag {
-    color: #666;
+    color: #999;
     font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     font-weight: 800;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 .authorBox {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .authorLink {
@@ -228,16 +238,13 @@
     align-items: center;
     gap: 15px;
     text-decoration: none;
-    padding: 12px;
     border-radius: 12px;
-    background-color: #fff; /* Card do autor branco sobre o fundo cinza */
-    border: 1px solid #f0f0f0;
+    background-color: transparent;
     transition: all 0.3s ease;
 }
 
 .authorLink:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transform: translateX(4px);
 }
 
 .avatar {
@@ -247,7 +254,7 @@
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .authorName {
@@ -255,6 +262,21 @@
     color: #1a1a1a;
     font-size: 17px;
     letter-spacing: -0.5px;
+}
+
+.verPerfilLink {
+    color: #888;
+    font-size: 10px;
+    font-weight: 800;
+    display: block;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.authorLink:hover .verPerfilLink {
+    color: var(--color-accent);
 }
 
 .dividerHorizontal {
@@ -266,7 +288,8 @@
 .relatedGrid {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Mais colado para parecer uma lista técnica */
+    gap: 12px;
+    /* Mais colado para parecer uma lista técnica */
 }
 
 .relatedItem {
@@ -281,16 +304,16 @@
 }
 
 .relatedItem:hover {
-    background-color: #fff; /* Destaca o item sobre o fundo cinza da sidebar */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    background-color: transparent;
+    /* Destaca o item sobre o fundo cinza da sidebar */
     transform: translateX(5px);
 }
 
 .thumb {
     position: relative;
-    width: 110px; /* Um pouco maior para visibilidade */
+    width: 110px;
     height: 65px;
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
     flex-shrink: 0;
     background-color: #eee;
@@ -334,78 +357,95 @@
 /* --- DESCRIÇÃO --- */
 
 .descriptionSection {
-    max-width: 900px;
-    margin-top: 80px;
-    padding: 60px;
-    background-color: #fcfcfc; /* Fundo sutil para destacar a área */
-    border-radius: 24px;
-    border: 1px solid #f0f0f0;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 35px;
+}
+
+.descriptionLayout {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.descriptionMain {
+    flex: 2;
+}
+
+.descriptionMeta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background-color: #fafafa;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.metaBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.metaLabel {
+    font-size: 10px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.metaValue {
+    font-size: 14px;
+    color: #1a1a1a;
+    font-weight: 700;
 }
 
 .modernSectionTitle {
-    font-size: 32px;
-    font-weight: 950;
+    font-size: 24px;
+    font-weight: 900;
     color: #1a1a1a;
-    letter-spacing: -1.5px;
-    margin-bottom: 10px;
+    letter-spacing: 0;
+    margin-bottom: 25px;
+    text-transform: uppercase;
 }
 
-.redLine {
-    width: 50px;
-    height: 4px;
-    background-color: var(--color-accent);
-    margin-bottom: 40px;
-    border-radius: 2px;
-}
-
-/* Efeito de Letra Capitular (Estilo Revista) */
 .descriptionText {
-    font-size: 19px;
+    font-size: 17px;
     line-height: 1.8;
-    color: #333;
+    color: #444;
     white-space: pre-line;
 }
 
 .descriptionText::first-letter {
     float: left;
-    font-size: 60px;
-    line-height: 1;
+    font-size: 54px;
+    line-height: 0.8;
     font-weight: 900;
-    padding-right: 12px;
+    padding-right: 10px;
     color: var(--color-accent);
-    font-family: serif; /* Dá um ar mais clássico/literário */
-}
-
-/* Detalhes extras abaixo do texto */
-.footerInfo {
-    margin-top: 40px;
-    display: flex;
-    gap: 30px;
-    border-top: 1px solid #eee;
-    padding-top: 30px;
-}
-
-.infoBlock {
-    display: flex;
-    flex-direction: column;
-}
-
-.infoLabel {
-    font-size: 10px;
-    font-weight: 900;
-    color: #bbb;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.infoValue {
-    font-size: 14px;
-    font-weight: 700;
-    color: #1a1a1a;
+    font-family: serif;
 }
 
 @media (max-width: 1150px) {
-    .upperLayout { flex-direction: column; }
-    .playerSection, .sidebarSection { width: 100%; }
-    .sidebarSection { min-width: unset; }
+    .upperLayout {
+        flex-direction: column;
+    }
+
+    .playerSection,
+    .sidebarSection {
+        width: 100%;
+    }
+
+    .sidebarSection {
+        min-width: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    .descriptionLayout {
+        flex-direction: column;
+        gap: 30px;
+    }
 }

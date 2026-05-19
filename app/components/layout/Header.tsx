@@ -6,16 +6,13 @@ import NavbarClient from './NavbarClient';
 export default function Header() {
   return (
     <header style={{ 
-      // Fundo branco com opacidade para o efeito de transparência (estilo Penguin)
       backgroundColor: 'rgba(255, 255, 255, 0.85)', 
       boxShadow: '0 1px 0 rgba(0, 0, 0, 0.05)',      
       position: 'sticky', 
       top: 0, 
       zIndex: 1000,
-      // Borda inferior sutil para acabamento editorial
       borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
       width: '100%',
-      // O desfoque cria o efeito de degradê com o conteúdo que passa por baixo
       backdropFilter: 'blur(12px)',
       WebkitBackdropFilter: 'blur(12px)',
     }}>

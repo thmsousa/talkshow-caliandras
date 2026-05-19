@@ -20,7 +20,7 @@ export default function VideosIndexPage() {
     const videosFiltrados = useMemo(() => {
         const termo = busca.toLowerCase();
         if (!termo) return videosOrdenados;
-        
+
         return videosOrdenados.filter(ep =>
             ep.titulo.toLowerCase().includes(termo) ||
             ep.descricao.toLowerCase().includes(termo)
@@ -32,20 +32,20 @@ export default function VideosIndexPage() {
     return (
         <main className={styles.mainContainer}>
             <header className={styles.sectionHeader}>
-                <motion.span 
+                <motion.span
                     initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
                     className={styles.overtitle}
                 >
                     Acervo • Caliandras
                 </motion.span>
-                <motion.h1 
+                <motion.h1
                     initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
                     className={styles.sectionTitle}
                 >
                     Galeria de Vídeos
                 </motion.h1>
 
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
                     className={styles.searchSection}
                 >
@@ -69,7 +69,7 @@ export default function VideosIndexPage() {
                         href={`/videos/${episodio.slug}`}
                         className={styles.videoCard}
                     >
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
@@ -105,7 +105,7 @@ export default function VideosIndexPage() {
                     </Link>
                 ))}
             </div>
-            
+
             {videosFiltrados.length === 0 && (
                 <div className={styles.noResults}>
                     Nenhum vídeo encontrado para "{busca}".
