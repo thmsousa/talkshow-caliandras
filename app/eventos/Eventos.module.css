@@ -22,7 +22,8 @@
 }
 
 .pageHeader {
-    padding: 60px 0 40px; /* Abaixado conforme solicitado */
+    padding: 60px 0 40px;
+    /* Abaixado conforme solicitado */
     text-align: left;
     padding-left: 25px;
     margin-bottom: 20px;
@@ -32,10 +33,12 @@
 .pageHeader::before {
     content: '';
     position: absolute;
-    top: 60px; /* Alinhado com o novo padding-top */
+    top: 60px;
+    /* Alinhado com o novo padding-top */
     left: 0;
     width: 4px;
-    height: 95px; /* Aumentado para cobrir o novo título abaixado */
+    height: 95px;
+    /* Aumentado para cobrir o novo título abaixado */
     background: var(--color-accent);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
@@ -45,7 +48,8 @@
 .supLabel {
     font-size: 11px;
     letter-spacing: 4px;
-    color: var(--color-accent); /* Agora laranja */
+    color: var(--color-accent);
+    /* Agora laranja */
     font-weight: 800;
     margin-bottom: 12px;
     text-transform: uppercase;
@@ -235,7 +239,8 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #fcfcfc; /* Fundo sutil para áreas não preenchidas */
+    background: #fcfcfc;
+    /* Fundo sutil para áreas não preenchidas */
     position: relative;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -243,8 +248,10 @@
 .imageCard img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Mostra o panfleto 100% sem cortes */
-    padding: 5px; /* Respiro mínimo para não colar nas bordas */
+    object-fit: contain;
+    /* Mostra o panfleto 100% sem cortes */
+    padding: 5px;
+    /* Respiro mínimo para não colar nas bordas */
     transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
@@ -472,18 +479,21 @@
     .pageWrapper {
         padding-left: 25px;
         padding-right: 25px;
-        padding-top: 0; /* Remove espaço extra no topo */
+        padding-top: 0;
+        /* Remove espaço extra no topo */
     }
 
     .pageHeader {
-        padding: 10px 0 15px; /* Subi um pouco mais em relação ao header */
+        padding: 10px 0 15px;
+        /* Subi um pouco mais em relação ao header */
         padding-left: 20px;
         position: relative;
     }
 
     .pageHeader::before {
         top: 10px;
-        height: 60px; /* Tamanho fixo para o marcador de livro */
+        height: 60px;
+        /* Tamanho fixo para o marcador de livro */
         width: 4px;
         background: var(--color-accent);
         left: 0;
@@ -506,7 +516,8 @@
         letter-spacing: 0.5px !important;
         line-height: 1.15 !important;
         margin-bottom: 15px;
-        word-break: break-word; /* Evita quebra estranha */
+        word-break: break-word;
+        /* Evita quebra estranha */
     }
 
     .eventDescription {

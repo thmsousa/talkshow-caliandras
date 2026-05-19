@@ -64,6 +64,7 @@
 .searchBarContainer {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 15px;
     background: #fdfdfd;
     padding: 14px 22px;
@@ -84,6 +85,7 @@
 
 .searchIcon {
     color: #999;
+    flex-shrink: 0;
 }
 
 .searchInput {
@@ -94,6 +96,8 @@
     font-size: 15px;
     font-weight: 500;
     color: #111;
+    text-align: left;
+    width: 100%;
 }
 
 .searchInput::placeholder {
@@ -429,4 +433,4 @@
     .searchBarContainer {
         max-width: 100%;
     }
-}
+}@media (max-width: 768px) { .searchSection { padding-left: 0; } }

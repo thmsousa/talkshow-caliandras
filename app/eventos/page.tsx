@@ -11,12 +11,12 @@ const formatFullDate = (dateString: string) => {
         // O replace evita o erro de fuso horário que subtrai 1 dia
         const localDateString = dateString.replace(/-/g, '/');
         const date = new Date(localDateString);
-        return date.toLocaleDateString('pt-BR', { 
-            day: 'numeric', 
-            month: 'long' 
+        return date.toLocaleDateString('pt-BR', {
+            day: 'numeric',
+            month: 'long'
         });
-    } catch (e) { 
-        return dateString; 
+    } catch (e) {
+        return dateString;
     }
 };
 
@@ -65,7 +65,7 @@ function EventoItem({ evento, index }: { evento: any, index: number }) {
                     onClick={handleFlip}
                 >
                     <div className={styles.flipScene}>
-                        <motion.div 
+                        <motion.div
                             className={styles.flipCard}
                             animate={{ rotateY: isFlipped ? 180 : 0 }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -74,9 +74,9 @@ function EventoItem({ evento, index }: { evento: any, index: number }) {
                             {/* FRONT */}
                             <div className={styles.flipCardFront}>
                                 <div className={styles.imageCard}>
-                                    <img 
-                                        src={evento.imagem} 
-                                        alt={evento.titulo} 
+                                    <img
+                                        src={evento.imagem}
+                                        alt={evento.titulo}
                                         style={{ objectPosition: '50% 20%' }}
                                     />
                                 </div>
@@ -86,9 +86,9 @@ function EventoItem({ evento, index }: { evento: any, index: number }) {
                             {hasBackSide && (
                                 <div className={styles.flipCardBack}>
                                     <div className={styles.imageCard}>
-                                        <img 
-                                            src={evento.imagemVerso} 
-                                            alt={`${evento.titulo} - Verso`} 
+                                        <img
+                                            src={evento.imagemVerso}
+                                            alt={`${evento.titulo} - Verso`}
                                             style={{ objectPosition: '50% 20%' }}
                                         />
                                     </div>
@@ -115,7 +115,7 @@ function EventoItem({ evento, index }: { evento: any, index: number }) {
                     <div className={styles.metaTag}>
                         <span className={styles.eventDate}>{formatFullDate(evento.data)}</span>
                     </div>
-                    <motion.h2 
+                    <motion.h2
                         initial={{ clipPath: 'inset(100% 0 0 0)' }}
                         animate={isInView ? { clipPath: 'inset(0% 0 0 0)' } : {}}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -123,7 +123,7 @@ function EventoItem({ evento, index }: { evento: any, index: number }) {
                     >
                         {evento.titulo}
                     </motion.h2>
-                    <motion.p 
+                    <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 1, delay: 0.3 }}
@@ -149,7 +149,7 @@ export default function EventosPage() {
     const dotTop = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     // ORDENAÇÃO: Do mais ANTIGO para o mais RECENTE (a - b)
-    const eventosOrdenados = [...EVENTOS_CALINDRAS].sort((a, b) => 
+    const eventosOrdenados = [...EVENTOS_CALINDRAS].sort((a, b) =>
         new Date(a.data).getTime() - new Date(b.data).getTime()
     );
 
@@ -175,7 +175,7 @@ export default function EventosPage() {
                         NOSSOS ENCONTROS
                     </motion.h1>
 
-                    <motion.p 
+                    <motion.p
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.8, duration: 1 }}
@@ -189,11 +189,11 @@ export default function EventosPage() {
             <div ref={containerRef} className={styles.timelineContainer}>
                 {/* LINHA DE PROGRESSO DINÂMICA */}
                 <div className={styles.progressLine}>
-                    <motion.div 
+                    <motion.div
                         className={styles.activeProgress}
                         style={{ scaleY }}
                     />
-                    <motion.div 
+                    <motion.div
                         className={styles.progressDot}
                         style={{ top: dotTop }}
                     />
