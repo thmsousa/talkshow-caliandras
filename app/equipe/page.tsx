@@ -107,11 +107,12 @@ export default function EquipePage() {
                 {EQUIPE_CALIANDRAS.map((membro) => {
                     const slug = membro.slug || membro.nome.toLowerCase().replace(/ /g, '-').normalize('NFD').replace(/[\u0300-\u036f]/g, "");
                     return (
-                    <Link href={`/equipe/${slug}`} key={membro.id} style={{ textDecoration: 'none', color: 'inherit' }}>
                         <motion.div
+                            key={membro.id}
                             variants={itemVariants}
                             className={styles.memberCard}
                         >
+                        <Link href={`/equipe/${slug}`} className={styles.cardLinkOverlay} aria-label={`Perfil de ${membro.nome}`} />
                         <div className={styles.photoOuterCircle}>
                             <div className={styles.photoInnerCircle}>
                                 <Image
@@ -150,7 +151,6 @@ export default function EquipePage() {
                             </div>
                         )}
                         </motion.div>
-                    </Link>
                     );
                 })}
             </motion.div>
