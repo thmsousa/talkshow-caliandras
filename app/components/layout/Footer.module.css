@@ -1,7 +1,8 @@
 .footer {
     background: #0a0a0a;
     color: white;
-    padding: 40px 0 40px; /* Reduzido de 80px */
+    padding: 40px 0 40px;
+    /* Reduzido de 80px */
     margin-top: 80px;
     position: relative;
     border-top: 1px solid rgba(255, 107, 0, 0.1);
@@ -107,7 +108,8 @@
 
 @media (max-width: 768px) {
     .footer {
-        padding: 20px 0 40px; /* Reduzido de 60px no mobile */
+        padding: 20px 0 40px;
+        /* Reduzido de 60px no mobile */
         margin-top: 60px;
     }
 

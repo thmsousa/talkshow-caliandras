@@ -1,11 +1,22 @@
 .container {
-    max-width: 1400px; /* Alinhado ao editorial global */
-    margin: 0 auto;
-    padding: 30px 20px 100px; /* Topo reduzido de 80px para 30px */
-    background-color: #fff;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 30px 0 100px; /* Topo reduzido de 80px para 30px */
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.contentWrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
 }
 
 /* DECORAÇÕES EDITORIAIS */
@@ -13,11 +24,12 @@
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+        linear-gradient(to right, var(--color-header-border) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--color-header-border) 1px, transparent 1px);
     background-size: 50px 50px;
     z-index: 0;
     pointer-events: none;
+    transition: background-image 0.4s ease;
 }
 
 .decoVerticalTextLeft, .decoVerticalTextRight {
@@ -28,13 +40,14 @@
     letter-spacing: 16px;
     text-transform: uppercase;
     font-weight: 900;
-    color: rgba(0, 0, 0, 0.05);
+    color: rgba(var(--color-accent-rgb), 0.05);
     writing-mode: vertical-rl;
     z-index: 0;
     pointer-events: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: color 0.4s ease;
 }
 
 .decoVerticalTextLeft { 
@@ -83,7 +96,7 @@
 .sectionTitle {
     font-size: clamp(32px, 6vw, 54px);
     font-weight: 950;
-    color: #111;
+    color: var(--color-text);
     margin: 0;
     text-transform: uppercase;
     letter-spacing: -2.5px;
@@ -91,6 +104,7 @@
     margin-bottom: 24px;
     position: relative;
     display: inline-block;
+    transition: color 0.4s ease;
 }
 
 @media (max-width: 768px) {
@@ -102,9 +116,10 @@
 
 .subtitle {
     font-size: 17px;
-    color: #666;
+    color: var(--color-text-muted);
     max-width: 550px;
     line-height: 1.5;
+    transition: color 0.4s ease;
 }
 
 .productGrid {
@@ -116,11 +131,11 @@
 }
 
 .productCard {
-    background-color: #fafafa; /* fundo levemente cinza que você gostou */
+    background: var(--color-card-bg); /* fundo dinâmico (cor sólida no claro, degradê no escuro) */
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.04); 
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04); 
+    border: 1px solid var(--color-card-border); 
+    box-shadow: 0 15px 35px var(--color-card-shadow); 
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
     flex-direction: column;
@@ -128,16 +143,18 @@
 
 .productCard:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: rgba(0,0,0,0.05);
+    box-shadow: 0 20px 40px var(--color-card-shadow);
+    border-color: var(--color-accent);
 }
 
 .imageWrapper {
     position: relative;
     width: 100%;
     height: 380px; /* Voltando para o tamanho original */
-    background-color: #f0f0f0; /* fundo levemente mais escuro pra destacar a imagem */
+    background-color: var(--color-bg-alt); /* fundo levemente mais escuro pra destacar a imagem */
+    border-bottom: 1px solid var(--color-card-border);
     overflow: hidden;
+    transition: background-color 0.4s ease, border-bottom 0.4s ease;
 }
 
 .productImage {
@@ -154,8 +171,8 @@
     position: absolute;
     top: 15px;
     left: 15px; /* Mudei para a esquerda, estilo moderno */
-    background-color: #111;
-    color: #fff;
+    background-color: var(--color-badge-bg);
+    color: var(--color-badge-text);
     padding: 6px 14px;
     border-radius: 4px;
     font-size: 9px;
@@ -163,6 +180,7 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
     z-index: 10;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .infoContent {
@@ -176,10 +194,11 @@
     font-size: 20px;
     font-weight: 800;
     margin-bottom: 12px;
-    color: #111;
+    color: var(--color-text);
     position: relative;
     align-self: flex-start;
     display: inline-block;
+    transition: color 0.4s ease;
 }
 
 .productTitle::after {
@@ -199,7 +218,7 @@
 
 .productDescription {
     font-size: 13px; /* Um pouco mais delicado */
-    color: #888;
+    color: var(--color-text-muted);
     line-height: 1.6;
     margin-bottom: 25px;
     height: 42px;
@@ -207,6 +226,7 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    transition: color 0.4s ease;
 }
 
 .footerRow {
@@ -214,15 +234,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid rgba(0,0,0,0.03);
+    border-top: 1px solid var(--color-header-border);
     padding-top: 20px;
+    transition: border-top 0.4s ease;
 }
 
 .price {
     font-size: 19px;
     font-weight: 800;
-    color: #111;
+    color: var(--color-text);
     letter-spacing: -0.5px;
+    transition: color 0.4s ease;
 }
 
 .buyButton {

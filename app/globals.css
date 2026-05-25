@@ -2,13 +2,107 @@
 
 /* 1. CONFIGURAÇÕES BASE E RESET */
 :root {
-  --color-dark: #121212;
   --color-accent: #ff6b00;
   --color-accent-rgb: 255, 107, 0;
-  --color-text: #121212;
-  --color-bg-alt: #ffffff;
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Outfit', sans-serif;
+}
+
+/* Light Theme - 100% Visual Original de Fábrica */
+:root,
+[data-theme="light"] {
+  --color-dark: #121212;
+  --color-bg-alt: #ffffff; /* Fundo original branco puro */
+  --color-text: #121212;
+  --color-text-muted: #555555;
+  
+  /* Badges e Tags */
+  --color-badge-bg: #121212;
+  --color-badge-text: #ffffff;
+
+  /* Cards */
+  --color-card-bg: #fafafa;
+  --color-card-border: rgba(0, 0, 0, 0.04);
+  --color-card-shadow: rgba(0, 0, 0, 0.04);
+
+  /* Cabeçalho e Rodapé */
+  --color-header-bg: rgba(255, 255, 255, 0.85);
+  --color-header-border: rgba(0, 0, 0, 0.05);
+  --color-footer-bg: #0a0a0a;
+  --color-footer-text: #ffffff;
+  --color-footer-border: rgba(255, 107, 0, 0.1);
+  --color-footer-logo: linear-gradient(to right, #ffffff, #ff6b00);
+
+  /* Elementos da Home Page (Originais) */
+  --home-wrapper-bg: #ffffff;
+  --home-section-title: #111111;
+  --home-varal-line: linear-gradient(90deg, transparent 0%, #ccc 15%, #999 50%, #ccc 85%, transparent 100%);
+  --home-card-bg: linear-gradient(180deg, #ffffff, #fcfcfc);
+  --home-card-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  --home-card-border: 1px solid rgba(0, 0, 0, 0.04);
+  --home-pin-bg: #222222;
+  --home-pin-border: none;
+  --home-pin-radius: 3px;
+  --home-image-bg: #fcfcfc;
+  --home-image-border: 1px solid #f0f0f0;
+  --home-nav-btn-bg: #ffffff;
+  --home-nav-btn-border: 1px solid #eeeeee;
+  --home-nav-btn-color: #111111;
+  
+  /* Timeline */
+  --color-timeline-line: #eeeeee;
+  
+  /* Botões secundários */
+  --color-btn-secondary-bg: rgba(0, 0, 0, 0.04);
+  --color-btn-secondary-border: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Theme - Palco Cinemático Escuro e Coeso */
+[data-theme="dark"] {
+  --color-dark: #0a0a0a;
+  --color-bg-alt: #121212; /* Fundo cinza-escuro elegante */
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+
+  /* Badges e Tags */
+  --color-badge-bg: var(--color-accent);
+  --color-badge-text: #ffffff;
+
+  /* Cards */
+  --color-card-bg: linear-gradient(135deg, #242424 0%, #151515 100%);
+  --color-card-border: rgba(255, 255, 255, 0.12);
+  --color-card-shadow: rgba(0, 0, 0, 0.45);
+
+  /* Cabeçalho e Rodapé */
+  --color-header-bg: rgba(18, 18, 18, 0.85);
+  --color-header-border: rgba(255, 255, 255, 0.08);
+  --color-footer-bg: #060606;
+  --color-footer-text: #ffffff;
+  --color-footer-border: rgba(255, 107, 0, 0.2);
+  --color-footer-logo: linear-gradient(to right, #ffffff, #ff6b00);
+
+  /* Elementos da Home Page (Adaptados para Dark) */
+  --home-wrapper-bg: #121212;
+  --home-section-title: #ffffff;
+  --home-varal-line: linear-gradient(90deg, transparent 0%, #333 15%, #555 50%, #333 85%, transparent 100%);
+  --home-card-bg: linear-gradient(180deg, #1e1e1e, #181818);
+  --home-card-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  --home-card-border: 1px solid rgba(255, 255, 255, 0.08);
+  --home-pin-bg: #ffffff;
+  --home-pin-border: 1px solid rgba(255, 255, 255, 0.15);
+  --home-pin-radius: 3px;
+  --home-image-bg: #1a1a1a;
+  --home-image-border: 1px solid rgba(255, 255, 255, 0.06);
+  --home-nav-btn-bg: #1c1c1c;
+  --home-nav-btn-border: 1px solid rgba(255, 255, 255, 0.1);
+  --home-nav-btn-color: #ffffff;
+
+  /* Timeline */
+  --color-timeline-line: rgba(255, 255, 255, 0.1);
+
+  /* Botões secundários */
+  --color-btn-secondary-bg: rgba(255, 255, 255, 0.05);
+  --color-btn-secondary-border: rgba(255, 255, 255, 0.15);
 }
 
 html,
@@ -23,6 +117,7 @@ body {
   background-color: var(--color-bg-alt);
   color: var(--color-text);
   font-family: var(--font-serif);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 #__next,
@@ -297,7 +392,7 @@ ul {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: 0.5s;
 }
 
@@ -408,29 +503,29 @@ ul {
 
 /* --- LINKS PREMIUM --- */
 .premium-link {
-    position: relative;
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s ease;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
 }
 
 .premium-link::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 1.5px;
-    bottom: -4px;
-    left: 0;
-    background-color: var(--color-accent);
-    transform-origin: bottom center;
-    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-accent);
+  transform-origin: bottom center;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .premium-link:hover {
-    color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .premium-link:hover::after {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }

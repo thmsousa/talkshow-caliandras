@@ -1,4 +1,5 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/Header";
@@ -16,12 +17,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname(); // Detecta qual página estamos (ex: /videos)
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  // Carrega o tema do localStorage no lado do cliente
+  useEffect(() => {
+    const handleThemeChange = () => {
+      const savedTheme = localStorage.getItem('caliandras-theme') as 'light' | 'dark';
+      if (savedTheme) {
+        setTheme(savedTheme);
+      }
+    };
+
+    window.addEventListener('theme-change', handleThemeChange);
+
+    const savedTheme = localStorage.getItem('caliandras-theme') as 'light' | 'dark';
+    const activeTheme = savedTheme || 'light';
+    setTheme(activeTheme);
+    document.documentElement.setAttribute('data-theme', activeTheme);
+
+    return () => window.removeEventListener('theme-change', handleThemeChange);
+  }, []);
 
   const { scrollYProgress } = useScroll();
 
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body className={outfit.className} style={{ backgroundColor: '#ffffff' }} suppressHydrationWarning>
+    <html lang="pt-BR" data-theme={theme} suppressHydrationWarning>
+      <body className={outfit.className} suppressHydrationWarning>
         {/* Barra de Progresso de Leitura */}
         <motion.div
           className="reading-progress-bar"
@@ -37,7 +58,7 @@ export default function RootLayout({
             zIndex: 10001 // Acima do header
           }}
         />
-        
+
         <Header />
 
         <AnimatePresence mode="wait">

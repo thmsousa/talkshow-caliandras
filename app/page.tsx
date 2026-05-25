@@ -91,95 +91,95 @@ export default function HomePage() {
             className={styles.mainWrapper}
         >
 
-                    {/* --- SEÇÃO: EVENTOS --- */}
-                    <section className={styles.section}>
-                        <header className={styles.sectionHeader}>
-                            <span className={styles.overtitle}>Agenda Cultural • Caliandras</span>
-                            <h2 className={styles.sectionTitle}>Eventos</h2>
-                        </header>
+            {/* --- SEÇÃO: EVENTOS --- */}
+            <section className={styles.section}>
+                <header className={styles.sectionHeader}>
+                    <span className={styles.overtitle}>Agenda Cultural • Caliandras</span>
+                    <h2 className={styles.sectionTitle}>Eventos</h2>
+                </header>
 
-                        <div
-                            className={styles.carrosselWrapper}
-                            onMouseEnter={() => isInteracting.current = true}
-                            onMouseLeave={() => isInteracting.current = false}
-                        >
-                            <div className={styles.varalLine} />
+                <div
+                    className={styles.carrosselWrapper}
+                    onMouseEnter={() => isInteracting.current = true}
+                    onMouseLeave={() => isInteracting.current = false}
+                >
+                    <div className={styles.varalLine} />
 
-                            <button onClick={() => scrollManual('left')} className={styles.navButton} style={{ left: '-30px' }}>‹</button>
-                            <button onClick={() => scrollManual('right')} className={styles.navButton} style={{ right: '-30px' }}>›</button>
+                    <button onClick={() => scrollManual('left')} className={styles.navButton} style={{ left: '-30px' }}>‹</button>
+                    <button onClick={() => scrollManual('right')} className={styles.navButton} style={{ right: '-30px' }}>›</button>
 
-                            <div ref={carrosselRef} className={styles.carrossel}>
-                                {eventosOrdenados.map((evento, index) => (
-                                    <Link key={evento.id} href="/eventos" style={{ textDecoration: 'none' }}>
-                                        <div
-                                            className={styles.eventCard}
-                                            style={{
-                                                // Definimos a variável CSS para a animação sway
-                                                ['--index' as any]: index
-                                            }}
-                                        >
-                                            <div className={styles.pin} />
-                                            <div className={styles.eventImageWrapper}>
-                                                <Image
-                                                    src={evento.imagem || '/images/reviews/cover_resenha.png'}
-                                                    alt={evento.titulo}
-                                                    fill
-                                                    className={styles.eventImage}
-                                                    sizes="(max-width: 768px) 100vw, 340px"
-                                                />
-                                            </div>
-                                            <div className={styles.cardDetails}>
-                                                <span className={styles.cardDateTag}>{formatFullDate(evento.data)}</span>
-                                                <h4 className={styles.cardTitle}>{evento.titulo}</h4>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* --- SEÇÃO DE VÍDEOS --- */}
-                    <section className={styles.section}>
-                        <header className={styles.sectionHeader}>
-                            <span className={styles.overtitle}>Mídia & Destaques</span>
-                            <h2 className={styles.sectionTitle}>Últimos Vídeos</h2>
-                        </header>
-
-                        <div className={styles.videoGrid}>
-                            {destaques.map((episodio, index) => (
-                                <motion.div
-                                    key={episodio.id}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.15, duration: 0.8 }}
+                    <div ref={carrosselRef} className={styles.carrossel}>
+                        {eventosOrdenados.map((evento, index) => (
+                            <Link key={evento.id} href="/eventos" style={{ textDecoration: 'none' }}>
+                                <div
+                                    className={styles.eventCard}
+                                    style={{
+                                        // Definimos a variável CSS para a animação sway
+                                        ['--index' as any]: index
+                                    }}
                                 >
-                                    <Link href={`/videos/${episodio.slug}`} style={{ textDecoration: 'none' }}>
-                                        <div className={styles.videoCard}>
-                                            <div className={styles.videoThumbnailWrapper}>
-                                                <Image
-                                                    src={episodio.imagemCapaUrl}
-                                                    alt={episodio.titulo}
-                                                    fill
-                                                    className={styles.videoThumb}
-                                                    sizes="(max-width: 900px) 100vw, 50vw"
-                                                />
-                                                <div className={styles.playOverlay}>
-                                                    <div className={styles.playCircle}>▶</div>
-                                                </div>
-                                            </div>
-                                            <div className={styles.videoCardBody}>
-                                                <span className={styles.videoDate}>{formatFullDate(episodio.dataLancamento)}</span>
-                                                <h3 className={styles.videoCardTitle}>{episodio.titulo}</h3>
-                                                <p className={styles.videoDesc}>{episodio.descricao}</p>
-                                            </div>
+                                    <div className={styles.pin} />
+                                    <div className={styles.eventImageWrapper}>
+                                        <Image
+                                            src={evento.imagem || '/images/reviews/cover_resenha.png'}
+                                            alt={evento.titulo}
+                                            fill
+                                            className={styles.eventImage}
+                                            sizes="(max-width: 768px) 100vw, 340px"
+                                        />
+                                    </div>
+                                    <div className={styles.cardDetails}>
+                                        <span className={styles.cardDateTag}>{formatFullDate(evento.data)}</span>
+                                        <h4 className={styles.cardTitle}>{evento.titulo}</h4>
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* --- SEÇÃO DE VÍDEOS --- */}
+            <section className={styles.section}>
+                <header className={styles.sectionHeader}>
+                    <span className={styles.overtitle}>Mídia & Destaques</span>
+                    <h2 className={styles.sectionTitle}>Últimos Vídeos</h2>
+                </header>
+
+                <div className={styles.videoGrid}>
+                    {destaques.map((episodio, index) => (
+                        <motion.div
+                            key={episodio.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.15, duration: 0.8 }}
+                        >
+                            <Link href={`/videos/${episodio.slug}`} style={{ textDecoration: 'none' }}>
+                                <div className={styles.videoCard}>
+                                    <div className={styles.videoThumbnailWrapper}>
+                                        <Image
+                                            src={episodio.imagemCapaUrl}
+                                            alt={episodio.titulo}
+                                            fill
+                                            className={styles.videoThumb}
+                                            sizes="(max-width: 900px) 100vw, 50vw"
+                                        />
+                                        <div className={styles.playOverlay}>
+                                            <div className={styles.playCircle}>▶</div>
                                         </div>
-                                    </Link>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </section>
+                                    </div>
+                                    <div className={styles.videoCardBody}>
+                                        <span className={styles.videoDate}>{formatFullDate(episodio.dataLancamento)}</span>
+                                        <h3 className={styles.videoCardTitle}>{episodio.titulo}</h3>
+                                        <p className={styles.videoDesc}>{episodio.descricao}</p>
+                                    </div>
+                                </div>
+                            </Link>
+                        </motion.div>
+                    ))}
+                </div>
+            </section>
         </motion.main>
     );
 }

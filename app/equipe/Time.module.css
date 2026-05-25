@@ -3,10 +3,12 @@
     margin: 0 auto;
     padding: 0px 20px 40px;
     /* Reduzi o padding inferior */
-    background-color: #fff;
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* --- BACKGROUND DECO --- */
@@ -51,18 +53,19 @@
     content: '';
     height: 1px;
     width: 40px;
-    background: linear-gradient(to right, transparent, #eee, transparent);
+    background: linear-gradient(to right, transparent, var(--color-header-border), transparent);
 }
 
 .sectionTitle {
     font-size: clamp(32px, 6vw, 64px);
     font-weight: 950;
-    color: #111;
+    color: var(--color-text);
     margin: 0;
     text-transform: uppercase;
     letter-spacing: -2.5px;
     line-height: 0.85;
     margin-bottom: 15px;
+    transition: color 0.4s ease;
 }
 
 @media (max-width: 768px) {
@@ -73,11 +76,12 @@
 
 .subtitle {
     font-size: 16px;
-    color: #777;
+    color: var(--color-text-muted);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.5;
     font-weight: 400;
+    transition: color 0.4s ease;
 }
 
 /* --- COLLECTIVE HERO (SPLIT LAYOUT) --- */
@@ -90,11 +94,12 @@
     margin: 0 auto 60px;
     border-radius: 32px;
     overflow: hidden;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
-    border: 1px solid #f2f2f2;
+    box-shadow: 0 40px 100px var(--color-card-shadow);
+    border: 1px solid var(--color-card-border);
     position: relative;
     z-index: 5;
-    background: #fff;
+    background: var(--color-card-bg);
+    transition: border 0.4s ease, background 0.4s ease;
 }
 
 .heroImageWrapper {
@@ -116,14 +121,14 @@
 
 .heroCaption {
     flex: 0.8;
-    background-color: #fff;
+    background: var(--color-card-bg);
     padding: 30px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: left;
     position: relative;
-    flex: 0.8;
+    transition: background-color 0.4s ease;
 }
 
 /* Linha vertical premium que tínhamos antes */
@@ -134,7 +139,8 @@
     top: 25%;
     height: 50%;
     width: 1px;
-    background: linear-gradient(to bottom, transparent, #eee, transparent);
+    background: linear-gradient(to bottom, transparent, var(--color-header-border), transparent);
+    transition: background 0.4s ease;
 }
 
 .heroCaption h2 {
@@ -152,17 +158,19 @@
     text-transform: uppercase;
     letter-spacing: -1.5px;
     line-height: 1;
-    color: #111;
+    color: var(--color-text);
     margin-bottom: 20px;
     font-family: serif;
     font-style: italic;
+    transition: color 0.4s ease;
 }
 
 .heroCaption p {
     font-size: 15px;
-    color: #666;
+    color: var(--color-text-muted);
     line-height: 1.6;
     font-weight: 400;
+    transition: color 0.4s ease;
 }
 
 /* --- GRID DE MEMBROS --- */
@@ -200,16 +208,17 @@
 .dividerLine {
     width: 100%;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.08), transparent);
+    background: linear-gradient(to right, transparent, var(--color-header-border), transparent);
+    transition: background 0.4s ease;
 }
 
 .memberCard {
-    background-color: #fff;
+    background: var(--color-card-bg);
     border-radius: 40px;
     padding: 60px 40px;
     text-align: center;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.03);
-    border: 1px solid #f8f8f8;
+    box-shadow: 0 15px 45px var(--color-card-shadow);
+    border: 1px solid var(--color-card-border);
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     display: flex;
     flex-direction: column;
@@ -240,7 +249,7 @@
 
 .memberCard:hover {
     transform: translateY(-12px);
-    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 35px 70px var(--color-card-shadow);
     border-color: rgba(255, 107, 0, 0.15);
 }
 
@@ -253,7 +262,7 @@
     height: 130px;
     margin: 0 auto 12px; /* Reduzido ainda mais para 12px */
     padding: 8px;
-    border: 1px solid #f0f0f0;
+    border: 1px solid var(--color-header-border);
     border-radius: 50%;
     transition: all 0.6s ease;
 }
@@ -269,7 +278,8 @@
     position: relative;
     border-radius: 50%;
     overflow: hidden;
-    background-color: #fcfcfc;
+    background: var(--color-card-bg);
+    transition: background-color 0.4s ease;
 }
 
 .photo {
@@ -289,7 +299,7 @@
     text-transform: uppercase;
     letter-spacing: -1px;
     margin-bottom: 5px; /* Reduzido para ficar mais perto do cargo */
-    color: #111;
+    color: var(--color-text);
     transition: color 0.3s ease;
 }
 
@@ -299,13 +309,13 @@
 
 .memberBio {
     font-size: 14px;
-    color: #666;
+    color: var(--color-text-muted);
     line-height: 1.7;
     margin-bottom: 40px;
     text-align: justify;
     flex-grow: 1;
     opacity: 0.7; /* Foco suave */
-    transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease, color 0.4s ease;
 }
 
 .memberCard:hover .memberBio {
@@ -334,15 +344,6 @@
     background: rgba(255, 107, 0, 0.02);
 }
 
-.memberBio {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.7;
-    margin-bottom: 40px;
-    text-align: justify;
-    flex-grow: 1;
-}
-
 .memberContact {
     position: relative;
     z-index: 10;
@@ -351,7 +352,8 @@
     justify-content: center;
     gap: 20px;
     padding-top: 30px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid var(--color-header-border);
+    transition: border-top 0.4s ease;
 }
 
 .contactLink {
@@ -359,7 +361,7 @@
     align-items: center;
     gap: 8px;
     font-size: 11px;
-    color: #333;
+    color: var(--color-text);
     text-decoration: none;
     font-weight: 700;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -376,13 +378,14 @@
 
 /* --- MOMENTOS GALLERY --- */
 .momentsSection {
-    background-color: #fcfcfc;
+    background: var(--color-card-bg);
     padding: 100px 40px;
     width: 100%;
     border-radius: 60px;
     margin-bottom: 40px;
     /* Reduzi a margem inferior */
-    border: 1px solid #f8f8f8;
+    border: 1px solid var(--color-card-border);
+    transition: background-color 0.4s ease, border 0.4s ease;
 }
 
 .momentsGallery {
@@ -416,14 +419,16 @@
     letter-spacing: -2px;
     line-height: 0.95;
     margin-bottom: 35px;
-    color: #111;
+    color: var(--color-text);
+    transition: color 0.4s ease;
 }
 
 .momentDescription {
     font-size: 18px;
-    color: #666;
+    color: var(--color-text-muted);
     line-height: 1.7;
     font-weight: 300;
+    transition: color 0.4s ease;
 }
 
 .momentImageWrapper {
@@ -433,10 +438,11 @@
     position: relative;
     border-radius: 40px;
     overflow: hidden;
-    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 40px 90px var(--color-card-shadow);
     display: block;
     /* Ensure it stays block in flex container if needed */
     min-width: 300px;
+    transition: box-shadow 0.4s ease;
 }
 
 .momentImage {

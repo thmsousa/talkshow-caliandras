@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Instagram, Mail, Youtube, Twitter } from 'lucide-react';
+import { Instagram, Mail, Youtube, Twitter, Sun, Moon } from 'lucide-react';
 import styles from './Navbar.module.css';
 
 const navItems = [
@@ -22,7 +22,8 @@ export default function NavbarClient() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
     const [mounted, setMounted] = useState(false);
-    
+    const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
     useEffect(() => {
         setMounted(true);
         if (isOpen) {
@@ -33,7 +34,36 @@ export default function NavbarClient() {
         return () => { document.body.style.overflow = 'unset'; };
     }, [isOpen]);
 
+    // Theme initialization and event syncing
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('caliandras-theme') as 'light' | 'dark';
+        if (savedTheme) {
+            setTheme(savedTheme);
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        } else {
+            setTheme('light');
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+
+        const handleThemeChange = () => {
+            const currentTheme = localStorage.getItem('caliandras-theme') as 'light' | 'dark';
+            if (currentTheme) {
+                setTheme(currentTheme);
+            }
+        };
+        window.addEventListener('theme-change', handleThemeChange);
+        return () => window.removeEventListener('theme-change', handleThemeChange);
+    }, []);
+
     const toggleMenu = () => setIsOpen(!isOpen);
+
+    const toggleTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('caliandras-theme', newTheme);
+        window.dispatchEvent(new Event('theme-change'));
+    };
 
     const menuContent = (
         <AnimatePresence>
@@ -46,7 +76,7 @@ export default function NavbarClient() {
                     className={styles.mobileDrawer}
                 >
                     {/* Botão de Fechar dentro do Drawer */}
-                    <button 
+                    <button
                         onClick={() => setIsOpen(false)}
                         className={styles.closeButton}
                         aria-label="Fechar Menu"
@@ -87,7 +117,7 @@ export default function NavbarClient() {
                         ))}
                     </ul>
 
-                    <motion.div 
+                    <motion.div
                         className={styles.mobileFooter}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -109,7 +139,30 @@ export default function NavbarClient() {
     );
 
     return (
-        <nav>
+        <nav className={styles.navContainer}>
+            {/* DESKTOP NAV */}
+            <ul className={`${styles.navList} ${styles.desktopOnly}`}>
+                {navItems.map((item) => (
+                    <li key={item.name} className={styles.navItem}>
+                        <Link
+                            href={item.href}
+                            className={`${styles.navLink} ${pathname === item.href ? styles.active : ''}`}
+                        >
+                            {item.name}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+
+            {/* Theme Toggle Button */}
+            <button
+                onClick={toggleTheme}
+                className={styles.themeToggle}
+                aria-label={theme === 'light' ? 'Ativar Modo Escuro' : 'Ativar Modo Claro'}
+            >
+                {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+            </button>
+
             {/* BOTÃO mobile*/}
             <button
                 onClick={toggleMenu}
@@ -134,7 +187,7 @@ export default function NavbarClient() {
                     animate={isOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -5 }}
                     style={{
                         width: '24px', height: '1.5px',
-                        background: isOpen ? 'white' : '#111',
+                        background: isOpen ? 'white' : 'var(--color-text)',
                         position: 'absolute'
                     }}
                     transition={{ duration: 0.3 }}
@@ -143,7 +196,7 @@ export default function NavbarClient() {
                     animate={isOpen ? { opacity: 0, x: 20 } : { opacity: 1, x: 0 }}
                     style={{
                         width: '24px', height: '1.5px',
-                        background: '#111',
+                        background: 'var(--color-text)',
                         position: 'absolute'
                     }}
                     transition={{ duration: 0.3 }}
@@ -152,26 +205,12 @@ export default function NavbarClient() {
                     animate={isOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 5 }}
                     style={{
                         width: '24px', height: '1.5px',
-                        background: isOpen ? 'white' : '#111',
+                        background: isOpen ? 'white' : 'var(--color-text)',
                         position: 'absolute'
                     }}
                     transition={{ duration: 0.3 }}
                 />
             </button>
-
-            {/* DESKTOP NAV */}
-            <ul className={`${styles.navList} ${styles.desktopOnly}`}>
-                {navItems.map((item) => (
-                    <li key={item.name} className={styles.navItem}>
-                        <Link
-                            href={item.href}
-                            className={`${styles.navLink} ${pathname === item.href ? styles.active : ''}`}
-                        >
-                            {item.name}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
 
             {/* PORTAL PARA O MENU MOBILE */}
             {mounted && createPortal(menuContent, document.body)}

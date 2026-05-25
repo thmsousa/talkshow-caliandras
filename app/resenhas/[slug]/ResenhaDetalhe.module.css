@@ -1,10 +1,12 @@
 .mainContainer {
     width: 100%;
     padding: 40px 20px 100px;
-    background-color: #fff;
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .hero {
@@ -31,7 +33,7 @@
 .title {
     font-size: clamp(36px, 7vw, 76px);
     font-weight: 950;
-    color: #111;
+    color: var(--color-text);
     letter-spacing: -3px;
     line-height: 0.95;
     text-transform: uppercase;
@@ -40,7 +42,7 @@
 
 .authorName {
     font-size: 16px;
-    color: #666;
+    color: var(--color-text-muted);
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 600;
@@ -64,8 +66,8 @@
     height: 380px;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
-    background-color: #f9f9f9;
+    box-shadow: 0 30px 80px var(--color-card-shadow);
+    background-color: var(--color-bg-alt);
 }
 
 .featuredImage {
@@ -86,7 +88,7 @@
     justify-content: center;
     text-align: left;
     padding: 0 20px;
-    border-left: 1px solid #f0f0f0;
+    border-left: 1px solid var(--color-header-border);
 }
 
 .glassCard {
@@ -116,7 +118,7 @@
 }
 
 .starInactive {
-    color: #eee;
+    color: var(--color-header-border);
 }
 
 .techGrid {
@@ -142,7 +144,7 @@
 .techValue {
     font-size: 16px;
     font-weight: 800;
-    color: #1a1a1a;
+    color: var(--color-text);
     letter-spacing: -0.5px;
 }
 
@@ -163,7 +165,7 @@
 }
 
 .reviewerProfileLink:hover {
-    background: #f5f5f5;
+    background: var(--color-btn-secondary-bg);
 }
 
 .reviewerProfileLink:hover .reviewerAvatar {
@@ -233,7 +235,7 @@
     align-items: center;
     margin-bottom: 0px;
     padding-bottom: 8px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--color-header-border);
 }
 
 .muralTitle {
@@ -241,7 +243,7 @@
     font-weight: 950;
     text-transform: uppercase;
     letter-spacing: -1px;
-    color: #111;
+    color: var(--color-text);
 }
 
 .muralHint {
@@ -249,8 +251,8 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: #666;
-    background: #f5f5f5;
+    color: var(--color-text-muted);
+    background: var(--color-btn-secondary-bg);
     padding: 8px 16px;
     border-radius: 100px;
     display: inline-flex;
@@ -272,7 +274,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding-top: 60px;
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid var(--color-header-border);
 }
 
 /* Decorações Laterais e Minimalistas */
@@ -282,7 +284,7 @@
     bottom: 0;
     left: -120px;
     right: -120px;
-    background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+    background-image: radial-gradient(var(--color-header-border) 1px, transparent 1px);
     background-size: 25px 25px;
     opacity: 0.5;
     z-index: -1;
@@ -343,7 +345,7 @@
 .decorCrossTR::before, .decorCrossTR::after {
     content: '';
     position: absolute;
-    background: #ccc;
+    background: var(--color-header-border);
 }
 .decorCrossTL::before, .decorCrossTR::before {
     top: 7px; left: 0; width: 15px; height: 1px;
@@ -357,7 +359,7 @@
     top: 100px;
     bottom: 100px;
     width: 1px;
-    background: linear-gradient(to bottom, transparent, #e5e5e5 15%, #e5e5e5 85%, transparent);
+    background: linear-gradient(to bottom, transparent, var(--color-header-border) 15%, var(--color-header-border) 85%, transparent);
 }
 
 .decorLineLeft {
@@ -374,7 +376,7 @@
     font-family: monospace;
     font-size: 10px;
     font-weight: 600;
-    color: #bbb;
+    color: var(--color-text-muted);
     letter-spacing: 8px;
     text-transform: uppercase;
 }
@@ -400,7 +402,7 @@
     font-size: 250px;
     font-weight: 950;
     font-family: serif;
-    color: rgba(0,0,0,0.02);
+    color: rgba(var(--color-accent-rgb), 0.02);
     z-index: -1;
     pointer-events: none;
     user-select: none;
@@ -429,8 +431,8 @@
     font-size: 9px;
     font-family: monospace;
     font-weight: 600;
-    color: #aaa;
-    border: 1px solid #eee;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-header-border);
     padding: 4px 8px;
     border-radius: 4px;
     letter-spacing: 2px;
@@ -449,7 +451,7 @@
 .articleTitle {
     font-size: 36px;
     font-weight: 950;
-    color: #111;
+    color: var(--color-text);
     letter-spacing: -1.5px;
     margin: 0 0 25px;
     text-align: center;
@@ -465,7 +467,7 @@
 .reviewText {
     font-size: 20px;
     line-height: 1.8;
-    color: #333;
+    color: var(--color-text);
     text-align: justify;
 }
 
@@ -506,14 +508,14 @@
 .line {
     width: 100px;
     height: 1px;
-    background: #000;
+    background: var(--color-text);
 }
 
 .dramaticQuote {
     font-size: 32px;
     font-weight: 950;
     text-transform: uppercase;
-    color: #111;
+    color: var(--color-text);
     text-align: center;
     line-height: 1.1;
     letter-spacing: -1px;
@@ -545,7 +547,7 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    border-top: 1px dotted #ccc;
+    border-top: 1px dotted var(--color-header-border);
     padding-top: 50px;
 }
 
@@ -559,7 +561,7 @@
 .backLink {
     font-size: 11px;
     font-weight: 900;
-    color: #111;
+    color: var(--color-text);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -575,7 +577,7 @@
 }
 
 .videoCTA {
-    background-color: #fafafa;
+    background: var(--color-card-bg);
     padding: 35px 50px;
     border-radius: 20px;
     text-align: center;
@@ -586,7 +588,7 @@
 .videoCTA p {
     font-size: 11px;
     font-weight: 800;
-    color: #999;
+    color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 20px;
@@ -596,8 +598,8 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background-color: #111;
-    color: #fff;
+    background-color: var(--color-dark);
+    color: var(--color-bg-alt);
     padding: 15px 30px;
     border-radius: 100px;
     text-decoration: none;
@@ -767,7 +769,7 @@
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.03) 0%, transparent 70%);
 }
 
 .decoCircleRight {
@@ -777,7 +779,7 @@
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.03) 0%, transparent 70%);
 }
 
 .decoVerticalTextLeft {
@@ -789,7 +791,7 @@
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 24px;
-    color: rgba(0, 0, 0, 0.12);
+    color: rgba(var(--color-accent-rgb), 0.08);
     text-transform: uppercase;
 }
 
@@ -811,8 +813,8 @@
     left: 0;
     right: 0;
     height: 900px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-image: linear-gradient(var(--color-header-border) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--color-header-border) 1px, transparent 1px);
     background-size: 50px 50px;
     mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);

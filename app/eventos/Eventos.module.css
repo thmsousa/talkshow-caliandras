@@ -3,9 +3,11 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px 100px;
-    background: #fff;
+    background: var(--color-bg-alt);
+    color: var(--color-text);
     position: relative;
     overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .pageWrapper::after {
@@ -59,12 +61,13 @@
 .mainTitle {
     font-size: clamp(32px, 6vw, 64px);
     font-weight: 950;
-    color: #111;
+    color: var(--color-text);
     letter-spacing: -1.5px;
     line-height: 0.95;
     margin: 0;
     text-transform: uppercase;
     flex-shrink: 0;
+    transition: color 0.4s ease;
 }
 
 @media (max-width: 768px) {
@@ -88,7 +91,7 @@
     /* Um pouco mais estreito melhora a legibilidade */
     font-size: 15px;
     line-height: 1.6;
-    color: #666;
+    color: var(--color-text-muted);
     font-style: italic;
     margin-top: 5px;
     position: relative;
@@ -101,7 +104,7 @@
     top: 5px;
     bottom: 5px;
     width: 1px;
-    background: #eee;
+    background: var(--color-header-border);
 }
 
 
@@ -116,7 +119,7 @@
     left: 50%;
     width: 1px;
     height: 100%;
-    background: #eee;
+    background: var(--color-header-border);
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -146,7 +149,7 @@
     position: absolute;
     font-size: clamp(150px, 35vw, 550px);
     font-weight: 950;
-    color: rgba(0, 0, 0, 0.025);
+    color: rgba(var(--color-accent-rgb), 0.03);
     z-index: 0;
     font-family: serif;
     user-select: none;
@@ -183,11 +186,12 @@
     max-width: 420px;
     position: relative;
     padding: 15px;
-    background: #fff;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.06);
-    border: 1px solid #f9f9f9;
+    background: var(--color-card-bg);
+    box-shadow: 0 40px 80px var(--color-card-shadow);
+    border: 1px solid var(--color-card-border);
     /* Removendo overflow para permitir que a imagem "saia" do quadro se necessário */
     overflow: visible;
+    transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .flippable {
@@ -239,7 +243,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #fcfcfc;
+    background: var(--color-card-bg);
     /* Fundo sutil para áreas não preenchidas */
     position: relative;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -253,7 +257,7 @@
     padding: 5px;
     /* Respiro mínimo para não colar nas bordas */
     transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px var(--color-card-shadow);
 }
 
 /* Quando o mouse passa ou está virado, o panfleto "salta" do quadro */
@@ -315,7 +319,7 @@
     top: 0;
     width: 2px;
     height: 100%;
-    background: #f8f8f8;
+    background: var(--color-header-border);
     /* Linha de fundo mais discreta */
     transform: translateX(-50%);
     z-index: 1;
@@ -403,13 +407,14 @@
 }
 
 .eventDate {
-    color: #fff;
-    background: #111;
+    color: var(--color-badge-text);
+    background: var(--color-badge-bg);
     padding: 6px 14px;
     font-weight: 900;
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .eventTitle {
@@ -418,24 +423,24 @@
     line-height: 0.95;
     margin-bottom: 25px;
     letter-spacing: -3px;
-    color: #111;
+    color: var(--color-text);
     text-transform: uppercase;
 }
 
 .eventDescription {
-    color: #555;
+    color: var(--color-text-muted);
     font-size: 16px;
     line-height: 1.8;
     font-weight: 400;
     letter-spacing: -0.2px;
-    border-left: 2px solid #f0f0f0;
+    border-left: 2px solid var(--color-header-border);
     padding-left: 25px;
     transition: 0.8s ease;
 }
 
 .odd .eventDescription {
     border-left: none;
-    border-right: 2px solid #f0f0f0;
+    border-right: 2px solid var(--color-header-border);
     padding-left: 0;
     padding-right: 25px;
 }
@@ -455,7 +460,7 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: #f0f0f0;
+    background: var(--color-header-border);
 }
 
 /* --- MEDIA QUERIES --- */

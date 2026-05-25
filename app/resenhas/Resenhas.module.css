@@ -2,10 +2,12 @@
     max-width: 1400px; /* Expandido novamente para dar mais largura real aos 3 cards */
     margin: 0 auto;
     padding: 30px 20px 100px;
-    background-color: #fff;
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* DECORAÇÕES EDITORIAIS */
@@ -17,13 +19,14 @@
     letter-spacing: 16px;
     text-transform: uppercase;
     font-weight: 900;
-    color: rgba(0, 0, 0, 0.05);
+    color: rgba(var(--color-accent-rgb), 0.05);
     writing-mode: vertical-rl;
     z-index: 0;
     pointer-events: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: color 0.4s ease;
 }
 
 .decoVerticalTextLeft { left: 15px; transform: rotate(180deg); }
@@ -53,7 +56,7 @@
 .title {
     font-size: clamp(32px, 6vw, 54px);
     font-weight: 950;
-    color: #111;
+    color: var(--color-text);
     margin: 0;
     text-transform: uppercase;
     letter-spacing: -1.5px;
@@ -61,6 +64,7 @@
     margin-bottom: 24px;
     position: relative;
     display: inline-block;
+    transition: color 0.4s ease;
 }
 
 @media (max-width: 600px) {
@@ -72,11 +76,12 @@
 
 .headerSubtitle {
     font-size: 15px;
-    color: #777;
+    color: var(--color-text-muted);
     max-width: 500px; 
     line-height: 1.6;
     margin: 10px auto 0; /* Centraliza o bloco na tela */
     text-align: center; /* Centraliza o texto */
+    transition: color 0.4s ease;
 }
 
 /* GRID & CARDS */
@@ -117,7 +122,7 @@
 
 .reviewCard:hover .imageWrapper {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 30px 60px var(--color-card-shadow);
 }
 
 .cardImage {
@@ -195,12 +200,13 @@
     font-weight: 900;
     margin: 0 0 8px;
     letter-spacing: -0.5px;
-    color: #111;
+    color: var(--color-text);
     line-height: 1.2;
     text-transform: uppercase;
     position: relative;
     align-self: flex-start;
     display: inline-block;
+    transition: color 0.4s ease;
 }
 
 .cardTitle::after {
@@ -243,13 +249,14 @@
 }
 
 .starInactive {
-    color: #eee;
+    color: var(--color-header-border);
+    transition: color 0.4s ease;
 }
 
 .cardExcerpt {
     font-size: 15px; 
     line-height: 1.6;
-    color: #666;
+    color: var(--color-text-muted);
     margin-bottom: 0;
     margin-top: 15px; /* Espaçamento do resto do conteúdo */
     padding-left: 15px; /* Respiro para a borda */
@@ -259,6 +266,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    transition: color 0.4s ease;
 }
 
 @media (max-width: 900px) {
