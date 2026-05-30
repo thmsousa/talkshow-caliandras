@@ -10,6 +10,23 @@ import styles from './VideosIndex.module.css';
 
 import { formatFullDate } from '@/lib/utils/formatters';
 
+const renderFormattedDescription = (text: string) => {
+    if (!text) return null;
+    const parts = text.split('**');
+    return parts.map((part, i) => {
+        if (i % 2 === 1) {
+            return <strong key={i}>{part}</strong>;
+        }
+        const subParts = part.split('\n');
+        return subParts.map((subPart, j) => (
+            <span key={`${i}-${j}`}>
+                {subPart}
+                {j < subParts.length - 1 && <br />}
+            </span>
+        ));
+    });
+};
+
 export default function VideosIndexPage() {
     const [busca, setBusca] = useState('');
 
@@ -94,7 +111,7 @@ export default function VideosIndexPage() {
                             <div className={styles.cardContent}>
                                 <div className={styles.dateTag}>{formatFullDate(episodio.dataLancamento)}</div>
                                 <h3 className={styles.videoTitle}>{episodio.titulo}</h3>
-                                <p className={styles.videoDescription}>{episodio.descricao}</p>
+                                <p className={styles.videoDescription}>{renderFormattedDescription(episodio.descricao)}</p>
 
                                 <div className={styles.cardFooter}>
                                     <span className={styles.footerInfo}>TALKSHOW</span>

@@ -8,6 +8,7 @@ import { Episodio } from './components/utils/types';
 import { TODOS_EPISODIOS, EVENTOS_CALINDRAS } from '@/lib/mockData';
 import { formatFullDate } from '@/lib/utils/formatters';
 import { Skeleton, CardSkeleton } from './components/ui/Skeleton';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './Home.module.css';
 
 export default function HomePage() {
@@ -105,8 +106,12 @@ export default function HomePage() {
                 >
                     <div className={styles.varalLine} />
 
-                    <button onClick={() => scrollManual('left')} className={styles.navButton} style={{ left: '-30px' }}>‹</button>
-                    <button onClick={() => scrollManual('right')} className={styles.navButton} style={{ right: '-30px' }}>›</button>
+                    <button onClick={() => scrollManual('left')} className={styles.navButton} style={{ left: '-30px' }} aria-label="Anterior">
+                        <ChevronLeft size={28} />
+                    </button>
+                    <button onClick={() => scrollManual('right')} className={styles.navButton} style={{ right: '-30px' }} aria-label="Próximo">
+                        <ChevronRight size={28} />
+                    </button>
 
                     <div ref={carrosselRef} className={styles.carrossel}>
                         {eventosOrdenados.map((evento, index) => (

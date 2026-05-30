@@ -34,7 +34,9 @@ export const TODOS_EPISODIOS: Episodio[] = [
         slug: 'espirito-ilicito-autor',
         dataLancamento: '2025-11-24T12:00:00',
         urlVideo: 'ZFValH0rauY',
-        descricao: 'Saiba mais sobre o autor da obra "Espiríto Ilícitio", Pablo Costa.',
+        descricao: `Vídeo de apresentação do autor Pabl. Costa, de Espírito Ilícito.
+
+**Filmagem e direção:** Emilly Campos`,
         imagemCapaUrl: '/images/episodes/pablo_autor_esp_ili.jpg',
         autorId: 'a1'
     },
@@ -44,7 +46,9 @@ export const TODOS_EPISODIOS: Episodio[] = [
         slug: 'encontro-ilicito',
         dataLancamento: '2025-11-28T12:00:00',
         urlVideo: 'NpGOg2fvgz4',
-        descricao: 'Um pequeno Vlog do encontro "Espirito Ilícito", realizado no dia 10 de outubro.',
+        descricao: `Minivlog dos bastidores do conselho editorial feito para o livro Espírito Ilícito.
+
+**Filmagem e direção:** Emilly Campos`,
         imagemCapaUrl: '/images/episodes/cover_vlog_encontro.png',
         autorId: 'a1'
     },
@@ -54,7 +58,9 @@ export const TODOS_EPISODIOS: Episodio[] = [
         slug: 'lancamento-espirito-ilicito',
         dataLancamento: '2025-10-10T12:00:00',
         urlVideo: 'Xgoom94yiNw',
-        descricao: 'Registros do lançamento do livro Espirito Ilícito, realiado no Cine Teatro IFTO, em 10 de outubro.',
+        descricao: `Cortes de momentos do lançamento do livro Espírito Ilícito, realizado no CineTeatro do IFTO campus Palmas.
+
+**Autor:** Thallys`,
         imagemCapaUrl: '/images/episodes/cover_lancamento_ei.png',
         autorId: 'a1'
     },
@@ -64,7 +70,12 @@ export const TODOS_EPISODIOS: Episodio[] = [
         slug: 'resenha-esp-ili-gleicielly',
         dataLancamento: '2025-10-16T12:00:00',
         urlVideo: 'f0qlGFNDdEE',
-        descricao: `Em ESPÍRITO ILÍCITO, Pabl. Costa tece uma obra envolvente, sensorial e perturbadora, onde o sagrado se entrelaça com o profano em uma história repleta de cicatrizes e beleza.`,
+        descricao: `Vídeo da resenha feita por Gleici Medeiros, gravado nas dunas do Jalapão.
+
+ESPÍRITO ILÍCITO, Pabl. Costa tece uma obra envolvente, sensorial e perturbadora, onde o sagrado se entrelaça com o profano em uma história repleta de cicatrizes e beleza.
+
+**Autora:** Gleici Medeiros
+**Filmado e editado:** Emilly Campos`,
         imagemCapaUrl: '/images/episodes/cover_resenha.png',
         autorId: 'a2'
     },
@@ -86,7 +97,7 @@ export const TODOS_EPISODIOS: Episodio[] = [
         dataLancamento: '2026-03-02T12:00:00',
         urlVideo: 'DVZmjYxEbAg',
         tipoVideo: 'instagram',
-        descricao: 'Convite oficial para o lançamento da antologia Para Além das Letras, realizado no Espaço Cultural em Palmas (TO).',
+        descricao: 'Chamado oficial para o lançamento do livro Para Além das Letras.',
         imagemCapaUrl: '/images/episodes/para_alem_das_letras.jpeg',
         autorId: 'caliandras'
     },
@@ -97,7 +108,11 @@ export const TODOS_EPISODIOS: Episodio[] = [
         dataLancamento: '2025-09-25T12:00:00',
         urlVideo: 'DPCgMhYErjl',
         tipoVideo: 'instagram',
-        descricao: 'Convite oficial para o lançamento do livro independente Espírito Ilícito, de Pabl. Costa, no Cine Teatro IFTO em Palmas (TO).',
+        descricao: `Chamado oficial para o lançamento do livro independente Espírito Ilícito.
+
+A promoção dessa obra foi o marco inicial para o Caliandras.
+
+**Autor:** Yuri`,
         imagemCapaUrl: '/images/episodes/chamado_espirito_ilicito.jpeg',
         autorId: 'caliandras'
     },
@@ -108,7 +123,12 @@ export const TODOS_EPISODIOS: Episodio[] = [
         dataLancamento: '2025-04-30T12:00:00',
         urlVideo: 'DJFr1dqxQOn',
         tipoVideo: 'instagram',
-        descricao: 'Campanha do Caliandras Show para arrecadação de livros. Doe livros e ajude a democratizar o acesso à literatura em Palmas (TO).',
+        descricao: `A campanha de arrecadação de livros para um acervo comunitário das licenciaturas do IFTO campus Palmas foi um dos primeiros passos para o que se tornaria o Caliandras.
+
+Reuniu-se +600 exemplares, de teóricos às clássicos da literatura brasileira. Hoje contamos com uma estante lotada localizada no Laboratório Paulo Freire, espaço comum das licenciaturas do campus Palmas.
+
+**Estrelado por:** Sofia
+**Filmado e editado por:** Emilly Campos`,
         imagemCapaUrl: '/images/episodes/doacao_livros.jpeg',
         autorId: 'caliandras'
     }
@@ -202,19 +222,26 @@ export const EVENTOS_CALINDRAS = [
         data: "2026-05-08",
         imagem: "/images/events/eve8.jpeg",
         imagemVerso: "/images/events/eve8_2.jpeg",
-        descricao: 'Evento adicional de lançamento e celebração da antologia Para Além das Letras, reunindo autores e leitores.'
+        descricao: 'Lançamento do livro antologia Para Além das Letras, das organizadoras Mirelle Freitas e Vanessa Trajano em formato Talk Show. O evento ocorreu na cidade natal da escritora Daniella Figuereido'
+    },
+    {
+        id: 9,
+        titulo: "Campanha de Arrecadação de Livros",
+        data: "2026-05-27",
+        imagem: "/images/events/eve9.jpeg",
+        descricao: "Campanha de arrecadação para o Cantinho da Leitura do Laboratório Paulo Freire, espaço comum das licenciaturas do IFTO campus Palmas, promovida pelo Caliandras Show."
     }
 ];
 
 export const EQUIPE_CALIANDRAS: TimeMember[] = [
     {
-        id: 't1',
-        nome: 'Pablo Costa',
-        cargo: 'Designer gráfico, conselheiro criativo e sonoplasta.',
-        fotoUrl: '/images/equipe/pablo.jpg',
-        bio: 'Pablo Costa é nascido na periferia de Palmas (TO) e em 2026 completa 20 anos. Publicou sua primeira obra em 2022 pela Editora Coerência, “As Estacões de Demp Esmerald e o Gato da Penumbra”, e a segunda de forma completamente independente, “Espírito Ilícito” em 2025. Autor queer na flor da idade, faz ilustrações e poemas para os próprios livros, atualmente cursa licenciatura em Letras pelo IFTO e faz designer gráficos e lidera o coletivo de literatura Caliandras Show.',
-        email: 'ps.cosescritor@gmail.com',
-        instagram: '@ps.co'
+        id: 't4',
+        nome: 'Emilly Campos',
+        cargo: 'Designer gráfica, Videomaker e Entrevistadora',
+        fotoUrl: '/images/equipe/emilly.jpg',
+        bio: 'De Palmas (TO), Emilly Campos, atualmente em 2026, faz parte do CALINTRAS, (Centro Acadêmico de Licenciatura em Letras), realizando trabalhos gráficos e organizando eventos voltados à leitura. Estendendo suas habilidades, edita vídeos e produz postagens para o coletivo de literatura Caliandras Show.',
+        email: 'emilycampos2408@gmail.com',
+        instagram: '@emillycsmps'
     },
     {
         id: 't2',
@@ -226,6 +253,29 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         instagram: '@gleici.smedeiros'
     },
     {
+        id: 't9',
+        nome: 'Isabella',
+        cargo: 'Direção & Tecnologia',
+        fotoUrl: '/images/equipe/isabella.jpg',
+        bio: 'Responsável pela estética e pela voz do projeto nos canais digitais, construindo a identidade visual que você vê aqui.'
+    },
+    {
+        id: 't8',
+        nome: 'Luciano Gonçalves',
+        cargo: 'Conselheiro Comunicacional',
+        fotoUrl: '/images/equipe/luciano.jpg',
+        bio: 'Luciano Gonçalves, doutor pelo Programa de Pós-Graduação em Literatura Brasileira da Universidade de São Paulo (USP), mestre e licenciado em Letras pela Universidade Federal de Mato Grosso Sul (UFMS), realizou dissertação e tese sobre a obra de Samuel Rawet, escritor judeu-polonês, naturalizado brasileiro. No presente, pesquisa a crônica édita de Dinah Silveira de Queiroz, publicada no jornal Correio Braziliense. Atua como professor de Português e suas literaturas no Instituto Federal do Tocantins (IFTO). Natural de Teixeira de Freitas, Bahia, é autor de Crônicas espectrais, notas sobre o TEA (Editora Patuá, 2024), sua estreia na prosa.'
+    },
+    {
+        id: 't7',
+        nome: 'Mirelle Freitas',
+        cargo: 'Conselheira para Administração e Finanças',
+        fotoUrl: '/images/equipe/mirelle.jpg',
+        bio: 'Mirelle Freitas é guiada pela curiosidade, foi assim que conquistou diplomas e títulos na sua vida acadêmica (doutorados, mestrados, especializações e por aí vai). Nascida no interior de Goiás, na infância e adolescência escrevia redações e diários, mas foi na escrita acadêmica que se firmou. A convivência com estudantes na sua atuação como formadora de professores, no Instituto Federal do Tocantins (IFTO), a fez se redescobrir leitora. Esse trajeto a reconectou com a escrita literária.',
+        email: 'mirelle.sf11@gmail.com',
+        instagram: '@mih_sfreitas'
+    },
+    {
         id: 't3',
         nome: 'Nayra Souza',
         cargo: 'Roteirista, entrevistadora e secretária interna',
@@ -235,13 +285,13 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         instagram: '@nayra_souza'
     },
     {
-        id: 't4',
-        nome: 'Emilly Campos',
-        cargo: 'Designer gráfica, Videomaker e Entrevistadora',
-        fotoUrl: '/images/equipe/emilly.jpg',
-        bio: 'De Palmas (TO), Emilly Campos, atualmente em 2026, faz parte do CALINTRAS, (Centro Acadêmico de Licenciatura em Letras), realizando trabalhos gráficos e organizando eventos voltados à leitura. Estendendo suas habilidades, edita vídeos e produz postagens para o coletivo de literatura Caliandras Show.',
-        email: 'emilycampos2408@gmail.com',
-        instagram: '@emillycsmps'
+        id: 't1',
+        nome: 'Pablo Costa',
+        cargo: 'Designer gráfico, conselheiro criativo e sonoplasta.',
+        fotoUrl: '/images/equipe/pablo.jpg',
+        bio: 'Pablo Costa é nascido na periferia de Palmas (TO) e em 2026 completa 20 anos. Publicou sua primeira obra em 2022 pela Editora Coerência, “As Estacões de Demp Esmerald e o Gato da Penumbra”, e a segunda de forma completamente independente, “Espírito Ilícito” em 2025. Autor queer na flor da idade, faz ilustrações e poemas para os próprios livros, atualmente cursa licenciatura em Letras pelo IFTO e faz designer gráficos e lidera o coletivo de literatura Caliandras Show.',
+        email: 'ps.cosescritor@gmail.com',
+        instagram: '@ps.co'
     },
     {
         id: 't5',
@@ -257,30 +307,7 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         nome: 'Sávio Rodrigues',
         cargo: 'Resenhista',
         fotoUrl: '/images/equipe/savio.jpg',
-        bio: 'Sávio Rodrigues tem 20 anos em 2026. É estudante de Psicologia, interessado em compreender o comportamento humano e o desenvolvimento pessoal. Amante de música pop e histórias de fantasia e suspense. Lidera o clube do livro Conversas de Bois e quando sobra um tempinho, também faz resenhas para o Caliandras Show. Está em constante aprendizado, buscando crescimento pessoal e acadêmico.'
-    },
-    {
-        id: 't7',
-        nome: 'Mirelle Freitas',
-        cargo: 'Conselheira para Administração e Finanças',
-        fotoUrl: '/images/equipe/mirelle.jpg',
-        bio: 'Mirelle Freitas é guiada pela curiosidade, foi assim que conquistou diplomas e títulos na sua vida acadêmica (doutorados, mestrados, especializações e por aí vai). Nascida no interior de Goiás, na infância e adolescência escrevia redações e diários, mas foi na escrita acadêmica que se firmou. A convivência com estudantes na sua atuação como formadora de professores, no Instituto Federal do Tocantins (IFTO), a fez se redescobrir leitora. Esse trajeto a reconectou com a escrita literária.',
-        email: 'mirelle.sf11@gmail.com',
-        instagram: '@mih_sfreitas'
-    },
-    {
-        id: 't8',
-        nome: 'Luciano Gonçalves',
-        cargo: 'Conselheiro Comunicacional',
-        fotoUrl: '/images/equipe/luciano.jpg',
-        bio: 'Luciano Gonçalves, doutor pelo Programa de Pós-Graduação em Literatura Brasileira da Universidade de São Paulo (USP), mestre e licenciado em Letras pela Universidade Federal de Mato Grosso Sul (UFMS), realizou dissertação e tese sobre a obra de Samuel Rawet, escritor judeu-polonês, naturalizado brasileiro. No presente, pesquisa a crônica édita de Dinah Silveira de Queiroz, publicada no jornal Correio Braziliense. Atua como professor de Português e suas literaturas no Instituto Federal do Tocantins (IFTO). Natural de Teixeira de Freitas, Bahia, é autor de Crônicas espectrais, notas sobre o TEA (Editora Patuá, 2024), sua estreia na prosa.'
-    },
-    {
-        id: 't9',
-        nome: 'Isabella',
-        cargo: 'Direção & Tecnol',
-        fotoUrl: '/images/equipe/isabella.jpg',
-        bio: 'Responsável pela estética e pela voz do projeto nos canais digitais, construindo a identidade visual que você vê aqui.'
+        bio: 'Sávio Rodrigues tem 20 anos in 2026. É estudante de Psicologia, interessado em compreender o comportamento humano e o desenvolvimento pessoal. Amante de música pop e histórias de fantasia e suspense. Lidera o clube do livro Conversas de Bois e quando sobra um tempinho, também faz resenhas para o Caliandras Show. Está em constante aprendizado, buscando crescimento pessoal e acadêmico.'
     },
     {
         id: 't10',
@@ -289,6 +316,15 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         fotoUrl: '/images/equipe/thiago.jpeg',
         bio: 'Thiago Medeiros tem 21 anos, nascido em 2004. Com formação técnica em Mecatrônica e uma trajetória dedicada à programação, ele é o motor tecnológico por trás do Caliandras Show. Amante da tecnologia e da inovação, Thiago acredita no poder das ferramentas digitais como pontes para a democratização do saber. No Caliandras, sua missão é unir a precisão dos códigos à sensibilidade das artes, garantindo que a cultura e a literatura regional alcancem novos horizontes através de uma experiência digital moderna, fluida e acessível.',
         email: 'thiagosousam2004@gmail.com',
+    },
+    {
+        id: 't11',
+        nome: 'Yuri Vasconcelos',
+        cargo: 'Filmmaker, roteirista e social mídia',
+        fotoUrl: '/images/equipe/yuri.jpg',
+        bio: 'Yuri Vasconcelos é um digital influencer de 20 anos, em 2026. É estudante de jornalismo da UFT (universidade federal do Tocantins) interessado em aprender mais sobre marketing digital e propaganda, design gráfico e a assessoria de imprensa. Está em constante aprendizado, buscando crescimento pessoal profissional e acadêmico.',
+        email: 'yuri.vasconcelos@mail.uft.edu.br',
+        instagram: '@yurykiim'
     }
 ];
 

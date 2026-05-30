@@ -323,6 +323,11 @@
     transform: translateY(-50%) scale(1.1);
 }
 
+[data-theme="dark"] .navButton:hover {
+    background: #ffffff;
+    color: #121212;
+}
+
 /* --- ANIMAÇÕES --- */
 @keyframes sway {
     0% {

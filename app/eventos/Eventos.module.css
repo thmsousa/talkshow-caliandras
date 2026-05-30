@@ -386,7 +386,7 @@
 }
 
 .textContainer {
-    max-width: 420px;
+    max-width: 480px;
     position: relative;
 }
 
@@ -418,11 +418,11 @@
 }
 
 .eventTitle {
-    font-size: clamp(32px, 5vw, 60px);
+    font-size: clamp(30px, 4vw, 48px);
     font-weight: 950;
     line-height: 0.95;
     margin-bottom: 25px;
-    letter-spacing: -3px;
+    letter-spacing: 0.5px;
     color: var(--color-text);
     text-transform: uppercase;
 }

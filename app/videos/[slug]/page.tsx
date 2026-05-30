@@ -18,6 +18,23 @@ const formatDate = (dateString: string) => {
     } catch (e) { return dateString; }
 };
 
+const renderFormattedDescription = (text: string) => {
+    if (!text) return null;
+    const parts = text.split('**');
+    return parts.map((part, i) => {
+        if (i % 2 === 1) {
+            return <strong key={i}>{part}</strong>;
+        }
+        const subParts = part.split('\n');
+        return subParts.map((subPart, j) => (
+            <span key={`${i}-${j}`}>
+                {subPart}
+                {j < subParts.length - 1 && <br />}
+            </span>
+        ));
+    });
+};
+
 export default function EpisodioPage() {
     const params = useParams();
     const slug = params?.slug as string;
@@ -186,7 +203,7 @@ export default function EpisodioPage() {
                 <div className={styles.descriptionLayout}>
                     <div className={styles.descriptionMain}>
                         <h2 className={styles.modernSectionTitle}>Sinopse do Episódio</h2>
-                        <p className={styles.descriptionText}>{episodio.descricao}</p>
+                        <p className={styles.descriptionText}>{renderFormattedDescription(episodio.descricao)}</p>
                     </div>
 
                     <div className={styles.descriptionMeta}>
@@ -200,7 +217,7 @@ export default function EpisodioPage() {
                         </div>
                         <div className={styles.metaBlock}>
                             <span className={styles.metaLabel}>Projeto</span>
-                            <span className={styles.metaValue}>Caliandras 2025</span>
+                            <span className={styles.metaValue}>Caliandras Talk Show</span>
                         </div>
                     </div>
                 </div>

@@ -332,6 +332,8 @@
     margin-bottom: 25px;
     display: inline-flex; /* Mudado para flex para alinhar o dot */
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 8px;
     padding: 8px 12px;
     border-top: 1px solid rgba(255, 107, 0, 0.15);
