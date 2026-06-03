@@ -5,11 +5,9 @@ import { TODOS_PRODUTOS } from '@/lib/mockData';
 import styles from './Produtos.module.css';
 
 export default function ProdutosPage() {
-    const handleBuyClick = (e: React.MouseEvent) => {
-        e.preventDefault();
-        // Abre o ChatBot do Caliandras para finalizar a compra
-        if (typeof window !== 'undefined' && (window as any).openCaliantrasChat) {
-            (window as any).openCaliantrasChat();
+    const handleBuyClick = (url: string) => {
+        if (typeof window !== 'undefined') {
+            window.open(url, '_blank', 'noopener,noreferrer');
         }
     };
 
@@ -48,7 +46,7 @@ export default function ProdutosPage() {
                                 <div className={styles.footerRow}>
                                     <span className={styles.price}>{produto.preco}</span>
                                     <button 
-                                        onClick={handleBuyClick}
+                                        onClick={() => handleBuyClick(produto.linkCompra)}
                                         className={styles.buyButton}
                                     >
                                         COMPRAR

@@ -141,7 +141,7 @@ export const TODOS_PRODUTOS: Produto[] = [
         preco: 'Entre em contato',
         imagemUrl: '/images/products/espirito_ilicito_cover.jpg',
         descricao: 'A obra física completa de Pablo Costa, explorando os limites da mente e da cultura.',
-        linkCompra: 'https://www.instagram.com/calintras/',
+        linkCompra: 'https://wa.me/556392551056?text=Ol%C3%A1%2C%20gostaria%20de%20adquirir%20o%20Livro%20Esp%C3%ADrito%20Il%C3%ADcito%20f%C3%ADsico!',
         categoria: 'Livro'
     },
     {
@@ -159,7 +159,7 @@ export const TODOS_PRODUTOS: Produto[] = [
         preco: 'Entre em contato',
         imagemUrl: '/images/products/marca_pagina.png',
         descricao: 'Marcador de páginas oficial do projeto Caliandras.',
-        linkCompra: 'https://www.instagram.com/calintras/',
+        linkCompra: 'https://wa.me/556392551056?text=Ol%C3%A1%2C%20gostaria%20de%20adquirir%20o%20Marca-P%C3%A1ginas%20do%20Caliandras!',
         categoria: 'Acessório'
     }
 ];

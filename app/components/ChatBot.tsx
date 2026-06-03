@@ -105,7 +105,7 @@ export default function ChatBot() {
                     {/* Botões de Contato Humano */}
                     <div className={styles.buttonContainer}>
                         <p className={styles.faqTitle}>Falar com a equipe:</p>
-                        <a href="https://wa.me/5563981150250" target="_blank" rel="noopener noreferrer" className={`${styles.actionButton} ${styles.whatsapp}`}>
+                        <a href="https://wa.me/556392551056?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20equipe%20do%20Caliandras!" target="_blank" rel="noopener noreferrer" className={`${styles.actionButton} ${styles.whatsapp}`}>
                             WhatsApp
                         </a>
                         <a href="https://instagram.com/caliandrasshow" target="_blank" rel="noopener noreferrer" className={`${styles.actionButton} ${styles.instagram}`}>
