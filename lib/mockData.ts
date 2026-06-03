@@ -282,7 +282,7 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         fotoUrl: '/images/equipe/nayra.jpg',
         bio: 'Nayra Souza nasceu em Barra do Corda, no interior do Maranhão. Estudante de Letras no Instituto Federal do Tocantins (IFTO), Campus Palmas, integrou a Coletânea Dos Sonhos: Primeiros Textos com a crônica Rotina, escrita quando ainda cursava o ensino médio. É apaixonada por café e por histórias que aquecem e fazem palpitar o coração. Em sua escrita, tenta projetar essas mesmas façanhas através palavras e sentidos. No papel, mistura poesia com prosa, realidade com devaneio. Atualmente cria os roteiros para os Caliandras Talk Show’s e também desempenha a função de entrevistadora. Uma loucura! Seu objetivo? Encantar o leitor com simplicidade, verdade e um tantinho de caos poético.',
         email: 'nayra@gmail.com',
-        instagram: '@nayra_souza'
+        instagram: '@nayra.souz'
     },
     {
         id: 't1',
@@ -291,7 +291,7 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         fotoUrl: '/images/equipe/pablo.jpg',
         bio: 'Pablo Costa é nascido na periferia de Palmas (TO) e em 2026 completa 20 anos. Publicou sua primeira obra em 2022 pela Editora Coerência, “As Estacões de Demp Esmerald e o Gato da Penumbra”, e a segunda de forma completamente independente, “Espírito Ilícito” em 2025. Autor queer na flor da idade, faz ilustrações e poemas para os próprios livros, atualmente cursa licenciatura em Letras pelo IFTO e faz designer gráficos e lidera o coletivo de literatura Caliandras Show.',
         email: 'ps.cosescritor@gmail.com',
-        instagram: '@ps.co'
+        instagram: '@ps.cos'
     },
     {
         id: 't5',
