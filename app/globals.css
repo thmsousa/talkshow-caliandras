@@ -12,10 +12,11 @@
 :root,
 [data-theme="light"] {
   --color-dark: #121212;
-  --color-bg-alt: #ffffff; /* Fundo original branco puro */
+  --color-bg-alt: #ffffff;
+  /* Fundo original branco puro */
   --color-text: #121212;
   --color-text-muted: #555555;
-  
+
   /* Badges e Tags */
   --color-badge-bg: #121212;
   --color-badge-text: #ffffff;
@@ -48,10 +49,10 @@
   --home-nav-btn-bg: #ffffff;
   --home-nav-btn-border: 1px solid #eeeeee;
   --home-nav-btn-color: #111111;
-  
+
   /* Timeline */
   --color-timeline-line: #eeeeee;
-  
+
   /* Botões secundários */
   --color-btn-secondary-bg: rgba(0, 0, 0, 0.04);
   --color-btn-secondary-border: rgba(0, 0, 0, 0.05);
@@ -60,7 +61,8 @@
 /* Dark Theme - Palco Cinemático Escuro e Coeso */
 [data-theme="dark"] {
   --color-dark: #0a0a0a;
-  --color-bg-alt: #121212; /* Fundo cinza-escuro elegante */
+  --color-bg-alt: #121212;
+  /* Fundo cinza-escuro elegante */
   --color-text: #ffffff;
   --color-text-muted: rgba(255, 255, 255, 0.7);
 
@@ -528,4 +530,24 @@ ul {
 
 .premium-link:hover::after {
   transform: scaleX(1);
+}
+
+/* --- BARRA DE ROLAGEM PREMIUM --- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-alt);
+  transition: background-color 0.4s ease;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-accent) 0%, #b12323 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
 }
