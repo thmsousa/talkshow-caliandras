@@ -290,7 +290,8 @@ const RAW_EQUIPE_CALIANDRAS: TimeMember[] = [
         fotoUrl: '/images/equipe/mirelle.jpg',
         bio: 'Mirelle Freitas é doutora em Linguística pela Universidade Federal de São Carlos (UFSCar), mestre em Linguística Aplicada pela Universidade de Brasília (UnB) e em Educação pelo Mary Immaculate College (MIC/Irlanda), além de graduada em Administração pela Universidade Católica de Goiás (PUC/GO) e em Licenciatura em Letras pela Universidade do Tocantins (Unitins). Professora no Instituto Federal do Tocantins (IFTO) desde 2012, atuou como docente e coordenadora do curso de Licenciatura em Letras. Ela organizou a antologia “Para Além das Letras”, reunindo 11 autores do estado; a obra marca sua estreia como autora literária. Liderou a organização de eventos e inúmeros projetos de ensino, pesquisa e extensão, como PIBID/CAPES e “Vivências de Dança”. Nesses projetos, foi responsável pela proposição, coordenação, acompanhamento, apresentação de relatórios e prestação de contas. Além disso, é membra do coletivo Caliandras Show, aplicando suas habilidades de administração para manter a coerência e coesão do grupo e a efetividade da equipe.',
         email: 'mirelle.sf11@gmail.com',
-        instagram: '@mih_sfreitas'
+        instagram: '@mih_sfreitas',
+        website: 'https://drmirellefreitas.my.canva.site/'
     },
     {
         id: 't3',

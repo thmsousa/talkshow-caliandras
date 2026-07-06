@@ -4,7 +4,7 @@ import { use } from 'react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Instagram, Mail, ArrowLeft, PenTool, Video } from 'lucide-react';
+import { Instagram, Mail, ArrowLeft, PenTool, Video, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { EQUIPE_CALIANDRAS, TODOS_EPISODIOS, TODAS_RESENHAS } from '@/lib/mockData';
 import styles from './EquipeDetalhe.module.css';
@@ -132,6 +132,11 @@ export default function EquipeMembroPage({ params }: { params: Promise<{ slug: s
                             {membro.instagram && (
                                 <a href={`https://instagram.com/${membro.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className={styles.socialBtn}>
                                     <Instagram size={18} /> Instagram
+                                </a>
+                            )}
+                            {membro.website && (
+                                <a href={membro.website} target="_blank" rel="noopener noreferrer" className={`${styles.socialBtn} ${styles.specialWebsiteBtn}`}>
+                                    <Globe size={18} /> Portfólio
                                 </a>
                             )}
                         </motion.div>
