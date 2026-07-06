@@ -71,6 +71,7 @@ export default function EquipeMembroPage({ params }: { params: Promise<{ slug: s
                                 fill
                                 priority
                                 className={styles.profileImage}
+                                style={{ objectPosition: membro.objectPosition || 'center' }}
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                             <div className={styles.imageOverlay} />

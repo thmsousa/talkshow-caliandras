@@ -58,13 +58,16 @@
 .profileSection {
     display: flex;
     gap: 60px; /* Reduzido de 80px */
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 60px; /* Reduzido de 120px */
 }
 
 .imageColumn {
     flex: 1;
     max-width: 380px; /* Reduzido de 500px para a foto ficar menor */
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
 }
 
 .imageWrapper {
@@ -142,7 +145,7 @@
     color: var(--color-text-muted);
     line-height: 1.7; /* Ajuste fino */
     font-weight: 400;
-    text-align: justify;
+    text-align: left;
 }
 
 .socialLinks {

@@ -120,13 +120,23 @@ export default function EquipePage() {
                                     alt={membro.nome}
                                     fill
                                     className={styles.photo}
+                                    style={{ objectPosition: membro.objectPosition || 'center' }}
                                     sizes="200px"
                                 />
                             </div>
                         </div>
                         <h3 className={styles.memberName}>{membro.nome}</h3>
-                        <span className={styles.memberRole}>{membro.cargo}</span>
-                        <p className={styles.memberBio}>{membro.bio}</p>
+                        <div className={styles.roleContainer}>
+                            <span className={styles.memberRole}>{membro.cargo}</span>
+                        </div>
+                        <p className={styles.memberBio}>
+                            {membro.bio && membro.bio.length > 200 ? `${membro.bio.slice(0, 200)}...` : membro.bio}
+                        </p>
+                        {membro.bio && membro.bio.length > 200 && (
+                            <div className={styles.readMoreContainer}>
+                                <span className={styles.readMoreButton}>Ler completo &rarr;</span>
+                            </div>
+                        )}
 
                         {(membro.email || membro.instagram) && (
                             <div className={styles.memberContact}>

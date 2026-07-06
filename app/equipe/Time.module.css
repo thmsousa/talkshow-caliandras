@@ -311,15 +311,36 @@
     font-size: 14px;
     color: var(--color-text-muted);
     line-height: 1.7;
+    margin-top: 0;
     margin-bottom: 40px;
-    text-align: justify;
+    text-align: left;
     flex-grow: 1;
     opacity: 0.7; /* Foco suave */
     transition: opacity 0.4s ease, color 0.4s ease;
 }
 
+.readMore {
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-left: 5px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.memberCard:hover .readMore {
+    text-decoration: underline;
+}
+
 .memberCard:hover .memberBio {
     opacity: 1; /* Foco total ao interagir */
+}
+
+.roleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px; /* Altura fixa para alinhar o início das bios */
+    margin-bottom: 10px;
 }
 
 /* Badge do cargo redesenhada: Estilo Minimalista/Editorial */
@@ -329,7 +350,6 @@
     text-transform: uppercase;
     letter-spacing: 3px;
     color: #ff6b00;
-    margin-bottom: 25px;
     display: inline-flex; /* Mudado para flex para alinhar o dot */
     align-items: center;
     justify-content: center;
@@ -344,6 +364,32 @@
 .memberCard:hover .memberRole {
     border-color: var(--color-accent);
     background: rgba(255, 107, 0, 0.02);
+}
+
+.readMoreContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: -15px; /* Aproxima do bloco de texto */
+}
+
+.readMoreButton {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-accent);
+    padding: 6px 16px;
+    border: 1px solid rgba(255, 107, 0, 0.25);
+    border-radius: 30px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background: transparent;
+}
+
+.memberCard:hover .readMoreButton {
+    background: rgba(255, 107, 0, 0.06);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
 }
 
 .memberContact {

@@ -76,4 +76,6 @@ export type TimeMember = {
     bio?: string;
     email?: string;
     instagram?: string;
+    oculto?: boolean;
+    objectPosition?: string;
 };

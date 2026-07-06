@@ -230,16 +230,31 @@ export const EVENTOS_CALINDRAS = [
         data: "2026-05-27",
         imagem: "/images/events/eve9.jpeg",
         descricao: "Campanha de arrecadação para o Cantinho da Leitura do Laboratório Paulo Freire, espaço comum das licenciaturas do IFTO campus Palmas, promovida pelo Caliandras Show."
+    },
+    {
+        id: 10,
+        titulo: "Lançamento A Quarta Parede",
+        data: "2026-06-13",
+        imagem: "/images/events/eve10.jpeg",
+        imagemVerso: "/images/events/eve10_2.jpeg",
+        descricao: "Lançamento do livro A Quarta Parede da autora Gleys Ially Ramos pela Editora Libertinagem. O evento ocorreu no CineTeatro do IFTO Palmas (TO), mediado por Celine Azevedo."
+    },
+    {
+        id: 11,
+        titulo: "Lançamento Cerrado do Tocantins",
+        data: "2026-07-11",
+        imagem: "/images/events/eve11.jpeg",
+        descricao: "Lançamento do livro Cerrado do Tocantins: O Gigante de Pedra & Koda da autora Alice Nardes pela Editora Vecchino. O evento ocorreu no Parque dos Povos Indígenas em Palmas (TO), mediado por Celine Azevedo."
     }
 ];
 
-export const EQUIPE_CALIANDRAS: TimeMember[] = [
+const RAW_EQUIPE_CALIANDRAS: TimeMember[] = [
     {
         id: 't4',
         nome: 'Emilly Campos',
-        cargo: 'Designer gráfica, Videomaker e Entrevistadora',
+        cargo: 'Designer Gráfica, Videomaker',
         fotoUrl: '/images/equipe/emilly.jpg',
-        bio: 'De Palmas (TO), Emilly Campos, atualmente em 2026, faz parte do CALINTRAS, (Centro Acadêmico de Licenciatura em Letras), realizando trabalhos gráficos e organizando eventos voltados à leitura. Estendendo suas habilidades, edita vídeos e produz postagens para o coletivo de literatura Caliandras Show.',
+        bio: 'Emilly faz parte do Calintras (Centro Acadêmico de Licenciatura em Letras) e por meio dele, foi uma das organizadoras de eventos universitários voltados à leitura, como “LITERATINS” (2024) e o “Cantinho da Leitura” (2025); nesse último, o material desenvolvido por Emilly resultou na arrecadação de mais de 500 livros e na divulgação dessa biblioteca comunitária do LabFreire/IFTO. Além disso, desenvolve pesquisas científicas na área de linguagem, sendo coautora do artigo “A (re)invenção do Nome: Apelidos e Hipocorísticos” no livro “O Léxico Como Espelho da Cultura” (2026), cuja fotografia da capa também é de sua autoria. Ela faz parte do Caliandras Show, fotografando, realizando trabalhos gráficos e audiovisuais e organizando eventos. Para o lançamento de “Espírito Ilícito” (2025) foi fotógrafa e designer da maioria dos materiais de divulgação, além de entrevistadora durante o evento. De maneira semelhante, colaborou no marketing do livro “Para Além das Letras” (2026). Estendendo suas habilidades, edita vídeos e produz postagens para redes sociais.',
         email: 'emilycampos2408@gmail.com',
         instagram: '@emillycsmps'
     },
@@ -248,7 +263,7 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         nome: 'Gleicielly Medeiros',
         cargo: 'Entrevistadora e Resenhista',
         fotoUrl: '/images/equipe/gleice.jpg',
-        bio: 'Gleicielly Medeiros, mais conhecida como Gleice, é natural do Maranhão, mas cresceu e vive em Palmas (TO), atualmente, em 2026, cursa Licenciatura em Letras pelo IFTO. Tem interesse em linguagem, ensino e literatura, além de escrever resenhas autorais e desenvolver projetos acadêmicos sobre essas perspectivas. Integra o coletivo Caliandras Show como apresentadora e resenhista. Sendo uma leitora ativa, busca construir sua trajetória na educação com foco e constância.',
+        bio: 'Gleice cursa Licenciatura em Letras pelo IFTO e desde 2023 faz parte do Calintras (Centro Acadêmico de Licenciatura em Letras), promovendo por meio dessa entidade eventos voltados à leitura e à linguagem, como “LITERANTINS” (2024) e a criação da biblioteca comunitária do LabFreire, o “Cantinho da Leitura” (2025). De forma paralela, escreve resenhas autorais de obras literárias regionais, como a vídeo-resenha de “Espírito Ilícito” (2025) e, mais recentemente, o texto-resenha de “A Quarta Parede” (2026) para o Caliandras Show. Ainda por meio do Caliandras, foi entrevistadora do Talk Show para lançamento da antologia “Para Além das Letras” (2026) na cidade de Pequizeiro, no interior do Tocantins. Além disso, tem interesse em ensino e literatura, sendo bolsista desde 2024 no Programa Institucional de Bolsa de Iniciação à Docência (PIBID). É uma leitora ativa que busca construir sua trajetória na educação e na literatura com foco e constância.',
         email: 'gleiciellym7@gmail.com',
         instagram: '@gleici.smedeiros'
     },
@@ -257,48 +272,51 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         nome: 'Isabella',
         cargo: 'Direção & Tecnologia',
         fotoUrl: '/images/equipe/isabella.jpg',
-        bio: 'Responsável pela estética e pela voz do projeto nos canais digitais, construindo a identidade visual que você vê aqui.'
+        bio: 'Responsável pela estética e pela voz do projeto nos canais digitais, construindo a identidade visual que você vê aqui.',
+        oculto: true
     },
     {
         id: 't8',
         nome: 'Luciano Gonçalves',
         cargo: 'Conselheiro Comunicacional',
         fotoUrl: '/images/equipe/luciano.jpg',
-        bio: 'Luciano Gonçalves, doutor pelo Programa de Pós-Graduação em Literatura Brasileira da Universidade de São Paulo (USP), mestre e licenciado em Letras pela Universidade Federal de Mato Grosso Sul (UFMS), realizou dissertação e tese sobre a obra de Samuel Rawet, escritor judeu-polonês, naturalizado brasileiro. No presente, pesquisa a crônica édita de Dinah Silveira de Queiroz, publicada no jornal Correio Braziliense. Atua como professor de Português e suas literaturas no Instituto Federal do Tocantins (IFTO). Natural de Teixeira de Freitas, Bahia, é autor de Crônicas espectrais, notas sobre o TEA (Editora Patuá, 2024), sua estreia na prosa.'
+        bio: 'Luciano Gonçalves, doutor pelo Programa de Pós-Graduação em Literatura Brasileira da Universidade de São Paulo (USP), mestre e licenciado em Letras pela Universidade Federal de Mato Grosso Sul (UFMS), realizou dissertação e tese sobre a obra de Samuel Rawet, escritor judeu-polonês, naturalizado brasileiro. No presente, pesquisa a crônica édita de Dinah Silveira de Queiroz, publicada no jornal Correio Braziliense. Atua como professor de Português e suas literaturas no Instituto Federal do Tocantins (IFTO). Natural de Teixeira de Freitas, Bahia, é autor de Crônicas espectrais, notas sobre o TEA (Editora Patuá, 2024), sua estreia na prosa.',
+        oculto: true
     },
     {
         id: 't7',
-        nome: 'Mirelle Freitas',
+        nome: 'Mirelle Silva',
         cargo: 'Conselheira para Administração e Finanças',
         fotoUrl: '/images/equipe/mirelle.jpg',
-        bio: 'Mirelle Freitas é guiada pela curiosidade, foi assim que conquistou diplomas e títulos na sua vida acadêmica (doutorados, mestrados, especializações e por aí vai). Nascida no interior de Goiás, na infância e adolescência escrevia redações e diários, mas foi na escrita acadêmica que se firmou. A convivência com estudantes na sua atuação como formadora de professores, no Instituto Federal do Tocantins (IFTO), a fez se redescobrir leitora. Esse trajeto a reconectou com a escrita literária.',
+        bio: 'Mirelle Freitas é doutora em Linguística pela Universidade Federal de São Carlos (UFSCar), mestre em Linguística Aplicada pela Universidade de Brasília (UnB) e em Educação pelo Mary Immaculate College (MIC/Irlanda), além de graduada em Administração pela Universidade Católica de Goiás (PUC/GO) e em Licenciatura em Letras pela Universidade do Tocantins (Unitins). Professora no Instituto Federal do Tocantins (IFTO) desde 2012, atuou como docente e coordenadora do curso de Licenciatura em Letras. Ela organizou a antologia “Para Além das Letras”, reunindo 11 autores do estado; a obra marca sua estreia como autora literária. Liderou a organização de eventos e inúmeros projetos de ensino, pesquisa e extensão, como PIBID/CAPES e “Vivências de Dança”. Nesses projetos, foi responsável pela proposição, coordenação, acompanhamento, apresentação de relatórios e prestação de contas. Além disso, é membra do coletivo Caliandras Show, aplicando suas habilidades de administração para manter a coerência e coesão do grupo e a efetividade da equipe.',
         email: 'mirelle.sf11@gmail.com',
         instagram: '@mih_sfreitas'
     },
     {
         id: 't3',
-        nome: 'Nayra Souza',
-        cargo: 'Roteirista, entrevistadora e secretária interna',
+        nome: 'Nayra Silva',
+        cargo: 'Roteirista e Entrevistadora',
         fotoUrl: '/images/equipe/nayra.jpg',
-        bio: 'Nayra Souza nasceu em Barra do Corda, no interior do Maranhão. Estudante de Letras no Instituto Federal do Tocantins (IFTO), Campus Palmas, integrou a Coletânea Dos Sonhos: Primeiros Textos com a crônica Rotina, escrita quando ainda cursava o ensino médio. É apaixonada por café e por histórias que aquecem e fazem palpitar o coração. Em sua escrita, tenta projetar essas mesmas façanhas através palavras e sentidos. No papel, mistura poesia com prosa, realidade com devaneio. Atualmente cria os roteiros para os Caliandras Talk Show’s e também desempenha a função de entrevistadora. Uma loucura! Seu objetivo? Encantar o leitor com simplicidade, verdade e um tantinho de caos poético.',
+        bio: 'Nayra é estudante de Letras no Instituto Federal do Tocantins (IFTO), Campus Palmas, integrou a “Coletânea Dos Sonhos: Primeiros Textos” (2023) com a crônica “Rotina", e é membra Centro Acadêmico de Licenciatura em Letras, promovendo eventos sobre leitura, literatura e língua desde 2023, como “LITERANTINS” (2024). Atuou na campanha de arrecadação de livros para o “Cantinho de Leitura” (2025) e foi pesquisadora do projeto “Trilhas Douradas” (2025) em que entrevistou moradores sobre as histórias locais na comunidade quilombola Mumbuca de Mateiros (TO). Além disso, é autora do artigo “A (Re)Invenção do Nome: Apelidos e Hipocorísticos” do livro científico “Léxico Como Espelho da Cultura” (2026). De maneira paralela, foi apresentadora e entrevistadora nos lançamentos das obras “Espírito Ilícito” (2025) e “Para Além das Letras” (2026), sendo também autora de um dos contos nessa última. Realiza essas atividades por meio do Caliandras Show, produzindo os roteiros dos talk shows para o coletivo. Sim, uma loucura! Seu objetivo? Encantar com simplicidade, verdade e um tantinho de caos poético.',
         email: 'nayra@gmail.com',
         instagram: '@nayra.souz'
     },
     {
         id: 't1',
-        nome: 'Pablo Costa',
-        cargo: 'Designer gráfico, conselheiro criativo e sonoplasta.',
+        nome: 'Pablo Soares',
+        cargo: 'Designer Gráfico, Conselheiro Criativo e Sonoplasta',
         fotoUrl: '/images/equipe/pablo.jpg',
-        bio: 'Pablo Costa é nascido na periferia de Palmas (TO) e em 2026 completa 20 anos. Publicou sua primeira obra em 2022 pela Editora Coerência, “As Estacões de Demp Esmerald e o Gato da Penumbra”, e a segunda de forma completamente independente, “Espírito Ilícito” em 2025. Autor queer na flor da idade, faz ilustrações e poemas para os próprios livros, atualmente cursa licenciatura em Letras pelo IFTO e faz designer gráficos e lidera o coletivo de literatura Caliandras Show.',
+        bio: 'Pablo Soares Costa é um autor LGBTQIAPN+ natural de Palmas (TO), em específico da região de Taquaralto, publicou sua primeira obra em 2022 pela Editora Coerência, “As Estações de Demp Esmerald e o Gato da Penumbra”, aos 15 anos e a segunda de forma completamente independente, “Espírito Ilícito” em 2025 aos 18 anos. Além de escritor, ilustra e cria poemas para suas próprias obras. Ademais, é o atual líder do Centro Acadêmico de Licenciatura em Letras (Calintras) e do coletivo de literatura Caliandras, organizando campanhas de arrecadação de livros para bibliotecas comunitárias, como o “Cantinho da Leitura” (2025), promovendo lançamentos de livros, como o da antologia “Para Além das Letras” (2026) no Espaço Cultural, na qual é um dos autores, e realizando trabalhos gráficos, como a capa do livro científico “O Léxico como Espelho da Cultura” (2026). Referente aos seus desempenhos estéticos, é o responsável pela identidade gráfica e sonora do coletivo Caliandras, tendo como exemplos os panfletos de divulgação de “A Quarta Parede” (2026) e “As Aventuras de Koda” (2026) e o repertório musical utilizado nos Talk Shows já realizados, responsabilizando-se pela mesa de som nesses momentos. De forma paralela, busca unir suas habilidades educativas ao seu amor pela literatura, sendo bolsista desde 2025 no Programa Institucional de Bolsa de Iniciação à Docência (PIBID/CAPES) e pesquisando na área da língua, identidade e memória. Atuou como pesquisador do projeto “Trilhas Douradas” (2025), realizado na comunidade quilombola Mumbuca em Mateiros (TO), sendo premiado em 1º lugar em sua respectiva área na Jornada de Iniciação Científica e Extensão (JICE) do IFTO. Especificamente sobre o coletivo Caliandras, é um dos fundadores do grupo e busca manter uma organização de poder descentralizado, assim criando um ambiente de igualdade com os voluntários que partilham um objetivo comum: criar debates em linguagem popular sobre direitos sociais por meio da literatura. De maneira adicional, é membro do movimento político Kizomba, que tematiza a juventude em Palmas (TO), faz parte do clube do livro Conversa de Bois, participando de encontros mensais para dialogar sobre leitura e foi Mediador de Leitura no Sesc, possuindo capacitação certificada para essa função.',
         email: 'ps.cosescritor@gmail.com',
-        instagram: '@ps.cos'
+        instagram: '@ps.cos',
+        objectPosition: '50% 10%'
     },
     {
         id: 't5',
         nome: 'Rayssa Montelo',
-        cargo: 'Resenhista',
+        cargo: 'Resenhista e Sonoplasta',
         fotoUrl: '/images/equipe/rayssa.jpg',
-        bio: 'Rayssa Montelo possui 20 anos em 2026, nascida em Palmas, Tocantins. Atualmente cursa Biomedicina e desde criança sempre foi apaixonada por leitura. Adora unir suas duas paixões, a ciência e a literatura, resultando em ótimas resenhas para o Caliandras Show, plataforma que compartilha suas impressões e descobertas. Além de tudo isso, também é uma das organizadoras do clube do livro Conversa de Bois.',
+        bio: 'Rayssa cursa Biomedicina e desde criança sempre foi apaixonada por leitura e música. Adora unir suas paixões, a ciência, a literatura e o som, resultando em ótimas resenhas para o Caliandras Show e um bom repertório musical, plataforma que compartilha suas impressões e descobertas. Acerca disso, realizou resenha para o livro “Espírito Ilícito” (2025), e para a antologia “Para Além das Letras” (2026). Sobre sua experiência musical, desde 2018 faz parte da banda de música da Guarda Metropolitana do E.T.I Eurídice Ferreira de Melo, tocando saxofone. Como projetos próximos, publicará as resenhas do livro “A Quarta Parede” (2026) e “As Aventuras de Koda” (2026). Além de tudo isso, também é uma das organizadoras do clube do livro “Conversa de Bois” (2024), grupo que realiza leituras em Palmas, nele busca unir análises sobre saúde mental à leitura (TO).',
         email: 'rayssamontelo10@gmail.com',
         instagram: '@rayssa_montelo'
     },
@@ -307,14 +325,14 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         nome: 'Sávio Rodrigues',
         cargo: 'Resenhista',
         fotoUrl: '/images/equipe/savio.jpg',
-        bio: 'Sávio Rodrigues tem 20 anos in 2026. É estudante de Psicologia, interessado em compreender o comportamento humano e o desenvolvimento pessoal. Amante de música pop e histórias de fantasia e suspense. Lidera o clube do livro Conversas de Bois e quando sobra um tempinho, também faz resenhas para o Caliandras Show. Está em constante aprendizado, buscando crescimento pessoal e acadêmico.'
+        bio: 'Sávio é estudante de Psicologia e interessado, por meio dessa ciência, em compreender o comportamento humano e o desenvolvimento pessoal. Essa perspectiva reflete em suas resenhas para o coletivo Caliandras, como sua resenha de “Para Além das Letras” (2026). Ademais, é amante de música pop e histórias de fantasia e suspense, ótimos espaços para observar o comportamento humano por meio da literatura. Desse modo,  lidera o clube do livro Conversas de Bois, grupo de leitura local em que discute temas relacionados à saúde mental relacionados à literatura. Além disso, é membro voluntário da ONG “Unidos Por Um Mundo Melhor” (2025), atuando na região de Taquaralto.'
     },
     {
         id: 't10',
         nome: 'Thiago Medeiros',
         cargo: 'Direção & Tecnologia',
         fotoUrl: '/images/equipe/thiago.jpeg',
-        bio: 'Thiago Medeiros tem 21 anos, nascido em 2004. Com formação técnica em Mecatrônica e uma trajetória dedicada à programação, ele é o motor tecnológico por trás do Caliandras Show. Amante da tecnologia e da inovação, Thiago acredita no poder das ferramentas digitais como pontes para a democratização do saber. No Caliandras, sua missão é unir a precisão dos códigos à sensibilidade das artes, garantindo que a cultura e a literatura regional alcancem novos horizontes através de uma experiência digital moderna, fluida e acessível.',
+        bio: 'Thiago tem formação técnica em Mecatrônica e uma trajetória dedicada à programação, cursando Sistemas para a Internet no IFTO. Ele desempenha a função de programador do site Caliandras Show desde 2025, usando do seu conhecimento para transformar as ferramentas digitais como pontes para a democratização do saber. No Caliandras, sua missão é unir a precisão dos códigos à sensibilidade das artes, garantindo que a cultura e a literatura regional alcancem novos horizontes por meio de uma experiência digital moderna, fluida e acessível.',
         email: 'thiagosousam2004@gmail.com',
     },
     {
@@ -322,11 +340,13 @@ export const EQUIPE_CALIANDRAS: TimeMember[] = [
         nome: 'Yuri Vasconcelos',
         cargo: 'Filmmaker, roteirista e social mídia',
         fotoUrl: '/images/equipe/yuri.jpg',
-        bio: 'Yuri Vasconcelos é um digital influencer de 20 anos, em 2026. É estudante de jornalismo da UFT (universidade federal do Tocantins) interessado em aprender mais sobre marketing digital e propaganda, design gráfico e a assessoria de imprensa. Está em constante aprendizado, buscando crescimento pessoal profissional e acadêmico.',
+        bio: 'Yuri é um digital influencer não-binário e estudante de jornalismo da UFT (Universidade Federal do Tocantins). Tem construído sua carreira nas redes sociais desde 2023, abordando autocuidado, moda não-binária e sua rotina de maneira popular, desse modo, consolidou uma base de seguidores que se interessam por esses temas. Acerca das suas parceiras, destaca-se as colaborações no podcast voltado a assuntos que sofrem invisibilidade social “PoldCast” com o tema “Quadrinhistas Tocantinenses” (2026) e nas campanhas de divulgação dos livros “Espírito Ilícito” (2025) e “Para Além das Letras” (2026). Sobre os dois últimos, dessa maneira, tornou-se o “rosto” do coletivo de literatura Caliandras, unindo seu posicionamento social à proposta do projeto.',
         email: 'yuri.vasconcelos@mail.uft.edu.br',
         instagram: '@yurykiim'
     }
 ];
+
+export const EQUIPE_CALIANDRAS: TimeMember[] = RAW_EQUIPE_CALIANDRAS.filter(m => !m.oculto);
 
 // lib/mockData.ts
 
