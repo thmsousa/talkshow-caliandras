@@ -122,7 +122,7 @@
     font-size: clamp(36px, 5vw, 64px); /* Reduzido de 80px max */
     font-weight: 950;
     text-transform: uppercase;
-    letter-spacing: -2px;
+    letter-spacing: 1px;
     line-height: 0.95;
     color: var(--color-text);
     margin: 0;
@@ -292,12 +292,26 @@
     .imageColumn {
         width: 100%;
         max-width: 320px;
-        margin: 0 auto;
+        margin: 0 auto 15px;
+        position: static;
     }
     
     .textColumn {
         text-align: center;
         width: 100%;
+    }
+    
+    .roleBadge {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 10px;
+    }
+    
+    .nameDivider {
+        margin: 15px auto 25px;
+        max-width: 80px;
+        height: 2px;
+        background: var(--color-accent);
     }
     
     .divider {
@@ -309,7 +323,7 @@
     }
     
     .bioText {
-        text-align: center;
+        text-align: justify;
     }
 }
 

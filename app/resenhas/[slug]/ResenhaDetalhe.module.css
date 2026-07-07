@@ -599,7 +599,7 @@
     align-items: center;
     gap: 12px;
     background-color: var(--color-dark);
-    color: var(--color-bg-alt);
+    color: #ffffff;
     padding: 15px 30px;
     border-radius: 100px;
     text-decoration: none;

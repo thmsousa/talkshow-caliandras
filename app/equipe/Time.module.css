@@ -297,7 +297,7 @@
     font-size: 24px;
     font-weight: 950;
     text-transform: uppercase;
-    letter-spacing: -1px;
+    letter-spacing: 0.5px;
     margin-bottom: 5px; /* Reduzido para ficar mais perto do cargo */
     color: var(--color-text);
     transition: color 0.3s ease;
